@@ -1,0 +1,645 @@
+/**
+ * Octagram - HUD Showcase Stylesheet
+ * 2026 Interactive Showcases (Inspectors, Themes, Telemetry)
+ */
+
+/* HUD Floating Panel */
+#octagram-hud {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%) translateX(0);
+  width: 350px;
+  background: rgba(9, 23, 38, 0.55); /* Translucent background */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: none;
+  border-radius: 12px 0 0 12px;
+  box-shadow: -10px 15px 40px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px); /* Subtle translucency blur */
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10000;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow: visible; /* Crucial to keep the handle visible when offscreen */
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s;
+}
+
+#octagram-hud.minimized {
+  transform: translateY(-50%) translateX(100%);
+}
+
+/* Protruding Tab Handle */
+.hud-handle {
+  position: absolute;
+  left: -38px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 120px;
+  background: rgba(9, 23, 38, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.3s;
+}
+
+.hud-handle:hover {
+  background: rgba(9, 23, 38, 0.75);
+}
+
+.hud-handle-arrow {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  font-family: monospace;
+}
+
+.hud-handle-text {
+  writing-mode: vertical-rl;
+  text-orient: mixed;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: var(--accent-blue);
+  text-transform: uppercase;
+}
+
+.hud-handle-dot {
+  width: 5px;
+  height: 5px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #10b981;
+}
+
+/* Header */
+.hud-header {
+  background: rgba(6, 16, 28, 0.9);
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  user-select: none;
+}
+
+.hud-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--accent-blue);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hud-pulse {
+  width: 6px;
+  height: 6px;
+  background: #10b981;
+  border-radius: 50%;
+  animation: hud-ping 1.5s infinite;
+}
+
+@keyframes hud-ping {
+  0% { transform: scale(1); opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.hud-toggle-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+/* Body Content */
+.hud-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 480px;
+  overflow-y: auto;
+}
+
+.hud-section-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+/* 1. Theme Customizer Options */
+.hud-themes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.hud-theme-btn {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 8px 4px;
+  color: var(--text-secondary);
+  font-size: 0.65rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+.hud-theme-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--text-primary);
+}
+
+.hud-theme-btn.active {
+  background: var(--accent-indigo);
+  color: #ffffff;
+  border-color: var(--accent-indigo);
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+}
+
+/* 2. DOM Inspector Trigger */
+.hud-inspect-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hud-inspect-btn {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 10px;
+  color: var(--text-primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.hud-inspect-btn:hover {
+  border-color: var(--accent-blue);
+  background: rgba(56, 189, 248, 0.03);
+}
+
+.hud-inspect-btn.active {
+  background: var(--accent-blue);
+  color: #000000;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+}
+
+.hud-inspect-tip {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Code Snippet Display Box */
+.hud-code-box {
+  display: none;
+  background: #050d16;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 12px;
+  overflow-x: auto;
+  max-height: 160px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.65rem;
+  line-height: 1.5;
+  white-space: pre;
+  color: #a5b4fc;
+}
+
+.hud-code-box.visible {
+  display: block;
+}
+
+/* Code Syntax Highlighting colors */
+.syn-tag { color: #f43f5e; }     /* Pink tags */
+.syn-attr { color: #38bdf8; }    /* Cyan attributes */
+.syn-val { color: #fbbf24; }     /* Gold values */
+.syn-com { color: #64748b; }     /* Slate comments */
+
+/* 3. Performance Telemetry Widgets */
+.hud-telemetry-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.telemetry-card {
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.telemetry-label {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.telemetry-value {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  font-family: monospace;
+}
+
+.telemetry-value span {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.telemetry-badge {
+  display: inline-block;
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
+  align-self: flex-start;
+  font-family: monospace;
+}
+
+.telemetry-recalc-btn {
+  grid-column: 1 / -1;
+  background: none;
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+  padding: 6px;
+  border-radius: 6px;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.telemetry-recalc-btn:hover {
+  border-color: var(--accent-indigo);
+  color: var(--text-primary);
+  background: rgba(99, 102, 241, 0.04);
+}
+
+/* Page Inspect Highlight Overlays */
+.inspect-target-hover {
+  outline: 2px dashed var(--accent-blue) !important;
+  outline-offset: -2px;
+  cursor: crosshair !important;
+  position: relative;
+}
+
+.inspect-label-overlay {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: var(--accent-blue);
+  color: #000000;
+  font-size: 0.58rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  z-index: 9999;
+  font-family: monospace;
+  pointer-events: none;
+}
+
+/* Theme sweeping sweep laser line */
+body.theme-sweeping::after {
+  content: '';
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+  box-shadow: 0 0 12px var(--accent-blue), 0 0 24px var(--accent-blue);
+  z-index: 10001;
+  animation: body-laser-sweep 0.75s ease-out forwards;
+}
+
+@keyframes body-laser-sweep {
+  0% { top: 0%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+
+/* ========================================================
+   THEME BLUEPRINT OVERRIDES
+   ======================================================== */
+html.theme-blueprint,
+body.theme-blueprint {
+  --bg-primary: #071726;
+  --bg-secondary: #091f34;
+  --bg-tertiary: #0c263e;
+  --border-color: rgba(56, 189, 248, 0.25);
+  --accent-indigo: #0ea5e9; /* Shift to Cyan */
+  background-attachment: fixed;
+}
+
+/* Blueprint grid overlay backing */
+body.theme-blueprint::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(56, 189, 248, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Dashed outline borders on sections */
+body.theme-blueprint section:not(#before-we-build):not(#process) {
+  border-bottom: 1px dashed rgba(56, 189, 248, 0.25) !important;
+}
+
+body.theme-blueprint .service-card,
+body.theme-blueprint .faq-item {
+  border: 1px dashed rgba(56, 189, 248, 0.2) !important;
+}
+
+
+/* ========================================================
+   THEME PAPER LIGHT OVERRIDES
+   ======================================================== */
+html.theme-light,
+body.theme-light {
+  --bg-primary: #f6f8fa;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #e1e7ec;
+  --text-primary: #091726;
+  --text-secondary: #3b4e63;
+  --text-muted: #6b7c93;
+  --border-color: rgba(9, 23, 38, 0.08);
+  --accent-gradient: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+  --accent-blue: #0284c7;
+  --accent-indigo: #4f46e5;
+  --accent-purple: #9333ea;
+  
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(9, 23, 38, 0.06);
+}
+
+/* Light Mode Overrides for Specific Components */
+body.theme-light header {
+  background: rgba(246, 248, 250, 0.85);
+  border-color: rgba(9, 23, 38, 0.05);
+}
+
+body.theme-light header.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 20px rgba(9, 23, 38, 0.04);
+}
+
+body.theme-light #nav-menu {
+  background: #ffffff;
+}
+
+body.theme-light .btn-secondary {
+  border-color: rgba(9, 23, 38, 0.12);
+}
+
+body.theme-light .btn-secondary:hover {
+  background: #e1e7ec;
+  border-color: var(--text-primary);
+}
+
+body.theme-light .service-card {
+  box-shadow: 0 10px 30px rgba(9, 23, 38, 0.03);
+}
+
+body.theme-light .service-demo-panel {
+  background: rgba(9, 23, 38, 0.02);
+  border-color: rgba(9, 23, 38, 0.06);
+}
+
+body.theme-light .service-card:hover .service-demo-panel {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: var(--accent-indigo);
+  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.08);
+}
+
+body.theme-light .process-sticky-wrapper {
+  background: radial-gradient(circle at 75% 50%, rgba(79, 70, 229, 0.04) 0%, transparent 60%);
+}
+
+body.theme-light .evolving-website {
+  background: #ffffff;
+  border-color: rgba(9, 23, 38, 0.1);
+  box-shadow: 0 20px 40px rgba(9, 23, 38, 0.06);
+}
+
+body.theme-light .browser-bar {
+  background: #f1f3f5;
+  border-color: rgba(9, 23, 38, 0.05);
+}
+
+body.theme-light .browser-address {
+  color: var(--text-muted);
+}
+
+body.theme-light .stage-dot-line {
+  background: rgba(9, 23, 38, 0.05);
+}
+
+body.theme-light .stage-descriptions-container {
+  border-color: rgba(9, 23, 38, 0.05);
+}
+
+body.theme-light .final-convergence-card {
+  background: rgba(255, 255, 255, 0.98);
+}
+
+body.theme-light .build-align-lines .align-line {
+  background: rgba(79, 70, 229, 0.15);
+}
+
+body.theme-light .stage-visual-build .build-element {
+  background: rgba(9, 23, 38, 0.015);
+  border-color: rgba(9, 23, 38, 0.04);
+}
+
+body.theme-light .stage-visual-connect .live-user-feed,
+body.theme-light .stage-visual-connect .live-stock-count,
+body.theme-light .stage-visual-connect .live-analytics-metric {
+  background: rgba(9, 23, 38, 0.01);
+}
+
+body.theme-light .integration-system-nodes .system-node {
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(9, 23, 38, 0.05);
+}
+
+body.theme-light .faq-bridge-cta {
+  background: rgba(9, 23, 38, 0.02);
+  border-color: rgba(9, 23, 38, 0.08);
+}
+
+body.theme-light .faq-bridge-cta:hover {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-color: var(--text-primary);
+}
+
+body.theme-light .faq-bridge-cta:hover svg {
+  stroke: var(--bg-primary);
+}
+
+body.theme-light .form-input,
+body.theme-light .form-textarea {
+  background: #ffffff;
+  border-color: rgba(9, 23, 38, 0.08);
+  color: var(--text-primary);
+}
+
+body.theme-light footer {
+  background: #f1f3f5;
+}
+
+/* Circuits dimming in Light mode */
+body.theme-light .circuit-bg {
+  opacity: 0.12;
+}
+
+body.theme-light .bg-watermark {
+  opacity: 0.015;
+}
+
+body.theme-light #octagram-hud {
+  background: rgba(255, 255, 255, 0.65); /* Translucent in light theme too */
+  border-color: rgba(9, 23, 38, 0.08);
+  box-shadow: -10px 15px 40px rgba(9, 23, 38, 0.05);
+}
+
+body.theme-light .hud-handle {
+  background: rgba(255, 255, 255, 0.65);
+  border-color: rgba(9, 23, 38, 0.08);
+}
+
+body.theme-light .hud-header {
+  background: #f1f3f5;
+  border-color: rgba(9, 23, 38, 0.06);
+}
+
+body.theme-light .hud-theme-btn {
+  background: rgba(9, 23, 38, 0.01);
+  border-color: rgba(9, 23, 38, 0.04);
+}
+
+body.theme-light .hud-theme-btn:hover {
+  background: rgba(9, 23, 38, 0.04);
+}
+
+body.theme-light .hud-inspect-btn {
+  background: rgba(9, 23, 38, 0.01);
+  border-color: rgba(9, 23, 38, 0.04);
+  color: var(--text-primary);
+}
+
+body.theme-light .hud-inspect-btn.active {
+  background: var(--accent-blue);
+  color: #ffffff;
+}
+
+body.theme-light .hud-code-box {
+  background: #f8fafc;
+  border-color: rgba(9, 23, 38, 0.05);
+  color: #3b4e63;
+}
+
+body.theme-light .telemetry-card {
+  background: rgba(9, 23, 38, 0.01);
+  border-color: rgba(9, 23, 38, 0.03);
+}
+
+/* Mobile Responsive Optimizations for HUD Console */
+@media (max-width: 480px) {
+  #octagram-hud {
+    width: 280px;
+    max-height: 80vh;
+  }
+  .hud-body {
+    padding: 12px;
+    gap: 12px;
+    max-height: calc(80vh - 46px);
+  }
+  .hud-section-title {
+    font-size: 0.62rem;
+    margin-bottom: 6px;
+  }
+  .hud-theme-btn {
+    font-size: 0.58rem;
+    padding: 6px 2px;
+  }
+  .hud-inspect-btn {
+    padding: 8px;
+    font-size: 0.65rem;
+  }
+  .hud-code-box {
+    max-height: 100px;
+    font-size: 0.58rem;
+    padding: 8px;
+  }
+  .telemetry-value {
+    font-size: 0.88rem;
+  }
+  .telemetry-badge {
+    font-size: 0.5rem;
+    padding: 1px 4px;
+  }
+  .telemetry-card {
+    padding: 8px;
+  }
+  .telemetry-recalc-btn {
+    padding: 5px;
+    font-size: 0.58rem;
+  }
+  .hud-handle {
+    height: 100px;
+    width: 32px;
+    left: -32px;
+  }
+  .hud-handle-text {
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+  }
+}

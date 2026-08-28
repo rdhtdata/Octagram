@@ -1,0 +1,167 @@
+/**
+ * Octagram - Self-Building Compiler Stylesheet
+ * 2026 High-Fidelity Entrance Experience
+ */
+
+#compiler-terminal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #081726; /* Dark Prussian Blue compiler environment */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Fade out compiler */
+#compiler-terminal.compiled {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.03);
+  transition: 
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.6s;
+  visibility: hidden;
+}
+
+.terminal-window {
+  width: 90%;
+  max-width: 640px;
+  background: #0b1e30;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+}
+
+.terminal-header {
+  background: #091726;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+  position: relative;
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot.red { background: #ef4444; }
+.dot.yellow { background: #eab308; }
+.dot.green { background: #22c55e; }
+
+.terminal-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.terminal-body {
+  padding: 25px;
+  min-height: 280px;
+  max-height: 400px;
+  overflow-y: auto;
+  color: #a5b4fc; /* Indigo tint */
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.terminal-line {
+  margin-bottom: 8px;
+  white-space: pre-wrap;
+  opacity: 0;
+  transform: translateY(4px);
+  animation: line-fade-in 0.2s ease forwards;
+}
+
+@keyframes line-fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.terminal-cursor::after {
+  content: ' _';
+  animation: cursor-blink 0.8s infinite;
+  color: var(--accent-blue);
+  font-weight: 700;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* ----------------------------------------------------
+ * Blueprint Wireframe & Laser Scanner Compile System
+ * ---------------------------------------------------- */
+
+.compile-box {
+  position: relative;
+  transition: border-color 0.6s ease;
+  border: 1px dashed transparent;
+}
+
+.compile-box.compiling {
+  border: 1px dashed rgba(56, 189, 248, 0.35);
+  border-radius: 8px;
+}
+
+/* Dim inside contents while compiling */
+.compile-box.compiling > * {
+  opacity: 0.08 !important;
+  filter: blur(3px) !important;
+  pointer-events: none;
+}
+
+/* Laser sweep bar */
+.compile-box.compiling::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+  box-shadow: 0 0 8px var(--accent-blue), 0 0 16px var(--accent-blue);
+  z-index: 10;
+  animation: laser-sweep 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes laser-sweep {
+  0% { top: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* Compiled state */
+.compile-box.compiled {
+  border: 1px dashed transparent;
+}
+
+.compile-box.compiled > * {
+  opacity: 1 !important;
+  filter: blur(0px) !important;
+  transition: 
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+    filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}

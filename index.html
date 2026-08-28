@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Octagram - AI-Powered End-to-End Web Presence Solutions. Minimalistic design and modern development.">
+  <title>Octagram | End-to-End AI Web Presence & Software Integration</title>
+  
+  <!-- Inter font family for modern legibility -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Compiler Stylesheet (Self-building on load) -->
+  <link rel="stylesheet" href="compiler.css">
+  
+  <!-- Floating Dashboard HUD (Showcase capabilities) -->
+  <link rel="stylesheet" href="hud.css">
+</head>
+<body>
+
+  <!-- Compiler Console Terminal (Entrance transition) -->
+  <div id="compiler-terminal">
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <div class="terminal-title">Octagram Compiler</div>
+      </div>
+      <div class="terminal-body" id="compiler-body">
+        <span class="terminal-cursor"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Animated Background Circuits -->
+  <div class="circuit-bg">
+    <svg viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M-100,200 L300,200 L450,350 L450,600 L600,750 L1100,750" class="circuit-line-bg" />
+      <path d="M-100,200 L300,200 L450,350 L450,600 L600,750 L1100,750" class="circuit-line-pulse pulse-1" />
+      <path d="M1100,300 L700,300 L600,400 L600,550 L400,750 L-100,750" class="circuit-line-bg" />
+      <path d="M1100,300 L700,300 L600,400 L600,550 L400,750 L-100,750" class="circuit-line-pulse pulse-2" />
+    </svg>
+  </div>
+
+  <!-- Background Watermarks (Gears) -->
+  <div class="bg-watermark gear-right">
+    <img src="images/Logo.svg" alt="" aria-hidden="true">
+  </div>
+  <div class="bg-watermark gear-left">
+    <img src="images/Logo.svg" alt="" aria-hidden="true">
+  </div>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="logo-container">
+      <img src="images/Logo.svg" class="logo-svg" alt="Octagram Logo">
+      <span class="brand-name">Octagram</span>
+    </div>
+    <nav id="nav-menu">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+      <button class="nav-cta-mobile" onclick="document.getElementById('contact').scrollIntoView();">Get Started</button>
+    </nav>
+    <button class="cta-button header-cta-desktop" onclick="document.getElementById('contact').scrollIntoView();">Get Started</button>
+    
+    <!-- Mobile Hamburger Toggle -->
+    <div class="menu-toggle" id="mobile-menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero compile-box compiling">
+    <div class="hero-container">
+      <div class="hero-text-content">
+        <span class="section-tag">One Stop Solution</span>
+        <h1>We build the <span>web presence</span> of the future, powered by AI.</h1>
+        <p>Octagram design, host, manage, and continuously optimize your entire digital platform. From high-conversion landing pages to custom integrations and target-optimized ad campaigns.</p>
+        <div class="hero-actions">
+          <a href="#services" class="btn-primary">Explore Services</a>
+          <a href="#contact" class="btn-secondary">Let's Talk</a>
+        </div>
+      </div>
+      <div class="hero-logo-wrapper">
+        <img src="images/Logo.svg" class="hero-logo-svg" alt="Octagram Logo Large">
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="compile-box compiling">
+    <div class="services-header">
+      <span class="section-tag">Capabilities</span>
+      <h2>Designed to scale. Managed to last.</h2>
+      <p>We leverage advanced AI and industry-leading systems to handle your entire web ecosystem end-to-end.</p>
+    </div>
+    
+    <!-- Sibling stagger delay works natively here -->
+    <div class="services-grid" id="services-list">
+      
+      <!-- Card 1 -->
+      <div class="service-card">
+        <div class="service-demo-panel">
+          <div class="card-demo demo-website">
+            <div class="mini-browser">
+              <div class="browser-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="browser-body">
+                <div class="build-wireframe"></div>
+                <div class="build-hero"></div>
+                <div class="build-btn"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3>Website Creation</h3>
+        <p>Ultra-fast static landing pages and complex dynamic web platforms. Built using modern semantic standards, custom layouts, and flawless responsiveness.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="service-card">
+        <div class="service-demo-panel">
+          <div class="card-demo demo-management">
+            <div class="graph-container">
+              <svg class="graph-svg" viewBox="0 0 100 40">
+                <path d="M0,35 Q15,5 30,25 T60,10 T90,20 L100,5" class="graph-path-bg" />
+                <path d="M0,35 Q15,5 30,25 T60,10 T90,20 L100,5" class="graph-path" />
+                <circle cx="100" cy="5" r="3" class="graph-pulse" />
+              </svg>
+              <div class="graph-metrics">
+                <span class="metric-val">99.9%</span>
+                <span class="metric-label">UPTIME</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3>Continuous Management</h3>
+        <p>Worry-free maintenance. We handle hosting configuration, CDN distribution, real-time performance audit, and continuous SEO updates.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="service-card">
+        <div class="service-demo-panel">
+          <div class="card-demo demo-growth">
+            <div class="funnel-container">
+              <svg class="funnel-svg" viewBox="0 0 80 50">
+                <path d="M15,5 L65,5 L45,30 L45,45 L35,45 L35,30 Z" class="funnel-path" />
+              </svg>
+              <div class="funnel-particles">
+                <span class="particle pt-1"></span>
+                <span class="particle pt-2"></span>
+                <span class="particle pt-3"></span>
+                <span class="dollar dl-1">$</span>
+                <span class="dollar dl-2">$</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3>Ad Campaigns & Growth</h3>
+        <p>Automated copy variations, creative optimization, and target auditing. We scale your web visibility across multiple ad channels dynamically.</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="service-card">
+        <div class="service-demo-panel">
+          <div class="card-demo demo-integration">
+            <div class="nodes-container">
+              <div class="node central-node"></div>
+              <div class="node leaf-node ln-1"></div>
+              <div class="node leaf-node ln-2"></div>
+              <div class="node leaf-node ln-3"></div>
+              <svg class="nodes-svg" viewBox="0 0 100 60">
+                <line x1="20" y1="15" x2="50" y2="30" class="node-link nl-1" />
+                <line x1="80" y1="15" x2="50" y2="30" class="node-link nl-2" />
+                <line x1="50" y1="45" x2="50" y2="30" class="node-link nl-3" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <h3>Software Integrations</h3>
+        <p>Bridge the gap between your in-house legacy software, databases, or third-party APIs and your customer-facing web presence seamlessly.</p>
+      </div>
+      
+    </div>
+  </section>
+
+
+
+  <!-- Cinematic Scroll-Driven Process Section -->
+  <section id="process" class="compile-box compiled process-scroll-section">
+    <div class="process-sticky-wrapper">
+      
+      <!-- Background Giant Editorial Text -->
+      <div class="process-bg-text" id="process-bg-text">DISCOVER</div>
+      
+      <div class="process-grid-container">
+        
+        <!-- Left Column: Progress tracker and text stages -->
+        <div class="process-left-col">
+          <div class="process-intro">
+            <span class="section-tag">Methodology</span>
+            <h2>FROM IDEA<br>TO DIGITAL EXPERIENCE.</h2>
+            <p>Every Octagram project moves through a deliberate system of strategy, design, engineering, integration and continuous optimization.</p>
+          </div>
+          
+          <!-- Sticky Vertical Progress Indicator -->
+          <div class="scroll-stages-indicator">
+            <div class="stage-dot-line">
+              <div class="stage-dot-progress"></div>
+            </div>
+            <div class="stage-indicator-item active" data-stage="1">
+              <span class="stage-num">01</span> <span class="stage-name">DISCOVER</span>
+            </div>
+            <div class="stage-indicator-item" data-stage="2">
+              <span class="stage-num">02</span> <span class="stage-name">BUILD</span>
+            </div>
+            <div class="stage-indicator-item" data-stage="3">
+              <span class="stage-num">03</span> <span class="stage-name">CONNECT</span>
+            </div>
+            <div class="stage-indicator-item" data-stage="4">
+              <span class="stage-num">04</span> <span class="stage-name">GROW</span>
+            </div>
+          </div>
+          
+          <!-- Stage descriptions stacked in viewport -->
+          <div class="stage-descriptions-container">
+            <!-- Stage 1 -->
+            <div class="stage-desc-item active" id="stage-desc-1">
+              <div class="timeline-step-num">STAGE 01 — DISCOVER</div>
+              <h3>Requirements & Prompt Analysis</h3>
+              <p>We translate business goals, audience needs and technical requirements into a clear digital blueprint.</p>
+            </div>
+            <!-- Stage 2 -->
+            <div class="stage-desc-item" id="stage-desc-2">
+              <div class="timeline-step-num">STAGE 02 — BUILD</div>
+              <h3>AI Layout & Code Synthesis</h3>
+              <p>AI accelerates the build process while our system turns the resulting structure into responsive, production-ready interfaces.</p>
+            </div>
+            <!-- Stage 3 -->
+            <div class="stage-desc-item" id="stage-desc-3">
+              <div class="timeline-step-num">STAGE 03 — CONNECT</div>
+              <h3>In-house System Integration</h3>
+              <p>We connect the experience to the systems your business already relies on — securely and seamlessly.</p>
+            </div>
+            <!-- Stage 4 -->
+            <div class="stage-desc-item" id="stage-desc-4">
+              <div class="timeline-step-num">STAGE 04 — GROW</div>
+              <h3>Launch & Continuous Growth</h3>
+              <p>We launch, monitor and continuously optimize the digital experience as your business evolves.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right Column: The Central Evolving Product Viewport -->
+        <div class="process-right-col">
+          <div class="central-product-viewport">
+            
+            <!-- Grid lines backing for technical blueprint layout -->
+            <div class="viewport-grid-bg"></div>
+            
+            <!-- Integration System Nodes (moved outside browser for overflow layout) -->
+            <div class="integration-system-nodes">
+              <div class="system-node node-crm">CRM</div>
+              <div class="system-node node-database">DATABASE</div>
+              <div class="system-node node-analytics">ANALYTICS</div>
+              <div class="system-node node-inventory">INVENTORY</div>
+            </div>
+            <div class="integration-lines-svg">
+              <svg viewBox="0 0 300 200" class="neon-link-svg">
+                <line x1="40" y1="40" x2="110" y2="80" class="neon-link-path nlp-crm" />
+                <line x1="40" y1="160" x2="110" y2="120" class="neon-link-path nlp-db" />
+                <line x1="260" y1="40" x2="190" y2="80" class="neon-link-path nlp-analytics" />
+                <line x1="260" y1="160" x2="190" y2="120" class="neon-link-path nlp-stock" />
+              </svg>
+            </div>
+            
+            <!-- Global network map nodes (moved outside browser for global layer layout) -->
+            <div class="global-network-nodes">
+              <span class="net-node nn-1"></span>
+              <span class="net-node nn-2"></span>
+              <span class="net-node nn-3"></span>
+              <span class="net-node nn-4"></span>
+            </div>
+            <div class="network-svg-container">
+              <svg viewBox="0 0 200 120" class="network-lines-svg">
+                <path d="M20,30 L100,60 L180,20 L100,60 L80,100 L20,30 M180,20 L120,100 L100,60" class="net-lines" />
+              </svg>
+            </div>
+            
+            <!-- The Evolving Website Object -->
+            <div class="evolving-website" id="evolving-website">
+              
+              <!-- Mini Browser Header -->
+              <div class="browser-bar">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+                <div class="browser-address">octagram.me/dev_synthesis</div>
+              </div>
+              
+              <div class="browser-content-canvas">
+                
+                <!-- Stage 1 Visuals: Blueprint fragments -->
+                <div class="stage-visual-discover" id="visual-discover">
+                  <div class="blueprint-card note-card-1">BUSINESS OBJECTIVES</div>
+                  <div class="blueprint-card note-card-2">TARGET AUDIENCE</div>
+                  <div class="blueprint-card note-card-3">USER JOURNEY</div>
+                  <div class="blueprint-card note-card-4">FUNCTIONAL REQS</div>
+                  <div class="blueprint-svg-container">
+                    <svg viewBox="0 0 200 160" class="blueprint-wire-lines">
+                      <path d="M20,30 L100,50 L180,30" class="wire-line wl-1" />
+                      <path d="M100,50 L100,130" class="wire-line wl-2" />
+                      <path d="M20,110 L100,130 L180,110" class="wire-line wl-3" />
+                    </svg>
+                  </div>
+                </div>
+                
+                <!-- Stage 2 Visuals: Code components snapping into place -->
+                <div class="stage-visual-build" id="visual-build">
+                  <!-- Navbar component -->
+                  <div class="build-element component-nav">
+                    <span class="mock-logo"></span>
+                    <span class="mock-links"></span>
+                  </div>
+                  <!-- Hero typography and buttons -->
+                  <div class="build-element component-hero">
+                    <div class="mock-h1"></div>
+                    <div class="mock-cta-btn"></div>
+                  </div>
+                  <!-- Grid layout cards -->
+                  <div class="build-element component-grid">
+                    <div class="mock-grid-card card-a"></div>
+                    <div class="mock-grid-card card-b"></div>
+                  </div>
+                  <!-- Interactive Alignment Guide Lines -->
+                  <div class="build-align-lines">
+                    <span class="align-line al-v-left"></span>
+                    <span class="align-line al-v-right"></span>
+                    <span class="align-line al-h-center"></span>
+                  </div>
+                </div>
+                
+                <!-- Stage 3 Visuals: Integrations -->
+                <div class="stage-visual-connect" id="visual-connect">
+                  <!-- Live Data elements inside website that update when connected -->
+                  <div class="live-data-updates">
+                    <div class="live-user-feed"><span>User: Developer</span></div>
+                    <div class="live-stock-count">Stock: 250 units</div>
+                    <div class="live-analytics-metric">Load Time: 0.12s</div>
+                  </div>
+                </div>
+                
+                <!-- Stage 4 Visuals: CDN global deployment & Growth metrics -->
+                <div class="stage-visual-grow" id="visual-grow">
+                  <!-- Growth stats -->
+                  <div class="growth-indicators">
+                    <div class="growth-metric-stat stat-traffic">TRAFFIC <span>+240%</span></div>
+                    <div class="growth-metric-stat stat-conversions">CONVERSIONS <span>+18.4%</span></div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <!-- Final Convergence Message Overlay -->
+            <div class="final-convergence-card" id="final-convergence-card">
+              <h3>BUILT TO PERFORM.</h3>
+              <h3>DESIGNED TO EVOLVE.</h3>
+              <p>That is the Octagram methodology.</p>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Before We Build Section -->
+  <section id="before-we-build" class="compile-box compiling before-we-build-section">
+    <div class="faq-container">
+      
+      <!-- Editorial Intro -->
+      <div class="faq-intro">
+        <span class="section-tag">Before We Build</span>
+        <h2>A FEW THINGS<br>WORTH KNOWING.</h2>
+        <p class="faq-intro-text">The questions we hear most often before turning an idea into a digital experience.</p>
+      </div>
+
+      <!-- Editorial Accordion -->
+      <div class="faq-accordion" role="presentation">
+        
+        <!-- Accordion Item 01 -->
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-answer-1" id="faq-trigger-1">
+            <span class="faq-num">01</span>
+            <span class="faq-question">What exactly do you build?</span>
+            <span class="faq-arrow">
+              <svg viewBox="0 0 24 24" width="24" height="24">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer-wrapper" id="faq-answer-1" aria-labelledby="faq-trigger-1" role="region" style="max-height: 0px;">
+            <div class="faq-answer-content">
+              <p>We build complete digital experiences — from high-conversion websites and landing pages to more complex platforms connected to the systems your business already uses.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 02 -->
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-answer-2" id="faq-trigger-2">
+            <span class="faq-num">02</span>
+            <span class="faq-question">Can you work with our existing software?</span>
+            <span class="faq-arrow">
+              <svg viewBox="0 0 24 24" width="24" height="24">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer-wrapper" id="faq-answer-2" aria-labelledby="faq-trigger-2" role="region" style="max-height: 0px;">
+            <div class="faq-answer-content">
+              <p>Yes. Where required, we can connect the website to existing APIs, databases, business software and third-party platforms rather than forcing your business into a new system.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 03 -->
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-answer-3" id="faq-trigger-3">
+            <span class="faq-num">03</span>
+            <span class="faq-question">How does AI fit into your process?</span>
+            <span class="faq-arrow">
+              <svg viewBox="0 0 24 24" width="24" height="24">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer-wrapper" id="faq-answer-3" aria-labelledby="faq-trigger-3" role="region" style="max-height: 0px;">
+            <div class="faq-answer-content">
+              <p>AI accelerates parts of our research, design and development workflow, but it does not replace our standards. Every experience is shaped, engineered and reviewed around the specific needs of the business.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 04 -->
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-answer-4" id="faq-trigger-4">
+            <span class="faq-num">04</span>
+            <span class="faq-question">Can you redesign an existing website?</span>
+            <span class="faq-arrow">
+              <svg viewBox="0 0 24 24" width="24" height="24">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer-wrapper" id="faq-answer-4" aria-labelledby="faq-trigger-4" role="region" style="max-height: 0px;">
+            <div class="faq-answer-content">
+              <p>Absolutely. We can work from an existing website and rethink its structure, visual identity, performance, responsiveness and functionality while preserving what already works.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 05 -->
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-answer-5" id="faq-trigger-5">
+            <span class="faq-num">05</span>
+            <span class="faq-question">Do you stay involved after launch?</span>
+            <span class="faq-arrow">
+              <svg viewBox="0 0 24 24" width="24" height="24">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer-wrapper" id="faq-answer-5" aria-labelledby="faq-trigger-5" role="region" style="max-height: 0px;">
+            <div class="faq-answer-content">
+              <p>Yes. Octagram can continue to manage, maintain, optimize and evolve the website after launch, including hosting, performance, SEO and ongoing improvements.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 06 -->
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-answer-6" id="faq-trigger-6">
+            <span class="faq-num">06</span>
+            <span class="faq-question">How long does a project take?</span>
+            <span class="faq-arrow">
+              <svg viewBox="0 0 24 24" width="24" height="24">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer-wrapper" id="faq-answer-6" aria-labelledby="faq-trigger-6" role="region" style="max-height: 0px;">
+            <div class="faq-answer-content">
+              <p>There is no one-size-fits-all timeline. Scope, content, integrations and complexity all affect the build. We establish the requirements first, then define a realistic delivery plan around the project.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Subtle transition bridge into contact -->
+      <div class="faq-bridge">
+        <span class="faq-bridge-line"></span>
+        <div class="faq-bridge-content">
+          <p class="faq-bridge-text">Still have questions?</p>
+          <h3 class="faq-bridge-sub">Let's talk about what you're building.</h3>
+          <a href="#contact" class="faq-bridge-cta">
+            BUILD WITH OCTAGRAM 
+            <svg viewBox="0 0 24 24" width="18" height="18">
+              <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="contact" class="compile-box compiling">
+    <div class="contact-container">
+      
+      <div class="contact-info">
+        <span class="section-tag">Inquire</span>
+        <h2>Let's build your presence.</h2>
+        <p>Get a complete site built, hosted, integrated with your current software, and marketed using custom AI models.</p>
+        
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon-box">📧</div>
+            <div>
+              <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">EMAIL US</div>
+              <div style="font-size: 0.95rem; font-weight: 500;">hello@octagram.com</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon-box">📍</div>
+            <div>
+              <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">LOCATIONS</div>
+              <div style="font-size: 0.95rem; font-weight: 500;">San Francisco, CA • London, UK</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-form-card">
+        <form id="presence-form" onsubmit="event.preventDefault(); alert('Inquiry received! Our team will contact you shortly.');">
+          
+          <div class="form-group">
+            <label for="client-name">Your Name</label>
+            <input type="text" id="client-name" class="form-input" placeholder="Alex Rivers" required autocomplete="name">
+          </div>
+          
+          <div class="form-group">
+            <label for="client-email">Email Address</label>
+            <input type="email" id="client-email" class="form-input" placeholder="alex@company.com" required autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <label for="client-service">Primary Goal</label>
+            <select id="client-service" class="form-input" style="background-image: none; appearance: none; -webkit-appearance: none;" required>
+              <option value="" disabled selected>Select a goal...</option>
+              <option value="full-presence">End-to-End Web Presence (Recommended)</option>
+              <option value="website-only">Website Creation & Management</option>
+              <option value="integrations">In-house Software Integrations</option>
+              <option value="ads-only">Online Ad Campaigns & Copywriting</option>
+            </select>
+          </div>
+          
+          <div class="form-group" style="margin-bottom: 30px;">
+            <label for="client-message">Integration Requirements / Project Details</label>
+            <textarea id="client-message" class="form-textarea" placeholder="Tell us about your business, software tools, or integration needs..." required></textarea>
+          </div>
+          
+          <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Send Request</button>
+        </form>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="logo-container">
+        <img src="images/Logo.svg" class="logo-svg" style="height: 28px;" alt="Octagram Logo">
+        <span class="brand-name" style="font-size: 1.1rem;">Octagram</span>
+      </div>
+      <div class="footer-nav">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+      </div>
+      <div class="copyright">
+        &copy; 2026 Octagram Inc. All rights reserved. Conforming to Web 2026.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Interactive HUD Dashboard (Inspectors, Themes, Telemetry) -->
+  <div id="octagram-hud" class="minimized">
+    <!-- Protruding Tab Handle for horizontal collapse -->
+    <div class="hud-handle" id="hud-handle" aria-label="Toggle Dashboard">
+      <span class="hud-handle-arrow">&lt;</span>
+      <div class="hud-handle-text">HUD</div>
+      <span class="hud-handle-dot"></span>
+    </div>
+    <div class="hud-header" id="hud-header">
+      <div class="hud-title">
+        <span class="hud-pulse"></span>
+        Octagram System HUD
+      </div>
+      <button class="hud-toggle-btn" id="hud-toggle-btn">[ Collapse ]</button>
+    </div>
+    <div class="hud-body">
+      
+      <!-- 1. Theme Compiling -->
+      <div>
+        <div class="hud-section-title">Compile Option (Theme)</div>
+        <div class="hud-themes-grid">
+          <button class="hud-theme-btn active" id="theme-btn-dark" data-theme="dark">OBSIDIAN</button>
+          <button class="hud-theme-btn" id="theme-btn-blueprint" data-theme="blueprint">BLUEPRINT</button>
+          <button class="hud-theme-btn" id="theme-btn-light" data-theme="light">LIGHT</button>
+        </div>
+      </div>
+      
+      <!-- 2. Code Inspector -->
+      <div class="hud-inspect-container">
+        <div class="hud-section-title">DOM Inspector Portal</div>
+        <button class="hud-inspect-btn" id="hud-inspect-btn">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="9" y1="3" x2="9" y2="21"></line>
+          </svg>
+          Toggle Inspector
+        </button>
+        <p class="hud-inspect-tip">Select toggle, then hover over any section to inspect its source code.</p>
+        <div class="hud-code-box" id="hud-code-box">Hover over a section to view layout code...</div>
+      </div>
+      
+      <!-- 3. Telemetry Indicators -->
+      <div>
+        <div class="hud-section-title">System Telemetry Index</div>
+        <div class="hud-telemetry-grid">
+          <div class="telemetry-card">
+            <span class="telemetry-label">Load Latency</span>
+            <div class="telemetry-value" id="telemetry-latency">--<span> ms</span></div>
+          </div>
+          <div class="telemetry-card">
+            <span class="telemetry-label">Edge CDN Node</span>
+            <div class="telemetry-value" id="telemetry-edge" style="font-size: 0.82rem; font-weight: 700; padding: 3px 0;">Resolving...</div>
+          </div>
+          <div class="telemetry-card">
+            <span class="telemetry-label">LCP Speed</span>
+            <div class="telemetry-badge">0.14s (Fast)</div>
+          </div>
+          <div class="telemetry-card">
+            <span class="telemetry-label">INP (Tactile)</span>
+            <div class="telemetry-badge">12ms (Good)</div>
+          </div>
+          <button class="telemetry-recalc-btn" id="telemetry-recalc-btn">Recalculate Diagnostics</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Main JavaScript -->
+  <script src="main.js"></script>
+</body>
+</html>

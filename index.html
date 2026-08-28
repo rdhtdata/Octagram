@@ -543,9 +543,9 @@
     <div class="contact-container">
       
       <div class="contact-info">
-        <span class="section-tag">Inquire</span>
-        <h2>Let's build your presence.</h2>
-        <p>Get a complete site built, hosted, integrated with your current software, and marketed using custom AI models.</p>
+        <span class="section-tag">COLLABORATE</span>
+        <h2 style="text-transform: uppercase; font-size: 2.1rem; line-height: 1.25; letter-spacing: 0.02em;">LET'S BUILD YOUR NEXT WEBSITE.</h2>
+        <p>Select your configurations in the deck. Tell us about your timeline, and our platform will synthesize the rest.</p>
         
         <div class="contact-details">
           <div class="contact-item">
@@ -566,35 +566,55 @@
       </div>
       
       <div class="contact-form-card">
-        <form id="presence-form" onsubmit="event.preventDefault(); alert('Inquiry received! Our team will contact you shortly.');">
+        <form id="presence-form">
           
-          <div class="form-group">
-            <label for="client-name">Your Name</label>
-            <input type="text" id="client-name" class="form-input" placeholder="Alex Rivers" required autocomplete="name">
+          <!-- Config Step 1 -->
+          <div class="config-step">
+            <label class="config-label">WHAT ARE YOU BUILDING?</label>
+            <div class="capsule-grid" id="build-type-grid">
+              <button type="button" class="config-capsule" data-value="new-site">New website</button>
+              <button type="button" class="config-capsule" data-value="redesign">Redesign</button>
+              <button type="button" class="config-capsule" data-value="ecommerce">E-commerce</button>
+              <button type="button" class="config-capsule" data-value="platform">Business platform</button>
+              <button type="button" class="config-capsule" data-value="other">Something else</button>
+            </div>
           </div>
           
-          <div class="form-group">
-            <label for="client-email">Email Address</label>
-            <input type="email" id="client-email" class="form-input" placeholder="alex@company.com" required autocomplete="email">
+          <!-- Config Step 2 -->
+          <div class="config-step">
+            <label class="config-label">WHAT DO YOU NEED?</label>
+            <div class="capsule-grid" id="need-type-grid">
+              <button type="button" class="config-capsule" data-value="design">Design</button>
+              <button type="button" class="config-capsule" data-value="development">Development</button>
+              <button type="button" class="config-capsule" data-value="integrations">Integrations</button>
+              <button type="button" class="config-capsule" data-value="management">Management</button>
+              <button type="button" class="config-capsule" data-value="growth">Growth</button>
+            </div>
           </div>
+          
+          <!-- Bridge Next Button -->
+          <button type="button" id="config-next-btn" class="config-next-btn">Tell us about it →</button>
+          
+          <!-- Config Step 3: Final Details Drawer -->
+          <div class="final-details-drawer" id="final-details-drawer">
+            <div class="form-group">
+              <label for="client-name">Your Name</label>
+              <input type="text" id="client-name" class="form-input" placeholder="Alex Rivers" autocomplete="name">
+            </div>
+            
+            <div class="form-group">
+              <label for="client-email">Email Address</label>
+              <input type="email" id="client-email" class="form-input" placeholder="alex@company.com" autocomplete="email">
+            </div>
 
-          <div class="form-group">
-            <label for="client-service">Primary Goal</label>
-            <select id="client-service" class="form-input" style="background-image: none; appearance: none; -webkit-appearance: none;" required>
-              <option value="" disabled selected>Select a goal...</option>
-              <option value="full-presence">End-to-End Web Presence (Recommended)</option>
-              <option value="website-only">Website Creation & Management</option>
-              <option value="integrations">In-house Software Integrations</option>
-              <option value="ads-only">Online Ad Campaigns & Copywriting</option>
-            </select>
+            <div class="form-group" style="margin-bottom: 30px;">
+              <label for="client-message">Integration Requirements / Project Details</label>
+              <textarea id="client-message" class="form-textarea" placeholder="Tell us about your business, software tools, or integration needs..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer; display: block; text-align: center;">Send Request</button>
           </div>
           
-          <div class="form-group" style="margin-bottom: 30px;">
-            <label for="client-message">Integration Requirements / Project Details</label>
-            <textarea id="client-message" class="form-textarea" placeholder="Tell us about your business, software tools, or integration needs..." required></textarea>
-          </div>
-          
-          <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Send Request</button>
         </form>
       </div>
       

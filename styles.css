@@ -2479,3 +2479,122 @@ footer {
   .nl-2 { animation: link-flow 1.5s linear infinite 0.5s !important; }
   .nl-3 { animation: link-flow 1.5s linear infinite 1.0s !important; }
 }
+
+/* ========================================================
+   INTERACTIVE CONTACT FORM CONFIGURATOR Styles
+   ======================================================== */
+.config-step {
+  margin-bottom: 24px;
+}
+
+.config-label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.capsule-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.config-capsule {
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 30px;
+  padding: 10px 18px;
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  outline: none;
+}
+
+.config-capsule:hover {
+  background: rgba(56, 189, 248, 0.04);
+  border-color: rgba(56, 189, 248, 0.3);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.config-capsule.active {
+  background: var(--accent-gradient);
+  color: #ffffff !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+}
+
+/* Next Bridge Button */
+.config-next-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 32px 0 16px;
+}
+
+.config-next-btn:hover {
+  border-color: var(--accent-blue);
+  background: rgba(56, 189, 248, 0.03);
+  color: var(--accent-blue);
+}
+
+.config-next-btn.hidden {
+  display: none;
+}
+
+/* Progressive details drawer animation */
+.final-details-drawer {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease-out;
+}
+
+.final-details-drawer.expanded {
+  opacity: 1;
+  /* max-height transitions via JS style injection */
+}
+
+/* Light mode overrides for configurator */
+body.theme-light .config-capsule {
+  background: rgba(9, 23, 38, 0.015);
+  border-color: rgba(9, 23, 38, 0.08);
+  color: var(--text-secondary);
+}
+
+body.theme-light .config-capsule:hover {
+  background: rgba(79, 70, 229, 0.04);
+  border-color: rgba(79, 70, 229, 0.3);
+}
+
+body.theme-light .config-next-btn {
+  background: rgba(9, 23, 38, 0.01);
+  border-color: rgba(9, 23, 38, 0.12);
+  color: var(--text-primary);
+}
+
+body.theme-light .config-next-btn:hover {
+  border-color: var(--accent-indigo);
+  background: rgba(79, 70, 229, 0.03);
+  color: var(--accent-indigo);
+}
+

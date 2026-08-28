@@ -46,7 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 11. Back to Top smooth scroll button setup
   setupBackToTopButton();
 
-  // 12. Self-building website compiler initiation
+  // 12. Contact Form Configurator Step Deck
+  setupContactConfigurator();
+
+  // 13. Self-building website compiler initiation
   initWebCompiler();
 });
 
@@ -902,5 +905,89 @@ function setupBackToTopButton() {
       top: 0,
       behavior: 'smooth'
     });
+  });
+}
+
+/**
+ * Premium Contact form config deck step wizard.
+ * Handles capsule clicks, active glows, progressive drawer expansions,
+ * and compiles configurations on submission.
+ */
+function setupContactConfigurator() {
+  const form = document.getElementById('presence-form');
+  if (!form) return;
+
+  const capsules = form.querySelectorAll('.config-capsule');
+  const nextBtn = document.getElementById('config-next-btn');
+  const drawer = document.getElementById('final-details-drawer');
+  const clientNameInput = document.getElementById('client-name');
+
+  // Toggle active class on capsules
+  capsules.forEach(capsule => {
+    capsule.addEventListener('click', () => {
+      const parentGrid = capsule.parentElement;
+      
+      if (parentGrid.id === 'build-type-grid') {
+        // Step 1: WHAT ARE YOU BUILDING (select single option at a time)
+        const siblings = parentGrid.querySelectorAll('.config-capsule');
+        siblings.forEach(sib => {
+          if (sib !== capsule) sib.classList.remove('active');
+        });
+      }
+      
+      capsule.classList.toggle('active');
+    });
+  });
+
+  // Reveal progressive details drawer
+  if (nextBtn && drawer) {
+    nextBtn.addEventListener('click', () => {
+      // Expand details container
+      drawer.classList.add('expanded');
+      drawer.style.maxHeight = drawer.scrollHeight + 'px';
+      
+      // Hide the next step bridge button once clicked
+      nextBtn.classList.add('hidden');
+
+      // Autofocus the Name input for immediate action
+      if (clientNameInput) {
+        setTimeout(() => {
+          clientNameInput.focus();
+        }, 150);
+      }
+    });
+  }
+
+  // Handle form submission to compile configurations
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('client-name').value;
+    const email = document.getElementById('client-email').value;
+    const message = document.getElementById('client-message').value;
+
+    const selectedTypes = Array.from(document.querySelectorAll('#build-type-grid .active')).map(el => el.textContent);
+    const selectedNeeds = Array.from(document.querySelectorAll('#need-type-grid .active')).map(el => el.textContent);
+
+    if (selectedTypes.length === 0 && selectedNeeds.length === 0) {
+      alert("Please select at least one option to compile your setup.");
+      return;
+    }
+
+    const typeStr = selectedTypes.length > 0 ? selectedTypes.join(', ') : 'Not Specified';
+    const needsStr = selectedNeeds.length > 0 ? selectedNeeds.join(', ') : 'Not Specified';
+
+    alert(`Compilation Success!\n\nName: ${name}\nEmail: ${email}\nBuilding: ${typeStr}\nNeeds: ${needsStr}\nDetails: ${message || 'None provided'}\n\nOur system has queued your digital compilation request.`);
+    
+    // Clear inputs and active classes
+    form.reset();
+    capsules.forEach(capsule => capsule.classList.remove('active'));
+    if (drawer) {
+      drawer.classList.remove('expanded');
+      drawer.style.maxHeight = '0';
+    }
+    if (nextBtn) {
+      nextBtn.classList.remove('hidden');
+    }
   });
 }

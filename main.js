@@ -49,6 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // 12. Contact Form Configurator Step Deck
   setupContactConfigurator();
 
+  // 12.5. Before-After Website Slider Setup
+  setupBeforeAfterSlider();
+
   // 13. Self-building website compiler initiation
   initWebCompiler();
 });
@@ -755,6 +758,8 @@ function initHudDashboard() {
 
     'services': `<span class="syn-com">&lt;!-- 02 CAPABILITIES SECTION --&gt;</span>\n<span class="syn-tag">&lt;section</span> <span class="syn-attr">id</span>=<span class="syn-val">"services"</span> <span class="syn-attr">class</span>=<span class="syn-val">"compiled"</span><span class="syn-tag">&gt;</span>\n  <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"services-grid"</span><span class="syn-tag">&gt;</span>\n    <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"service-card"</span><span class="syn-tag">&gt;</span>\n      <span class="syn-tag">&lt;h3&gt;</span>Website Creation<span class="syn-tag">&lt;/h3&gt;</span>\n      <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"service-demo-panel"</span><span class="syn-tag">&gt;</span>...<span class="syn-tag">&lt;/div&gt;</span>\n    <span class="syn-tag">&lt;/div&gt;</span>\n  <span class="syn-tag">&lt;/div&gt;</span>\n<span class="syn-tag">&lt;/section&gt;</span>`,
 
+    'showcase': `<span class="syn-com">&lt;!-- 02.5 INTERACTIVE SHOWCASE SECTION --&gt;</span>\n<span class="syn-tag">&lt;section</span> <span class="syn-attr">id</span>=<span class="syn-val">"showcase"</span> <span class="syn-attr">class</span>=<span class="syn-val">"compiled"</span><span class="syn-tag">&gt;</span>\n  <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"slider-comparison-box"</span><span class="syn-tag">&gt;</span>\n    <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"old-website-view"</span><span class="syn-tag">&gt;</span>...<span class="syn-tag">&lt;/div&gt;</span>\n    <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"new-website-view"</span><span class="syn-tag">&gt;</span>...<span class="syn-tag">&lt;/div&gt;</span>\n  <span class="syn-tag">&lt;/div&gt;</span>\n<span class="syn-tag">&lt;/section&gt;</span>`,
+
     'process': `<span class="syn-com">&lt;!-- 03 SCROLL METHODOLOGY SECTION --&gt;</span>\n<span class="syn-tag">&lt;section</span> <span class="syn-attr">id</span>=<span class="syn-val">"process"</span> <span class="syn-attr">class</span>=<span class="syn-val">"process-scroll-section"</span><span class="syn-tag">&gt;</span>\n  <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"process-sticky-wrapper"</span><span class="syn-tag">&gt;</span>\n    <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"evolving-website state-5"</span><span class="syn-tag">&gt;</span>\n      <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"browser-content-canvas"</span><span class="syn-tag">&gt;</span>...<span class="syn-tag">&lt;/div&gt;</span>\n    <span class="syn-tag">&lt;/div&gt;</span>\n  <span class="syn-tag">&lt;/div&gt;</span>\n<span class="syn-tag">&lt;/section&gt;</span>`,
 
     'before-we-build': `<span class="syn-com">&lt;!-- 04 OBJECTION ACCORDION SECTION --&gt;</span>\n<span class="syn-tag">&lt;section</span> <span class="syn-attr">id</span>=<span class="syn-val">"before-we-build"</span> <span class="syn-attr">class</span>=<span class="syn-val">"compiled"</span><span class="syn-tag">&gt;</span>\n  <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"faq-container"</span><span class="syn-tag">&gt;</span>\n    <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"faq-accordion"</span><span class="syn-tag">&gt;</span>\n      <span class="syn-tag">&lt;button</span> <span class="syn-attr">aria-expanded</span>=<span class="syn-val">"false"</span><span class="syn-tag">&gt;</span>01 What exactly...<span class="syn-tag">&lt;/button&gt;</span>\n    <span class="syn-tag">&lt;/div&gt;</span>\n  <span class="syn-tag">&lt;/div&gt;</span>\n<span class="syn-tag">&lt;/section&gt;</span>`,
@@ -997,5 +1002,22 @@ function setupContactConfigurator() {
     if (nextBtn) {
       nextBtn.classList.remove('hidden');
     }
+  });
+}
+
+/**
+ * Sync before-after slider values with masked width clipping
+ */
+function setupBeforeAfterSlider() {
+  const sliderInput = document.getElementById('slider-range-input');
+  const newWebsiteView = document.getElementById('new-website-view');
+  const divider = document.getElementById('slider-divider');
+
+  if (!sliderInput || !newWebsiteView || !divider) return;
+
+  sliderInput.addEventListener('input', (e) => {
+    const val = e.target.value;
+    newWebsiteView.style.width = `${val}%`;
+    divider.style.left = `${val}%`;
   });
 }

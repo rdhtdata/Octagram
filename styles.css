@@ -1734,7 +1734,7 @@ section {
   border-radius: 3px;
   font-family: monospace;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  opacity: var(--phase-4-progress, 0);
+  opacity: calc(var(--phase-4-progress, 0) - var(--phase-5-progress, 0));
   transition: all 0.3s ease;
 }
 
@@ -1778,7 +1778,7 @@ section {
   fill: none;
   stroke-dasharray: 4 12;
   stroke-dashoffset: calc(var(--process-progress, 0) * -350);
-  opacity: var(--phase-4-progress, 0);
+  opacity: calc(var(--phase-4-progress, 0) - var(--phase-5-progress, 0));
   transition: opacity 0.3s;
 }
 

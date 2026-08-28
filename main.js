@@ -315,10 +315,10 @@ function runHeroSectionCompile() {
     heroSection.classList.remove('compiling');
     heroSection.classList.add('compiled');
     
-    // Decode Hero tags and headings
-    const heroTitle = heroSection.querySelector('h1 span');
+    // Decode Hero tags and headings (all spans inside h1)
+    const heroTitles = heroSection.querySelectorAll('h1 span');
     const heroTag = heroSection.querySelector('.section-tag');
-    if (heroTitle) decodeText(heroTitle);
+    heroTitles.forEach(span => decodeText(span));
     if (heroTag) decodeText(heroTag);
     
     // Setup Scroll Observers for other section boxes
@@ -740,7 +740,7 @@ function initHudDashboard() {
   const inspectableSections = document.querySelectorAll('section, footer');
   
   const sectionSnippets = {
-    'home': `<span class="syn-com">&lt;!-- 01 HERO SECTION --&gt;</span>\n<span class="syn-tag">&lt;section</span> <span class="syn-attr">id</span>=<span class="syn-val">"home"</span> <span class="syn-attr">class</span>=<span class="syn-val">"compiled"</span><span class="syn-tag">&gt;</span>\n  <span class="syn-tag">&lt;h1&gt;</span>We build <span class="syn-tag">&lt;span&gt;</span>the web<span class="syn-tag">&lt;/span&gt;</span>.<span class="syn-tag">&lt;br&gt;</span>You build <span class="syn-tag">&lt;span&gt;</span>the business<span class="syn-tag">&lt;/span&gt;</span>.<span class="syn-tag">&lt;/h1&gt;</span>\n<span class="syn-tag">&lt;/section&gt;</span>`,
+    'home': `<span class="syn-com">&lt;!-- 01 HERO SECTION --&gt;</span>\n<span class="syn-tag">&lt;section</span> <span class="syn-attr">id</span>=<span class="syn-val">"home"</span> <span class="syn-attr">class</span>=<span class="syn-val">"compiled"</span><span class="syn-tag">&gt;</span>\n  <span class="syn-tag">&lt;h1&gt;</span>\n    We build<span class="syn-tag">&lt;br&gt;</span>\n    <span class="syn-tag">&lt;span&gt;</span>the web<span class="syn-tag">&lt;/span&gt;</span>.<span class="syn-tag">&lt;br&gt;</span>\n    You build<span class="syn-tag">&lt;br&gt;</span>\n    <span class="syn-tag">&lt;span&gt;</span>the business<span class="syn-tag">&lt;/span&gt;</span>.\n  <span class="syn-tag">&lt;/h1&gt;</span>\n<span class="syn-tag">&lt;/section&gt;</span>`,
 
     'services': `<span class="syn-com">&lt;!-- 02 CAPABILITIES SECTION --&gt;</span>\n<span class="syn-tag">&lt;section</span> <span class="syn-attr">id</span>=<span class="syn-val">"services"</span> <span class="syn-attr">class</span>=<span class="syn-val">"compiled"</span><span class="syn-tag">&gt;</span>\n  <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"services-grid"</span><span class="syn-tag">&gt;</span>\n    <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"service-card"</span><span class="syn-tag">&gt;</span>\n      <span class="syn-tag">&lt;h3&gt;</span>Website Creation<span class="syn-tag">&lt;/h3&gt;</span>\n      <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"service-demo-panel"</span><span class="syn-tag">&gt;</span>...<span class="syn-tag">&lt;/div&gt;</span>\n    <span class="syn-tag">&lt;/div&gt;</span>\n  <span class="syn-tag">&lt;/div&gt;</span>\n<span class="syn-tag">&lt;/section&gt;</span>`,
 

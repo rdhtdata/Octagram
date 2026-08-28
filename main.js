@@ -43,7 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 10. Playful click-activated animations for the Hero Logo
   setupLogoClickAnimations();
 
-  // 11. Self-building website compiler initiation
+  // 11. Back to Top smooth scroll button setup
+  setupBackToTopButton();
+
+  // 12. Self-building website compiler initiation
   initWebCompiler();
 });
 
@@ -847,5 +850,35 @@ function setupLogoClickAnimations() {
       logo.removeEventListener('animationend', onAnimEnd);
     };
     logo.addEventListener('animationend', onAnimEnd);
+  });
+}
+
+/**
+ * Back to Top smooth scroll tracker.
+ * Fades button into view when scrolling past the services section,
+ * and performs a smooth scroll navigation to the top on tap.
+ */
+function setupBackToTopButton() {
+  const btn = document.getElementById('back-to-top');
+  const services = document.getElementById('services');
+  if (!btn) return;
+
+  const handleScroll = () => {
+    // Reveal button once scrolled past the services threshold
+    const threshold = services ? services.offsetTop - 100 : window.innerHeight;
+    if (window.scrollY >= threshold) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   });
 }

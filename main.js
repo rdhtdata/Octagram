@@ -844,6 +844,15 @@ function setupLogoClickAnimations() {
     // Apply animation class
     logo.classList.add(chosenClass);
 
+    // Re-scramble hero heading text spans and tag simultaneously!
+    const heroSection = document.getElementById('home');
+    if (heroSection) {
+      const heroTitles = heroSection.querySelectorAll('h1 span');
+      const heroTag = heroSection.querySelector('.section-tag');
+      heroTitles.forEach(span => decodeText(span));
+      if (heroTag) decodeText(heroTag);
+    }
+
     // Clean up class once animation completes to resume slow floating
     const onAnimEnd = () => {
       logo.classList.remove(chosenClass);

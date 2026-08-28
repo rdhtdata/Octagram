@@ -295,10 +295,10 @@
             </div>
             <div class="integration-lines-svg">
               <svg viewBox="0 0 300 200" class="neon-link-svg">
-                <line x1="40" y1="40" x2="110" y2="80" class="neon-link-path nlp-crm" />
-                <line x1="40" y1="160" x2="110" y2="120" class="neon-link-path nlp-db" />
-                <line x1="260" y1="40" x2="190" y2="80" class="neon-link-path nlp-analytics" />
-                <line x1="260" y1="160" x2="190" y2="120" class="neon-link-path nlp-stock" />
+                <path d="M 30,30 Q 95,50 110,80" class="neon-link-path nlp-crm" />
+                <path d="M 30,170 Q 95,150 110,120" class="neon-link-path nlp-db" />
+                <path d="M 270,30 Q 205,50 190,80" class="neon-link-path nlp-analytics" />
+                <path d="M 270,170 Q 205,150 190,120" class="neon-link-path nlp-stock" />
               </svg>
             </div>
             
@@ -328,41 +328,36 @@
               
               <div class="browser-content-canvas">
                 
-                <!-- Stage 1 Visuals: strategy notes & messy requirements -->
+                <!-- Stage 1 Visuals: Strategy notes & messy requirements -->
                 <div class="stage-visual-discover" id="visual-discover">
-                  <div class="blueprint-card note-card-1">BUSINESS OBJECTIVES</div>
-                  <div class="blueprint-card note-card-2">TARGET AUDIENCE</div>
-                  <div class="blueprint-card note-card-3">USER JOURNEY</div>
-                  <div class="blueprint-card note-card-4">FUNCTIONAL REQS</div>
-                  <div class="blueprint-svg-container">
-                    <svg viewBox="0 0 200 160" class="blueprint-wire-lines">
-                      <path d="M20,30 L100,50 L180,30" class="wire-line wl-1" />
-                      <path d="M100,50 L100,130" class="wire-line wl-2" />
-                      <path d="M20,110 L100,130 L180,110" class="wire-line wl-3" />
-                    </svg>
-                  </div>
+                  <div class="messy-note note-yellow">Messy CRM API?</div>
+                  <div class="messy-note note-cyan">Drop-off at checkout</div>
+                  <div class="messy-note note-purple">Slow load times</div>
+                  <div class="messy-note note-orange">10x traffic spike?</div>
+                  <div class="messy-note note-green">Need SQL sync</div>
                 </div>
                 
                 <!-- Stage 2 Visuals: Wireframe layout skeleton -->
                 <div class="stage-visual-design" id="visual-design">
-                  <div class="wireframe-element wf-nav"></div>
-                  <div class="wireframe-element wf-hero">
-                    <div class="wf-title"></div>
-                    <div class="wf-btn"></div>
+                  <div class="wireframe-box wf-nav-skeleton"></div>
+                  <div class="wireframe-box wf-hero-skeleton">
+                    <svg class="wf-x-line"><line x1="0" y1="0" x2="100%" y2="100%" /></svg>
+                    <div class="wf-text-stub stub-title"></div>
+                    <div class="wf-text-stub stub-btn"></div>
                   </div>
-                  <div class="wireframe-element wf-grid">
-                    <div class="wf-card"></div>
-                    <div class="wf-card"></div>
-                  </div>
-                  <div class="wireframe-lines-svg">
-                    <svg viewBox="0 0 200 160" class="design-wire-lines">
-                      <path d="M10,10 L190,10 M10,150 L190,150 M40,10 L40,150" class="wire-grid-line" />
-                    </svg>
+                  <div class="wireframe-row">
+                    <div class="wireframe-box wf-card-skeleton">
+                      <svg class="wf-x-line"><line x1="0" y1="0" x2="100%" y2="100%" /><line x1="100%" y1="0" x2="0" y2="100%" /></svg>
+                    </div>
+                    <div class="wireframe-box wf-card-skeleton">
+                      <svg class="wf-x-line"><line x1="0" y1="0" x2="100%" y2="100%" /><line x1="100%" y1="0" x2="0" y2="100%" /></svg>
+                    </div>
                   </div>
                 </div>
                 
                 <!-- Stage 3 Visuals: Code components compilation -->
                 <div class="stage-visual-build" id="visual-build">
+                  <div class="compile-scanner-line"></div>
                   <!-- Navbar component -->
                   <div class="build-element component-nav">
                     <span class="mock-logo"></span>
@@ -378,30 +373,30 @@
                     <div class="mock-grid-card card-a"></div>
                     <div class="mock-grid-card card-b"></div>
                   </div>
-                  <!-- Interactive Alignment Guide Lines -->
-                  <div class="build-align-lines">
-                    <span class="align-line al-v-left"></span>
-                    <span class="align-line al-v-right"></span>
-                    <span class="align-line al-h-center"></span>
-                  </div>
                 </div>
                 
                 <!-- Stage 4 Visuals: Backend system integrations -->
                 <div class="stage-visual-connect" id="visual-connect">
-                  <!-- Live Data elements inside website that update when connected -->
-                  <div class="live-data-updates">
-                    <div class="live-user-feed"><span>User: Developer</span></div>
-                    <div class="live-stock-count">Stock: 250 units</div>
-                    <div class="live-analytics-metric">Load Time: 0.12s</div>
+                  <div class="connection-console">
+                    <div class="console-line line-1">&gt; SYNCING CRM_DATABASE...</div>
+                    <div class="console-line line-2">&gt; FETCHING PRODUCT_INVENTORY...</div>
+                    <div class="console-line line-3">&gt; PIPELINE STATUS: 200 OK</div>
                   </div>
+                  <div class="connected-badge">INTEGRATION ACTIVE</div>
                 </div>
                 
                 <!-- Stage 5 Visuals: Telemetry & Growth indicators -->
                 <div class="stage-visual-grow" id="visual-grow">
-                  <!-- Growth stats -->
+                  <div class="optimization-graph">
+                    <svg viewBox="0 0 160 80" class="growth-chart-svg">
+                      <path d="M 10,70 Q 50,65 80,45 T 150,15" class="growth-chart-path" />
+                      <circle cx="150" cy="15" r="3" class="growth-chart-dot" />
+                    </svg>
+                  </div>
                   <div class="growth-indicators">
                     <div class="growth-metric-stat stat-traffic">TRAFFIC <span>+240%</span></div>
                     <div class="growth-metric-stat stat-conversions">CONVERSIONS <span>+18.4%</span></div>
+                    <div class="growth-badge">A/B TEST: V2 PASSING</div>
                   </div>
                 </div>
                 

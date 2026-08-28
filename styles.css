@@ -1465,132 +1465,116 @@ section {
 .evolving-website.state-4 .stage-visual-connect { opacity: 1; pointer-events: auto; }
 .evolving-website.state-5 .stage-visual-grow { opacity: 1; pointer-events: auto; }
 
-/* 1. Discover Stage Details */
-.stage-visual-discover .blueprint-card {
-  position: absolute;
-  background: rgba(56, 189, 248, 0.03);
-  border: 1px dashed rgba(56, 189, 248, 0.25);
-  color: var(--accent-blue);
-  font-size: 0.55rem;
-  font-weight: 700;
-  padding: 4px 8px;
-  border-radius: 3px;
-  font-family: monospace;
-  white-space: nowrap;
-}
-
-.stage-visual-discover .note-card-1 {
-  top: 15%;
-  left: 8%;
-  transform: translate(calc((1 - var(--phase-1-progress, 0)) * -30px), 0) rotate(-3deg);
-  opacity: var(--phase-1-progress, 0);
-}
-.stage-visual-discover .note-card-2 {
-  top: 15%;
-  right: 8%;
-  transform: translate(calc((1 - var(--phase-1-progress, 0)) * 30px), 0) rotate(2deg);
-  opacity: var(--phase-1-progress, 0);
-}
-.stage-visual-discover .note-card-3 {
-  bottom: 15%;
-  left: 8%;
-  transform: translate(calc((1 - var(--phase-1-progress, 0)) * -30px), 0) rotate(-1deg);
-  opacity: var(--phase-1-progress, 0);
-}
-.stage-visual-discover .note-card-4 {
-  bottom: 15%;
-  right: 8%;
-  transform: translate(calc((1 - var(--phase-1-progress, 0)) * 30px), 0) rotate(4deg);
-  opacity: var(--phase-1-progress, 0);
-}
-
-.blueprint-svg-container {
-  position: absolute;
-  inset: 0;
-  opacity: calc((var(--phase-1-progress, 0) - 0.2) / 0.8);
-}
-
-.blueprint-wire-lines {
-  width: 100%;
+/* /* 1. Discover Stage Details */
+.stage-visual-discover {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
   height: 100%;
 }
-
-.wire-line {
-  stroke: rgba(56, 189, 248, 0.12);
-  stroke-width: 1.2;
-  stroke-dasharray: 4 4;
-  fill: none;
+.stage-visual-discover .messy-note {
+  padding: 8px 12px;
+  font-size: 0.58rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  border-radius: 2px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4);
+  opacity: var(--phase-1-progress, 0);
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+}
+.stage-visual-discover .note-yellow {
+  background: #fef08a;
+  color: #854d0e;
+  transform: translate(calc((1 - var(--phase-1-progress, 0)) * -35px), calc((1 - var(--phase-1-progress, 0)) * -20px)) rotate(-4deg);
+}
+.stage-visual-discover .note-cyan {
+  background: #a5f3fc;
+  color: #155e75;
+  transform: translate(calc((1 - var(--phase-1-progress, 0)) * 25px), calc((1 - var(--phase-1-progress, 0)) * -30px)) rotate(3deg);
+}
+.stage-visual-discover .note-purple {
+  background: #e9d5ff;
+  color: #6b21a8;
+  transform: translate(calc((1 - var(--phase-1-progress, 0)) * -20px), calc((1 - var(--phase-1-progress, 0)) * 25px)) rotate(-2deg);
+}
+.stage-visual-discover .note-orange {
+  background: #fed7aa;
+  color: #9a3412;
+  transform: translate(calc((1 - var(--phase-1-progress, 0)) * 30px), calc((1 - var(--phase-1-progress, 0)) * 20px)) rotate(5deg);
+}
+.stage-visual-discover .note-green {
+  background: #bbf7d0;
+  color: #166534;
+  transform: translate(calc((1 - var(--phase-1-progress, 0)) * -15px), calc((1 - var(--phase-1-progress, 0)) * -10px)) rotate(-1deg);
 }
 
 /* 2. Design Stage Details */
 .stage-visual-design {
   position: absolute;
   inset: 0;
-  padding: 8px;
+  padding: 10px;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
-.stage-visual-design .wireframe-element {
-  position: absolute;
-  border: 1px dashed rgba(56, 189, 248, 0.22);
-  border-radius: 4px;
-  background: rgba(56, 189, 248, 0.003);
-  transform: translateY(calc((1 - var(--phase-2-progress, 0)) * 20px));
+.stage-visual-design .wireframe-box {
+  border: 1px dashed rgba(56, 189, 248, 0.35);
+  background: rgba(56, 189, 248, 0.005);
+  position: relative;
+  border-radius: 2px;
   opacity: var(--phase-2-progress, 0);
-  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  transform: translateY(calc((1 - var(--phase-2-progress, 0)) * 15px));
+  transition: opacity 0.3s, transform 0.3s;
 }
-
-.stage-visual-design .wf-nav {
-  top: 8px;
-  left: 8px;
-  right: 8px;
+.stage-visual-design .wf-nav-skeleton {
   height: 14px;
 }
-
-.stage-visual-design .wf-hero {
-  top: 30px;
-  left: 8px;
-  right: 8px;
-  height: 52px;
-  padding: 8px;
+.stage-visual-design .wf-hero-skeleton {
+  height: 70px;
+  margin: 10px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 6px;
+  padding: 8px;
 }
-
-.stage-visual-design .wf-title {
-  width: 60%;
+.stage-visual-design .wf-x-line {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.stage-visual-design .wf-x-line line {
+  stroke: rgba(56, 189, 248, 0.15);
+  stroke-width: 0.8px;
+  stroke-dasharray: 2 3;
+}
+.stage-visual-design .stub-title {
+  width: 50%;
   height: 6px;
-  border: 1px dashed rgba(56, 189, 248, 0.25);
-  background: rgba(56, 189, 248, 0.01);
+  border: 1px dashed rgba(56, 189, 248, 0.3);
 }
-
-.stage-visual-design .wf-btn {
-  width: 25%;
+.stage-visual-design .stub-btn {
+  width: 20%;
   height: 8px;
   border: 1px dashed rgba(56, 189, 248, 0.3);
   border-radius: 4px;
-  background: rgba(56, 189, 248, 0.02);
 }
-
-.stage-visual-design .wf-grid {
-  bottom: 8px;
-  left: 8px;
-  right: 8px;
-  top: 90px;
-  border: none;
-  display: flex;
+.stage-visual-design .wireframe-row {
+  height: 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 8px;
 }
-
-.stage-visual-design .wf-card {
-  flex: 1;
-  border: 1px dashed rgba(56, 189, 248, 0.2);
-  background: rgba(56, 189, 248, 0.005);
+.stage-visual-design .wf-card-skeleton {
   height: 100%;
 }
-
 .stage-visual-design .design-wire-lines {
   position: absolute;
   inset: 0;
@@ -1599,7 +1583,6 @@ section {
   pointer-events: none;
   opacity: var(--phase-2-progress, 0);
 }
-
 .stage-visual-design .wire-grid-line {
   stroke: rgba(56, 189, 248, 0.08);
   stroke-width: 0.8px;
@@ -1613,6 +1596,20 @@ section {
   padding: 8px;
   height: 100%;
   justify-content: space-between;
+  position: relative;
+}
+
+.stage-visual-build .compile-scanner-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-blue) 30%, var(--accent-indigo) 70%, transparent);
+  box-shadow: 0 0 10px var(--accent-blue);
+  top: calc(var(--phase-3-progress, 0) * 100%);
+  opacity: calc(sin(var(--phase-3-progress, 0) * 3.14159));
+  pointer-events: none;
+  z-index: 10;
 }
 
 .stage-visual-build .build-element {
@@ -1685,29 +1682,14 @@ section {
   border-radius: 3px;
 }
 
-.build-align-lines {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: calc(sin(var(--phase-3-progress, 0) * 3.14159));
-  transition: opacity 0.2s;
-}
-
-.build-align-lines .align-line {
-  position: absolute;
-  background: rgba(56, 189, 248, 0.25);
-  box-shadow: 0 0 4px rgba(56, 189, 248, 0.2);
-}
-.build-align-lines .al-v-left { left: 10px; top: 0; bottom: 0; width: 1px; }
-.build-align-lines .al-v-right { right: 10px; top: 0; bottom: 0; width: 1px; }
-.build-align-lines .al-h-center { top: 50%; left: 0; right: 0; height: 1px; }
-
 /* 4. Connect Stage Details */
 .stage-visual-connect {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
+  position: relative;
 }
 
 .integration-system-nodes {
@@ -1768,33 +1750,61 @@ section {
 
 .neon-link-path {
   stroke: var(--accent-indigo);
-  stroke-width: 1.2;
+  stroke-width: 1.5;
   fill: none;
-  stroke-dasharray: 5 15;
-  stroke-dashoffset: calc(var(--process-progress, 0) * -140);
+  stroke-dasharray: 4 12;
+  stroke-dashoffset: calc(var(--process-progress, 0) * -350);
   opacity: var(--phase-4-progress, 0);
   transition: opacity 0.3s;
 }
 
-.stage-visual-connect .live-data-updates {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: 80%;
+.stage-visual-connect .connection-console {
+  background: #040d1a;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 4px;
+  padding: 10px;
+  width: 85%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   opacity: var(--phase-4-progress, 0);
-  transform: scale(calc(0.9 + 0.1 * var(--phase-4-progress, 0)));
+  transform: scale(calc(0.95 + 0.05 * var(--phase-4-progress, 0)));
+  transition: transform 0.3s ease-out;
 }
 
-.stage-visual-connect .live-user-feed,
-.stage-visual-connect .live-stock-count,
-.stage-visual-connect .live-analytics-metric {
-  font-size: 0.58rem;
+.stage-visual-connect .console-line {
+  font-size: 0.5rem;
   font-family: monospace;
-  padding: 4px 6px;
-  background: rgba(255, 255, 255, 0.015);
-  border-left: 2px solid var(--accent-indigo);
-  border-radius: 0 3px 3px 0;
-  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 4px;
+  color: #38bdf8;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 0.2s;
+}
+
+.stage-visual-connect .console-line.line-1 {
+  opacity: calc((var(--phase-4-progress, 0) - 0.1) / 0.3);
+}
+.stage-visual-connect .console-line.line-2 {
+  opacity: calc((var(--phase-4-progress, 0) - 0.4) / 0.3);
+}
+.stage-visual-connect .console-line.line-3 {
+  opacity: calc((var(--phase-4-progress, 0) - 0.7) / 0.3);
+  color: #10b981;
+}
+
+.stage-visual-connect .connected-badge {
+  position: absolute;
+  bottom: 12px;
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #10b981;
+  padding: 3px 8px;
+  border-radius: 20px;
+  opacity: calc((var(--phase-4-progress, 0) - 0.8) / 0.2);
+  transition: opacity 0.2s;
 }
 
 /* 5. Grow Stage Details */
@@ -1804,6 +1814,7 @@ section {
   justify-content: center;
   align-items: center;
   height: 100%;
+  position: relative;
 }
 
 .global-network-nodes {
@@ -1844,14 +1855,56 @@ section {
   fill: none;
 }
 
+.stage-visual-grow .optimization-graph {
+  width: 80%;
+  height: 60px;
+  opacity: var(--phase-5-progress, 0);
+  margin-bottom: 8px;
+}
+
+.stage-visual-grow .growth-chart-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.stage-visual-grow .growth-chart-path {
+  stroke: #10b981;
+  stroke-width: 1.8px;
+  fill: none;
+  stroke-dasharray: 200;
+  stroke-dashoffset: calc(200 * (1 - var(--phase-5-progress, 0)));
+}
+
+.stage-visual-grow .growth-chart-dot {
+  fill: #10b981;
+  stroke: #ffffff;
+  stroke-width: 0.8px;
+  filter: drop-shadow(0 0 6px #10b981);
+  opacity: calc((var(--phase-5-progress, 0) - 0.85) / 0.15);
+}
+
 .stage-visual-grow .growth-indicators {
   z-index: 10;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   width: 80%;
   opacity: var(--phase-5-progress, 0);
   transform: translateY(calc((1 - var(--phase-5-progress, 0)) * 10px));
+}
+
+.stage-visual-grow .growth-badge {
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-align: center;
+  color: #10b981;
+  border: 1px dashed rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.02);
+  padding: 3px 6px;
+  border-radius: 4px;
+  opacity: calc((var(--phase-5-progress, 0) - 0.7) / 0.3);
 }
 
 .stage-visual-grow .growth-metric-stat {

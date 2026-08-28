@@ -1358,7 +1358,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .viewport-grid-bg {
@@ -2230,6 +2230,12 @@ footer {
     display: none !important;
   }
   .final-convergence-card {
+    display: none !important;
+  }
+  .integration-system-nodes,
+  .integration-lines-svg,
+  .global-network-nodes,
+  .network-svg-container {
     display: none !important;
   }
 }

@@ -3347,3 +3347,72 @@ body.theme-light .new-links {
   color: #475569;
 }
 
+/* Responsive Overrides for Comparison Showcase Slider */
+@media (max-width: 868px) {
+  .showcase-section {
+    padding: 60px 5% !important;
+  }
+  .showcase-header h2 {
+    font-size: 1.8rem !important;
+  }
+  .slider-comparison-box {
+    height: 330px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .old-sidebar-nav {
+    width: 80px !important;
+    padding: 6px !important;
+    gap: 6px !important;
+  }
+  .old-nav-title {
+    font-size: 9px !important;
+  }
+  .old-sidebar-link {
+    font-size: 9px !important;
+  }
+  .old-main-content {
+    padding: 10px !important;
+    gap: 8px !important;
+  }
+  .old-portal-heading {
+    font-size: 13px !important;
+  }
+  .old-portal-desc {
+    font-size: 9px !important;
+  }
+  .old-portal-table {
+    font-size: 9px !important;
+  }
+  .old-inquiry-box input {
+    width: 90px !important;
+  }
+
+  .new-links-deck {
+    display: none !important;
+  }
+  .new-hero-wrapper {
+    padding: 8px 10px !important;
+  }
+  .new-hero-wrapper h3 {
+    font-size: 13px !important;
+  }
+  .new-hero-wrapper p {
+    font-size: 9px !important;
+  }
+  .new-visuals-grid {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+  }
+  .card-chart {
+    height: 40px !important;
+  }
+  .card-stats {
+    padding: 6px !important;
+  }
+  .stat-number {
+    font-size: 13px !important;
+  }
+}
+

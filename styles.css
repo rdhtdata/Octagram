@@ -2834,6 +2834,37 @@ body.theme-light .config-next-btn:hover {
   height: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+/* Floating comparison corner badges */
+.showcase-tag-badge {
+  position: absolute;
+  top: 38px;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 3px 6px;
+  border-radius: 3px;
+  z-index: 100;
+  pointer-events: none;
+  text-transform: uppercase;
+}
+
+.tag-before {
+  left: 12px;
+  background: #ef4444;
+  color: #ffffff;
+  font-family: monospace;
+  border: 1px solid #7f1d1d;
+}
+
+.tag-after {
+  right: 12px;
+  background: var(--accent-gradient);
+  color: #ffffff;
+  font-family: 'Space Grotesk', sans-serif;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);
 }
 
 .old-browser-bar {

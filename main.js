@@ -1012,12 +1012,31 @@ function setupBeforeAfterSlider() {
   const sliderInput = document.getElementById('slider-range-input');
   const newWebsiteView = document.getElementById('new-website-view');
   const divider = document.getElementById('slider-divider');
+  const comparisonBox = document.querySelector('.slider-comparison-box');
+  const newWebsiteContent = document.getElementById('new-website-content');
 
-  if (!sliderInput || !newWebsiteView || !divider) return;
+  if (!sliderInput || !newWebsiteView || !divider || !comparisonBox || !newWebsiteContent) return;
 
+  function updateWidths() {
+    const boxWidth = comparisonBox.getBoundingClientRect().width;
+    newWebsiteContent.style.width = boxWidth + 'px';
+  }
+
+  // Initial alignment
+  updateWidths();
+  
+  // Set initial slider states (50% split)
+  const initialVal = sliderInput.value;
+  newWebsiteView.style.width = `${100 - initialVal}%`;
+  divider.style.left = `${initialVal}%`;
+
+  // Sync content frame width on browser resizing
+  window.addEventListener('resize', updateWidths);
+
+  // Sync masks on range drag events
   sliderInput.addEventListener('input', (e) => {
     const val = e.target.value;
-    newWebsiteView.style.width = `${val}%`;
+    newWebsiteView.style.width = `${100 - val}%`;
     divider.style.left = `${val}%`;
   });
 }

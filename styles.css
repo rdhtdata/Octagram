@@ -2827,6 +2827,7 @@ body.theme-light .config-next-btn:hover {
   background: #d4d4d8;
   color: #000000;
   font-family: "Times New Roman", Times, serif;
+  z-index: 1;
 }
 
 .old-website-content {

@@ -454,13 +454,13 @@ function initProcessScrollTimeline() {
   const stageIndicators = document.querySelectorAll('.stage-indicator-item');
   const stageDescs = document.querySelectorAll('.stage-desc-item');
 
-  const stageNames = ['DISCOVER', 'BUILD', 'CONNECT', 'GROW'];
+  const stageNames = ['DISCOVER', 'DESIGN', 'BUILD', 'CONNECT', 'GROW'];
 
   function updateTimeline() {
     // Respect prefers-reduced-motion
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (motionQuery.matches) {
-      if (website) website.className = 'evolving-website state-4 converged';
+      if (website) website.className = 'evolving-website state-5 converged';
       return;
     }
 
@@ -472,9 +472,10 @@ function initProcessScrollTimeline() {
       section.style.removeProperty('--phase-2-progress');
       section.style.removeProperty('--phase-3-progress');
       section.style.removeProperty('--phase-4-progress');
+      section.style.removeProperty('--phase-5-progress');
       
       if (website) {
-        website.className = 'evolving-website state-4';
+        website.className = 'evolving-website state-5';
       }
       return;
     }
@@ -492,33 +493,40 @@ function initProcessScrollTimeline() {
 
     section.style.setProperty('--process-progress', p);
 
-    // Phase 1: 0.0 -> 0.25 (Discover)
-    let p1 = p / 0.25;
+    // Phase 1: 0.0 -> 0.2 (Discover)
+    let p1 = p / 0.2;
     p1 = Math.max(0, Math.min(1, p1));
     section.style.setProperty('--phase-1-progress', p1);
 
-    // Phase 2: 0.25 -> 0.50 (Build)
-    let p2 = (p - 0.25) / 0.25;
+    // Phase 2: 0.2 -> 0.4 (Design)
+    let p2 = (p - 0.2) / 0.2;
     p2 = Math.max(0, Math.min(1, p2));
     section.style.setProperty('--phase-2-progress', p2);
 
-    // Phase 3: 0.50 -> 0.75 (Connect)
-    let p3 = (p - 0.50) / 0.25;
+    // Phase 3: 0.4 -> 0.6 (Build)
+    let p3 = (p - 0.4) / 0.2;
     p3 = Math.max(0, Math.min(1, p3));
     section.style.setProperty('--phase-3-progress', p3);
 
-    // Phase 4: 0.75 -> 1.00 (Grow)
-    let p4 = (p - 0.75) / 0.25;
+    // Phase 4: 0.6 -> 0.8 (Connect)
+    let p4 = (p - 0.6) / 0.2;
     p4 = Math.max(0, Math.min(1, p4));
     section.style.setProperty('--phase-4-progress', p4);
 
+    // Phase 5: 0.8 -> 1.0 (Grow)
+    let p5 = (p - 0.8) / 0.2;
+    p5 = Math.max(0, Math.min(1, p5));
+    section.style.setProperty('--phase-5-progress', p5);
+
     // Find the active index phase
     let activeIndex = 0;
-    if (p >= 0.75) {
+    if (p >= 0.8) {
+      activeIndex = 4;
+    } else if (p >= 0.6) {
       activeIndex = 3;
-    } else if (p >= 0.50) {
+    } else if (p >= 0.4) {
       activeIndex = 2;
-    } else if (p >= 0.25) {
+    } else if (p >= 0.2) {
       activeIndex = 1;
     } else {
       activeIndex = 0;
@@ -527,9 +535,9 @@ function initProcessScrollTimeline() {
     // Parallax update background label
     if (bgText) {
       bgText.innerText = stageNames[activeIndex];
-      const midPoint = activeIndex * 0.25 + 0.125;
-      bgText.style.opacity = Math.max(0.003, 0.015 - Math.abs(p - midPoint) * 0.04);
-      bgText.style.transform = `translateX(${(p - (activeIndex * 0.25)) * -60}px)`;
+      const midPoint = activeIndex * 0.2 + 0.1;
+      bgText.style.opacity = Math.max(0.003, 0.015 - Math.abs(p - midPoint) * 0.05);
+      bgText.style.transform = `translateX(${(p - (activeIndex * 0.2)) * -80}px)`;
     }
 
     // Update Evolving Website state classes
@@ -747,7 +755,7 @@ function initHudDashboard() {
 
     'services': `<span class="syn-com">&lt;!-- 02 CAPABILITIES SECTION --&gt;</span>\n<span class="syn-tag">&lt;section</span> <span class="syn-attr">id</span>=<span class="syn-val">"services"</span> <span class="syn-attr">class</span>=<span class="syn-val">"compiled"</span><span class="syn-tag">&gt;</span>\n  <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"services-grid"</span><span class="syn-tag">&gt;</span>\n    <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"service-card"</span><span class="syn-tag">&gt;</span>\n      <span class="syn-tag">&lt;h3&gt;</span>Website Creation<span class="syn-tag">&lt;/h3&gt;</span>\n      <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"service-demo-panel"</span><span class="syn-tag">&gt;</span>...<span class="syn-tag">&lt;/div&gt;</span>\n    <span class="syn-tag">&lt;/div&gt;</span>\n  <span class="syn-tag">&lt;/div&gt;</span>\n<span class="syn-tag">&lt;/section&gt;</span>`,
 
-    'process': `<span class="syn-com">&lt;!-- 03 SCROLL METHODOLOGY SECTION --&gt;</span>\n<span class="syn-tag">&lt;section</span> <span class="syn-attr">id</span>=<span class="syn-val">"process"</span> <span class="syn-attr">class</span>=<span class="syn-val">"process-scroll-section"</span><span class="syn-tag">&gt;</span>\n  <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"process-sticky-wrapper"</span><span class="syn-tag">&gt;</span>\n    <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"evolving-website state-4"</span><span class="syn-tag">&gt;</span>\n      <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"browser-content-canvas"</span><span class="syn-tag">&gt;</span>...<span class="syn-tag">&lt;/div&gt;</span>\n    <span class="syn-tag">&lt;/div&gt;</span>\n  <span class="syn-tag">&lt;/div&gt;</span>\n<span class="syn-tag">&lt;/section&gt;</span>`,
+    'process': `<span class="syn-com">&lt;!-- 03 SCROLL METHODOLOGY SECTION --&gt;</span>\n<span class="syn-tag">&lt;section</span> <span class="syn-attr">id</span>=<span class="syn-val">"process"</span> <span class="syn-attr">class</span>=<span class="syn-val">"process-scroll-section"</span><span class="syn-tag">&gt;</span>\n  <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"process-sticky-wrapper"</span><span class="syn-tag">&gt;</span>\n    <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"evolving-website state-5"</span><span class="syn-tag">&gt;</span>\n      <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"browser-content-canvas"</span><span class="syn-tag">&gt;</span>...<span class="syn-tag">&lt;/div&gt;</span>\n    <span class="syn-tag">&lt;/div&gt;</span>\n  <span class="syn-tag">&lt;/div&gt;</span>\n<span class="syn-tag">&lt;/section&gt;</span>`,
 
     'before-we-build': `<span class="syn-com">&lt;!-- 04 OBJECTION ACCORDION SECTION --&gt;</span>\n<span class="syn-tag">&lt;section</span> <span class="syn-attr">id</span>=<span class="syn-val">"before-we-build"</span> <span class="syn-attr">class</span>=<span class="syn-val">"compiled"</span><span class="syn-tag">&gt;</span>\n  <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"faq-container"</span><span class="syn-tag">&gt;</span>\n    <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"faq-accordion"</span><span class="syn-tag">&gt;</span>\n      <span class="syn-tag">&lt;button</span> <span class="syn-attr">aria-expanded</span>=<span class="syn-val">"false"</span><span class="syn-tag">&gt;</span>01 What exactly...<span class="syn-tag">&lt;/button&gt;</span>\n    <span class="syn-tag">&lt;/div&gt;</span>\n  <span class="syn-tag">&lt;/div&gt;</span>\n<span class="syn-tag">&lt;/section&gt;</span>`,
 

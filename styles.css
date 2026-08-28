@@ -1388,22 +1388,27 @@ section {
 }
 
 .evolving-website.state-1 {
-  border-color: rgba(56, 189, 248, 0.2);
-  transform: perspective(1000px) rotateX(18deg) rotateY(-14deg) rotateZ(3deg) scale(0.95);
+  border-color: rgba(56, 189, 248, 0.15);
+  transform: perspective(1000px) rotateX(18deg) rotateY(-14deg) rotateZ(3deg) scale(0.92);
 }
 
 .evolving-website.state-2 {
-  border-color: rgba(56, 189, 248, 0.45);
-  transform: perspective(1000px) rotateX(14deg) rotateY(-10deg) rotateZ(2deg) scale(1.02);
-  box-shadow: 0 25px 50px rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.35);
+  transform: perspective(1000px) rotateX(15deg) rotateY(-11deg) rotateZ(2.5deg) scale(0.97);
 }
 
 .evolving-website.state-3 {
-  border-color: var(--accent-indigo);
-  transform: perspective(1000px) rotateX(8deg) rotateY(-6deg) rotateZ(1deg) scale(0.85);
+  border-color: rgba(99, 102, 241, 0.6);
+  transform: perspective(1000px) rotateX(11deg) rotateY(-8deg) rotateZ(1.5deg) scale(1.02);
+  box-shadow: 0 25px 50px rgba(99, 102, 241, 0.08);
 }
 
 .evolving-website.state-4 {
+  border-color: var(--accent-purple);
+  transform: perspective(1000px) rotateX(6deg) rotateY(-4deg) rotateZ(0.8deg) scale(0.88);
+}
+
+.evolving-website.state-5 {
   border-color: #10b981;
   transform: perspective(1000px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1.0);
   box-shadow: 0 25px 60px rgba(16, 185, 129, 0.12);
@@ -1443,6 +1448,7 @@ section {
 }
 
 .stage-visual-discover,
+.stage-visual-design,
 .stage-visual-build,
 .stage-visual-connect,
 .stage-visual-grow {
@@ -1454,9 +1460,10 @@ section {
 }
 
 .evolving-website.state-1 .stage-visual-discover { opacity: 1; pointer-events: auto; }
-.evolving-website.state-2 .stage-visual-build { opacity: 1; pointer-events: auto; }
-.evolving-website.state-3 .stage-visual-connect { opacity: 1; pointer-events: auto; }
-.evolving-website.state-4 .stage-visual-grow { opacity: 1; pointer-events: auto; }
+.evolving-website.state-2 .stage-visual-design { opacity: 1; pointer-events: auto; }
+.evolving-website.state-3 .stage-visual-build { opacity: 1; pointer-events: auto; }
+.evolving-website.state-4 .stage-visual-connect { opacity: 1; pointer-events: auto; }
+.evolving-website.state-5 .stage-visual-grow { opacity: 1; pointer-events: auto; }
 
 /* 1. Discover Stage Details */
 .stage-visual-discover .blueprint-card {
@@ -1515,7 +1522,91 @@ section {
   fill: none;
 }
 
-/* 2. Build Stage Details */
+/* 2. Design Stage Details */
+.stage-visual-design {
+  position: absolute;
+  inset: 0;
+  padding: 8px;
+  height: 100%;
+}
+
+.stage-visual-design .wireframe-element {
+  position: absolute;
+  border: 1px dashed rgba(56, 189, 248, 0.22);
+  border-radius: 4px;
+  background: rgba(56, 189, 248, 0.003);
+  transform: translateY(calc((1 - var(--phase-2-progress, 0)) * 20px));
+  opacity: var(--phase-2-progress, 0);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.stage-visual-design .wf-nav {
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  height: 14px;
+}
+
+.stage-visual-design .wf-hero {
+  top: 30px;
+  left: 8px;
+  right: 8px;
+  height: 52px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+
+.stage-visual-design .wf-title {
+  width: 60%;
+  height: 6px;
+  border: 1px dashed rgba(56, 189, 248, 0.25);
+  background: rgba(56, 189, 248, 0.01);
+}
+
+.stage-visual-design .wf-btn {
+  width: 25%;
+  height: 8px;
+  border: 1px dashed rgba(56, 189, 248, 0.3);
+  border-radius: 4px;
+  background: rgba(56, 189, 248, 0.02);
+}
+
+.stage-visual-design .wf-grid {
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  top: 90px;
+  border: none;
+  display: flex;
+  gap: 8px;
+}
+
+.stage-visual-design .wf-card {
+  flex: 1;
+  border: 1px dashed rgba(56, 189, 248, 0.2);
+  background: rgba(56, 189, 248, 0.005);
+  height: 100%;
+}
+
+.stage-visual-design .design-wire-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: var(--phase-2-progress, 0);
+}
+
+.stage-visual-design .wire-grid-line {
+  stroke: rgba(56, 189, 248, 0.08);
+  stroke-width: 0.8px;
+  stroke-dasharray: 2 4;
+}
+
+/* 3. Build Stage Details */
 .stage-visual-build {
   display: flex;
   flex-direction: column;
@@ -1536,8 +1627,8 @@ section {
   align-items: center;
   justify-content: space-between;
   padding: 0 8px;
-  opacity: var(--phase-2-progress, 0);
-  transform: translateY(calc((1 - var(--phase-2-progress, 0)) * -12px));
+  opacity: var(--phase-3-progress, 0);
+  transform: translateY(calc((1 - var(--phase-3-progress, 0)) * -12px));
 }
 
 .stage-visual-build .mock-logo {
@@ -1560,8 +1651,8 @@ section {
   align-items: center;
   gap: 8px;
   margin: 10px 0;
-  opacity: calc((var(--phase-2-progress, 0) - 0.2) / 0.8);
-  transform: scale(calc(0.9 + 0.1 * var(--phase-2-progress, 0)));
+  opacity: calc((var(--phase-3-progress, 0) - 0.2) / 0.8);
+  transform: scale(calc(0.9 + 0.1 * var(--phase-3-progress, 0)));
 }
 
 .stage-visual-build .mock-h1 {
@@ -1583,8 +1674,8 @@ section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
-  opacity: calc((var(--phase-2-progress, 0) - 0.4) / 0.6);
-  transform: translateY(calc((1 - var(--phase-2-progress, 0)) * 12px));
+  opacity: calc((var(--phase-3-progress, 0) - 0.4) / 0.6);
+  transform: translateY(calc((1 - var(--phase-3-progress, 0)) * 12px));
 }
 
 .stage-visual-build .mock-grid-card {
@@ -1598,7 +1689,7 @@ section {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: calc(sin(var(--phase-2-progress, 0) * 3.14159));
+  opacity: calc(sin(var(--phase-3-progress, 0) * 3.14159));
   transition: opacity 0.2s;
 }
 
@@ -1611,7 +1702,7 @@ section {
 .build-align-lines .al-v-right { right: 10px; top: 0; bottom: 0; width: 1px; }
 .build-align-lines .al-h-center { top: 50%; left: 0; right: 0; height: 1px; }
 
-/* 3. Connect Stage Details */
+/* 4. Connect Stage Details */
 .stage-visual-connect {
   display: flex;
   align-items: center;
@@ -1637,29 +1728,29 @@ section {
   border-radius: 3px;
   font-family: monospace;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  opacity: var(--phase-3-progress, 0);
+  opacity: var(--phase-4-progress, 0);
   transition: all 0.3s ease;
 }
 
 .integration-system-nodes .node-crm {
   top: 10%;
   left: -20px;
-  transform: translate(calc((1 - var(--phase-3-progress, 0)) * -15px), 0);
+  transform: translate(calc((1 - var(--phase-4-progress, 0)) * -15px), 0);
 }
 .integration-system-nodes .node-database {
   bottom: 10%;
   left: -20px;
-  transform: translate(calc((1 - var(--phase-3-progress, 0)) * -15px), 0);
+  transform: translate(calc((1 - var(--phase-4-progress, 0)) * -15px), 0);
 }
 .integration-system-nodes .node-analytics {
   top: 10%;
   right: -20px;
-  transform: translate(calc((1 - var(--phase-3-progress, 0)) * 15px), 0);
+  transform: translate(calc((1 - var(--phase-4-progress, 0)) * 15px), 0);
 }
 .integration-system-nodes .node-inventory {
   bottom: 10%;
   right: -20px;
-  transform: translate(calc((1 - var(--phase-3-progress, 0)) * 15px), 0);
+  transform: translate(calc((1 - var(--phase-4-progress, 0)) * 15px), 0);
 }
 
 .integration-lines-svg {
@@ -1681,7 +1772,7 @@ section {
   fill: none;
   stroke-dasharray: 5 15;
   stroke-dashoffset: calc(var(--process-progress, 0) * -140);
-  opacity: var(--phase-3-progress, 0);
+  opacity: var(--phase-4-progress, 0);
   transition: opacity 0.3s;
 }
 
@@ -1690,8 +1781,8 @@ section {
   flex-direction: column;
   gap: 8px;
   width: 80%;
-  opacity: var(--phase-3-progress, 0);
-  transform: scale(calc(0.9 + 0.1 * var(--phase-3-progress, 0)));
+  opacity: var(--phase-4-progress, 0);
+  transform: scale(calc(0.9 + 0.1 * var(--phase-4-progress, 0)));
 }
 
 .stage-visual-connect .live-user-feed,
@@ -1706,7 +1797,7 @@ section {
   color: var(--text-secondary);
 }
 
-/* 4. Grow Stage Details */
+/* 5. Grow Stage Details */
 .stage-visual-grow {
   display: flex;
   flex-direction: column;
@@ -1718,7 +1809,7 @@ section {
 .global-network-nodes {
   position: absolute;
   inset: -20px;
-  opacity: var(--phase-4-progress, 0);
+  opacity: var(--phase-5-progress, 0);
   pointer-events: none;
 }
 
@@ -1738,7 +1829,7 @@ section {
 .network-svg-container {
   position: absolute;
   inset: -20px;
-  opacity: calc(var(--phase-4-progress, 0) * 0.25);
+  opacity: calc(var(--phase-5-progress, 0) * 0.25);
   pointer-events: none;
 }
 
@@ -1759,8 +1850,8 @@ section {
   flex-direction: column;
   gap: 12px;
   width: 80%;
-  opacity: var(--phase-4-progress, 0);
-  transform: translateY(calc((1 - var(--phase-4-progress, 0)) * 10px));
+  opacity: var(--phase-5-progress, 0);
+  transform: translateY(calc((1 - var(--phase-5-progress, 0)) * 10px));
 }
 
 .stage-visual-grow .growth-metric-stat {
@@ -1798,12 +1889,12 @@ section {
   padding: 25px;
 }
 
-.evolving-website.state-4 ~ .final-convergence-card {
+.evolving-website.state-5 ~ .final-convergence-card {
   opacity: calc((var(--process-progress, 0) - 0.9) / 0.1);
   transform: scale(calc(0.95 + 0.05 * (var(--process-progress, 0) - 0.9) / 0.1));
 }
 
-.evolving-website.state-4.converged ~ .final-convergence-card {
+.evolving-website.state-5.converged ~ .final-convergence-card {
   opacity: 1;
   transform: scale(1);
   pointer-events: auto;

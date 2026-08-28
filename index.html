@@ -337,41 +337,45 @@
                   <div class="messy-note note-green">Need SQL sync</div>
                 </div>
                 
-                <!-- Stage 2 Visuals: Wireframe layout skeleton -->
-                <div class="stage-visual-design" id="visual-design">
-                  <div class="wireframe-box wf-nav-skeleton"></div>
-                  <div class="wireframe-box wf-hero-skeleton">
-                    <svg class="wf-x-line"><line x1="0" y1="0" x2="100%" y2="100%" /></svg>
-                    <div class="wf-text-stub stub-title"></div>
-                    <div class="wf-text-stub stub-btn"></div>
-                  </div>
-                  <div class="wireframe-row">
-                    <div class="wireframe-box wf-card-skeleton">
-                      <svg class="wf-x-line"><line x1="0" y1="0" x2="100%" y2="100%" /><line x1="100%" y1="0" x2="0" y2="100%" /></svg>
-                    </div>
-                    <div class="wireframe-box wf-card-skeleton">
-                      <svg class="wf-x-line"><line x1="0" y1="0" x2="100%" y2="100%" /><line x1="100%" y1="0" x2="0" y2="100%" /></svg>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- Stage 3 Visuals: Code components compilation -->
-                <div class="stage-visual-build" id="visual-build">
+                <!-- Combined layout visual for Stage 2 (DESIGN) and Stage 3 (BUILD) -->
+                <div class="stage-visual-layout" id="visual-layout">
+                  <!-- Compilation laser scanner line -->
                   <div class="compile-scanner-line"></div>
+                  
                   <!-- Navbar component -->
-                  <div class="build-element component-nav">
-                    <span class="mock-logo"></span>
-                    <span class="mock-links"></span>
+                  <div class="layout-element element-nav">
+                    <!-- Wireframe view -->
+                    <div class="wf-only wf-nav-line"></div>
+                    <!-- Built view -->
+                    <div class="build-only mock-logo"></div>
+                    <div class="build-only mock-links"></div>
                   </div>
-                  <!-- Hero typography and buttons -->
-                  <div class="build-element component-hero">
-                    <div class="mock-h1"></div>
-                    <div class="mock-cta-btn"></div>
+                  
+                  <!-- Hero banner component -->
+                  <div class="layout-element element-hero">
+                    <!-- Wireframe cross lines -->
+                    <svg class="wf-only wf-x-line"><line x1="0" y1="0" x2="100%" y2="100%" /><line x1="100%" y1="0" x2="0" y2="100%" /></svg>
+                    <!-- Built view -->
+                    <div class="build-only mock-h1"></div>
+                    <div class="build-only mock-cta-btn"></div>
                   </div>
-                  <!-- Grid layout cards -->
-                  <div class="build-element component-grid">
-                    <div class="mock-grid-card card-a"></div>
-                    <div class="mock-grid-card card-b"></div>
+                  
+                  <!-- Grid columns component -->
+                  <div class="layout-element element-grid">
+                    <div class="layout-card card-left">
+                      <!-- Wireframe cross lines -->
+                      <svg class="wf-only wf-x-line"><line x1="0" y1="0" x2="100%" y2="100%" /><line x1="100%" y1="0" x2="0" y2="100%" /></svg>
+                      <!-- Built view -->
+                      <div class="build-only mock-card-img"></div>
+                      <div class="build-only mock-card-text"></div>
+                    </div>
+                    <div class="layout-card card-right">
+                      <!-- Wireframe cross lines -->
+                      <svg class="wf-only wf-x-line"><line x1="0" y1="0" x2="100%" y2="100%" /><line x1="100%" y1="0" x2="0" y2="100%" /></svg>
+                      <!-- Built view -->
+                      <div class="build-only mock-card-img"></div>
+                      <div class="build-only mock-card-text"></div>
+                    </div>
                   </div>
                 </div>
                 

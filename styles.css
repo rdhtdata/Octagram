@@ -1448,8 +1448,7 @@ section {
 }
 
 .stage-visual-discover,
-.stage-visual-design,
-.stage-visual-build,
+.stage-visual-layout,
 .stage-visual-connect,
 .stage-visual-grow {
   position: absolute;
@@ -1460,8 +1459,8 @@ section {
 }
 
 .evolving-website.state-1 .stage-visual-discover { opacity: 1; pointer-events: auto; }
-.evolving-website.state-2 .stage-visual-design { opacity: 1; pointer-events: auto; }
-.evolving-website.state-3 .stage-visual-build { opacity: 1; pointer-events: auto; }
+.evolving-website.state-2 .stage-visual-layout { opacity: 1; pointer-events: auto; }
+.evolving-website.state-3 .stage-visual-layout { opacity: 1; pointer-events: auto; }
 .evolving-website.state-4 .stage-visual-connect { opacity: 1; pointer-events: auto; }
 .evolving-website.state-5 .stage-visual-grow { opacity: 1; pointer-events: auto; }
 
@@ -1511,8 +1510,8 @@ section {
   transform: translate(calc((1 - var(--phase-1-progress, 0)) * -15px), calc((1 - var(--phase-1-progress, 0)) * -10px)) rotate(-1deg);
 }
 
-/* 2. Design Stage Details */
-.stage-visual-design {
+/* /* 2 & 3. Design and Build Morphing Stage Details */
+.stage-visual-layout {
   position: absolute;
   inset: 0;
   padding: 10px;
@@ -1520,86 +1519,107 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
 }
-.stage-visual-design .wireframe-box {
+
+.evolving-website.state-2 .stage-visual-layout,
+.evolving-website.state-3 .stage-visual-layout {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Base layout elements morphing borders and backgrounds */
+.layout-element, .layout-card {
   border: 1px dashed rgba(56, 189, 248, 0.35);
-  background: rgba(56, 189, 248, 0.005);
+  background: rgba(56, 189, 248, 0.003);
   position: relative;
-  border-radius: 2px;
-  opacity: var(--phase-2-progress, 0);
-  transform: translateY(calc((1 - var(--phase-2-progress, 0)) * 15px));
-  transition: opacity 0.3s, transform 0.3s;
+  border-radius: 4px;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.stage-visual-design .wf-nav-skeleton {
+
+.element-nav {
   height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
 }
-.stage-visual-design .wf-hero-skeleton {
-  height: 70px;
+
+.element-hero {
+  height: 75px;
   margin: 10px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   padding: 8px;
 }
-.stage-visual-design .wf-x-line {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-.stage-visual-design .wf-x-line line {
-  stroke: rgba(56, 189, 248, 0.15);
-  stroke-width: 0.8px;
-  stroke-dasharray: 2 3;
-}
-.stage-visual-design .stub-title {
-  width: 50%;
-  height: 6px;
-  border: 1px dashed rgba(56, 189, 248, 0.3);
-}
-.stage-visual-design .stub-btn {
-  width: 20%;
-  height: 8px;
-  border: 1px dashed rgba(56, 189, 248, 0.3);
-  border-radius: 4px;
-}
-.stage-visual-design .wireframe-row {
+
+.element-grid {
   height: 48px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
+  border: none !important;
+  background: transparent !important;
 }
-.stage-visual-design .wf-card-skeleton {
+
+.layout-card {
   height: 100%;
 }
-.stage-visual-design .design-wire-lines {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+
+/* Stage 2 (DESIGN): Skeleton Wireframes */
+.evolving-website.state-2 .layout-element,
+.evolving-website.state-2 .layout-card {
+  transform: translateY(calc((1 - var(--phase-2-progress, 0)) * 15px));
+  opacity: var(--phase-2-progress, 0);
+  border-style: dashed;
+  border-color: rgba(56, 189, 248, 0.35);
+  background: rgba(56, 189, 248, 0.005);
+}
+
+.evolving-website.state-2 .wf-only {
   opacity: var(--phase-2-progress, 0);
 }
-.stage-visual-design .wire-grid-line {
-  stroke: rgba(56, 189, 248, 0.08);
-  stroke-width: 0.8px;
-  stroke-dasharray: 2 4;
+
+.evolving-website.state-2 .build-only {
+  opacity: 0 !important;
 }
 
-/* 3. Build Stage Details */
-.stage-visual-build {
-  display: flex;
-  flex-direction: column;
-  padding: 8px;
-  height: 100%;
-  justify-content: space-between;
-  position: relative;
+/* Stage 3 (BUILD): Colored Components Compile Sweep */
+.evolving-website.state-3 .layout-element,
+.evolving-website.state-3 .layout-card {
+  border-style: solid;
 }
 
-.stage-visual-build .compile-scanner-line {
+.evolving-website.state-3 .element-nav {
+  border-color: rgba(255, 255, 255, calc(0.04 * var(--phase-3-progress, 0)));
+  background: rgba(255, 255, 255, calc(0.02 * var(--phase-3-progress, 0)));
+}
+
+.evolving-website.state-3 .element-hero {
+  border-color: transparent;
+  background: transparent;
+}
+
+.evolving-website.state-3 .layout-card {
+  border-color: rgba(56, 189, 248, calc(0.12 * var(--phase-3-progress, 0)));
+  background: rgba(56, 189, 248, calc(0.04 * var(--phase-3-progress, 0)));
+}
+
+.evolving-website.state-3 .wf-only {
+  opacity: calc(1 - var(--phase-3-progress, 0));
+}
+
+.evolving-website.state-3 .build-only {
+  opacity: var(--phase-3-progress, 0);
+}
+
+/* Compile laser scanner animation */
+.compile-scanner-line {
   position: absolute;
   left: 0;
   right: 0;
@@ -1612,53 +1632,57 @@ section {
   z-index: 10;
 }
 
-.stage-visual-build .build-element {
-  background: rgba(255, 255, 255, 0.015);
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  border-radius: 4px;
+/* Wireframe Elements Specific Styles */
+.wf-only {
+  transition: opacity 0.3s ease-out;
 }
 
-.stage-visual-build .component-nav {
-  height: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 8px;
-  opacity: var(--phase-3-progress, 0);
-  transform: translateY(calc((1 - var(--phase-3-progress, 0)) * -12px));
+.wf-nav-line {
+  width: 40%;
+  height: 4px;
+  border-bottom: 1px dashed rgba(56, 189, 248, 0.3);
 }
 
-.stage-visual-build .mock-logo {
+.wf-x-line {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.wf-x-line line {
+  stroke: rgba(56, 189, 248, 0.15);
+  stroke-width: 0.8px;
+  stroke-dasharray: 2 3;
+}
+
+/* Built Elements Specific Styles */
+.build-only {
+  transition: opacity 0.4s ease-in;
+}
+
+.mock-logo {
   width: 10px;
   height: 5px;
   background: var(--accent-blue);
   border-radius: 1px;
 }
-.stage-visual-build .mock-links {
+
+.mock-links {
   width: 25px;
   height: 3px;
   background: rgba(255, 255, 255, 0.08);
 }
 
-.stage-visual-build .component-hero {
-  height: 75px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  margin: 10px 0;
-  opacity: calc((var(--phase-3-progress, 0) - 0.2) / 0.8);
-  transform: scale(calc(0.9 + 0.1 * var(--phase-3-progress, 0)));
-}
-
-.stage-visual-build .mock-h1 {
+.mock-h1 {
   width: 65%;
   height: 10px;
   background: linear-gradient(90deg, var(--text-primary), rgba(255, 255, 255, 0.15));
   border-radius: 2px;
 }
-.stage-visual-build .mock-cta-btn {
+
+.mock-cta-btn {
   width: 28px;
   height: 8px;
   background: var(--accent-indigo);
@@ -1666,20 +1690,20 @@ section {
   box-shadow: 0 0 6px var(--accent-indigo);
 }
 
-.stage-visual-build .component-grid {
-  height: 48px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  opacity: calc((var(--phase-3-progress, 0) - 0.4) / 0.6);
-  transform: translateY(calc((1 - var(--phase-3-progress, 0)) * 12px));
+.mock-card-img {
+  width: 40%;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  margin: 6px;
+  border-radius: 2px;
 }
 
-.stage-visual-build .mock-grid-card {
-  height: 100%;
-  background: rgba(56, 189, 248, 0.04);
-  border: 1px solid rgba(56, 189, 248, 0.12);
-  border-radius: 3px;
+.mock-card-text {
+  width: 50%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 0 6px;
+  border-radius: 1px;
 }
 
 /* 4. Connect Stage Details */

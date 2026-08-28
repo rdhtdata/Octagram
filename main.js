@@ -864,16 +864,29 @@ function setupBackToTopButton() {
   if (!btn) return;
 
   const handleScroll = () => {
-    // Reveal button once scrolled past the services threshold
-    const threshold = services ? services.offsetTop - 100 : window.innerHeight;
-    if (window.scrollY >= threshold) {
+    // Cross-browser scroll position retrieval
+    const scrollPos = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
+    
+    // Set dynamic threshold with a hard fallback if offsets aren't loaded yet
+    let threshold = 300;
+    if (services && services.offsetTop > 100) {
+      threshold = services.offsetTop - 150;
+    }
+    
+    if (scrollPos >= threshold) {
       btn.classList.add('visible');
     } else {
       btn.classList.remove('visible');
     }
   };
 
+  // Bind event listeners
   window.addEventListener('scroll', handleScroll, { passive: true });
+  window.addEventListener('resize', handleScroll, { passive: true });
+
+  // Boot calculation immediately and with a small timeout for late layout compile rendering
+  handleScroll();
+  setTimeout(handleScroll, 400);
 
   btn.addEventListener('click', () => {
     window.scrollTo({

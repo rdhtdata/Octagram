@@ -225,27 +225,42 @@ function setupAmbientParticles() {
 
 /**
  * Performs a matrix-style typographic decoding animation on load.
+ * Guarantees that the final text always resolves accurately to the pristine target string.
  */
 function decodeText(element) {
-  const originalText = element.textContent;
+  if (!element) return;
+  
+  // 1. Cache pristine target text on first invocation to prevent mid-animation corruption
+  if (!element.dataset.originalText) {
+    element.dataset.originalText = element.textContent.trim();
+  }
+  const originalText = element.dataset.originalText;
+  
+  // 2. Clear any running decode animation on this element to prevent race conditions
+  if (element._decodeInterval) {
+    clearInterval(element._decodeInterval);
+    element._decodeInterval = null;
+  }
+  
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&';
   let iterations = 0;
   
-  const interval = setInterval(() => {
+  element._decodeInterval = setInterval(() => {
     element.textContent = originalText
       .split('')
       .map((char, index) => {
         if (index < iterations) {
           return originalText[index];
         }
-        if (char === ' ') return ' ';
+        if (/\s/.test(char)) return char;
         return chars[Math.floor(Math.random() * chars.length)];
       })
       .join('');
     
     if (iterations >= originalText.length) {
-      clearInterval(interval);
-      element.textContent = originalText; // Ensure exact final text matches
+      clearInterval(element._decodeInterval);
+      element._decodeInterval = null;
+      element.textContent = originalText; // Ensure exact final text matches 100%
     }
     
     iterations += 1 / 2.5; // Speed multiplier

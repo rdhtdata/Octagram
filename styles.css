@@ -523,7 +523,7 @@ nav a:hover::after {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 .header-socials {
@@ -533,47 +533,54 @@ nav a:hover::after {
 }
 
 .header-social-link {
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  display: flex;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   color: var(--text-secondary);
   text-decoration: none;
-  transition: var(--transition-smooth);
+  flex-shrink: 0;
+  box-sizing: border-box;
+  transform: translate(var(--gravity-x, 0px), var(--gravity-y, 0px));
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
 .header-social-link:hover {
   color: var(--accent-blue);
-  border-color: rgba(56, 189, 248, 0.4);
+  border-color: var(--accent-blue);
   background: rgba(56, 189, 248, 0.08);
-  transform: translateY(-1px);
-  box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.3);
 }
 
 .header-social-link svg {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   transition: transform 0.2s ease;
 }
 
 .header-social-link:hover svg {
-  transform: scale(1.12);
+  transform: scale(1.15);
 }
 
 .cta-button {
   background: var(--text-primary);
   color: var(--bg-primary);
-  padding: 10px 22px;
+  height: 42px;
+  padding: 0 24px;
   border-radius: 30px;
   font-size: 0.9rem;
   font-weight: 600;
   border: 1px solid transparent;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
   transform: translate(var(--gravity-x, 0px), var(--gravity-y, 0px));
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
 }

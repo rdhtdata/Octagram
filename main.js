@@ -765,38 +765,6 @@ function initHudDashboard() {
     });
   });
 
-  // 4. Technical Mode Blueprint Overlay
-  const blueprintBadges = {
-    'home': 'SECTION: #home | COMPONENT: HeroDisplay | ARCH: Semantic2026',
-    'services': 'SECTION: #services | COMPONENT: CapabilitiesGrid | ARCH: 3DParallax',
-    'why-octagram': 'SECTION: #why-octagram | COMPONENT: SystemsArchitecture | ARCH: ConnectedEcosystem',
-    'showcase': 'SECTION: #showcase | COMPONENT: BeforeAfterSlider | ARCH: MaskedDualViewport',
-    'process': 'SECTION: #process | COMPONENT: ScrollMethodology | ARCH: StickyTimeline',
-    'before-we-build': 'SECTION: #before-we-build | COMPONENT: ObjectionDeck | ARCH: DynamicHeightAccordion',
-    'contact': 'SECTION: #contact | COMPONENT: PlatformConfigurator | ARCH: ProgressiveDisclosure',
-    'footer': 'TAG: &lt;footer&gt; | COMPONENT: SystemFooter | ARCH: SemanticEdge'
-  };
-
-  // Pre-inject blueprint badges once into sections
-  allSections.forEach(section => {
-    const key = section.id || section.tagName.toLowerCase();
-    if (blueprintBadges[key] && !section.querySelector('.tech-blueprint-badge')) {
-      const badge = document.createElement('div');
-      badge.className = 'tech-blueprint-badge';
-      badge.innerHTML = blueprintBadges[key];
-      section.appendChild(badge);
-    }
-  });
-
-  if (techCheckbox) {
-    techCheckbox.addEventListener('change', (e) => {
-      if (e.target.checked) {
-        document.body.classList.add('technical-mode');
-      } else {
-        document.body.classList.remove('technical-mode');
-      }
-    });
-  }
 }
 
 /**

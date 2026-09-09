@@ -4333,37 +4333,6 @@ body.theme-light .new-links {
   margin: 0;
 }
 
-/* Technical Mode Blueprint Badges */
-body.technical-mode section,
-body.technical-mode footer {
-  position: relative;
-}
-
-body.technical-mode .tech-blueprint-badge {
-  position: absolute;
-  top: 14px;
-  left: 20px;
-  background: rgba(6, 16, 28, 0.92);
-  border: 1px solid rgba(56, 189, 248, 0.45);
-  color: var(--accent-blue);
-  font-family: monospace;
-  font-size: 0.72rem;
-  padding: 4px 10px;
-  border-radius: 4px;
-  z-index: 50;
-  letter-spacing: 0.08em;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  pointer-events: none;
-}
-
-body.technical-mode section:hover {
-  outline: 1px dashed rgba(56, 189, 248, 0.35);
-  outline-offset: -2px;
-}
-
 /* Responsive Media Queries for Why Octagram */
 @media (max-width: 1024px) {
   .differentiators-grid {

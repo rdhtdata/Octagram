@@ -382,7 +382,7 @@
             <p>Every Octagram project moves through a deliberate system of strategy, design, engineering, integration, and continuous optimization.</p>
           </div>
           
-          <!-- Sticky Vertical Progress Indicator -->
+          <!-- Sticky Vertical Progress Indicator (Desktop) -->
           <div class="scroll-stages-indicator">
             <div class="stage-dot-line">
               <div class="stage-dot-progress"></div>
@@ -402,6 +402,15 @@
             <div class="stage-indicator-item" data-stage="5">
               <span class="stage-num">05</span> <span class="stage-name">GROW</span>
             </div>
+          </div>
+
+          <!-- Mobile Interactive Stage Pills / Stepper Controls -->
+          <div class="process-mobile-stepper" aria-label="Methodology Stages">
+            <button type="button" class="mobile-stage-btn active" data-stage="1" aria-label="Stage 01 Discover">01 DISCOVER</button>
+            <button type="button" class="mobile-stage-btn" data-stage="2" aria-label="Stage 02 Design">02 DESIGN</button>
+            <button type="button" class="mobile-stage-btn" data-stage="3" aria-label="Stage 03 Build">03 BUILD</button>
+            <button type="button" class="mobile-stage-btn" data-stage="4" aria-label="Stage 04 Connect">04 CONNECT</button>
+            <button type="button" class="mobile-stage-btn" data-stage="5" aria-label="Stage 05 Grow">05 GROW</button>
           </div>
           
           <!-- Stage descriptions stacked in viewport -->
@@ -436,6 +445,19 @@
               <h3>Continuously improving asset</h3>
               <p>Post-launch compilation monitors performance telemetry, user flows, and conversions to optimize growth indefinitely.</p>
             </div>
+          </div>
+
+          <!-- Mobile Previous / Next Stage Arrows -->
+          <div class="process-mobile-nav">
+            <button type="button" class="mobile-nav-arrow prev-stage-btn" id="mobile-prev-stage" aria-label="Previous Stage">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              <span>Prev</span>
+            </button>
+            <span class="mobile-stage-counter" id="mobile-stage-counter">Stage 01 / 05</span>
+            <button type="button" class="mobile-nav-arrow next-stage-btn" id="mobile-next-stage" aria-label="Next Stage">
+              <span>Next</span>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
           </div>
         </div>
         

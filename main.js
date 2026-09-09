@@ -480,30 +480,123 @@ function initProcessScrollTimeline() {
   
   const stageIndicators = document.querySelectorAll('.stage-indicator-item');
   const stageDescs = document.querySelectorAll('.stage-desc-item');
+  const mobileStageBtns = document.querySelectorAll('.mobile-stage-btn');
+  const prevBtn = document.getElementById('mobile-prev-stage');
+  const nextBtn = document.getElementById('mobile-next-stage');
+  const counter = document.getElementById('mobile-stage-counter');
+  const productViewport = document.querySelector('.central-product-viewport');
 
   const stageNames = ['DISCOVER', 'DESIGN', 'BUILD', 'CONNECT', 'GROW'];
+  let currentMobileStage = 1;
+
+  function setMobileStage(stageNum) {
+    currentMobileStage = Math.max(1, Math.min(5, stageNum));
+    const activeIndex = currentMobileStage - 1;
+
+    // Set CSS properties for the active stage to fully animate
+    section.style.setProperty('--process-progress', (activeIndex + 0.5) / 5);
+    section.style.setProperty('--phase-1-progress', currentMobileStage >= 1 ? 1 : 0);
+    section.style.setProperty('--phase-2-progress', currentMobileStage >= 2 ? 1 : 0);
+    section.style.setProperty('--phase-3-progress', currentMobileStage >= 3 ? 1 : 0);
+    section.style.setProperty('--phase-4-progress', currentMobileStage >= 4 ? 1 : 0);
+    section.style.setProperty('--phase-5-progress', currentMobileStage >= 5 ? 1 : 0);
+
+    if (website) {
+      website.className = `evolving-website state-${currentMobileStage}`;
+    }
+
+    if (bgText) {
+      bgText.innerText = stageNames[activeIndex];
+    }
+
+    // Update mobile stage pill buttons
+    mobileStageBtns.forEach((btn, idx) => {
+      if (idx === activeIndex) {
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      } else {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+      }
+    });
+
+    // Update stage descriptions
+    stageDescs.forEach((desc, idx) => {
+      if (idx === activeIndex) {
+        desc.classList.add('active');
+      } else {
+        desc.classList.remove('active');
+      }
+    });
+
+    // Update counter
+    if (counter) {
+      counter.innerText = `Stage 0${currentMobileStage} / 05`;
+    }
+  }
+
+  // Hook mobile stage buttons
+  mobileStageBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const stage = parseInt(btn.dataset.stage, 10);
+      if (!isNaN(stage)) {
+        setMobileStage(stage);
+      }
+    });
+  });
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      const target = currentMobileStage > 1 ? currentMobileStage - 1 : 5;
+      setMobileStage(target);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      const target = currentMobileStage < 5 ? currentMobileStage + 1 : 1;
+      setMobileStage(target);
+    });
+  }
+
+  // Touch swipe support on product viewport for mobile
+  if (productViewport) {
+    let touchStartX = 0;
+    let touchStartY = 0;
+    productViewport.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    productViewport.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      const touchEndY = e.changedTouches[0].screenY;
+      const diffX = touchEndX - touchStartX;
+      const diffY = touchEndY - touchStartY;
+      
+      if (Math.abs(diffX) > 35 && Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX < 0) {
+          const target = currentMobileStage < 5 ? currentMobileStage + 1 : 1;
+          setMobileStage(target);
+        } else {
+          const target = currentMobileStage > 1 ? currentMobileStage - 1 : 5;
+          setMobileStage(target);
+        }
+      }
+    }, { passive: true });
+  }
 
   function updateTimeline() {
+    const isMobile = window.innerWidth <= 868;
+    if (isMobile) {
+      return;
+    }
+
     // Respect prefers-reduced-motion
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (motionQuery.matches) {
       if (website) website.className = 'evolving-website state-5 converged';
-      return;
-    }
-
-    const isMobile = window.innerWidth <= 868;
-    if (isMobile) {
-      // Clean inline CSS properties on mobile viewports
-      section.style.removeProperty('--process-progress');
-      section.style.removeProperty('--phase-1-progress');
-      section.style.removeProperty('--phase-2-progress');
-      section.style.removeProperty('--phase-3-progress');
-      section.style.removeProperty('--phase-4-progress');
-      section.style.removeProperty('--phase-5-progress');
-      
-      if (website) {
-        website.className = 'evolving-website state-5';
-      }
       return;
     }
 
@@ -598,8 +691,18 @@ function initProcessScrollTimeline() {
     });
   }
 
-  window.addEventListener('scroll', updateTimeline);
-  window.addEventListener('resize', updateTimeline);
+  if (window.innerWidth <= 868) {
+    setMobileStage(1);
+  }
+
+  window.addEventListener('scroll', updateTimeline, { passive: true });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth <= 868) {
+      setMobileStage(currentMobileStage);
+    } else {
+      updateTimeline();
+    }
+  });
   updateTimeline();
 }
 

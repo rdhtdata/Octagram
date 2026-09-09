@@ -1,0 +1,17 @@
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Environment and sensitive keys
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Editor / IDE settings
+.vscode/
+.idea/
+
+# Logs
+*.log

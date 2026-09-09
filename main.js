@@ -400,9 +400,8 @@ function setupMobileMenu() {
   
   if (toggle && nav) {
     toggle.addEventListener('click', () => {
-      const isActive = toggle.classList.toggle('active');
+      toggle.classList.toggle('active');
       nav.classList.toggle('active');
-      document.body.classList.toggle('menu-open', isActive);
     });
     
     // Close mobile menu drawer when any link or action button inside is clicked
@@ -410,7 +409,6 @@ function setupMobileMenu() {
       link.addEventListener('click', () => {
         toggle.classList.remove('active');
         nav.classList.remove('active');
-        document.body.classList.remove('menu-open');
       });
     });
   }
@@ -921,48 +919,21 @@ function setupBeforeAfterSlider() {
     newWebsiteContent.style.width = boxWidth + 'px';
   }
 
-  function setSliderPosition(val) {
-    const clamped = Math.max(0, Math.min(100, parseFloat(val)));
-    sliderInput.value = clamped;
-    newWebsiteView.style.width = `${100 - clamped}%`;
-    divider.style.left = `${clamped}%`;
-  }
-
   // Initial alignment
   updateWidths();
   
   // Set initial slider states (50% split)
-  setSliderPosition(sliderInput.value || 50);
+  const initialVal = sliderInput.value;
+  newWebsiteView.style.width = `${100 - initialVal}%`;
+  divider.style.left = `${initialVal}%`;
 
   // Sync content frame width on browser resizing
   window.addEventListener('resize', updateWidths);
 
-  // Sync masks on range input and change events
+  // Sync masks on range drag events
   sliderInput.addEventListener('input', (e) => {
-    setSliderPosition(e.target.value);
+    const val = e.target.value;
+    newWebsiteView.style.width = `${100 - val}%`;
+    divider.style.left = `${val}%`;
   });
-  sliderInput.addEventListener('change', (e) => {
-    setSliderPosition(e.target.value);
-  });
-
-  // Direct touch drag support on comparison container for mobile
-  let isDragging = false;
-  function handleTouchMove(e) {
-    if (!isDragging) return;
-    const touch = e.touches ? e.touches[0] : e;
-    const rect = comparisonBox.getBoundingClientRect();
-    if (rect.width <= 0) return;
-    const offsetX = touch.clientX - rect.left;
-    const percent = (offsetX / rect.width) * 100;
-    setSliderPosition(percent);
-  }
-
-  comparisonBox.addEventListener('touchstart', (e) => {
-    isDragging = true;
-    handleTouchMove(e);
-  }, { passive: true });
-
-  window.addEventListener('touchmove', handleTouchMove, { passive: true });
-  window.addEventListener('touchend', () => { isDragging = false; }, { passive: true });
-  window.addEventListener('touchcancel', () => { isDragging = false; }, { passive: true });
 }

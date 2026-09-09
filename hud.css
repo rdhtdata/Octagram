@@ -9,7 +9,7 @@
 .octagram-os-pill {
   position: fixed;
   bottom: 24px;
-  right: 24px;
+  left: 24px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -518,6 +518,19 @@ body.theme-light .telemetry-card {
 
 /* Mobile Responsive Optimizations for HUD Console */
 @media (max-width: 480px) {
+  .octagram-os-pill {
+    bottom: 16px;
+    left: 16px;
+    padding: 6px 12px;
+    gap: 6px;
+  }
+  .os-pill-label {
+    font-size: 0.65rem;
+  }
+  .os-pill-status {
+    font-size: 0.58rem;
+    padding: 1px 4px;
+  }
   #octagram-hud {
     width: 280px;
     max-height: 80vh;

@@ -3973,3 +3973,490 @@ body.theme-light .new-links {
   }
 }
 
+/* ==========================================================================
+   02 — WHY OCTAGRAM SECTION
+   Connected Ecosystem vs Conventional Agency
+   ========================================================================== */
+
+.why-octagram-section {
+  padding: 120px 5%;
+  position: relative;
+  background: radial-gradient(circle at 50% 10%, rgba(56, 189, 248, 0.04) 0%, transparent 60%);
+  border-top: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.why-octagram-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.why-octagram-header {
+  text-align: center;
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.why-title {
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  margin: 16px 0 20px;
+  color: #ffffff;
+}
+
+.why-title .highlight-text {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-indigo) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.why-subtitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+
+.why-description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Connected Digital Systems Flow Visualization */
+.systems-architecture-flow {
+  background: rgba(10, 25, 47, 0.45);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  border-radius: 16px;
+  padding: 28px 24px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: relative;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+.systems-flow-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow-x: auto;
+  padding: 8px 4px;
+}
+
+.system-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 14px 18px;
+  background: rgba(17, 48, 77, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  min-width: 140px;
+  transition: var(--transition-smooth);
+}
+
+.system-node:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.12);
+}
+
+.system-node.primary-node {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(79, 70, 229, 0.15));
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.15);
+}
+
+.node-badge {
+  font-family: monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.node-name {
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.node-sub {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.system-connector {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+  min-width: 32px;
+  height: 2px;
+  margin: 0 8px;
+}
+
+.connector-line {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(56, 189, 248, 0.2), rgba(56, 189, 248, 0.6), rgba(56, 189, 248, 0.2));
+}
+
+.connector-pulse {
+  position: absolute;
+  top: -3px;
+  width: 8px;
+  height: 8px;
+  background: var(--accent-blue);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent-blue);
+  animation: pulse-node-flow 2.4s infinite ease-in-out;
+}
+
+@keyframes pulse-node-flow {
+  0% { left: 0%; opacity: 0; }
+  30% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+/* Comparison Deck */
+.comparison-deck {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.comparison-col {
+  background: rgba(9, 23, 38, 0.45);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 36px 32px;
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.conventional-col {
+  border-color: rgba(239, 68, 68, 0.15);
+  background: rgba(15, 23, 42, 0.35);
+}
+
+.conventional-col .col-pill {
+  background: rgba(239, 68, 68, 0.1);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.octagram-col {
+  background: linear-gradient(180deg, rgba(17, 48, 77, 0.45) 0%, rgba(9, 23, 38, 0.65) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), 0 0 30px rgba(56, 189, 248, 0.08);
+}
+
+.octagram-col-badge {
+  position: absolute;
+  top: -12px;
+  right: 24px;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-indigo));
+  color: #06101c;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.comparison-col-header {
+  margin-bottom: 24px;
+}
+
+.col-pill {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.col-pill.active {
+  background: rgba(56, 189, 248, 0.12);
+  color: var(--accent-blue);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.col-title {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.lifecycle-flow {
+  font-size: 0.78rem;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+}
+
+.lifecycle-flow code {
+  font-family: monospace;
+  letter-spacing: 0.04em;
+}
+
+.lifecycle-flow.octagram-flow {
+  border-color: rgba(56, 189, 248, 0.25);
+  background: rgba(56, 189, 248, 0.05);
+  color: var(--accent-blue);
+}
+
+.comparison-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.comparison-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.comp-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 0.78rem;
+  font-weight: 900;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.comp-icon.cross {
+  background: rgba(239, 68, 68, 0.12);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.comp-icon.check {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.comparison-list li strong {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+
+.comparison-list li p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* 4 Differentiator Cards Grid */
+.differentiators-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.diff-card {
+  background: rgba(17, 48, 77, 0.3);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 24px 22px;
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.diff-card:hover {
+  border-color: rgba(56, 189, 248, 0.35);
+  background: rgba(17, 48, 77, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.diff-number {
+  font-family: monospace;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--accent-blue);
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+
+.diff-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.diff-desc {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Technical Mode Blueprint Badges */
+body.technical-mode section,
+body.technical-mode footer {
+  position: relative;
+}
+
+body.technical-mode .tech-blueprint-badge {
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  background: rgba(6, 16, 28, 0.92);
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  color: var(--accent-blue);
+  font-family: monospace;
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  border-radius: 4px;
+  z-index: 50;
+  letter-spacing: 0.08em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+body.technical-mode section:hover {
+  outline: 1px dashed rgba(56, 189, 248, 0.35);
+  outline-offset: -2px;
+}
+
+/* Responsive Media Queries for Why Octagram */
+@media (max-width: 1024px) {
+  .differentiators-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 868px) {
+  .why-octagram-section {
+    padding: 80px 5%;
+  }
+
+  .why-title {
+    font-size: 2.2rem;
+  }
+
+  .comparison-deck {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .systems-flow-track {
+    justify-content: flex-start;
+  }
+
+  .system-node {
+    min-width: 125px;
+    padding: 10px 14px;
+  }
+}
+
+@media (max-width: 540px) {
+  .why-title {
+    font-size: 1.85rem;
+  }
+
+  .why-subtitle {
+    font-size: 1.05rem;
+  }
+
+  .differentiators-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .comparison-col {
+    padding: 24px 20px;
+  }
+}
+
+/* Theme light overrides for Why Octagram */
+body.theme-light .why-octagram-section {
+  background: radial-gradient(circle at 50% 10%, rgba(79, 70, 229, 0.03) 0%, transparent 60%);
+}
+
+body.theme-light .why-title,
+body.theme-light .col-title,
+body.theme-light .node-name,
+body.theme-light .diff-title {
+  color: #0f172a;
+}
+
+body.theme-light .systems-architecture-flow {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(79, 70, 229, 0.15);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+body.theme-light .system-node {
+  background: #f8fafc;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+body.theme-light .system-node.primary-node {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(56, 189, 248, 0.08));
+  border-color: rgba(79, 70, 229, 0.3);
+}
+
+body.theme-light .comparison-col {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+body.theme-light .octagram-col {
+  background: #ffffff;
+  border-color: rgba(79, 70, 229, 0.25);
+  box-shadow: 0 12px 32px rgba(79, 70, 229, 0.08);
+}
+
+body.theme-light .diff-card {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+

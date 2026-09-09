@@ -663,93 +663,101 @@ function setupFaqAccordion() {
 }
 
 /**
- * HUD Showcase Controller (DOM Inspector, Live Theme Switcher, Performance Telemetry).
- * Handles floating panel layouts, syntax highlight code injections, screen-wide
- * laser transition sweeps, and performance timing counters.
+ * Octagram OS Dashboard & Telemetry Console Controller.
+ * Controls the subtle corner status pill, modal console drawer,
+ * genuine runtime telemetry calculations, theme switcher,
+ * and optional Technical Mode blueprint overlays.
  */
 function initHudDashboard() {
-  const hud = document.getElementById('octagram-hud');
-  if (!hud) return;
+  const triggerPill = document.getElementById('octagram-os-trigger');
+  const modalOverlay = document.getElementById('octagram-hud-modal');
+  const closeBtn = document.getElementById('hud-modal-close');
+  if (!triggerPill || !modalOverlay) return;
 
-  const header = document.getElementById('hud-header');
-  const toggleBtn = document.getElementById('hud-toggle-btn');
-  const inspectBtn = document.getElementById('hud-inspect-btn');
-  const codeBox = document.getElementById('hud-code-box');
-  const recalcBtn = document.getElementById('telemetry-recalc-btn');
+  const latencyVal = document.getElementById('telemetry-latency');
+  const networkVal = document.getElementById('telemetry-network');
+  const viewportVal = document.getElementById('telemetry-viewport');
+  const sectionVal = document.getElementById('telemetry-section');
+  const techCheckbox = document.getElementById('tech-mode-checkbox');
 
-  const handle = document.getElementById('hud-handle');
-
-  // Minimize/expand HUD horizontally
-  const toggleHud = () => {
-    hud.classList.toggle('minimized');
-    const isMinimized = hud.classList.contains('minimized');
-    
-    if (toggleBtn) {
-      toggleBtn.innerText = isMinimized ? '[ Expand ]' : '[ Collapse ]';
-    }
-    
-    if (handle) {
-      const arrow = handle.querySelector('.hud-handle-arrow');
-      if (arrow) {
-        arrow.innerText = isMinimized ? '<' : '>';
-      }
-    }
+  // Open / Close Modal Drawer
+  const openModal = () => {
+    modalOverlay.classList.add('active');
+    modalOverlay.setAttribute('aria-hidden', 'false');
+    updateLiveTelemetry();
   };
-  
-  if (handle) handle.addEventListener('click', toggleHud);
-  if (header) header.addEventListener('click', toggleHud);
 
-  // 1. Performance Telemetry Calculation
-  function calculateTelemetry(isRecalc = false) {
-    const latencyVal = document.getElementById('telemetry-latency');
-    const edgeVal = document.getElementById('telemetry-edge');
-    
-    if (isRecalc) {
-      if (latencyVal) latencyVal.innerText = '--';
-      if (edgeVal) edgeVal.innerText = 'Pinging...';
-      
-      setTimeout(() => {
-        const loadTime = Math.round(performance.now() + Math.random() * 15);
-        if (latencyVal) latencyVal.innerHTML = `${loadTime}<span> ms</span>`;
-        
-        const nodes = ['IAD-Edge-01 (N. Virginia)', 'SFO-Edge-03 (San Francisco)', 'LHR-Edge-02 (London)', 'SIN-Edge-04 (Singapore)', 'ORD-Edge-02 (Chicago)'];
-        const randomNode = nodes[Math.floor(Math.random() * nodes.length)];
-        if (edgeVal) edgeVal.innerText = randomNode;
-      }, 600);
-    } else {
-      const loadTime = Math.max(10, Math.round(performance.now()));
-      if (latencyVal) latencyVal.innerHTML = `${loadTime}<span> ms</span>`;
-      
-      const nodes = ['IAD-Edge-01 (N. Virginia)', 'SFO-Edge-03 (San Francisco)', 'LHR-Edge-02 (London)', 'SIN-Edge-04 (Singapore)', 'ORD-Edge-02 (Chicago)'];
-      const randomNode = nodes[Math.floor(Math.random() * nodes.length)];
-      if (edgeVal) edgeVal.innerText = randomNode;
+  const closeModal = () => {
+    modalOverlay.classList.remove('active');
+    modalOverlay.setAttribute('aria-hidden', 'true');
+  };
+
+  triggerPill.addEventListener('click', openModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+  // Close on backdrop click
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) closeModal();
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
+  // 1. Live Genuine Telemetry Update
+  function updateLiveTelemetry() {
+    if (latencyVal) {
+      const loadTime = Math.max(8, Math.round(performance.now()));
+      latencyVal.innerHTML = `${loadTime}<span> ms</span>`;
+    }
+
+    if (networkVal) {
+      networkVal.textContent = navigator.onLine ? 'ONLINE' : 'OFFLINE';
+      networkVal.className = `m-value m-status ${navigator.onLine ? '' : 'm-offline'}`;
+    }
+
+    if (viewportVal) {
+      viewportVal.textContent = `${window.innerWidth} × ${window.innerHeight}px`;
     }
   }
 
-  // Load telemetry metrics
-  calculateTelemetry(false);
-  recalcBtn.addEventListener('click', () => calculateTelemetry(true));
+  window.addEventListener('resize', () => {
+    if (viewportVal && modalOverlay.classList.contains('active')) {
+      viewportVal.textContent = `${window.innerWidth} × ${window.innerHeight}px`;
+    }
+  });
 
-  // 2. Theme Switching Logic
-  const themeBtns = document.querySelectorAll('.hud-theme-btn');
+  // 2. Active Section Observer for Telemetry
+  const allSections = document.querySelectorAll('section, footer');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id ? `#${entry.target.id.toUpperCase()}` : entry.target.tagName;
+        if (sectionVal) sectionVal.textContent = id;
+      }
+    });
+  }, { threshold: 0.3 });
+
+  allSections.forEach(sec => sectionObserver.observe(sec));
+
+  // 3. Theme Switching Logic
+  const themeBtns = document.querySelectorAll('.hud-theme-pill');
   themeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const theme = btn.getAttribute('data-theme');
-      
-      // Toggle active states on buttons
       themeBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
-      // Trigger Screen laser sweep line
       document.body.classList.add('theme-sweeping');
-      
       setTimeout(() => {
-        // Apply target stylesheet class to HTML root
         document.documentElement.className = '';
         if (theme !== 'dark') {
           document.documentElement.classList.add(`theme-${theme}`);
         }
-      }, 250); // Mid-sweep color transformation
+      }, 250);
 
       setTimeout(() => {
         document.body.classList.remove('theme-sweeping');
@@ -757,101 +765,38 @@ function initHudDashboard() {
     });
   });
 
-  // 3. DOM Inspector Mode
-  let isInspectMode = false;
-  const inspectableSections = document.querySelectorAll('section, footer');
-  
-  const sectionSnippets = {
-    'home': `<span class="syn-com">&lt;!-- 01 HERO SECTION --&gt;</span>\n<span class="syn-tag">&lt;section</span> <span class="syn-attr">id</span>=<span class="syn-val">"home"</span> <span class="syn-attr">class</span>=<span class="syn-val">"compiled"</span><span class="syn-tag">&gt;</span>\n  <span class="syn-tag">&lt;h1&gt;</span>\n    We build<span class="syn-tag">&lt;br&gt;</span>\n    <span class="syn-tag">&lt;span&gt;</span>the web<span class="syn-tag">&lt;/span&gt;</span>.<span class="syn-tag">&lt;br&gt;</span>\n    You build<span class="syn-tag">&lt;br&gt;</span>\n    <span class="syn-tag">&lt;span&gt;</span>the business<span class="syn-tag">&lt;/span&gt;</span>.\n  <span class="syn-tag">&lt;/h1&gt;</span>\n<span class="syn-tag">&lt;/section&gt;</span>`,
-
-    'services': `<span class="syn-com">&lt;!-- 02 CAPABILITIES SECTION --&gt;</span>\n<span class="syn-tag">&lt;section</span> <span class="syn-attr">id</span>=<span class="syn-val">"services"</span> <span class="syn-attr">class</span>=<span class="syn-val">"compiled"</span><span class="syn-tag">&gt;</span>\n  <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"services-grid"</span><span class="syn-tag">&gt;</span>\n    <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"service-card"</span><span class="syn-tag">&gt;</span>\n      <span class="syn-tag">&lt;h3&gt;</span>Website Creation<span class="syn-tag">&lt;/h3&gt;</span>\n      <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"service-demo-panel"</span><span class="syn-tag">&gt;</span>...<span class="syn-tag">&lt;/div&gt;</span>\n    <span class="syn-tag">&lt;/div&gt;</span>\n  <span class="syn-tag">&lt;/div&gt;</span>\n<span class="syn-tag">&lt;/section&gt;</span>`,
-
-    'showcase': `<span class="syn-com">&lt;!-- 02.5 INTERACTIVE SHOWCASE SECTION --&gt;</span>\n<span class="syn-tag">&lt;section</span> <span class="syn-attr">id</span>=<span class="syn-val">"showcase"</span> <span class="syn-attr">class</span>=<span class="syn-val">"compiled"</span><span class="syn-tag">&gt;</span>\n  <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"slider-comparison-box"</span><span class="syn-tag">&gt;</span>\n    <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"old-website-view"</span><span class="syn-tag">&gt;</span>...<span class="syn-tag">&lt;/div&gt;</span>\n    <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"new-website-view"</span><span class="syn-tag">&gt;</span>...<span class="syn-tag">&lt;/div&gt;</span>\n  <span class="syn-tag">&lt;/div&gt;</span>\n<span class="syn-tag">&lt;/section&gt;</span>`,
-
-    'process': `<span class="syn-com">&lt;!-- 03 SCROLL METHODOLOGY SECTION --&gt;</span>\n<span class="syn-tag">&lt;section</span> <span class="syn-attr">id</span>=<span class="syn-val">"process"</span> <span class="syn-attr">class</span>=<span class="syn-val">"process-scroll-section"</span><span class="syn-tag">&gt;</span>\n  <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"process-sticky-wrapper"</span><span class="syn-tag">&gt;</span>\n    <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"evolving-website state-5"</span><span class="syn-tag">&gt;</span>\n      <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"browser-content-canvas"</span><span class="syn-tag">&gt;</span>...<span class="syn-tag">&lt;/div&gt;</span>\n    <span class="syn-tag">&lt;/div&gt;</span>\n  <span class="syn-tag">&lt;/div&gt;</span>\n<span class="syn-tag">&lt;/section&gt;</span>`,
-
-    'before-we-build': `<span class="syn-com">&lt;!-- 04 OBJECTION ACCORDION SECTION --&gt;</span>\n<span class="syn-tag">&lt;section</span> <span class="syn-attr">id</span>=<span class="syn-val">"before-we-build"</span> <span class="syn-attr">class</span>=<span class="syn-val">"compiled"</span><span class="syn-tag">&gt;</span>\n  <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"faq-container"</span><span class="syn-tag">&gt;</span>\n    <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"faq-accordion"</span><span class="syn-tag">&gt;</span>\n      <span class="syn-tag">&lt;button</span> <span class="syn-attr">aria-expanded</span>=<span class="syn-val">"false"</span><span class="syn-tag">&gt;</span>01 What exactly...<span class="syn-tag">&lt;/button&gt;</span>\n    <span class="syn-tag">&lt;/div&gt;</span>\n  <span class="syn-tag">&lt;/div&gt;</span>\n<span class="syn-tag">&lt;/section&gt;</span>`,
-
-    'contact': `<span class="syn-com">&lt;!-- 05 CONTACT FORM SECTION --&gt;</span>\n<span class="syn-tag">&lt;section</span> <span class="syn-attr">id</span>=<span class="syn-val">"contact"</span> <span class="syn-attr">class</span>=<span class="syn-val">"compiled"</span><span class="syn-tag">&gt;</span>\n  <span class="syn-tag">&lt;form</span> <span class="syn-attr">class</span>=<span class="syn-val">"contact-form"</span><span class="syn-tag">&gt;</span>\n    <span class="syn-tag">&lt;input</span> <span class="syn-attr">type</span>=<span class="syn-val">"email"</span> <span class="syn-attr">required</span> <span class="syn-tag">/&gt;</span>\n    <span class="syn-tag">&lt;button</span> <span class="syn-attr">type</span>=<span class="syn-val">"submit"</span><span class="syn-tag">&gt;</span>Submit Inquiry<span class="syn-tag">&lt;/button&gt;</span>\n  <span class="syn-tag">&lt;/form&gt;</span>\n<span class="syn-tag">&lt;/section&gt;</span>`,
-
-    'footer': `<span class="syn-com">&lt;!-- 06 SYSTEM FOOTER --&gt;</span>\n<span class="syn-tag">&lt;footer&gt;</span>\n  <span class="syn-tag">&lt;div</span> <span class="syn-attr">class</span>=<span class="syn-val">"footer-content"</span><span class="syn-tag">&gt;</span>\n    <span class="syn-tag">&lt;span</span> <span class="syn-attr">class</span>=<span class="syn-val">"copyright"</span><span class="syn-tag">&gt;</span>&copy; 2026 Octagram Inc.<span class="syn-tag">&lt;/span&gt;</span>\n  <span class="syn-tag">&lt;/div&gt;</span>\n<span class="syn-tag">&lt;/footer&gt;</span>`
+  // 4. Technical Mode Blueprint Overlay
+  const blueprintBadges = {
+    'home': 'SECTION: #home | COMPONENT: HeroDisplay | ARCH: Semantic2026',
+    'services': 'SECTION: #services | COMPONENT: CapabilitiesGrid | ARCH: 3DParallax',
+    'why-octagram': 'SECTION: #why-octagram | COMPONENT: SystemsArchitecture | ARCH: ConnectedEcosystem',
+    'showcase': 'SECTION: #showcase | COMPONENT: BeforeAfterSlider | ARCH: MaskedDualViewport',
+    'process': 'SECTION: #process | COMPONENT: ScrollMethodology | ARCH: StickyTimeline',
+    'before-we-build': 'SECTION: #before-we-build | COMPONENT: ObjectionDeck | ARCH: DynamicHeightAccordion',
+    'contact': 'SECTION: #contact | COMPONENT: PlatformConfigurator | ARCH: ProgressiveDisclosure',
+    'footer': 'TAG: &lt;footer&gt; | COMPONENT: SystemFooter | ARCH: SemanticEdge'
   };
 
-  inspectBtn.addEventListener('click', () => {
-    isInspectMode = !isInspectMode;
-    inspectBtn.classList.toggle('active');
-
-    if (isInspectMode) {
-      codeBox.classList.add('visible');
-      codeBox.innerHTML = 'Hover over any section to inspect DOM...';
-      
-      // Bind hover events to sections
-      inspectableSections.forEach(section => {
-        section.addEventListener('mouseenter', handleSectionEnter);
-        section.addEventListener('mouseleave', handleSectionLeave);
-      });
-    } else {
-      codeBox.classList.remove('visible');
-      
-      // Cleanup inspect overlays
-      inspectableSections.forEach(section => {
-        section.classList.remove('inspect-target-hover');
-        section.removeEventListener('mouseenter', handleSectionEnter);
-        section.removeEventListener('mouseleave', handleSectionLeave);
-        const overlay = section.querySelector('.inspect-label-overlay');
-        if (overlay) overlay.remove();
-      });
+  // Pre-inject blueprint badges once into sections
+  allSections.forEach(section => {
+    const key = section.id || section.tagName.toLowerCase();
+    if (blueprintBadges[key] && !section.querySelector('.tech-blueprint-badge')) {
+      const badge = document.createElement('div');
+      badge.className = 'tech-blueprint-badge';
+      badge.innerHTML = blueprintBadges[key];
+      section.appendChild(badge);
     }
   });
 
-  function handleSectionEnter(e) {
-    if (!isInspectMode) return;
-    const target = e.currentTarget;
-    target.classList.add('inspect-target-hover');
-
-    // Create indicator overlay tag showing DOM ID and dimensions
-    const rect = target.getBoundingClientRect();
-    const cleanTag = escapeHTML(target.tagName.toLowerCase());
-    const idName = escapeHTML(target.id || target.tagName.toLowerCase());
-    
-    // Remove existing overlay first
-    const oldOverlay = target.querySelector('.inspect-label-overlay');
-    if (oldOverlay) oldOverlay.remove();
-
-    const overlay = document.createElement('span');
-    overlay.className = 'inspect-label-overlay';
-    overlay.textContent = `${cleanTag}#${idName} [${Math.round(rect.width)}px × ${Math.round(rect.height)}px]`;
-    target.appendChild(overlay);
-
-    // Swap snippet inside HUD code container
-    const snippetKey = target.id || target.tagName.toLowerCase();
-    if (sectionSnippets[snippetKey]) {
-      codeBox.innerHTML = sectionSnippets[snippetKey];
-    } else {
-      codeBox.innerHTML = `<span class="syn-tag">&lt;${cleanTag}</span> <span class="syn-attr">id</span>=<span class="syn-val">"${idName}"</span><span class="syn-tag">&gt;</span>...<span class="syn-tag">&lt;/${cleanTag}&gt;</span>`;
-    }
+  if (techCheckbox) {
+    techCheckbox.addEventListener('change', (e) => {
+      if (e.target.checked) {
+        document.body.classList.add('technical-mode');
+      } else {
+        document.body.classList.remove('technical-mode');
+      }
+    });
   }
-
-  function handleSectionLeave(e) {
-    const target = e.currentTarget;
-    target.classList.remove('inspect-target-hover');
-    const overlay = target.querySelector('.inspect-label-overlay');
-    if (overlay) overlay.remove();
-  }
-}
-
-/**
- * Escapes HTML characters to prevent XSS injection.
- */
-function escapeHTML(str) {
-  if (typeof str !== 'string') return '';
-  return str.replace(/[&<>'"]/g, tag => ({
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    "'": '&#39;',
-    '"': '&quot;'
-  }[tag] || tag));
 }
 
 /**

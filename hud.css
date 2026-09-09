@@ -430,6 +430,13 @@ body.theme-light header.scrolled {
   box-shadow: 0 4px 20px rgba(9, 23, 38, 0.04);
 }
 
+body.theme-light .header-social-link,
+body.theme-light .social-icon-link {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #475569;
+}
+
 body.theme-light #nav-menu {
   background: #ffffff;
 }

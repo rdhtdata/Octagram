@@ -1196,7 +1196,7 @@ section {
   margin: 0;
   padding: 0 !important;
   max-width: none !important;
-  background: var(--bg-primary);
+  background: transparent;
   display: block !important; /* Disable parent flex centering to prevent huge scroll gaps */
 }
 
@@ -2243,7 +2243,7 @@ footer {
 /* Before We Build Section styling */
 .before-we-build-section {
   position: relative;
-  background: var(--bg-primary);
+  background: transparent;
   border-top: 1px solid var(--border-color);
   min-height: auto;
   padding: 120px 5% 100px !important;
@@ -2775,7 +2775,7 @@ body.theme-light .config-next-btn:hover {
 /* --- Interactive Before-After Slider Showcase --- */
 .showcase-section {
   padding: 100px 5%;
-  background: var(--bg-primary);
+  background: transparent;
   border-top: 1px solid var(--border-color);
   position: relative;
 }

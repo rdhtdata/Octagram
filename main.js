@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 6. Interactive Cursor Attraction (Gravity Field)
   setupGravityField();
 
-  // 7. Interactive Scroll-Driven Process Timeline
-  initProcessScrollTimeline();
+  // 7. Interactive Digital Build Pipeline (Octagram Methodology)
+  initMethodologyPipeline();
 
   // 8. Before We Build FAQ Accordion
   setupFaqAccordion();
@@ -467,124 +467,89 @@ function setupGravityField() {
 }
 
 /**
- * Scroll and Stage Coordinator for the Cinematic Process Timeline.
- * Tracks screen depth and dynamically sets CSS variable triggers, text indicators,
- * and evolving website layout state frames.
+ * Interactive Stage & Progression Coordinator for Octagram Methodology
+ * Uses lightweight IntersectionObserver to activate stages and illuminate the pipeline spine
+ * without hijacking scroll, trapping touch gestures, or degrading performance.
  */
-function initProcessScrollTimeline() {
-  const section = document.querySelector('.process-scroll-section');
+function initMethodologyPipeline() {
+  const section = document.querySelector('.methodology-pipeline-section');
   if (!section) return;
 
-  const bgText = document.getElementById('process-bg-text');
-  const website = document.getElementById('evolving-website');
-  
-  const stageIndicators = document.querySelectorAll('.stage-indicator-item');
-  const stageDescs = document.querySelectorAll('.stage-desc-item');
+  const stages = Array.from(section.querySelectorAll('.pipeline-stage'));
+  const spineGlow = section.querySelector('.pipeline-spine-glow');
 
-  const stageNames = ['DISCOVER', 'DESIGN', 'BUILD', 'CONNECT', 'GROW'];
+  if (!stages.length) return;
 
-  function updateTimeline() {
-    // Respect prefers-reduced-motion
-    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (motionQuery.matches) {
-      if (website) website.className = 'evolving-website state-5 converged';
-      return;
-    }
+  // Track active stage with IntersectionObserver
+  let currentActiveStageIndex = 0;
 
-    const rect = section.getBoundingClientRect();
-    const sectionHeight = rect.height;
-    const viewportHeight = window.innerHeight;
+  const ribbonSteps = Array.from(section.querySelectorAll('.ribbon-step'));
 
-    // Scroll metrics bounds
-    const topOffset = rect.top;
-    const scrollRange = sectionHeight - viewportHeight;
-    
-    let p = -topOffset / scrollRange;
-    p = Math.max(0, Math.min(1, p));
+  function updateSpineAndStages(activeIndex) {
+    currentActiveStageIndex = activeIndex;
 
-    section.style.setProperty('--process-progress', p);
-
-    // Phase 1: 0.0 -> 0.2 (Discover)
-    let p1 = p / 0.2;
-    p1 = Math.max(0, Math.min(1, p1));
-    section.style.setProperty('--phase-1-progress', p1);
-
-    // Phase 2: 0.2 -> 0.4 (Design)
-    let p2 = (p - 0.2) / 0.2;
-    p2 = Math.max(0, Math.min(1, p2));
-    section.style.setProperty('--phase-2-progress', p2);
-
-    // Phase 3: 0.4 -> 0.6 (Build)
-    let p3 = (p - 0.4) / 0.2;
-    p3 = Math.max(0, Math.min(1, p3));
-    section.style.setProperty('--phase-3-progress', p3);
-
-    // Phase 4: 0.6 -> 0.8 (Connect)
-    let p4 = (p - 0.6) / 0.2;
-    p4 = Math.max(0, Math.min(1, p4));
-    section.style.setProperty('--phase-4-progress', p4);
-
-    // Phase 5: 0.8 -> 1.0 (Grow)
-    let p5 = (p - 0.8) / 0.2;
-    p5 = Math.max(0, Math.min(1, p5));
-    section.style.setProperty('--phase-5-progress', p5);
-
-    // Find the active index phase
-    let activeIndex = 0;
-    if (p >= 0.8) {
-      activeIndex = 4;
-    } else if (p >= 0.6) {
-      activeIndex = 3;
-    } else if (p >= 0.4) {
-      activeIndex = 2;
-    } else if (p >= 0.2) {
-      activeIndex = 1;
-    } else {
-      activeIndex = 0;
-    }
-
-    // Parallax update background label
-    if (bgText) {
-      bgText.innerText = stageNames[activeIndex];
-      const midPoint = activeIndex * 0.2 + 0.1;
-      bgText.style.opacity = Math.max(0.003, 0.015 - Math.abs(p - midPoint) * 0.05);
-      bgText.style.transform = `translateX(${(p - (activeIndex * 0.2)) * -80}px)`;
-    }
-
-    // Update Evolving Website state classes
-    if (website) {
-      website.className = `evolving-website state-${activeIndex + 1}`;
-      if (p >= 0.95) {
-        website.classList.add('converged');
+    stages.forEach((stage, idx) => {
+      if (idx === activeIndex) {
+        stage.classList.add('is-active');
+        stage.classList.remove('is-passed');
+      } else if (idx < activeIndex) {
+        stage.classList.add('is-passed');
+        stage.classList.remove('is-active');
       } else {
-        website.classList.remove('converged');
-      }
-    }
-
-    // Toggle Left indicators
-    stageIndicators.forEach((ind, index) => {
-      if (index === activeIndex) {
-        ind.className = 'stage-indicator-item active';
-      } else if (index < activeIndex) {
-        ind.className = 'stage-indicator-item completed';
-      } else {
-        ind.className = 'stage-indicator-item';
+        stage.classList.remove('is-active', 'is-passed');
       }
     });
 
-    // Toggle Left Stage descriptions
-    stageDescs.forEach((desc, index) => {
-      if (index === activeIndex) {
-        desc.classList.add('active');
+    ribbonSteps.forEach((step, idx) => {
+      if (idx === activeIndex) {
+        step.classList.add('is-active-step');
       } else {
-        desc.classList.remove('active');
+        step.classList.remove('is-active-step');
       }
     });
+
+    if (spineGlow) {
+      // Calculate continuous progress percentage along the 5 stages
+      const progressPercent = Math.min(100, Math.max(10, ((activeIndex + 1) / stages.length) * 100));
+      spineGlow.style.height = `${progressPercent}%`;
+    }
   }
 
-  window.addEventListener('scroll', updateTimeline, { passive: true });
-  window.addEventListener('resize', updateTimeline);
-  updateTimeline();
+  // Set default initial state (Stage 1 active)
+  updateSpineAndStages(0);
+
+  // Click ribbon step to smooth scroll to stage
+  ribbonSteps.forEach((step, idx) => {
+    step.style.cursor = 'pointer';
+    step.addEventListener('click', () => {
+      if (stages[idx]) {
+        stages[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  });
+
+  // Respect prefers-reduced-motion
+  const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!motionQuery.matches && 'IntersectionObserver' in window) {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-15% 0px -25% 0px',
+      threshold: [0.15, 0.4, 0.7]
+    };
+
+    const stageObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const stageIndex = stages.indexOf(entry.target);
+          if (stageIndex !== -1) {
+            updateSpineAndStages(stageIndex);
+          }
+        }
+      });
+    }, observerOptions);
+
+    stages.forEach((stage) => stageObserver.observe(stage));
+  }
 }
 
 /**

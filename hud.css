@@ -341,12 +341,14 @@ body.theme-light {
 }
 
 /* Light Mode Overrides for Specific Components */
-body.theme-light header {
+body.theme-light header.site-header,
+body.theme-light body > header {
   background: rgba(246, 248, 250, 0.85);
   border-color: rgba(9, 23, 38, 0.05);
 }
 
-body.theme-light header.scrolled {
+body.theme-light header.site-header.scrolled,
+body.theme-light body > header.scrolled {
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 4px 20px rgba(9, 23, 38, 0.04);
 }
@@ -386,50 +388,45 @@ body.theme-light .service-card:hover .service-demo-panel {
   box-shadow: 0 12px 30px rgba(79, 70, 229, 0.08);
 }
 
-body.theme-light .process-sticky-wrapper {
-  background: radial-gradient(circle at 75% 50%, rgba(79, 70, 229, 0.04) 0%, transparent 60%);
+body.theme-light .methodology-pipeline-section {
+  background: radial-gradient(circle at 50% 15%, rgba(79, 70, 229, 0.04) 0%, transparent 60%);
+  border-color: rgba(9, 23, 38, 0.08);
 }
 
-body.theme-light .evolving-website {
-  background: #ffffff;
+body.theme-light .stage-visual-card {
+  background: rgba(255, 255, 255, 0.95);
   border-color: rgba(9, 23, 38, 0.1);
-  box-shadow: 0 20px 40px rgba(9, 23, 38, 0.06);
+  box-shadow: 0 15px 35px rgba(9, 23, 38, 0.06);
 }
 
-body.theme-light .browser-bar {
-  background: #f1f3f5;
-  border-color: rgba(9, 23, 38, 0.05);
+body.theme-light .visual-card-header,
+body.theme-light .visual-card-footer {
+  background: #f8fafc;
+  border-color: rgba(9, 23, 38, 0.06);
 }
 
-body.theme-light .browser-address {
-  color: var(--text-muted);
+body.theme-light .stage-node-point {
+  background: #ffffff;
+  border-color: rgba(9, 23, 38, 0.15);
+  box-shadow: 0 0 0 6px #f1f5f9, 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-body.theme-light .stage-dot-line {
-  background: rgba(9, 23, 38, 0.05);
+body.theme-light .pipeline-concept-ribbon,
+body.theme-light .stage-deliverables-block {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(9, 23, 38, 0.08);
 }
 
-body.theme-light .stage-descriptions-container {
-  border-color: rgba(9, 23, 38, 0.05);
+body.theme-light .deliv-chip {
+  background: rgba(9, 23, 38, 0.04);
+  border-color: rgba(9, 23, 38, 0.08);
+  color: var(--text-secondary);
 }
 
-body.theme-light .final-convergence-card {
-  background: rgba(255, 255, 255, 0.98);
-}
-
-body.theme-light .build-align-lines .align-line {
-  background: rgba(79, 70, 229, 0.15);
-}
-
-body.theme-light .stage-visual-build .build-element {
-  background: rgba(9, 23, 38, 0.015);
-  border-color: rgba(9, 23, 38, 0.04);
-}
-
-body.theme-light .stage-visual-connect .live-user-feed,
-body.theme-light .stage-visual-connect .live-stock-count,
-body.theme-light .stage-visual-connect .live-analytics-metric {
-  background: rgba(9, 23, 38, 0.01);
+body.theme-light .pipeline-stage.is-active .deliv-chip {
+  background: rgba(79, 70, 229, 0.08);
+  border-color: rgba(79, 70, 229, 0.25);
+  color: var(--text-primary);
 }
 
 body.theme-light .integration-system-nodes .system-node {

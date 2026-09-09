@@ -4,13 +4,22 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Header Scroll Indicator
+  // 1. Header Scroll Indicator & CTA triggers
   const header = document.querySelector('header');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
+    }
+  });
+
+  const navCta = document.getElementById('nav-cta-mobile');
+  const headerCta = document.getElementById('header-cta-desktop');
+  const contactSection = document.getElementById('contact');
+  [navCta, headerCta].forEach(btn => {
+    if (btn && contactSection) {
+      btn.addEventListener('click', () => contactSection.scrollIntoView({ behavior: 'smooth' }));
     }
   });
 
@@ -818,7 +827,8 @@ function initHudDashboard() {
 
     // Create indicator overlay tag showing DOM ID and dimensions
     const rect = target.getBoundingClientRect();
-    const idName = target.id || target.tagName.toLowerCase();
+    const cleanTag = escapeHTML(target.tagName.toLowerCase());
+    const idName = escapeHTML(target.id || target.tagName.toLowerCase());
     
     // Remove existing overlay first
     const oldOverlay = target.querySelector('.inspect-label-overlay');
@@ -826,7 +836,7 @@ function initHudDashboard() {
 
     const overlay = document.createElement('span');
     overlay.className = 'inspect-label-overlay';
-    overlay.innerText = `${target.tagName.toLowerCase()}#${idName} [${Math.round(rect.width)}px × ${Math.round(rect.height)}px]`;
+    overlay.textContent = `${cleanTag}#${idName} [${Math.round(rect.width)}px × ${Math.round(rect.height)}px]`;
     target.appendChild(overlay);
 
     // Swap snippet inside HUD code container
@@ -834,7 +844,7 @@ function initHudDashboard() {
     if (sectionSnippets[snippetKey]) {
       codeBox.innerHTML = sectionSnippets[snippetKey];
     } else {
-      codeBox.innerHTML = `<span class="syn-tag">&lt;${target.tagName.toLowerCase()}</span> <span class="syn-attr">id</span>=<span class="syn-val">"${idName}"</span><span class="syn-tag">&gt;</span>...<span class="syn-tag">&lt;/${target.tagName.toLowerCase()}&gt;</span>`;
+      codeBox.innerHTML = `<span class="syn-tag">&lt;${cleanTag}</span> <span class="syn-attr">id</span>=<span class="syn-val">"${idName}"</span><span class="syn-tag">&gt;</span>...<span class="syn-tag">&lt;/${cleanTag}&gt;</span>`;
     }
   }
 
@@ -844,6 +854,20 @@ function initHudDashboard() {
     const overlay = target.querySelector('.inspect-label-overlay');
     if (overlay) overlay.remove();
   }
+}
+
+/**
+ * Escapes HTML characters to prevent XSS injection.
+ */
+function escapeHTML(str) {
+  if (typeof str !== 'string') return '';
+  return str.replace(/[&<>'"]/g, tag => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    "'": '&#39;',
+    '"': '&quot;'
+  }[tag] || tag));
 }
 
 /**

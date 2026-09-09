@@ -1,5 +1,5 @@
 # ==============================================================================
-# OCTAGRAM SECURITY & PERFORMANCE CONFIGURATION (HOSTINGER / APACHE / LITESPEED)
+# OCTAGRAM HARDENED SECURITY CONFIGURATION (HOSTINGER / APACHE / LITESPEED)
 # ==============================================================================
 
 # 1. FORCE HTTPS
@@ -9,17 +9,31 @@
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 
-# 2. PREVENT DIRECTORY BROWSING & HIDE SERVER SIGNATURE
+# 2. RESTRICT HTTP METHODS (Only permit safe read/submit operations)
+<LimitExcept GET POST HEAD OPTIONS>
+  Require all denied
+</LimitExcept>
+
+# 3. PREVENT DIRECTORY BROWSING & HIDE SERVER SIGNATURES
 Options -Indexes
 ServerSignature Off
 
-# 3. BLOCK ACCESS TO HIDDEN AND SENSITIVE FILES (.git, .env, .DS_Store, etc.)
+# 4. BLOCK ACCESS TO HIDDEN AND SENSITIVE SYSTEM FILES
 <IfModule mod_rewrite.c>
   RewriteRule "(^|/)\.(?!well-known)" - [F]
+  
+  # Block common scanner probes and sensitive file extension requests
+  RewriteCond %{REQUEST_URI} \.(git|env|sql|bak|config|json|md|log|ini|yml|yaml|pem|key|crt)$ [NC,OR]
+  RewriteCond %{REQUEST_URI} (wp-login|xmlrpc|phpmyadmin|eval-stdin|setup\.php) [NC]
+  RewriteRule .* - [F,L]
 </IfModule>
 
-# 4. ENTERPRISE HTTP SECURITY HEADERS
+# 5. ENTERPRISE HTTP SECURITY HEADERS & BANNER MASKING
 <IfModule mod_headers.c>
+  # Unset server fingerprinting headers
+  Header unset Server
+  Header unset X-Powered-By
+
   # Protect against MIME-type sniffing
   Header always set X-Content-Type-Options "nosniff"
 
@@ -38,16 +52,16 @@ ServerSignature Off
   # Enforce HTTPS using HSTS (1 year + subdomains)
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 
-  # Content Security Policy (Allow self assets + Google Fonts + inline styles/scripts used by theme compiler)
+  # Content Security Policy
   Header always set Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; connect-src 'self';"
 </IfModule>
 
-# 5. GZIP COMPRESSION
+# 6. GZIP / BROTLI COMPRESSION
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml
 </IfModule>
 
-# 6. BROWSER CACHING FOR STATIC ASSETS
+# 7. BROWSER CACHING FOR STATIC ASSETS
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType image/svg+xml "access plus 1 month"

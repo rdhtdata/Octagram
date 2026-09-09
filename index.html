@@ -68,9 +68,9 @@
       <a href="#services">Services</a>
       <a href="#process">Process</a>
       <a href="#contact">Contact</a>
-      <button class="nav-cta-mobile" onclick="document.getElementById('contact').scrollIntoView();">Get Started</button>
+      <button class="nav-cta-mobile" id="nav-cta-mobile">Get Started</button>
     </nav>
-    <button class="cta-button header-cta-desktop" onclick="document.getElementById('contact').scrollIntoView();">Get Started</button>
+    <button class="cta-button header-cta-desktop" id="header-cta-desktop">Get Started</button>
     
     <!-- Mobile Hamburger Toggle -->
     <div class="menu-toggle" id="mobile-menu-toggle">
@@ -777,17 +777,17 @@
           <div class="final-details-drawer" id="final-details-drawer">
             <div class="form-group">
               <label for="client-name">Your Name</label>
-              <input type="text" id="client-name" class="form-input" placeholder="Alex Rivers" autocomplete="name">
+              <input type="text" id="client-name" class="form-input" placeholder="Alex Rivers" autocomplete="name" maxlength="100" required>
             </div>
             
             <div class="form-group">
               <label for="client-email">Email Address</label>
-              <input type="email" id="client-email" class="form-input" placeholder="alex@company.com" autocomplete="email">
+              <input type="email" id="client-email" class="form-input" placeholder="alex@company.com" autocomplete="email" maxlength="120" required>
             </div>
 
             <div class="form-group" style="margin-bottom: 30px;">
               <label for="client-message">Integration Requirements / Project Details</label>
-              <textarea id="client-message" class="form-textarea" placeholder="Tell us about your business, software tools, or integration needs..."></textarea>
+              <textarea id="client-message" class="form-textarea" placeholder="Tell us about your business, software tools, or integration needs..." maxlength="2000"></textarea>
             </div>
             
             <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer; display: block; text-align: center;">Send Request</button>

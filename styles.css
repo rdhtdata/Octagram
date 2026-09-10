@@ -5670,12 +5670,19 @@ body.theme-light .config-next-btn:hover {
     padding: 5px 10px !important;
   }
 
-  /* Industry Heroes (Preserve Individual Background Images) */
+  /* Industry Heroes (Preserve Individual Background Images & Auto Flow) */
   .hotel-site-hero, .bistro-site-hero, .cafe-site-hero, .bakery-site-hero, .ecom-site-hero {
+    height: auto !important;
+    min-height: auto !important;
     padding: 24px 18px 20px !important;
-    min-height: 290px !important;
     width: 100% !important;
     box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    gap: 14px !important;
+    position: relative !important;
+    flex-shrink: 0 !important;
   }
   .hotel-hero-title, .bistro-hero-title, .cafe-hero-title, .bakery-hero-title, .ecom-hero-title {
     font-size: 22px !important;
@@ -5707,33 +5714,50 @@ body.theme-light .config-next-btn:hover {
   .hotel-floating-booking-bar {
     display: flex !important;
     flex-direction: column !important;
-    gap: 6px !important;
-    padding: 8px 12px !important;
-    margin-top: 14px !important;
+    gap: 8px !important;
+    padding: 10px 14px !important;
+    margin-top: 6px !important;
+    margin-bottom: 4px !important;
     border-radius: 8px !important;
-    background: rgba(4, 7, 10, 0.9) !important;
+    background: rgba(4, 7, 10, 0.94) !important;
+    border: 1px solid rgba(247, 213, 139, 0.3) !important;
     width: 100% !important;
     box-sizing: border-box !important;
+    position: relative !important;
+    z-index: 2 !important;
   }
   .booking-pill-divider { display: none !important; }
   .hotel-floating-booking-bar .booking-pill-item {
     display: flex !important;
     justify-content: space-between !important;
+    align-items: baseline !important;
     width: 100% !important;
     box-sizing: border-box !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding-bottom: 4px !important;
+  }
+  .hotel-floating-booking-bar .booking-pill-item:last-of-type {
+    border-bottom: none !important;
   }
   .booking-pill-btn {
     width: 100% !important;
-    padding: 6px 10px !important;
-    font-size: 8px !important;
+    padding: 8px 12px !important;
+    font-size: 8.5px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.1em !important;
     margin-top: 4px !important;
     box-sizing: border-box !important;
+    background: #f7d58b !important;
+    color: #04070a !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
   }
   .bistro-status-pill, .cafe-status-pill, .bakery-status-pill, .ecom-status-pill {
     display: flex !important;
     font-size: 7.5px !important;
     padding: 5px 10px !important;
-    margin-top: 12px !important;
+    margin-top: 10px !important;
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
@@ -5744,9 +5768,12 @@ body.theme-light .config-next-btn:hover {
 
   /* Next Section Editorial Content */
   .hotel-site-next-section, .bistro-site-next-section, .cafe-site-next-section, .bakery-site-next-section, .ecom-site-next-section {
-    padding: 22px 18px !important;
+    padding: 24px 18px 28px !important;
     width: 100% !important;
     box-sizing: border-box !important;
+    position: relative !important;
+    z-index: 1 !important;
+    flex-shrink: 0 !important;
   }
   .hotel-suites-grid, .bistro-menu-showcase, .cafe-products-grid, .bakery-pastry-grid, .ecom-featured-product, .arrivals-visual-grid {
     grid-template-columns: 1fr !important;

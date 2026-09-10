@@ -3517,13 +3517,13 @@ body.theme-light .config-next-btn:hover {
 .slider-comparison-box {
   position: relative;
   width: 100%;
-  max-width: 920px;
-  height: 560px;
+  max-width: 940px;
+  height: 680px;
   margin: 0 auto;
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   overflow: hidden;
-  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.65);
   background: #000;
 }
 
@@ -3552,11 +3552,11 @@ body.theme-light .config-next-btn:hover {
 /* Corner Comparison Badges */
 .showcase-tag-badge {
   position: absolute;
-  top: 40px;
+  top: 44px;
   font-size: 8.5px;
   font-weight: 800;
   letter-spacing: 0.06em;
-  padding: 4px 8px;
+  padding: 4px 9px;
   border-radius: 4px;
   z-index: 100;
   pointer-events: none;
@@ -3630,9 +3630,13 @@ body.theme-light .config-next-btn:hover {
 .retro-hotel-header {
   background: linear-gradient(180deg, #1e3a5f 0%, #0f233a 100%);
   color: #ffffff;
-  padding: 14px 20px 8px;
+  padding: 16px 20px 10px;
   border-bottom: 3px solid #c5a059;
-  text-align: center;
+}
+.retro-hotel-top-row, .retro-bistro-top-row, .retro-cafe-top-row, .retro-bakery-top-row, .retro-ecom-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 .retro-hotel-logo {
   font-size: 16px;
@@ -3640,7 +3644,11 @@ body.theme-light .config-next-btn:hover {
   letter-spacing: 0.05em;
   color: #f7d58b;
 }
-.retro-hotel-slogan {
+.retro-hotel-phone, .retro-bistro-phone, .retro-cafe-phone, .retro-bakery-phone, .retro-ecom-cart-link {
+  font-size: 10px;
+  color: #e2e8f0;
+}
+.retro-hotel-slogan, .retro-bistro-slogan, .retro-cafe-slogan, .retro-bakery-slogan, .retro-ecom-slogan {
   font-size: 10px;
   color: #cbd5e1;
   font-style: italic;
@@ -3649,8 +3657,8 @@ body.theme-light .config-next-btn:hover {
 .retro-nav-bar {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin-top: 8px;
+  gap: 16px;
+  margin-top: 10px;
   padding-top: 6px;
   border-top: 1px solid rgba(255,255,255,0.15);
   font-size: 10px;
@@ -3661,20 +3669,21 @@ body.theme-light .config-next-btn:hover {
   text-decoration: underline;
   cursor: pointer;
 }
-.retro-hotel-main {
-  padding: 16px 20px;
+.retro-hotel-main, .retro-bistro-main, .retro-cafe-main, .retro-bakery-main, .retro-ecom-main {
+  padding: 20px;
   flex: 1;
 }
 .retro-hotel-hero-box {
   background: #ffffff;
   border: 1px solid #cbd5e1;
-  padding: 14px;
+  padding: 16px;
   display: flex;
   gap: 16px;
+  margin-bottom: 16px;
 }
 .retro-image-placeholder {
-  width: 140px;
-  height: 110px;
+  width: 150px;
+  height: 120px;
   background: #e2e8f0;
   border: 1px solid #94a3b8;
   display: flex;
@@ -3686,7 +3695,7 @@ body.theme-light .config-next-btn:hover {
   flex-shrink: 0;
 }
 .retro-img-icon {
-  font-size: 22px;
+  font-size: 24px;
   margin-bottom: 4px;
 }
 .retro-img-caption {
@@ -3695,21 +3704,27 @@ body.theme-light .config-next-btn:hover {
   line-height: 1.2;
 }
 .retro-hero-text h4 {
-  font-size: 13px;
-  margin: 0 0 6px;
+  font-size: 14px;
+  margin: 0 0 4px;
   color: #0f233a;
 }
-.retro-hero-text p {
+.retro-italic {
+  font-style: italic;
   font-size: 10.5px;
+  color: #64748b;
+  margin: 0 0 6px !important;
+}
+.retro-hero-text p {
+  font-size: 11px;
   color: #334155;
-  line-height: 1.35;
-  margin: 0 0 6px;
+  line-height: 1.4;
+  margin: 0 0 8px;
 }
 .retro-action-row {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 .retro-btn {
   background: #e2e8f0;
@@ -3719,23 +3734,50 @@ body.theme-light .config-next-btn:hover {
   border-bottom: 2px solid #64748b;
   font-size: 10px;
   font-weight: bold;
-  padding: 4px 8px;
+  padding: 4px 10px;
   cursor: pointer;
   color: #000;
 }
-.retro-notice {
+.retro-three-col-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.retro-col-box {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 10px;
+  text-align: center;
+}
+.retro-col-box h5 {
+  font-size: 11px;
+  color: #0f233a;
+  margin: 0 0 4px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 4px;
+}
+.retro-thumb-placeholder {
+  background: #e2e8f0;
+  border: 1px solid #cbd5e1;
+  font-size: 8.5px;
+  color: #64748b;
+  padding: 10px 4px;
+  margin-bottom: 6px;
+}
+.retro-col-box p {
   font-size: 9.5px;
-  color: #b91c1c;
-  font-style: italic;
-  font-weight: bold;
+  color: #475569;
+  line-height: 1.3;
+  margin: 0;
 }
 .retro-hotel-footer {
   background: #cbd5e1;
   border-top: 1px solid #94a3b8;
-  padding: 8px 14px;
+  padding: 10px 14px;
   text-align: center;
-  font-size: 9px;
+  font-size: 9.5px;
   color: #475569;
+  margin-top: auto;
 }
 
 /* 2. Retro Bistro (Maroon 2000s Header) */
@@ -3746,24 +3788,13 @@ body.theme-light .config-next-btn:hover {
 .retro-bistro-header {
   background: #4a0e17;
   color: #ffffff;
-  padding: 14px 20px 8px;
+  padding: 16px 20px 10px;
   border-bottom: 3px solid #d4af37;
-  text-align: center;
 }
 .retro-bistro-logo {
   font-size: 16px;
   font-weight: bold;
   color: #f6d58b;
-}
-.retro-bistro-slogan {
-  font-size: 10px;
-  color: #fecdd3;
-  font-style: italic;
-  margin-top: 2px;
-}
-.retro-bistro-main {
-  padding: 16px 20px;
-  flex: 1;
 }
 
 /* 3. Retro Cafe (Wood Brown 2000s Header) */
@@ -3774,23 +3805,13 @@ body.theme-light .config-next-btn:hover {
 .retro-cafe-header {
   background: #3e2723;
   color: #ffffff;
-  padding: 14px 20px 8px;
+  padding: 16px 20px 10px;
   border-bottom: 3px solid #8d6e63;
-  text-align: center;
 }
 .retro-cafe-logo {
   font-size: 16px;
   font-weight: bold;
   color: #ffe0b2;
-}
-.retro-cafe-slogan {
-  font-size: 10px;
-  color: #d7ccc8;
-  margin-top: 2px;
-}
-.retro-cafe-main {
-  padding: 16px 20px;
-  flex: 1;
 }
 
 /* 4. Retro Bakery (Pastel Yellow 2000s Header) */
@@ -3801,23 +3822,13 @@ body.theme-light .config-next-btn:hover {
 .retro-bakery-header {
   background: #78350f;
   color: #ffffff;
-  padding: 14px 20px 8px;
+  padding: 16px 20px 10px;
   border-bottom: 3px solid #f59e0b;
-  text-align: center;
 }
 .retro-bakery-logo {
   font-size: 16px;
   font-weight: bold;
   color: #fef08a;
-}
-.retro-bakery-slogan {
-  font-size: 10px;
-  color: #fde68a;
-  margin-top: 2px;
-}
-.retro-bakery-main {
-  padding: 16px 20px;
-  flex: 1;
 }
 
 /* 5. Retro E-Commerce (Gray 2000s Store) */
@@ -3828,23 +3839,56 @@ body.theme-light .config-next-btn:hover {
 .retro-ecom-header {
   background: #1e293b;
   color: #ffffff;
-  padding: 14px 20px 8px;
+  padding: 16px 20px 10px;
   border-bottom: 3px solid #38bdf8;
-  text-align: center;
 }
 .retro-ecom-logo {
   font-size: 15px;
   font-weight: bold;
   color: #38bdf8;
 }
-.retro-ecom-slogan {
-  font-size: 10px;
-  color: #94a3b8;
-  margin-top: 2px;
+.retro-ecom-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
 }
-.retro-ecom-main {
-  padding: 16px 20px;
-  flex: 1;
+.retro-prod-cell {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.retro-prod-thumb {
+  width: 80px;
+  height: 60px;
+  background: #e2e8f0;
+  border: 1px solid #cbd5e1;
+  font-size: 9px;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.retro-p-name {
+  font-size: 10.5px;
+  font-weight: bold;
+  color: #0f172a;
+}
+.retro-p-price {
+  font-size: 10px;
+  color: #b91c1c;
+}
+.retro-btn-add {
+  background: #e2e8f0;
+  border: 1px solid #94a3b8;
+  font-size: 9px;
+  font-weight: bold;
+  padding: 2px 6px;
+  cursor: pointer;
 }
 
 /* --------------------------------------------------------------------------
@@ -3865,7 +3909,7 @@ body.theme-light .config-next-btn:hover {
   position: absolute;
   top: 0;
   right: 0;
-  width: 920px;
+  width: 940px;
   height: 100%;
   background: #0a0a0c;
   color: #ffffff;
@@ -3906,312 +3950,217 @@ body.theme-light .config-next-btn:hover {
   margin-left: 15px;
 }
 
-/* Modern Website Viewport (Miniature Live Website) */
+/* Modern Website Viewport (Composed Full Homepage Experience) */
 .modern-website-viewport {
   flex: 1;
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.modern-website-viewport::-webkit-scrollbar {
+  width: 4px;
+}
+.modern-website-viewport::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
 }
 
 /* ==========================================================================
    1. MODERN LUXURY HOTEL WEBSITE ("THE GRAND PALM")
    ========================================================================== */
 .modern-hotel-site {
-  background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80');
+  background: #06090b;
+  color: #ffffff;
 }
 
 .hotel-site-nav {
-  padding: 14px 24px;
+  padding: 16px 28px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
-  z-index: 5;
+  background: rgba(6, 9, 11, 0.85);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.hotel-brand-serif {
+.hotel-site-brand {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.15em;
   color: #ffffff;
-  display: block;
-}
-
-.hotel-brand-sub {
-  font-size: 7.5px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  color: #34d399;
-  display: block;
 }
 
 .hotel-nav-links {
   display: flex;
-  gap: 16px;
-  font-size: 10.5px;
-  color: #e2e8f0;
-  letter-spacing: 0.03em;
+  gap: 20px;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #cbd5e1;
 }
 
 .hotel-btn-nav {
-  background: #34d399;
-  color: #022c22;
-  border: none;
+  background: transparent;
+  color: #f7d58b;
+  border: 1px solid rgba(247, 213, 139, 0.4);
   font-size: 9.5px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   padding: 6px 14px;
-  border-radius: 20px;
+  border-radius: 2px;
   cursor: pointer;
-  box-shadow: 0 2px 10px rgba(52, 211, 153, 0.35);
+  transition: all 0.25s ease;
 }
 
 .hotel-site-hero {
   position: relative;
-  padding: 10px 24px;
-  flex: 1;
+  min-height: 310px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 4;
+  align-items: center;
+  padding: 36px 28px;
+  background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
 }
 
 .hotel-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.2) 100%);
+  background: linear-gradient(90deg, rgba(6, 9, 11, 0.85) 0%, rgba(6, 9, 11, 0.4) 60%, rgba(6, 9, 11, 0.2) 100%);
   z-index: 1;
 }
 
 .hotel-hero-content {
   position: relative;
   z-index: 2;
-  max-width: 480px;
-}
-
-.hotel-hero-eyebrow {
-  display: inline-block;
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  color: #34d399;
-  margin-bottom: 6px;
+  max-width: 440px;
 }
 
 .hotel-hero-title {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 24px;
-  font-weight: 800;
+  font-size: 28px;
+  font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.01em;
   color: #ffffff;
-  margin: 0 0 6px;
+  margin: 0 0 10px;
 }
 
 .hotel-hero-desc {
-  font-size: 11px;
+  font-size: 11.5px;
   color: #cbd5e1;
-  line-height: 1.45;
-  margin: 0 0 14px;
+  line-height: 1.5;
+  margin: 0 0 18px;
 }
 
 .hotel-hero-ctas {
   display: flex;
-  gap: 10px;
+  gap: 12px;
 }
 
 .hotel-cta-primary {
-  background: linear-gradient(135deg, #34d399, #059669);
-  color: #022c22;
+  background: #f7d58b;
+  color: #0f172a;
   border: none;
   font-size: 10px;
   font-weight: 800;
-  padding: 8px 16px;
-  border-radius: 20px;
+  letter-spacing: 0.08em;
+  padding: 9px 18px;
+  border-radius: 2px;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(52, 211, 153, 0.4);
 }
 
 .hotel-cta-ghost {
   background: rgba(255,255,255,0.08);
   color: #ffffff;
-  border: 1px solid rgba(255,255,255,0.25);
-  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.3);
   font-size: 10px;
   font-weight: 700;
-  padding: 8px 16px;
-  border-radius: 20px;
+  letter-spacing: 0.06em;
+  padding: 9px 18px;
+  border-radius: 2px;
   cursor: pointer;
 }
 
-.hotel-site-showcase {
-  position: relative;
-  z-index: 4;
-  padding: 0 24px 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+/* Hotel Next Section: Editorial Statement & Large Image */
+.hotel-site-next-section {
+  padding: 34px 28px;
+  background: #06090b;
 }
 
-.hotel-showcase-card {
-  background: rgba(10, 20, 24, 0.88);
-  border: 1px solid rgba(52, 211, 153, 0.25);
-  border-radius: 8px;
-  display: flex;
-  overflow: hidden;
-  backdrop-filter: blur(12px);
+.hotel-editorial-statement {
+  margin-bottom: 20px;
 }
 
-.hotel-card-visual {
-  width: 90px;
+.hotel-editorial-statement h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  margin: 0 0 6px;
+}
+
+.hotel-editorial-statement p {
+  font-size: 11.5px;
+  color: #94a3b8;
+  max-width: 520px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.hotel-editorial-hero-image {
+  height: 200px;
+  border-radius: 4px;
+  background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80');
   background-size: cover;
   background-position: center;
-  position: relative;
-  flex-shrink: 0;
-}
-.villa-visual { background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=300&q=80'); }
-.spa-visual { background-image: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=300&q=80'); }
-
-.hotel-card-badge {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  font-size: 6.5px;
-  font-weight: 800;
-  background: rgba(0,0,0,0.7);
-  color: #34d399;
-  padding: 2px 4px;
-  border-radius: 2px;
-}
-
-.hotel-card-info {
-  padding: 8px 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 1;
-}
-
-.hotel-card-info h5 {
-  font-family: 'Playfair Display', serif;
-  font-size: 11px;
-  color: #ffffff;
-  margin: 0 0 2px;
-}
-
-.hotel-card-info p {
-  font-size: 8.5px;
-  color: #94a3b8;
-  margin: 0;
-  line-height: 1.3;
-}
-
-.hotel-card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 4px;
-}
-
-.hotel-price {
-  font-size: 9.5px;
-  font-weight: 800;
-  color: #34d399;
-}
-
-.hotel-explore-link {
-  font-size: 8px;
-  font-weight: 700;
-  color: #e2e8f0;
-  text-decoration: underline;
-}
-
-.hotel-booking-bar {
-  position: relative;
-  z-index: 5;
-  background: rgba(7, 16, 20, 0.95);
-  border-top: 1px solid rgba(52, 211, 153, 0.25);
-  padding: 10px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.booking-bar-col {
-  display: flex;
-  flex-direction: column;
-}
-
-.bbar-label {
-  font-size: 7.5px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: #34d399;
-}
-
-.bbar-val {
-  font-size: 10.5px;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.hotel-bar-cta {
-  background: #34d399;
-  color: #022c22;
-  border: none;
-  font-size: 10px;
-  font-weight: 800;
-  padding: 8px 18px;
-  border-radius: 6px;
-  cursor: pointer;
-  box-shadow: 0 2px 10px rgba(52, 211, 153, 0.35);
 }
 
 /* ==========================================================================
    2. MODERN RESTAURANT WEBSITE ("L'AMOUR")
    ========================================================================== */
 .modern-bistro-site {
-  background-image: url('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80');
+  background: #0a0507;
+  color: #ffffff;
 }
 
 .bistro-site-nav {
-  padding: 14px 24px;
+  padding: 16px 28px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
-  z-index: 5;
+  background: rgba(10, 5, 7, 0.85);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.bistro-brand-serif {
+.bistro-site-brand {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 800;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.22em;
   color: #ffffff;
-  display: block;
-}
-
-.bistro-brand-sub {
-  font-size: 7.5px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  color: #fb7185;
-  display: block;
 }
 
 .bistro-nav-links {
   display: flex;
-  gap: 16px;
-  font-size: 10.5px;
+  gap: 20px;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   color: #fecdd3;
-  letter-spacing: 0.03em;
 }
 
 .bistro-btn-nav {
@@ -4220,233 +4169,167 @@ body.theme-light .config-next-btn:hover {
   border: none;
   font-size: 9.5px;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   padding: 6px 14px;
-  border-radius: 20px;
+  border-radius: 2px;
   cursor: pointer;
-  box-shadow: 0 2px 10px rgba(244, 63, 94, 0.4);
 }
 
 .bistro-site-hero {
   position: relative;
-  padding: 10px 24px;
-  flex: 1;
+  min-height: 310px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 4;
+  align-items: center;
+  padding: 36px 28px;
+  background-image: url('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
 }
 
 .bistro-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(18, 4, 10, 0.88) 0%, rgba(18, 4, 10, 0.5) 60%, rgba(0,0,0,0.2) 100%);
+  background: linear-gradient(90deg, rgba(10, 5, 7, 0.9) 0%, rgba(10, 5, 7, 0.45) 60%, rgba(0,0,0,0.2) 100%);
   z-index: 1;
 }
 
 .bistro-hero-content {
   position: relative;
   z-index: 2;
-  max-width: 480px;
-}
-
-.bistro-hero-eyebrow {
-  display: inline-block;
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  color: #fb7185;
-  margin-bottom: 6px;
+  max-width: 440px;
 }
 
 .bistro-hero-title {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 800;
   line-height: 1.15;
   color: #ffffff;
-  margin: 0 0 6px;
+  margin: 0 0 10px;
 }
 
 .bistro-hero-desc {
-  font-size: 11px;
-  color: #e2e8f0;
-  line-height: 1.45;
-  margin: 0 0 14px;
+  font-size: 11.5px;
+  color: #fecdd3;
+  line-height: 1.5;
+  margin: 0 0 18px;
 }
 
 .bistro-hero-ctas {
   display: flex;
-  gap: 10px;
-}
-
-.bistro-cta-primary {
-  background: linear-gradient(135deg, #f43f5e, #e11d48);
-  color: #ffffff;
-  border: none;
-  font-size: 10px;
-  font-weight: 800;
-  padding: 8px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(244, 63, 94, 0.4);
-}
-
-.bistro-cta-ghost {
-  background: rgba(255,255,255,0.08);
-  color: #ffffff;
-  border: 1px solid rgba(255,255,255,0.25);
-  backdrop-filter: blur(8px);
-  font-size: 10px;
-  font-weight: 700;
-  padding: 8px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.bistro-site-showcase {
-  position: relative;
-  z-index: 4;
-  padding: 0 24px 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
 
-.bistro-showcase-card {
-  background: rgba(24, 8, 16, 0.88);
-  border: 1px solid rgba(244, 63, 94, 0.25);
-  border-radius: 8px;
-  display: flex;
-  overflow: hidden;
-  backdrop-filter: blur(12px);
-}
-
-.bistro-card-visual {
-  width: 90px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  flex-shrink: 0;
-}
-.scallop-visual { background-image: url('https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=300&q=80'); }
-.duck-visual { background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=300&q=80'); }
-
-.bistro-card-badge {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  font-size: 6.5px;
-  font-weight: 800;
-  background: rgba(0,0,0,0.7);
-  color: #fb7185;
-  padding: 2px 4px;
-  border-radius: 2px;
-}
-
-.bistro-card-info {
-  padding: 8px 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 1;
-}
-
-.bistro-card-info h5 {
-  font-family: 'Playfair Display', serif;
-  font-size: 11px;
-  color: #ffffff;
-  margin: 0 0 2px;
-}
-
-.bistro-card-info p {
-  font-size: 8.5px;
-  color: #cbd5e1;
-  margin: 0;
-  line-height: 1.3;
-}
-
-.bistro-card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 4px;
-}
-
-.bistro-course {
-  font-size: 8px;
-  font-weight: 700;
-  color: #fb7185;
-}
-
-.bistro-pairing {
-  font-size: 8px;
-  color: #fda4af;
-}
-
-.bistro-booking-bar {
-  position: relative;
-  z-index: 5;
-  background: rgba(18, 4, 10, 0.95);
-  border-top: 1px solid rgba(244, 63, 94, 0.25);
-  padding: 10px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.bistro-bar-cta {
+.bistro-cta-primary {
   background: #f43f5e;
   color: #ffffff;
   border: none;
   font-size: 10px;
   font-weight: 800;
-  padding: 8px 18px;
-  border-radius: 6px;
+  letter-spacing: 0.08em;
+  padding: 9px 18px;
+  border-radius: 2px;
   cursor: pointer;
-  box-shadow: 0 2px 10px rgba(244, 63, 94, 0.4);
+}
+
+.bistro-cta-ghost {
+  background: rgba(255,255,255,0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.3);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+/* Bistro Next Section: Typographic Menu & Large Image */
+.bistro-site-next-section {
+  padding: 34px 28px;
+  background: #0a0507;
+}
+
+.bistro-editorial-statement h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #fb7185;
+  margin: 0 0 20px;
+}
+
+.bistro-menu-showcase {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.bistro-dish-entry {
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dish-title {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  margin-bottom: 3px;
+}
+
+.dish-sub {
+  font-size: 10px;
+  color: #94a3b8;
+}
+
+.bistro-editorial-dish-image {
+  height: 190px;
+  border-radius: 4px;
+  background-image: url('https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=600&q=80');
+  background-size: cover;
+  background-position: center;
 }
 
 /* ==========================================================================
    3. MODERN CAFÉ WEBSITE ("AURA COFFEE")
    ========================================================================== */
 .modern-cafe-site {
-  background-image: url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80');
+  background: #0e0906;
+  color: #ffffff;
 }
 
 .cafe-site-nav {
-  padding: 14px 24px;
+  padding: 16px 28px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
-  z-index: 5;
+  background: rgba(14, 9, 6, 0.85);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.cafe-brand-bold {
+.cafe-site-brand {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 16px;
   font-weight: 900;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: #ffffff;
-  display: block;
-}
-
-.cafe-brand-sub {
-  font-size: 7.5px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: #fbbf24;
-  display: block;
 }
 
 .cafe-nav-links {
   display: flex;
-  gap: 16px;
-  font-size: 10.5px;
-  color: #fde68a;
-  letter-spacing: 0.03em;
+  gap: 20px;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #fed7aa;
 }
 
 .cafe-btn-nav {
@@ -4459,233 +4342,171 @@ body.theme-light .config-next-btn:hover {
   padding: 6px 14px;
   border-radius: 20px;
   cursor: pointer;
-  box-shadow: 0 2px 10px rgba(245, 158, 11, 0.4);
 }
 
 .cafe-site-hero {
   position: relative;
-  padding: 10px 24px;
-  flex: 1;
+  min-height: 310px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 4;
+  align-items: center;
+  padding: 36px 28px;
+  background-image: url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
 }
 
 .cafe-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(18, 12, 6, 0.88) 0%, rgba(18, 12, 6, 0.5) 60%, rgba(0,0,0,0.2) 100%);
+  background: linear-gradient(90deg, rgba(14, 9, 6, 0.9) 0%, rgba(14, 9, 6, 0.45) 60%, rgba(0,0,0,0.2) 100%);
   z-index: 1;
 }
 
 .cafe-hero-content {
   position: relative;
   z-index: 2;
-  max-width: 480px;
-}
-
-.cafe-hero-eyebrow {
-  display: inline-block;
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  color: #fbbf24;
-  margin-bottom: 6px;
+  max-width: 440px;
 }
 
 .cafe-hero-title {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 900;
-  line-height: 1.15;
+  line-height: 1.12;
   color: #ffffff;
-  margin: 0 0 6px;
+  margin: 0 0 10px;
 }
 
 .cafe-hero-desc {
-  font-size: 11px;
-  color: #fef3c7;
-  line-height: 1.45;
-  margin: 0 0 14px;
+  font-size: 11.5px;
+  color: #fed7aa;
+  line-height: 1.5;
+  margin: 0 0 18px;
 }
 
 .cafe-hero-ctas {
   display: flex;
-  gap: 10px;
-}
-
-.cafe-cta-primary {
-  background: linear-gradient(135deg, #f59e0b, #d97706);
-  color: #1a0f02;
-  border: none;
-  font-size: 10px;
-  font-weight: 800;
-  padding: 8px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
-}
-
-.cafe-cta-ghost {
-  background: rgba(255,255,255,0.08);
-  color: #ffffff;
-  border: 1px solid rgba(255,255,255,0.25);
-  backdrop-filter: blur(8px);
-  font-size: 10px;
-  font-weight: 700;
-  padding: 8px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.cafe-site-showcase {
-  position: relative;
-  z-index: 4;
-  padding: 0 24px 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
 
-.cafe-showcase-card {
-  background: rgba(26, 17, 9, 0.88);
-  border: 1px solid rgba(245, 158, 11, 0.25);
-  border-radius: 8px;
-  display: flex;
-  overflow: hidden;
-  backdrop-filter: blur(12px);
-}
-
-.cafe-card-visual {
-  width: 90px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  flex-shrink: 0;
-}
-.beans-visual { background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=300&q=80'); }
-.pastry-visual { background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=300&q=80'); }
-
-.cafe-card-badge {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  font-size: 6.5px;
-  font-weight: 800;
-  background: rgba(0,0,0,0.7);
-  color: #fbbf24;
-  padding: 2px 4px;
-  border-radius: 2px;
-}
-
-.cafe-card-info {
-  padding: 8px 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 1;
-}
-
-.cafe-card-info h5 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 11px;
-  color: #ffffff;
-  margin: 0 0 2px;
-}
-
-.cafe-card-info p {
-  font-size: 8.5px;
-  color: #e2e8f0;
-  margin: 0;
-  line-height: 1.3;
-}
-
-.cafe-card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 4px;
-}
-
-.cafe-price {
-  font-size: 9px;
-  font-weight: 800;
-  color: #fbbf24;
-}
-
-.cafe-order-link {
-  font-size: 8px;
-  font-weight: 800;
-  color: #fef3c7;
-  background: rgba(245, 158, 11, 0.2);
-  padding: 2px 6px;
-  border-radius: 4px;
-}
-
-.cafe-booking-bar {
-  position: relative;
-  z-index: 5;
-  background: rgba(18, 12, 6, 0.95);
-  border-top: 1px solid rgba(245, 158, 11, 0.25);
-  padding: 10px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.cafe-bar-cta {
+.cafe-cta-primary {
   background: #f59e0b;
   color: #1a0f02;
   border: none;
   font-size: 10px;
   font-weight: 800;
-  padding: 8px 18px;
-  border-radius: 6px;
+  letter-spacing: 0.08em;
+  padding: 9px 18px;
+  border-radius: 20px;
   cursor: pointer;
-  box-shadow: 0 2px 10px rgba(245, 158, 11, 0.4);
+}
+
+.cafe-cta-ghost {
+  background: rgba(255,255,255,0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.3);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* Cafe Next Section: Roasted Here */
+.cafe-site-next-section {
+  padding: 34px 28px;
+  background: #0e0906;
+}
+
+.cafe-editorial-statement h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  margin: 0 0 8px;
+}
+
+.cafe-editorial-statement p {
+  font-size: 11.5px;
+  color: #94a3b8;
+  max-width: 520px;
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+
+.cafe-explore-link {
+  display: inline-block;
+  font-size: 9.5px;
+  font-weight: 800;
+  color: #f59e0b;
+  margin-bottom: 16px;
+}
+
+.cafe-editorial-coffee-image {
+  height: 180px;
+  border-radius: 4px;
+  background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80');
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 18px;
+}
+
+.cafe-morning-strip {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.strip-headline {
+  font-size: 11px;
+  font-weight: 800;
+  color: #fed7aa;
+}
+
+.strip-details {
+  font-size: 9.5px;
+  color: #94a3b8;
 }
 
 /* ==========================================================================
    4. MODERN BAKERY WEBSITE ("MAISON DORÉE")
    ========================================================================== */
 .modern-bakery-site {
-  background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80');
+  background: #100a06;
+  color: #ffffff;
 }
 
 .bakery-site-nav {
-  padding: 14px 24px;
+  padding: 16px 28px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
-  z-index: 5;
+  background: rgba(16, 10, 6, 0.85);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .bakery-brand-serif {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 16px;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   color: #ffffff;
-  display: block;
-}
-
-.bakery-brand-sub {
-  font-size: 7.5px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: #fde047;
-  display: block;
 }
 
 .bakery-nav-links {
   display: flex;
-  gap: 16px;
-  font-size: 10.5px;
+  gap: 20px;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   color: #fef08a;
-  letter-spacing: 0.03em;
 }
 
 .bakery-btn-nav {
@@ -4698,431 +4519,325 @@ body.theme-light .config-next-btn:hover {
   padding: 6px 14px;
   border-radius: 20px;
   cursor: pointer;
-  box-shadow: 0 2px 10px rgba(234, 179, 8, 0.4);
 }
 
 .bakery-site-hero {
   position: relative;
-  padding: 10px 24px;
-  flex: 1;
+  min-height: 310px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 4;
+  align-items: center;
+  padding: 36px 28px;
+  background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
 }
 
 .bakery-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(20, 14, 8, 0.88) 0%, rgba(20, 14, 8, 0.5) 60%, rgba(0,0,0,0.2) 100%);
+  background: linear-gradient(90deg, rgba(16, 10, 6, 0.9) 0%, rgba(16, 10, 6, 0.45) 60%, rgba(0,0,0,0.2) 100%);
   z-index: 1;
 }
 
 .bakery-hero-content {
   position: relative;
   z-index: 2;
-  max-width: 480px;
-}
-
-.bakery-hero-eyebrow {
-  display: inline-block;
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  color: #fde047;
-  margin-bottom: 6px;
+  max-width: 440px;
 }
 
 .bakery-hero-title {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 800;
   line-height: 1.15;
   color: #ffffff;
-  margin: 0 0 6px;
+  margin: 0 0 10px;
 }
 
 .bakery-hero-desc {
-  font-size: 11px;
-  color: #fef3c7;
-  line-height: 1.45;
-  margin: 0 0 14px;
+  font-size: 11.5px;
+  color: #fef08a;
+  line-height: 1.5;
+  margin: 0 0 18px;
 }
 
 .bakery-hero-ctas {
   display: flex;
-  gap: 10px;
-}
-
-.bakery-cta-primary {
-  background: linear-gradient(135deg, #eab308, #ca8a04);
-  color: #1c1301;
-  border: none;
-  font-size: 10px;
-  font-weight: 800;
-  padding: 8px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(234, 179, 8, 0.4);
-}
-
-.bakery-cta-ghost {
-  background: rgba(255,255,255,0.08);
-  color: #ffffff;
-  border: 1px solid rgba(255,255,255,0.25);
-  backdrop-filter: blur(8px);
-  font-size: 10px;
-  font-weight: 700;
-  padding: 8px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.bakery-site-showcase {
-  position: relative;
-  z-index: 4;
-  padding: 0 24px 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
 
-.bakery-showcase-card {
-  background: rgba(28, 19, 10, 0.88);
-  border: 1px solid rgba(234, 179, 8, 0.25);
-  border-radius: 8px;
-  display: flex;
-  overflow: hidden;
-  backdrop-filter: blur(12px);
-}
-
-.bakery-card-visual {
-  width: 90px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  flex-shrink: 0;
-}
-.croissant-visual { background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=300&q=80'); }
-.sourdough-visual { background-image: url('https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?auto=format&fit=crop&w=300&q=80'); }
-
-.bakery-card-badge {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  font-size: 6.5px;
-  font-weight: 800;
-  background: rgba(0,0,0,0.7);
-  color: #fde047;
-  padding: 2px 4px;
-  border-radius: 2px;
-}
-
-.bakery-card-info {
-  padding: 8px 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 1;
-}
-
-.bakery-card-info h5 {
-  font-family: 'Playfair Display', serif;
-  font-size: 11px;
-  color: #ffffff;
-  margin: 0 0 2px;
-}
-
-.bakery-card-info p {
-  font-size: 8.5px;
-  color: #cbd5e1;
-  margin: 0;
-  line-height: 1.3;
-}
-
-.bakery-card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 4px;
-}
-
-.bakery-price {
-  font-size: 9px;
-  font-weight: 800;
-  color: #fde047;
-}
-
-.bakery-order-link {
-  font-size: 8px;
-  font-weight: 800;
-  color: #fef08a;
-  background: rgba(234, 179, 8, 0.2);
-  padding: 2px 6px;
-  border-radius: 4px;
-}
-
-.bakery-booking-bar {
-  position: relative;
-  z-index: 5;
-  background: rgba(20, 14, 8, 0.95);
-  border-top: 1px solid rgba(234, 179, 8, 0.25);
-  padding: 10px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.bakery-bar-cta {
+.bakery-cta-primary {
   background: #eab308;
   color: #1c1301;
   border: none;
   font-size: 10px;
   font-weight: 800;
-  padding: 8px 18px;
-  border-radius: 6px;
+  padding: 9px 18px;
+  border-radius: 20px;
   cursor: pointer;
-  box-shadow: 0 2px 10px rgba(234, 179, 8, 0.4);
+}
+
+.bakery-cta-ghost {
+  background: rgba(255,255,255,0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.3);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* Bakery Next Section: From The Oven */
+.bakery-site-next-section {
+  padding: 34px 28px;
+  background: #100a06;
+}
+
+.bakery-editorial-statement h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fef08a;
+  margin: 0 0 10px;
+}
+
+.bakery-typography-list {
+  display: flex;
+  gap: 20px;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #cbd5e1;
+  margin-bottom: 16px;
+}
+
+.bakery-editorial-oven-image {
+  height: 180px;
+  border-radius: 4px;
+  background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80');
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 18px;
+}
+
+.bakery-cakes-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cakes-statement {
+  font-family: 'Playfair Display', serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fef08a;
+}
+
+.cakes-link {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #eab308;
 }
 
 /* ==========================================================================
    5. MODERN E-COMMERCE WEBSITE ("VANGUARD")
    ========================================================================== */
 .modern-ecom-site {
-  background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80');
+  background: #080a0e;
+  color: #ffffff;
 }
 
 .ecom-site-nav {
-  padding: 14px 24px;
+  padding: 16px 28px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
-  z-index: 5;
+  background: rgba(8, 10, 14, 0.85);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.ecom-brand-sans {
+.ecom-site-brand {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 16px;
   font-weight: 900;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.18em;
   color: #ffffff;
-  display: block;
-}
-
-.ecom-brand-sub {
-  font-size: 7.5px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: #38bdf8;
-  display: block;
 }
 
 .ecom-nav-links {
   display: flex;
-  gap: 16px;
-  font-size: 10.5px;
-  color: #e2e8f0;
-  letter-spacing: 0.03em;
+  gap: 20px;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #cbd5e1;
 }
 
-.ecom-btn-nav {
-  background: #f8fafc;
-  color: #020617;
-  border: none;
+.ecom-right-nav {
+  display: flex;
+  gap: 14px;
   font-size: 9.5px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  padding: 6px 14px;
-  border-radius: 20px;
-  cursor: pointer;
-  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.25);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #94a3b8;
 }
 
 .ecom-site-hero {
   position: relative;
-  padding: 10px 24px;
-  flex: 1;
+  min-height: 310px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 4;
+  align-items: center;
+  padding: 36px 28px;
+  background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
 }
 
 .ecom-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(10, 14, 20, 0.88) 0%, rgba(10, 14, 20, 0.5) 60%, rgba(0,0,0,0.2) 100%);
+  background: linear-gradient(90deg, rgba(8, 10, 14, 0.9) 0%, rgba(8, 10, 14, 0.45) 60%, rgba(0,0,0,0.2) 100%);
   z-index: 1;
 }
 
 .ecom-hero-content {
   position: relative;
   z-index: 2;
-  max-width: 480px;
-}
-
-.ecom-hero-eyebrow {
-  display: inline-block;
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  color: #38bdf8;
-  margin-bottom: 6px;
+  max-width: 440px;
 }
 
 .ecom-hero-title {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 900;
   line-height: 1.15;
   color: #ffffff;
-  margin: 0 0 6px;
+  margin: 0 0 10px;
 }
 
 .ecom-hero-desc {
-  font-size: 11px;
+  font-size: 11.5px;
   color: #cbd5e1;
-  line-height: 1.45;
-  margin: 0 0 14px;
-}
-
-.ecom-hero-ctas {
-  display: flex;
-  gap: 10px;
+  line-height: 1.5;
+  margin: 0 0 18px;
 }
 
 .ecom-cta-primary {
-  background: linear-gradient(135deg, #f8fafc, #cbd5e1);
-  color: #020617;
-  border: none;
-  font-size: 10px;
-  font-weight: 800;
-  padding: 8px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.25);
-}
-
-.ecom-cta-ghost {
-  background: rgba(255,255,255,0.08);
-  color: #ffffff;
-  border: 1px solid rgba(255,255,255,0.25);
-  backdrop-filter: blur(8px);
-  font-size: 10px;
-  font-weight: 700;
-  padding: 8px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.ecom-site-showcase {
-  position: relative;
-  z-index: 4;
-  padding: 0 24px 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.ecom-showcase-card {
-  background: rgba(15, 23, 42, 0.88);
-  border: 1px solid rgba(56, 189, 248, 0.25);
-  border-radius: 8px;
-  display: flex;
-  overflow: hidden;
-  backdrop-filter: blur(12px);
-}
-
-.ecom-card-visual {
-  width: 90px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  flex-shrink: 0;
-}
-.watch-visual { background-image: url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=300&q=80'); }
-.leather-visual { background-image: url('https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=300&q=80'); }
-
-.ecom-card-badge {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  font-size: 6.5px;
-  font-weight: 800;
-  background: rgba(0,0,0,0.7);
-  color: #38bdf8;
-  padding: 2px 4px;
-  border-radius: 2px;
-}
-
-.ecom-card-info {
-  padding: 8px 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 1;
-}
-
-.ecom-card-info h5 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 11px;
-  color: #ffffff;
-  margin: 0 0 2px;
-}
-
-.ecom-card-info p {
-  font-size: 8.5px;
-  color: #94a3b8;
-  margin: 0;
-  line-height: 1.3;
-}
-
-.ecom-card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 4px;
-}
-
-.ecom-price {
-  font-size: 9.5px;
-  font-weight: 800;
-  color: #38bdf8;
-}
-
-.ecom-buy-link {
-  font-size: 8px;
-  font-weight: 800;
-  color: #f8fafc;
-  background: rgba(56, 189, 248, 0.2);
-  padding: 2px 6px;
-  border-radius: 4px;
-}
-
-.ecom-booking-bar {
-  position: relative;
-  z-index: 5;
-  background: rgba(10, 14, 20, 0.95);
-  border-top: 1px solid rgba(56, 189, 248, 0.25);
-  padding: 10px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.ecom-bar-cta {
   background: #f8fafc;
   color: #020617;
   border: none;
   font-size: 10px;
   font-weight: 800;
-  padding: 8px 18px;
-  border-radius: 6px;
+  letter-spacing: 0.08em;
+  padding: 9px 18px;
+  border-radius: 20px;
   cursor: pointer;
-  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.25);
+}
+
+/* E-Commerce Next Section: Featured Product & New Arrivals */
+.ecom-site-next-section {
+  padding: 34px 28px;
+  background: #080a0e;
+}
+
+.ecom-featured-product {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.featured-prod-image {
+  height: 180px;
+  border-radius: 4px;
+  background-image: url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
+.featured-prod-copy h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  margin: 0 0 6px;
+}
+
+.featured-prod-copy p {
+  font-size: 11px;
+  color: #94a3b8;
+  line-height: 1.45;
+  margin: 0 0 10px;
+}
+
+.prod-price-tag {
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.prod-view-link {
+  font-size: 9.5px;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+.ecom-arrivals-strip {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 20px;
+}
+
+.strip-title {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  margin-bottom: 14px;
+}
+
+.arrivals-visual-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.arrival-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.arrival-photo {
+  height: 120px;
+  border-radius: 4px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 6px;
+}
+.leather-thumb { background-image: url('https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=400&q=80'); }
+.pen-thumb { background-image: url('https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=400&q=80'); }
+
+.arr-name {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.arr-price {
+  font-size: 9.5px;
+  color: #94a3b8;
 }
 
 /* ==========================================================================
@@ -5233,7 +4948,7 @@ body.theme-light .config-next-btn:hover {
     font-size: 0.75rem;
   }
   .slider-comparison-box {
-    height: 480px !important;
+    height: 540px !important;
     max-width: 100% !important;
     touch-action: pan-y;
   }
@@ -5284,7 +4999,7 @@ body.theme-light .config-next-btn:hover {
     font-size: 0.78rem;
   }
   .slider-comparison-box {
-    height: 420px !important;
+    height: 460px !important;
     border-radius: 10px !important;
   }
 
@@ -5319,6 +5034,10 @@ body.theme-light .config-next-btn:hover {
     width: 100% !important;
     height: 60px !important;
   }
+  .retro-three-col-section, .retro-ecom-grid-3 {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
   .retro-hero-text h4 { font-size: 11px !important; }
   .retro-hero-text p { font-size: 8px !important; }
   .retro-action-row { flex-direction: column !important; align-items: flex-start !important; }
@@ -5328,47 +5047,43 @@ body.theme-light .config-next-btn:hover {
   .new-browser-bar { padding: 4px 8px !important; }
   .new-address-bar { font-size: 8px !important; margin-left: 6px !important; }
   .hotel-site-nav, .bistro-site-nav, .cafe-site-nav, .bakery-site-nav, .ecom-site-nav {
-    padding: 8px 12px !important;
+    padding: 10px 14px !important;
   }
-  .hotel-brand-serif, .bistro-brand-serif, .cafe-brand-bold, .bakery-brand-serif, .ecom-brand-sans {
+  .hotel-site-brand, .bistro-site-brand, .cafe-site-brand, .bakery-brand-serif, .ecom-site-brand {
     font-size: 12px !important;
   }
-  .hotel-nav-links, .bistro-nav-links, .cafe-nav-links, .bakery-nav-links, .ecom-nav-links {
+  .hotel-nav-links, .bistro-nav-links, .cafe-nav-links, .bakery-nav-links, .ecom-nav-links, .ecom-right-nav {
     display: none !important;
   }
-  .hotel-btn-nav, .bistro-btn-nav, .cafe-btn-nav, .bakery-btn-nav, .ecom-btn-nav {
+  .hotel-btn-nav, .bistro-btn-nav, .cafe-btn-nav, .bakery-btn-nav {
     font-size: 7.5px !important;
     padding: 4px 8px !important;
   }
   .hotel-site-hero, .bistro-site-hero, .cafe-site-hero, .bakery-site-hero, .ecom-site-hero {
-    padding: 6px 12px !important;
+    padding: 20px 14px !important;
+    min-height: 220px !important;
   }
   .hotel-hero-title, .bistro-hero-title, .cafe-hero-title, .bakery-hero-title, .ecom-hero-title {
-    font-size: 15px !important;
+    font-size: 18px !important;
+    margin-bottom: 6px !important;
   }
   .hotel-hero-desc, .bistro-hero-desc, .cafe-hero-desc, .bakery-hero-desc, .ecom-hero-desc {
-    font-size: 8.5px !important;
-    margin-bottom: 8px !important;
+    font-size: 9px !important;
+    margin-bottom: 12px !important;
   }
   .hotel-cta-primary, .bistro-cta-primary, .cafe-cta-primary, .bakery-cta-primary, .ecom-cta-primary {
     font-size: 8px !important;
     padding: 6px 12px !important;
   }
-  .hotel-cta-ghost, .bistro-cta-ghost, .cafe-cta-ghost, .bakery-cta-ghost, .ecom-cta-ghost {
+  .hotel-cta-ghost, .bistro-cta-ghost, .cafe-cta-ghost, .bakery-cta-ghost {
     display: none !important;
   }
-  .hotel-site-showcase, .bistro-site-showcase, .cafe-site-showcase, .bakery-site-showcase, .ecom-site-showcase {
-    display: none !important;
+  .hotel-site-next-section, .bistro-site-next-section, .cafe-site-next-section, .bakery-site-next-section, .ecom-site-next-section {
+    padding: 20px 14px !important;
   }
-  .hotel-booking-bar, .bistro-booking-bar, .cafe-booking-bar, .bakery-booking-bar, .ecom-booking-bar {
-    padding: 8px 12px !important;
-  }
-  .guarantee-col, .status-col, .location-col, .hours-col, .stock-col {
-    display: none !important;
-  }
-  .hotel-bar-cta, .bistro-bar-cta, .cafe-bar-cta, .bakery-bar-cta, .ecom-bar-cta {
-    font-size: 8px !important;
-    padding: 6px 12px !important;
+  .bistro-menu-showcase, .ecom-featured-product, .arrivals-visual-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
   }
 
   /* Slider Handle */

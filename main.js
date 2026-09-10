@@ -672,7 +672,10 @@ function initHudDashboard() {
   function updateLiveTelemetry() {
     if (latencyVal) {
       const loadTime = Math.max(8, Math.round(performance.now()));
-      latencyVal.innerHTML = `${loadTime}<span> ms</span>`;
+      latencyVal.textContent = String(loadTime);
+      const msSpan = document.createElement('span');
+      msSpan.textContent = ' ms';
+      latencyVal.appendChild(msSpan);
     }
 
     if (networkVal) {
@@ -868,16 +871,33 @@ function setupContactConfigurator() {
     });
   }
 
-  // Handle form submission to compile configurations
+  // Handle form submission with client-side validation & safe processing
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const name = document.getElementById('client-name').value;
-    const email = document.getElementById('client-email').value;
-    const message = document.getElementById('client-message').value;
+    const nameInput = document.getElementById('client-name');
+    const emailInput = document.getElementById('client-email');
+    const messageInput = document.getElementById('client-message');
 
-    const selectedTypes = Array.from(document.querySelectorAll('#build-type-grid .active')).map(el => el.textContent);
-    const selectedNeeds = Array.from(document.querySelectorAll('#need-type-grid .active')).map(el => el.textContent);
+    const name = nameInput ? nameInput.value.trim().slice(0, 100) : '';
+    const email = emailInput ? emailInput.value.trim().slice(0, 120) : '';
+    const message = messageInput ? messageInput.value.trim().slice(0, 2000) : '';
+
+    if (!name || name.length < 2) {
+      alert('Please enter your name (at least 2 characters).');
+      if (nameInput) nameInput.focus();
+      return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailPattern.test(email)) {
+      alert('Please enter a valid email address.');
+      if (emailInput) emailInput.focus();
+      return;
+    }
+
+    const selectedTypes = Array.from(document.querySelectorAll('#build-type-grid .active')).map(el => el.textContent.trim());
+    const selectedNeeds = Array.from(document.querySelectorAll('#need-type-grid .active')).map(el => el.textContent.trim());
 
     if (selectedTypes.length === 0 && selectedNeeds.length === 0) {
       alert("Please select at least one option so we know what you're looking for.");
@@ -941,28 +961,20 @@ function setupBeforeAfterSlider() {
   };
 
   function updateWidths() {
-    const boxWidth = comparisonBox.getBoundingClientRect().width;
-    if (boxWidth > 0) {
-      newWebsiteContent.style.width = boxWidth + 'px';
-    }
+    // Responsive clip-path layout is self-adjusting
   }
 
-  // Initial alignment
-  updateWidths();
-  
   // Set initial slider states
   function applySliderValue(val) {
-    newWebsiteView.style.width = `${100 - val}%`;
+    comparisonBox.style.setProperty('--split-pos', `${val}%`);
+    if (newWebsiteView) {
+      newWebsiteView.style.clipPath = `inset(0 0 0 ${val}%)`;
+      newWebsiteView.style.webkitClipPath = `inset(0 0 0 ${val}%)`;
+    }
     divider.style.left = `${val}%`;
   }
 
-  applySliderValue(sliderInput.value || 40);
-
-  // Sync content frame width on browser resizing and orientation change
-  window.addEventListener('resize', updateWidths);
-  window.addEventListener('orientationchange', () => {
-    setTimeout(updateWidths, 100);
-  });
+  applySliderValue(sliderInput.value || 33);
 
   let hasUserInteracted = false;
 
@@ -1013,8 +1025,8 @@ function setupBeforeAfterSlider() {
         if (entry.isIntersecting && !hasUserInteracted) {
           observer.disconnect();
           
-          let startVal = parseFloat(sliderInput.value) || 40;
-          let targetVal = 55;
+          let startVal = parseFloat(sliderInput.value) || 33;
+          let targetVal = 46;
           let startTime = null;
           const duration = 1200;
 

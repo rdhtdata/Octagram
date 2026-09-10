@@ -1,9 +1,9 @@
 # ----------------------------------------------------------------------
-# Hostinger & LiteSpeed / Apache Automatic Cache Invalidation Rules
+# 1. Hostinger & LiteSpeed / Apache Automatic Cache Invalidation Rules
 # ----------------------------------------------------------------------
 
 <IfModule mod_headers.c>
-  # 1. HTML Documents: Never cache in browser or proxy cache.
+  # HTML Documents: Never cache in browser or proxy cache.
   # Forces browsers to always request the latest index.html on every page load.
   <FilesMatch "\.(html|htm)$">
     Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
@@ -11,13 +11,53 @@
     Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT"
   </FilesMatch>
 
-  # 2. CSS & JS: Re-validate with server or rely on version query strings (?v=...)
+  # CSS & JS: Re-validate with server or rely on version query strings (?v=...)
   <FilesMatch "\.(css|js)$">
     Header set Cache-Control "public, max-age=3600, must-revalidate"
   </FilesMatch>
+
+  # ----------------------------------------------------------------------
+  # 2. Hardened Security Headers (Defensive Security Best Practices)
+  # ----------------------------------------------------------------------
+  
+  # Prevent Clickjacking by restricting framing to same-origin
+  Header set X-Frame-Options "SAMEORIGIN"
+
+  # Prevent MIME-type sniffing
+  Header set X-Content-Type-Options "nosniff"
+
+  # Control Referrer Information Leakage
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Restrict browser feature/hardware APIs that are not needed
+  Header set Permissions-Policy "geolocation=(), camera=(), microphone=(), payment=(), usb=(), display-capture=()"
+
+  # Enforce HTTPS across all assets
+  Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
+
+  # Content Security Policy (XSS, Injection & Asset Source Restriction)
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://images.unsplash.com https://*.unsplash.com; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self';"
 </IfModule>
 
 # Disable LiteSpeed Server Cache for HTML pages if LSCache is active on Hostinger
 <IfModule LiteSpeed>
   CacheLookup public off
 </IfModule>
+
+# ----------------------------------------------------------------------
+# 3. Server-Side Hardening & File Protection
+# ----------------------------------------------------------------------
+
+# Disable Directory Browsing / Indexing
+Options -Indexes
+
+# Block Access to Hidden / Sensitive Files (.git, .env, .htaccess, etc.)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule "(^|/)\.(?!well-known)" - [F]
+</IfModule>
+
+<FilesMatch "^\.">
+  Order allow,deny
+  Deny from all
+</FilesMatch>

@@ -11,19 +11,23 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   
+  <!-- Defensive Security Meta Directives -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  
   <!-- Inter font family for modern legibility -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=2.3">
+  <link rel="stylesheet" href="styles.css?v=3.0">
   
   <!-- Compiler Stylesheet (Self-building on load) -->
-  <link rel="stylesheet" href="compiler.css?v=2.3">
+  <link rel="stylesheet" href="compiler.css?v=3.0">
   
   <!-- Floating Dashboard HUD (Showcase capabilities) -->
-  <link rel="stylesheet" href="hud.css?v=2.3">
+  <link rel="stylesheet" href="hud.css?v=3.0">
 </head>
 <body>
 
@@ -112,7 +116,7 @@
           You build<br>
           <span data-original-text="the business">the business</span>.
         </h1>
-        <p>We design, build and manage digital experiences that help your business look better, work better and grow.</p>
+        <p>We design, build and manage digital experiences that help your business look better, work better, and grow.</p>
         <div class="hero-actions">
           <a href="#services" class="btn-primary">Explore Services</a>
           <a href="#contact" class="btn-secondary">Start a conversation &rarr;</a>
@@ -127,7 +131,7 @@
   <!-- Services Section -->
   <section id="services" class="compile-box compiling">
     <div class="services-header">
-      <span class="section-tag">Services</span>
+      <span class="section-tag">SERVICES</span>
       <h2>Designed around your business. Built to last.</h2>
       <p>We handle your entire digital presence from end to end — so you can focus on running your business.</p>
     </div>
@@ -154,7 +158,7 @@
           </div>
         </div>
         <h3>Websites that make your business stand out.</h3>
-        <p>Beautiful, fast and easy-to-use websites designed around your business and your customers.</p>
+        <p>Beautiful, fast, and easy-to-use websites designed around your business and your customers.</p>
       </div>
 
       <!-- Card 2 -->
@@ -218,7 +222,7 @@
           </div>
         </div>
         <h3>Make your website work with the tools you already use.</h3>
-        <p>We connect your website with booking systems, inventory, CRM, payments and other business software so everything works together.</p>
+        <p>We connect your website with booking systems, inventory, CRM, payments, and other business software so everything works together.</p>
       </div>
       
     </div>
@@ -230,7 +234,7 @@
       
       <!-- Section Header -->
       <div class="why-octagram-header">
-        <span class="section-tag">02 — WHY OCTAGRAM</span>
+        <span class="section-tag">WHY OCTAGRAM</span>
         <h2 class="why-title">NOT JUST ANOTHER<br><span class="highlight-text">WEB AGENCY.</span></h2>
         <p class="why-subtitle">
           "Most agencies build a website. Octagram builds the digital setup around your business."
@@ -433,7 +437,7 @@
     <div class="showcase-container">
       
       <div class="showcase-header">
-        <span class="section-tag">04 — TRANSFORMATION</span>
+        <span class="section-tag">TRANSFORMATION</span>
         <h2>YOUR WEBSITE, TRANSFORMED.</h2>
         <p class="showcase-headline-lead">See what happens when your website starts working as hard as your business.</p>
         <p class="showcase-subtext">From outdated, static pages to immersive 2026 digital flagships — explore how Octagram transforms websites for businesses people actually visit, book, dine at, and buy from.</p>
@@ -470,7 +474,7 @@
       </div>
 
       <!-- The Sliding Window Comparison Widget -->
-      <div class="slider-comparison-box">
+            <div class="slider-comparison-box" id="slider-comparison-box">
         
         <!-- ===================================================================
              LEGACY "BEFORE" VIEW (Left Side - Authentic 2012 Websites)
@@ -480,350 +484,358 @@
             
             <!-- 1. HOSPITALITY BEFORE: The Grand Palm Resort -->
             <div class="category-panel active" data-panel="hospitality">
-              <div class="old-browser-bar">
-                <span class="old-browser-dot"></span>
-                <span class="old-browser-dot"></span>
-                <span class="old-browser-dot"></span>
-                <div class="old-address-bar">http://www.thegrandpalmresort-old.com/index.html</div>
-              </div>
-              <div class="showcase-tag-badge tag-before">BEFORE • 2012 WEBSITE</div>
-              <div class="old-browser-body retro-hotel-body">
+              <div class="comparison-badge badge-before">BEFORE • 2012 LEGACY</div>
+              <div class="retro-website-body retro-hotel-body">
                 <div class="retro-hotel-header">
                   <div class="retro-hotel-top-row">
                     <div class="retro-hotel-logo">THE GRAND PALM RESORT &amp; SPA</div>
-                    <div class="retro-hotel-phone">Tel: (080) 2839-1102</div>
+                    <div class="retro-hotel-phone">Reservations: (080) 2839-1102</div>
                   </div>
-                  <div class="retro-hotel-slogan">"Your Serene Holiday Getaway in Karnataka (Est. 1998)"</div>
+                  <div class="retro-hotel-slogan">"Your Serene Holiday Getaway in South Asia (Est. 1998)"</div>
                   <div class="retro-nav-bar">
-                    <span class="retro-nav-item">HOME</span>
-                    <span class="retro-nav-item">ROOMS</span>
+                    <span class="retro-nav-item active">HOME</span>
+                    <span class="retro-nav-item">ROOM TARIFF</span>
                     <span class="retro-nav-item">FACILITIES</span>
-                    <span class="retro-nav-item">DINING</span>
-                    <span class="retro-nav-item">CONTACT</span>
+                    <span class="retro-nav-item">BANQUET</span>
+                    <span class="retro-nav-item">CONTACT US</span>
                   </div>
                 </div>
                 <div class="retro-hotel-main">
                   <div class="retro-hotel-hero-box">
                     <div class="retro-image-placeholder">
-                      <span class="retro-img-icon">🖼️</span>
-                      <span class="retro-img-caption">[Photo: Resort Swimming Pool &amp; Lawn]</span>
+                      <span class="retro-img-icon">🏨</span>
+                      <span class="retro-img-caption">[Photo: Resort Swimming Pool &amp; Garden]</span>
                     </div>
                     <div class="retro-hero-text">
-                      <h4>Welcome to The Grand Palm Resort</h4>
-                      <p class="retro-italic">"Your serene holiday getaway in Karnataka."</p>
-                      <p>We feature 38 air-conditioned standard and deluxe rooms with garden views. Call us to make a reservation. Demand draft or cash only.</p>
+                      <h4>Welcome to The Grand Palm Resort &amp; Spa</h4>
+                      <p class="retro-italic">"Experience peaceful nature in our 38 standard rooms."</p>
+                      <p>We feature air-conditioned standard and deluxe rooms with garden views. Please call our landline to check room availability. We accept demand drafts, cash, and select credit cards.</p>
                       <div class="retro-action-row">
-                        <button type="button" class="retro-btn">Download 2012 Tariff PDF</button>
+                        <button type="button" class="retro-btn">Download 2012 Tariff PDF (1.8MB)</button>
                       </div>
                     </div>
                   </div>
                   <div class="retro-three-col-section">
                     <div class="retro-col-box">
-                      <h5>ROOMS</h5>
-                      <div class="retro-thumb-placeholder">Standard &amp; Deluxe</div>
-                      <p>Air-conditioned with attached bath and television.</p>
+                      <h5>STANDARD ROOM</h5>
+                      <div class="retro-thumb-placeholder">[Room Photo]</div>
+                      <p>Double bed, ceiling fan, cable TV. Rs. 3,500/night + tax.</p>
                     </div>
                     <div class="retro-col-box">
-                      <h5>RESTAURANT</h5>
-                      <div class="retro-thumb-placeholder">Multi-Cuisine</div>
-                      <p>Serving vegetarian and non-vegetarian meals daily.</p>
+                      <h5>PALM RESTAURANT</h5>
+                      <div class="retro-thumb-placeholder">[Buffet Photo]</div>
+                      <p>Multi-cuisine buffet breakfast served 7:30 AM to 10:00 AM.</p>
                     </div>
                     <div class="retro-col-box">
-                      <h5>FACILITIES</h5>
-                      <div class="retro-thumb-placeholder">Garden &amp; Pool</div>
-                      <p>Lawn seating, banquet hall and travel desk.</p>
+                      <h5>CONFERENCE HALL</h5>
+                      <div class="retro-thumb-placeholder">[Hall Photo]</div>
+                      <p>Seats up to 75 delegates with projector screen on request.</p>
                     </div>
                   </div>
-                </div>
-                <div class="retro-hotel-footer">
-                  Copyright &copy; 2012 The Grand Palm Resort. Best viewed in Internet Explorer 8 at 1024x768.
+                  <div class="retro-footer-strip">
+                    &copy; 2012 The Grand Palm Resort &amp; Spa. Best viewed in Internet Explorer 8+ at 1024x768 resolution.
+                  </div>
                 </div>
               </div>
             </div>
 
-            <!-- 2. RESTAURANT BEFORE: L'Amour French Bistro -->
+            <!-- 2. RESTAURANT BEFORE: L'Amour Bistro -->
             <div class="category-panel" data-panel="restaurant">
-              <div class="old-browser-bar">
-                <span class="old-browser-dot"></span>
-                <span class="old-browser-dot"></span>
-                <span class="old-browser-dot"></span>
-                <div class="old-address-bar">http://www.lamour-bistro-city.com/menu_2011.htm</div>
-              </div>
-              <div class="showcase-tag-badge tag-before">BEFORE • 2012 WEBSITE</div>
-              <div class="old-browser-body retro-bistro-body">
+              <div class="comparison-badge badge-before">BEFORE • 2012 LEGACY</div>
+              <div class="retro-website-body retro-bistro-body">
                 <div class="retro-bistro-header">
                   <div class="retro-bistro-top-row">
-                    <div class="retro-bistro-logo">L'AMOUR FRENCH BISTRO</div>
-                    <div class="retro-bistro-phone">Reservations: 555-0192</div>
+                    <div class="retro-bistro-logo">L'AMOUR BISTRO FRANÇAIS</div>
+                    <div class="retro-bistro-phone">Call for Table: (212) 555-0198</div>
                   </div>
-                  <div class="retro-bistro-slogan">"Authentic Parisian cuisine in the heart of the city."</div>
+                  <div class="retro-bistro-slogan">"Authentic French Cuisine in Downtown Manhattan since 2003"</div>
                   <div class="retro-nav-bar">
-                    <span class="retro-nav-item">HOME</span>
-                    <span class="retro-nav-item">MENU</span>
-                    <span class="retro-nav-item">ABOUT</span>
-                    <span class="retro-nav-item">CONTACT</span>
+                    <span class="retro-nav-item active">HOME</span>
+                    <span class="retro-nav-item">MENU PDF</span>
+                    <span class="retro-nav-item">CHEF BIO</span>
+                    <span class="retro-nav-item">SPECIAL OFFERS</span>
+                    <span class="retro-nav-item">LOCATION</span>
                   </div>
                 </div>
                 <div class="retro-bistro-main">
                   <div class="retro-hotel-hero-box">
-                    <div class="retro-image-placeholder bistro-placeholder">
+                    <div class="retro-image-placeholder">
                       <span class="retro-img-icon">🍷</span>
-                      <span class="retro-img-caption">[Photo: Dining Room Interior]</span>
+                      <span class="retro-img-caption">[Photo: Dining Room Interior with Candles]</span>
                     </div>
                     <div class="retro-hero-text">
-                      <h4>L'Amour French Bistro</h4>
-                      <p class="retro-italic">"Authentic Parisian cuisine in the heart of the city."</p>
-                      <p>Serving classic French cuisine. Reservations accepted by telephone. Download our menu below.</p>
+                      <h4>Bienvenue à L'Amour Bistro</h4>
+                      <p class="retro-italic">"Fine French dining with traditional family recipes."</p>
+                      <p>Open Tuesday through Sunday for dinner from 6:00 PM to 10:30 PM. For table reservations, please call us 24 hours in advance. No online reservations.</p>
                       <div class="retro-action-row">
-                        <button type="button" class="retro-btn">Download Menu (PDF)</button>
+                        <button type="button" class="retro-btn">Click to View Dinner Menu PDF (2.4MB)</button>
                       </div>
                     </div>
                   </div>
                   <div class="retro-three-col-section">
                     <div class="retro-col-box">
-                      <h5>STARTERS</h5>
-                      <p>French Onion Soup, Escargots, House Salad.</p>
+                      <h5>APPETIZERS</h5>
+                      <p>French Onion Soup $9.50<br>Escargots de Bourgogne $12.00<br>Country Pâté $10.50</p>
                     </div>
                     <div class="retro-col-box">
                       <h5>MAIN COURSES</h5>
-                      <p>Duck Confit, Steak Frites, Bouillabaisse.</p>
+                      <p>Steak Frites Béarnaise $26.00<br>Duck Confit à l'Orange $24.50<br>Bouillabaisse Fish Stew $28.00</p>
                     </div>
                     <div class="retro-col-box">
-                      <h5>HOURS &amp; MAP</h5>
-                      <p>Tue-Sun 17:30 - 23:00. 44 King Street.</p>
+                      <h5>DESSERTS &amp; WINE</h5>
+                      <p>Classic Crème Brûlée $8.00<br>House Red Wine $7.50 / glass<br>Espresso $3.50</p>
                     </div>
                   </div>
-                </div>
-                <div class="retro-hotel-footer">
-                  L'Amour Bistro • 44 King Street • Tel: 555-0192 • Powered by CityWeb HTML 2011.
+                  <div class="retro-footer-strip">
+                    &copy; 2012 L'Amour Bistro. 48 Grand Street, New York, NY. Demand Draft &amp; Visa/MC accepted.
+                  </div>
                 </div>
               </div>
             </div>
 
-            <!-- 3. CAFÉ BEFORE: Aura Coffee Roasters -->
+            <!-- 3. CAFÉ BEFORE: Aura Coffee Shop -->
             <div class="category-panel" data-panel="cafe">
-              <div class="old-browser-bar">
-                <span class="old-browser-dot"></span>
-                <span class="old-browser-dot"></span>
-                <span class="old-browser-dot"></span>
-                <div class="old-address-bar">http://www.auracoffeeshop.net/home.html</div>
-              </div>
-              <div class="showcase-tag-badge tag-before">BEFORE • 2012 WEBSITE</div>
-              <div class="old-browser-body retro-cafe-body">
+              <div class="comparison-badge badge-before">BEFORE • 2012 LEGACY</div>
+              <div class="retro-website-body retro-cafe-body">
                 <div class="retro-cafe-header">
                   <div class="retro-cafe-top-row">
-                    <div class="retro-cafe-logo">AURA COFFEE SHOP</div>
-                    <div class="retro-cafe-phone">Tel: (555) 018-4921</div>
+                    <div class="retro-cafe-logo">☕ AURA COFFEE SHOP &amp; BAGELS</div>
+                    <div class="retro-cafe-phone">Tel: (415) 555-8834</div>
                   </div>
-                  <div class="retro-cafe-slogan">"Fresh Drip Coffee &amp; Bagels"</div>
+                  <div class="retro-cafe-slogan">"Fresh Drip Coffee, Espresso &amp; Toasted Bagels Every Morning"</div>
                   <div class="retro-nav-bar">
-                    <span class="retro-nav-item">HOME</span>
-                    <span class="retro-nav-item">DRINKS</span>
+                    <span class="retro-nav-item active">MAIN PAGE</span>
+                    <span class="retro-nav-item">DRINK MENU</span>
                     <span class="retro-nav-item">PASTRIES</span>
-                    <span class="retro-nav-item">HOURS</span>
-                    <span class="retro-nav-item">CONTACT</span>
+                    <span class="retro-nav-item">DISCOUNT COUPON</span>
+                    <span class="retro-nav-item">HOURS &amp; MAP</span>
                   </div>
                 </div>
                 <div class="retro-cafe-main">
                   <div class="retro-hotel-hero-box">
-                    <div class="retro-image-placeholder cafe-placeholder">
+                    <div class="retro-image-placeholder">
                       <span class="retro-img-icon">☕</span>
-                      <span class="retro-img-caption">[Photo: Cup of Coffee]</span>
+                      <span class="retro-img-caption">[Photo: Cup of Filter Coffee on Wooden Table]</span>
                     </div>
                     <div class="retro-hero-text">
-                      <h4>Welcome to Aura Coffee</h4>
-                      <p class="retro-italic">"Freshly brewed drip coffee and baked snacks."</p>
-                      <p>Stop by on your morning commute. Free Wi-Fi with any purchase. Cash preferred.</p>
+                      <h4>Welcome to Aura Coffee Shop!</h4>
+                      <p class="retro-italic">"Serving our local neighborhood since 2004."</p>
+                      <p>Stop by on your morning commute for freshly brewed Colombian house blend coffee and warm bagels. Free WiFi for customers with purchase password on receipt.</p>
                       <div class="retro-action-row">
-                        <button type="button" class="retro-btn">Print 10% Off Coupon</button>
+                        <button type="button" class="retro-btn">🖨️ Print 10% Off Morning Coupon</button>
                       </div>
                     </div>
                   </div>
                   <div class="retro-three-col-section">
                     <div class="retro-col-box">
-                      <h5>HOUSE ROAST</h5>
-                      <p>Dark roast and medium blend brewed fresh all day.</p>
+                      <h5>HOUSE DRIP COFFEE</h5>
+                      <p>Small (12oz) $1.75<br>Medium (16oz) $2.10<br>Large (20oz) $2.50</p>
                     </div>
                     <div class="retro-col-box">
-                      <h5>BAKERY</h5>
-                      <p>Blueberry muffins, cinnamon rolls and bagels.</p>
+                      <h5>ESPRESSO &amp; TEA</h5>
+                      <p>Single Shot $1.50<br>Cafe Latte $3.25<br>Chai Tea $2.75</p>
                     </div>
                     <div class="retro-col-box">
-                      <h5>LOCATION</h5>
-                      <p>120 Market Lane. Open Mon-Sat 7am - 5pm.</p>
+                      <h5>BAKED GOODS</h5>
+                      <p>Plain Bagel w/ Cream Cheese $2.25<br>Blueberry Muffin $1.95<br>Cinnamon Roll $2.50</p>
                     </div>
                   </div>
-                </div>
-                <div class="retro-hotel-footer">
-                  Aura Coffee Corner &copy; 2012 • 120 Market Lane • All Rights Reserved.
+                  <div class="retro-footer-strip">
+                    &copy; 2012 Aura Coffee Shop. 120 Market Street. Open Mon-Sat 6:30 AM - 6:00 PM.
+                  </div>
                 </div>
               </div>
             </div>
 
-            <!-- 4. BAKERY BEFORE: Maison Dorée French Bakery -->
+            <!-- 4. BAKERY BEFORE: Maison Dorée Bakery -->
             <div class="category-panel" data-panel="bakery">
-              <div class="old-browser-bar">
-                <span class="old-browser-dot"></span>
-                <span class="old-browser-dot"></span>
-                <span class="old-browser-dot"></span>
-                <div class="old-address-bar">http://www.maisondoreebakery.com/catalog.htm</div>
-              </div>
-              <div class="showcase-tag-badge tag-before">BEFORE • 2012 WEBSITE</div>
-              <div class="old-browser-body retro-bakery-body">
+              <div class="comparison-badge badge-before">BEFORE • 2012 LEGACY</div>
+              <div class="retro-website-body retro-bakery-body">
                 <div class="retro-bakery-header">
                   <div class="retro-bakery-top-row">
-                    <div class="retro-bakery-logo">MAISON DORÉE FRENCH BAKERY</div>
-                    <div class="retro-bakery-phone">Call to Order: 555-0144</div>
+                    <div class="retro-bakery-logo">🥐 MAISON DORÉE HOME BAKERY</div>
+                    <div class="retro-bakery-phone">Order Desk: (312) 555-7142</div>
                   </div>
-                  <div class="retro-bakery-slogan">"Freshly Baked Bread Daily • Custom Birthday Cakes"</div>
+                  <div class="retro-bakery-slogan">"Fresh Bread, French Croissants &amp; Custom Birthday Cakes"</div>
                   <div class="retro-nav-bar">
-                    <span class="retro-nav-item">HOME</span>
-                    <span class="retro-nav-item">BREAD</span>
-                    <span class="retro-nav-item">PASTRIES</span>
-                    <span class="retro-nav-item">CAKES</span>
-                    <span class="retro-nav-item">CONTACT</span>
+                    <span class="retro-nav-item active">HOME</span>
+                    <span class="retro-nav-item">BREAD LIST</span>
+                    <span class="retro-nav-item">BIRTHDAY CAKES</span>
+                    <span class="retro-nav-item">ORDER FORM</span>
+                    <span class="retro-nav-item">DIRECTIONS</span>
                   </div>
                 </div>
                 <div class="retro-bakery-main">
                   <div class="retro-hotel-hero-box">
-                    <div class="retro-image-placeholder bakery-placeholder">
+                    <div class="retro-image-placeholder">
                       <span class="retro-img-icon">🥖</span>
-                      <span class="retro-img-caption">[Photo: Baguettes in Wicker Basket]</span>
+                      <span class="retro-img-caption">[Photo: Fresh Baguettes in Wicker Basket]</span>
                     </div>
                     <div class="retro-hero-text">
-                      <h4>Maison Dorée French Bakery</h4>
-                      <p class="retro-italic">"Freshly baked artisan sourdough and French pastries."</p>
-                      <p>We bake bread every morning. Custom cakes must be ordered 7 days in advance in person.</p>
+                      <h4>Fresh Bread Daily at Maison Dorée</h4>
+                      <p class="retro-italic">"Traditional baking with natural ingredients."</p>
+                      <p>Our artisan baguettes and country bread come fresh from the ovens every morning at 7:00 AM. Please call before 10:00 AM to reserve loaves. Custom birthday cake orders require 3 days advance notice.</p>
                       <div class="retro-action-row">
-                        <button type="button" class="retro-btn">Download Price List (PDF)</button>
+                        <button type="button" class="retro-btn">Download 2012 Bread Price Sheet</button>
                       </div>
                     </div>
                   </div>
                   <div class="retro-three-col-section">
                     <div class="retro-col-box">
-                      <h5>SOURDOUGH</h5>
-                      <p>Traditional French baguettes and country loaves.</p>
+                      <h5>ARTISAN BREADS</h5>
+                      <p>French Baguette $2.75<br>Sourdough Loaf $4.50<br>Multigrain Bread $4.00</p>
                     </div>
                     <div class="retro-col-box">
                       <h5>PASTRIES</h5>
-                      <p>Butter croissants, chocolate rolls and fruit tarts.</p>
+                      <p>Butter Croissant $2.25<br>Pain au Chocolat $2.75<br>Apple Turnover $2.50</p>
                     </div>
                     <div class="retro-col-box">
-                      <h5>CUSTOM CAKES</h5>
-                      <p>Birthday and wedding cakes made to order.</p>
+                      <h5>SPECIALTY CAKES</h5>
+                      <p>Chocolate Fudge 8" $28.00<br>Strawberry Shortcake $32.00<br>Fruit Tart 9" $24.00</p>
                     </div>
                   </div>
-                </div>
-                <div class="retro-hotel-footer">
-                  Maison Dorée Boulangerie &bull; Closed Mondays &bull; Cash &amp; Cheques Accepted.
+                  <div class="retro-footer-strip">
+                    &copy; 2012 Maison Dorée Bakery. We accept Cash &amp; Personal Cheques only.
+                  </div>
                 </div>
               </div>
             </div>
 
-            <!-- 5. E-COMMERCE BEFORE: Vanguard Minimal Goods -->
+            <!-- 5. E-COMMERCE BEFORE: Vanguard Goods -->
             <div class="category-panel" data-panel="ecommerce">
-              <div class="old-browser-bar">
-                <span class="old-browser-dot"></span>
-                <span class="old-browser-dot"></span>
-                <span class="old-browser-dot"></span>
-                <div class="old-address-bar">http://www.vanguard-store.net/products.php?cat=all</div>
-              </div>
-              <div class="showcase-tag-badge tag-before">BEFORE • 2012 WEBSITE</div>
-              <div class="old-browser-body retro-ecom-body">
+              <div class="comparison-badge badge-before">BEFORE • 2012 LEGACY</div>
+              <div class="retro-website-body retro-ecom-body">
                 <div class="retro-ecom-header">
                   <div class="retro-ecom-top-row">
-                    <div class="retro-ecom-logo">VANGUARD MINIMAL GOODS &amp; EDC</div>
-                    <div class="retro-ecom-cart-link">[ Cart (0) | Checkout ]</div>
+                    <div class="retro-ecom-logo">VANGUARD MINIMAL GOODS &amp; EDC STORE</div>
+                    <div class="retro-ecom-cart-link">🛒 Shopping Cart: 0 items ($0.00)</div>
                   </div>
-                  <div class="retro-ecom-slogan">"Everyday Carry • Titanium Watches • Full-Grain Leather"</div>
+                  <div class="retro-ecom-slogan">"Your Online Catalog for Watches, Wallets &amp; Everyday Carry Tools"</div>
                   <div class="retro-nav-bar">
-                    <span class="retro-nav-item">HOME</span>
-                    <span class="retro-nav-item">CATALOG</span>
+                    <span class="retro-nav-item active">CATALOG</span>
                     <span class="retro-nav-item">WATCHES</span>
-                    <span class="retro-nav-item">LEATHER</span>
-                    <span class="retro-nav-item">SALE</span>
+                    <span class="retro-nav-item">LEATHER GOODS</span>
+                    <span class="retro-nav-item">PENS &amp; TOOLS</span>
+                    <span class="retro-nav-item">SHIPPING POLICY</span>
                   </div>
                 </div>
                 <div class="retro-ecom-main">
+                  <div class="retro-ecom-top-notice">
+                    <strong>SYSTEM NOTICE:</strong> Secure Checkout via PayPal Standard. Please allow 7-14 business days for USPS ground shipping.
+                  </div>
                   <div class="retro-ecom-grid-3">
                     <div class="retro-prod-cell">
-                      <div class="retro-prod-thumb">Watch #402</div>
-                      <span class="retro-p-name">Titanium Watch</span>
+                      <div class="retro-prod-thumb">[Watch #402]</div>
+                      <span class="retro-p-name">Titanium Watch 01</span>
                       <span class="retro-p-price">$320.00</span>
-                      <button type="button" class="retro-btn-add">ADD TO CART</button>
+                      <span class="retro-p-stock">In Stock (Qty: 4)</span>
+                      <button type="button" class="retro-btn-add">[ Add to Cart ]</button>
                     </div>
                     <div class="retro-prod-cell">
-                      <div class="retro-prod-thumb">Wallet #118</div>
-                      <span class="retro-p-name">Leather Wallet</span>
-                      <span class="retro-p-price">$65.00</span>
-                      <button type="button" class="retro-btn-add">ADD TO CART</button>
+                      <div class="retro-prod-thumb">[Wallet #108]</div>
+                      <span class="retro-p-name">Leather Bi-Fold Wallet</span>
+                      <span class="retro-p-price">$85.00</span>
+                      <span class="retro-p-stock">In Stock (Qty: 12)</span>
+                      <button type="button" class="retro-btn-add">[ Add to Cart ]</button>
                     </div>
                     <div class="retro-prod-cell">
-                      <div class="retro-prod-thumb">Pen #092</div>
-                      <span class="retro-p-name">Brass Pen</span>
-                      <span class="retro-p-price">$28.00</span>
-                      <button type="button" class="retro-btn-add">ADD TO CART</button>
+                      <div class="retro-prod-thumb">[Pen #055]</div>
+                      <span class="retro-p-name">Machined Brass Pen</span>
+                      <span class="retro-p-price">$55.00</span>
+                      <span class="retro-p-stock">Low Stock (Qty: 2)</span>
+                      <button type="button" class="retro-btn-add">[ Add to Cart ]</button>
                     </div>
                   </div>
-                </div>
-                <div class="retro-hotel-footer">
-                  Vanguard Minimal Goods &copy; 2012 • Standard ground shipping 10-14 days • PayPal Accepted.
+                  <div class="retro-footer-strip">
+                    &copy; 2012 Vanguard Minimal Goods. Powered by OsCommerce 2.2. SSL 128-bit Encrypted.
+                  </div>
                 </div>
               </div>
             </div>
 
           </div>
         </div>
-        
+
         <!-- ===================================================================
-             MODERN "AFTER" VIEW (Right Side - 2026 Production Website Flagships)
+             MODERN "AFTER" VIEW (Right Side - 2026 Production Flagships)
              =================================================================== -->
         <div class="new-website-view" id="new-website-view">
           <div class="new-website-content" id="new-website-content">
             
             <!-- 1. HOSPITALITY AFTER: The Grand Palm Luxury Resort Flagship -->
             <div class="category-panel active panel-hospitality" data-panel="hospitality">
-              <div class="new-browser-bar">
-                <span class="new-browser-dot dot-red"></span>
-                <span class="new-browser-dot dot-yellow"></span>
-                <span class="new-browser-dot dot-green"></span>
-                <div class="new-address-bar">🔒 thegrandpalm.com</div>
-              </div>
-              <div class="showcase-tag-badge tag-after">AFTER • BY OCTAGRAM</div>
+              <div class="comparison-badge badge-after">AFTER • 2026 FLAGSHIP</div>
               <div class="modern-website-viewport modern-hotel-site">
                 
                 <!-- Modern Hotel Navigation -->
                 <header class="hotel-site-nav">
                   <div class="hotel-site-brand">THE GRAND PALM</div>
                   <nav class="hotel-nav-links">
-                    <span>STAY</span>
-                    <span>EXPERIENCE</span>
+                    <span>VILLAS</span>
                     <span>DINING</span>
                     <span>WELLNESS</span>
+                    <span>EXPERIENCES</span>
+                    <span>OFFERS</span>
                   </nav>
-                  <button type="button" class="hotel-btn-nav">BOOK YOUR STAY</button>
+                  <button type="button" class="hotel-btn-nav">RESERVE NOW</button>
                 </header>
 
                 <!-- Modern Hotel Hero Section -->
                 <section class="hotel-site-hero">
                   <div class="hotel-hero-overlay"></div>
                   <div class="hotel-hero-content">
-                    <h3 class="hotel-hero-title">A QUIET PLACE<br>TO COME BACK TO.</h3>
-                    <p class="hotel-hero-desc">Private villas, slow mornings and the Indian Ocean.</p>
+                    <span class="modern-eyebrow">PRIVATE ATOLL SANCTUARY &bull; MALDIVES</span>
+                    <h3 class="hotel-hero-title">A quiet place<br>to come back to.</h3>
+                    <p class="hotel-hero-desc">Private overwater villas, slow mornings and tailored Indian Ocean wellness retreats.</p>
                     <div class="hotel-hero-ctas">
-                      <button type="button" class="hotel-cta-primary">BOOK YOUR STAY →</button>
-                      <button type="button" class="hotel-cta-ghost">EXPLORE THE RESORT</button>
+                      <button type="button" class="hotel-cta-primary">BOOK YOUR STAY &rarr;</button>
+                      <button type="button" class="hotel-cta-ghost">EXPLORE SUITES</button>
                     </div>
+                  </div>
+
+                  <!-- Integrated Luxury Booking Bar -->
+                  <div class="hotel-floating-booking-bar">
+                    <div class="booking-pill-item">
+                      <span class="pill-label">DATES</span>
+                      <span class="pill-value">18 Oct &mdash; 24 Oct</span>
+                    </div>
+                    <div class="booking-pill-divider"></div>
+                    <div class="booking-pill-item">
+                      <span class="pill-label">GUESTS</span>
+                      <span class="pill-value">2 Adults &bull; 1 Suite</span>
+                    </div>
+                    <div class="booking-pill-divider"></div>
+                    <div class="booking-pill-item">
+                      <span class="pill-label">VILLA TYPE</span>
+                      <span class="pill-value">Sunset Ocean Pool</span>
+                    </div>
+                    <button type="button" class="booking-pill-btn">CHECK DATES &rarr;</button>
                   </div>
                 </section>
 
-                <!-- Modern Hotel Next Section (More than a place to stay) -->
+                <!-- Modern Hotel Next Section (Suites & Living) -->
                 <section class="hotel-site-next-section">
-                  <div class="hotel-editorial-statement">
-                    <h4>MORE THAN A PLACE TO STAY.</h4>
-                    <p>A secluded retreat designed around slower days, thoughtful spaces and the people you came to spend them with.</p>
+                  <div class="hotel-editorial-header">
+                    <span class="section-mini-tag">CURATED ACCOMMODATIONS</span>
+                    <h4>ARCHITECTURAL SERENITY</h4>
+                    <p>Designed to blur the boundary between indoor living and the turquoise lagoon.</p>
                   </div>
-                  <div class="hotel-editorial-hero-image"></div>
+                  <div class="hotel-suites-grid">
+                    <div class="suite-card">
+                      <div class="suite-img suite-img-1"></div>
+                      <div class="suite-info">
+                        <h5>Sunset Water Villa</h5>
+                        <span>From $1,450 / night</span>
+                      </div>
+                    </div>
+                    <div class="suite-card">
+                      <div class="suite-img suite-img-2"></div>
+                      <div class="suite-info">
+                        <h5>Beachfront Pool Pavilion</h5>
+                        <span>From $1,850 / night</span>
+                      </div>
+                    </div>
+                  </div>
                 </section>
 
               </div>
@@ -831,58 +843,69 @@
 
             <!-- 2. RESTAURANT AFTER: L'Amour Contemporary French Gastronomy -->
             <div class="category-panel panel-restaurant" data-panel="restaurant">
-              <div class="new-browser-bar">
-                <span class="new-browser-dot dot-red"></span>
-                <span class="new-browser-dot dot-yellow"></span>
-                <span class="new-browser-dot dot-green"></span>
-                <div class="new-address-bar">🔒 lamourbistro.com</div>
-              </div>
-              <div class="showcase-tag-badge tag-after">AFTER • BY OCTAGRAM</div>
+              <div class="comparison-badge badge-after">AFTER • 2026 FLAGSHIP</div>
               <div class="modern-website-viewport modern-bistro-site">
                 
                 <!-- Modern Bistro Navigation -->
                 <header class="bistro-site-nav">
                   <div class="bistro-site-brand">L'AMOUR</div>
                   <nav class="bistro-nav-links">
-                    <span>MENU</span>
+                    <span>TASTING MENU</span>
                     <span>THE CHEF</span>
-                    <span>THE CELLAR</span>
-                    <span>JOURNAL</span>
+                    <span>WINE CELLAR</span>
+                    <span>PRIVATE DINING</span>
                   </nav>
-                  <button type="button" class="bistro-btn-nav">RESERVE</button>
+                  <button type="button" class="bistro-btn-nav">RESERVE A TABLE</button>
                 </header>
 
                 <!-- Modern Bistro Hero Section -->
                 <section class="bistro-site-hero">
                   <div class="bistro-hero-overlay"></div>
                   <div class="bistro-hero-content">
-                    <h3 class="bistro-hero-title">DINNER,<br>WITH INTENT.</h3>
-                    <p class="bistro-hero-desc">Contemporary French cooking shaped by the seasons.</p>
+                    <span class="modern-eyebrow">MICHELIN GUIDE 2026 &bull; RUE DE BOURGOGNE, PARIS</span>
+                    <h3 class="bistro-hero-title">Dinner,<br>with intent.</h3>
+                    <p class="bistro-hero-desc">Contemporary French gastronomy guided by seasonal terroir, rare vintages and timeless culinary artistry.</p>
                     <div class="bistro-hero-ctas">
-                      <button type="button" class="bistro-cta-primary">RESERVE A TABLE →</button>
-                      <button type="button" class="bistro-cta-ghost">VIEW THE MENU</button>
+                      <button type="button" class="bistro-cta-primary">RESERVE A TABLE &rarr;</button>
+                      <button type="button" class="bistro-cta-ghost">VIEW TASTING MENU</button>
                     </div>
+                  </div>
+
+                  <!-- Live Service Status Strip -->
+                  <div class="bistro-status-pill">
+                    <span class="live-indicator-dot"></span>
+                    <span class="status-text">TONIGHT'S SERVICE: 18:30 &amp; 21:00 &bull; 3 TABLES REMAINING</span>
                   </div>
                 </section>
 
-                <!-- Modern Bistro Next Section (Tonight's Menu) -->
+                <!-- Bistro Next Section: Typographic Tasting Menu -->
                 <section class="bistro-site-next-section">
-                  <div class="bistro-editorial-statement">
-                    <h4>TONIGHT'S MENU</h4>
+                  <div class="bistro-editorial-header">
+                    <span class="section-mini-tag">AUTUMN TASTING JOURNEY</span>
+                    <h4>OCTOBER TASTING EXPERIENCE</h4>
                   </div>
                   <div class="bistro-menu-showcase">
-                    <div class="bistro-menu-text-column">
+                    <div class="bistro-dish-list">
                       <div class="bistro-dish-entry">
-                        <span class="dish-title">SCALLOP</span>
-                        <span class="dish-sub">Brown butter · fennel · citrus</span>
+                        <div class="dish-title-row">
+                          <span class="dish-title">I. Saint-Jacques Scallop</span>
+                          <span class="dish-price">Truffle &amp; Artichoke</span>
+                        </div>
+                        <p class="dish-desc">Pan-seared Brittany scallops, black truffle emulsion, crispy sunchoke crisps.</p>
                       </div>
                       <div class="bistro-dish-entry">
-                        <span class="dish-title">DUCK</span>
-                        <span class="dish-sub">Blood orange · chicory · jus</span>
+                        <div class="dish-title-row">
+                          <span class="dish-title">II. Challans Duck Breast</span>
+                          <span class="dish-price">Fig &amp; Spiced Jus</span>
+                        </div>
+                        <p class="dish-desc">Dry-aged duck roasted over cherrywood, caramelized fig, celeriac silk.</p>
                       </div>
                       <div class="bistro-dish-entry">
-                        <span class="dish-title">SOUFFLÉ</span>
-                        <span class="dish-sub">Valrhona chocolate · salted pistachio</span>
+                        <div class="dish-title-row">
+                          <span class="dish-title">III. Grand Cru Soufflé</span>
+                          <span class="dish-price">Valrhona Chocolate</span>
+                        </div>
+                        <p class="dish-desc">70% Guanaja dark chocolate soufflé, warm Tahitian vanilla bean anglaise.</p>
                       </div>
                     </div>
                     <div class="bistro-editorial-dish-image"></div>
@@ -894,51 +917,66 @@
 
             <!-- 3. CAFÉ AFTER: Aura Coffee Specialty Roasters Flagship -->
             <div class="category-panel panel-cafe" data-panel="cafe">
-              <div class="new-browser-bar">
-                <span class="new-browser-dot dot-red"></span>
-                <span class="new-browser-dot dot-yellow"></span>
-                <span class="new-browser-dot dot-green"></span>
-                <div class="new-address-bar">🔒 auracoffee.com</div>
-              </div>
-              <div class="showcase-tag-badge tag-after">AFTER • BY OCTAGRAM</div>
+              <div class="comparison-badge badge-after">AFTER • 2026 FLAGSHIP</div>
               <div class="modern-website-viewport modern-cafe-site">
                 
                 <!-- Modern Cafe Navigation -->
                 <header class="cafe-site-nav">
-                  <div class="cafe-site-brand">AURA</div>
+                  <div class="cafe-site-brand">AURA COFFEE</div>
                   <nav class="cafe-nav-links">
-                    <span>COFFEE</span>
-                    <span>MENU</span>
+                    <span>SINGLE ORIGIN</span>
+                    <span>CAFE MENU</span>
                     <span>ROASTERY</span>
-                    <span>VISIT</span>
+                    <span>LOCATIONS</span>
                   </nav>
-                  <button type="button" class="cafe-btn-nav">ORDER AHEAD</button>
+                  <button type="button" class="cafe-btn-nav">ORDER FOR PICKUP</button>
                 </header>
 
                 <!-- Modern Cafe Hero Section -->
                 <section class="cafe-site-hero">
                   <div class="cafe-hero-overlay"></div>
                   <div class="cafe-hero-content">
-                    <h3 class="cafe-hero-title">GOOD COFFEE.<br>GOOD PLACE.</h3>
-                    <p class="cafe-hero-desc">Single-origin coffee, roasted in-house.</p>
+                    <span class="modern-eyebrow">SPECIALTY ROASTERS &bull; SHIBUYA &bull; BROOKLYN &bull; LONDON</span>
+                    <h3 class="cafe-hero-title">Obsessive craft.<br>Pure coffee.</h3>
+                    <p class="cafe-hero-desc">Direct-trade micro-lots roasted daily in small batches and brewed with precision extraction.</p>
                     <div class="cafe-hero-ctas">
-                      <button type="button" class="cafe-cta-primary">VIEW THE MENU</button>
-                      <button type="button" class="cafe-cta-ghost">FIND US →</button>
+                      <button type="button" class="cafe-cta-primary">1-CLICK PICKUP ORDER &rarr;</button>
+                      <button type="button" class="cafe-cta-ghost">EXPLORE BEAN ORIGINS</button>
                     </div>
+                  </div>
+
+                  <!-- Live Roastery Feed Status -->
+                  <div class="cafe-status-pill">
+                    <span class="live-indicator-dot amber"></span>
+                    <span class="status-text">ROASTING TODAY: ETHIOPIAN FLORAL GUJI &bull; COLOMBIAN GESHA LOT 09</span>
                   </div>
                 </section>
 
                 <!-- Modern Cafe Next Section (Roasted Here) -->
                 <section class="cafe-site-next-section">
-                  <div class="cafe-editorial-statement">
-                    <h4>ROASTED HERE.</h4>
-                    <p>We roast small batches every morning, from bright Ethiopian florals to chocolate-rich Colombian lots.</p>
-                    <span class="cafe-explore-link">EXPLORE OUR COFFEE →</span>
+                  <div class="cafe-editorial-header">
+                    <span class="section-mini-tag">DIRECT FROM SOURCE</span>
+                    <h4>FRESH BEANS &amp; BREWS</h4>
                   </div>
-                  <div class="cafe-editorial-coffee-image"></div>
+                  <div class="cafe-products-grid">
+                    <div class="cafe-card">
+                      <div class="cafe-card-img coffee-bag-1"></div>
+                      <div class="cafe-card-meta">
+                        <h5>Aura House Espresso</h5>
+                        <span>$19.50 / 250g &bull; Chocolate &amp; Honey</span>
+                      </div>
+                    </div>
+                    <div class="cafe-card">
+                      <div class="cafe-card-img coffee-bag-2"></div>
+                      <div class="cafe-card-meta">
+                        <h5>Single Origin Cold Brew</h5>
+                        <span>$6.50 &bull; Bright &amp; Bergamot</span>
+                      </div>
+                    </div>
+                  </div>
                   <div class="cafe-morning-strip">
-                    <span class="strip-headline">COME BY THIS MORNING.</span>
-                    <span class="strip-details">7:00 — 21:00 &bull; 120 Market Lane</span>
+                    <span class="strip-headline">VISIT US TODAY &bull; OPEN 07:00 &mdash; 20:00</span>
+                    <span class="strip-details">142 Mercer Street, Soho &bull; 1-Min Pickup Available</span>
                   </div>
                 </section>
 
@@ -947,84 +985,90 @@
 
             <!-- 4. BAKERY AFTER: Maison Dorée Artisanal Boulangerie Flagship -->
             <div class="category-panel panel-bakery" data-panel="bakery">
-              <div class="new-browser-bar">
-                <span class="new-browser-dot dot-red"></span>
-                <span class="new-browser-dot dot-yellow"></span>
-                <span class="new-browser-dot dot-green"></span>
-                <div class="new-address-bar">🔒 maisondoree.com</div>
-              </div>
-              <div class="showcase-tag-badge tag-after">AFTER • BY OCTAGRAM</div>
+              <div class="comparison-badge badge-after">AFTER • 2026 FLAGSHIP</div>
               <div class="modern-website-viewport modern-bakery-site">
                 
                 <!-- Modern Bakery Navigation -->
                 <header class="bakery-site-nav">
-                  <div class="bakery-site-brand">MAISON DORÉE</div>
+                  <div class="bakery-brand-serif">MAISON DORÉE</div>
                   <nav class="bakery-nav-links">
-                    <span>PATISSERIE</span>
+                    <span>VIENNOISERIE</span>
                     <span>SOURDOUGH</span>
-                    <span>CAKES</span>
-                    <span>ABOUT</span>
+                    <span>PATISSERIE</span>
+                    <span>CUSTOM CAKES</span>
                   </nav>
-                  <button type="button" class="bakery-btn-nav">ORDER ONLINE</button>
+                  <button type="button" class="bakery-btn-nav">ORDER TODAY'S BAKE</button>
                 </header>
 
                 <!-- Modern Bakery Hero Section -->
                 <section class="bakery-site-hero">
                   <div class="bakery-hero-overlay"></div>
                   <div class="bakery-hero-content">
-                    <h3 class="bakery-hero-title">BAKED<br>THIS MORNING.</h3>
-                    <p class="bakery-hero-desc">Sourdough, viennoiserie and celebration cakes made by hand.</p>
+                    <span class="modern-eyebrow">ARTISANAL BOULANGERIE &bull; EST. 2018</span>
+                    <h3 class="bakery-hero-title">Baked before dawn,<br>every morning.</h3>
+                    <p class="bakery-hero-desc">100% wild levain sourdough, 72-hour fermented French butter croissants, and bespoke seasonal fruit patisserie.</p>
                     <div class="bakery-hero-ctas">
-                      <button type="button" class="bakery-cta-primary">ORDER ONLINE →</button>
-                      <button type="button" class="bakery-cta-ghost">TODAY'S BAKES</button>
+                      <button type="button" class="bakery-cta-primary">PRE-ORDER TODAY'S BAKE &rarr;</button>
+                      <button type="button" class="bakery-cta-ghost">TODAY'S COUNTER MENU</button>
                     </div>
+                  </div>
+
+                  <!-- Live Oven Status Bar -->
+                  <div class="bakery-status-pill">
+                    <span class="live-indicator-dot gold"></span>
+                    <span class="status-text">BATCH #4 FRESH FROM OVEN: PAIN AU CHOCOLAT &bull; WILD COUNTRY SOURDOUGH</span>
                   </div>
                 </section>
 
-                <!-- Modern Bakery Next Section (From The Oven) -->
+                <!-- Bakery Next Section: From The Hearth -->
                 <section class="bakery-site-next-section">
-                  <div class="bakery-editorial-statement">
-                    <h4>FROM THE OVEN.</h4>
-                    <div class="bakery-typography-list">
-                      <span>PAIN AU CHOCOLAT</span>
-                      <span>BUTTER CROISSANT</span>
-                      <span>PISTACHIO ÉCLAIR</span>
+                  <div class="bakery-editorial-header">
+                    <span class="section-mini-tag">HANDMADE DAILY</span>
+                    <h4>FRESH FROM THE HEARTH</h4>
+                  </div>
+                  <div class="bakery-pastry-grid">
+                    <div class="pastry-card">
+                      <div class="pastry-img pastry-img-1"></div>
+                      <div class="pastry-meta">
+                        <h5>Wild Sourdough Batard</h5>
+                        <span>$9.00 &bull; 36hr Fermentation</span>
+                      </div>
+                    </div>
+                    <div class="pastry-card">
+                      <div class="pastry-img pastry-img-2"></div>
+                      <div class="pastry-meta">
+                        <h5>Double-Baked Almond Croissant</h5>
+                        <span>$5.50 &bull; Pure Isigny Butter</span>
+                      </div>
                     </div>
                   </div>
-                  <div class="bakery-editorial-oven-image"></div>
                   <div class="bakery-cakes-section">
-                    <span class="cakes-statement">CELEBRATION CAKES</span>
-                    <span class="cakes-link">EXPLORE CUSTOM CAKES →</span>
+                    <span class="cakes-statement">CELEBRATION &amp; WEDDING CAKES</span>
+                    <span class="cakes-link">CUSTOM ORDER INQUIRY &rarr;</span>
                   </div>
                 </section>
 
               </div>
             </div>
 
-            <!-- 5. E-COMMERCE AFTER: Vanguard Contemporary Luxury Retail Flagship -->
+            <!-- 5. E-COMMERCE AFTER: Vanguard Minimal Goods Flagship -->
             <div class="category-panel panel-ecommerce" data-panel="ecommerce">
-              <div class="new-browser-bar">
-                <span class="new-browser-dot dot-red"></span>
-                <span class="new-browser-dot dot-yellow"></span>
-                <span class="new-browser-dot dot-green"></span>
-                <div class="new-address-bar">🔒 vanguardstudio.com</div>
-              </div>
-              <div class="showcase-tag-badge tag-after">AFTER • BY OCTAGRAM</div>
+              <div class="comparison-badge badge-after">AFTER • 2026 FLAGSHIP</div>
               <div class="modern-website-viewport modern-ecom-site">
                 
                 <!-- Modern E-Commerce Navigation -->
                 <header class="ecom-site-nav">
                   <div class="ecom-site-brand">VANGUARD</div>
                   <nav class="ecom-nav-links">
-                    <span>NEW</span>
-                    <span>OBJECTS</span>
-                    <span>ACCESSORIES</span>
+                    <span>TIMEPIECES</span>
+                    <span>LEATHER GOODS</span>
+                    <span>EDC TOOLS</span>
                     <span>JOURNAL</span>
                   </nav>
                   <div class="ecom-right-nav">
                     <span>SEARCH</span>
                     <span>ACCOUNT</span>
-                    <span>BAG (2)</span>
+                    <span class="cart-pill">BAG (2)</span>
                   </div>
                 </header>
 
@@ -1032,37 +1076,49 @@
                 <section class="ecom-site-hero">
                   <div class="ecom-hero-overlay"></div>
                   <div class="ecom-hero-content">
-                    <h3 class="ecom-hero-title">OBJECTS<br>WORTH KEEPING.</h3>
-                    <p class="ecom-hero-desc">Thoughtfully designed essentials for everyday life.</p>
+                    <span class="modern-eyebrow">SERIES 04 &bull; TITANIUM &bull; FULL-GRAIN LEATHER &bull; BRASS</span>
+                    <h3 class="ecom-hero-title">Objects worth<br>keeping.</h3>
+                    <p class="ecom-hero-desc">Machined Grade-5 titanium watches, vegetable-tanned Italian leather goods, and precision accessories engineered for lifetime use.</p>
                     <div class="ecom-hero-ctas">
-                      <button type="button" class="ecom-cta-primary">SHOP THE COLLECTION →</button>
+                      <button type="button" class="ecom-cta-primary">EXPLORE COLLECTION &rarr;</button>
+                      <button type="button" class="ecom-cta-ghost">VIEW LOOKBOOK</button>
                     </div>
+                  </div>
+
+                  <!-- Worldwide Express Strip -->
+                  <div class="ecom-status-pill">
+                    <span class="live-indicator-dot blue"></span>
+                    <span class="status-text">COMPLIMENTARY EXPRESS WORLDWIDE SHIPPING ON ORDERS OVER $150</span>
                   </div>
                 </section>
 
-                <!-- Modern E-Commerce Next Section (Featured Product & New Arrivals) -->
+                <!-- E-Commerce Next Section: Featured Iconic Objects -->
                 <section class="ecom-site-next-section">
+                  <div class="ecom-editorial-header">
+                    <span class="section-mini-tag">CURATED ESSENTIALS</span>
+                    <h4>ICONIC OBJECTS &bull; EDITION 04</h4>
+                  </div>
                   <div class="ecom-featured-product">
                     <div class="featured-prod-image"></div>
                     <div class="featured-prod-copy">
-                      <h4>THE CHRONOGRAPH 01</h4>
-                      <p>Machined from aerospace-grade titanium with an automatic Japanese movement.</p>
-                      <span class="prod-price-tag">$380</span>
-                      <span class="prod-view-link">VIEW PRODUCT →</span>
+                      <h5>The Chronograph 01</h5>
+                      <p>Satin titanium case, sapphire crystal glass, Japanese automatic mechanical movement.</p>
+                      <span class="prod-price-tag">$380.00</span>
+                      <button type="button" class="prod-quick-add-btn">QUICK ADD TO BAG &rarr;</button>
                     </div>
                   </div>
                   <div class="ecom-arrivals-strip">
-                    <span class="strip-title">NEW ARRIVALS</span>
+                    <span class="strip-title">COMPLEMENTARY ACCESSORIES</span>
                     <div class="arrivals-visual-grid">
                       <div class="arrival-item">
                         <div class="arrival-photo leather-thumb"></div>
                         <span class="arr-name">Tuscan Leather Folio</span>
-                        <span class="arr-price">$145</span>
+                        <span class="arr-price">$145.00</span>
                       </div>
                       <div class="arrival-item">
                         <div class="arrival-photo pen-thumb"></div>
                         <span class="arr-name">Machined Brass Pen</span>
-                        <span class="arr-price">$65</span>
+                        <span class="arr-price">$65.00</span>
                       </div>
                     </div>
                   </div>
@@ -1077,18 +1133,17 @@
         <!-- Drag Divider Bar -->
         <div class="slider-divider" id="slider-divider">
           <div class="slider-handle">
-            <span class="handle-arrow">←</span>
+            <span class="handle-arrow">&larr;</span>
             <span class="handle-label">DRAG TO TRANSFORM</span>
-            <span class="handle-arrow">→</span>
+            <span class="handle-arrow">&rarr;</span>
           </div>
         </div>
         
         <!-- Range input Overlay -->
-        <input type="range" class="slider-range-input" id="slider-range-input" min="0" max="100" value="40" aria-label="Transformation Before and After Slider">
+        <input type="range" class="slider-range-input" id="slider-range-input" min="0" max="100" value="33" aria-label="Transformation Before and After Slider">
         
       </div>
 
-      <!-- Below Slider: Value Indicators -->
       <div class="transformation-benefits-grid">
         <div class="benefit-card">
           <h4>Immersive Visual Identity</h4>
@@ -1117,7 +1172,7 @@
       <!-- Section Editorial Header -->
       <div class="pipeline-header">
         <div class="pipeline-header-meta">
-          <span class="section-tag">03 — OUR PROCESS</span>
+          <span class="section-tag">OUR PROCESS</span>
           <div class="pipeline-status-badge">
             <span class="status-ping"></span>
             <span class="status-label">A CLEAR, PROVEN PROCESS</span>
@@ -1187,7 +1242,7 @@
               <span class="stage-phase">UNDERSTAND</span>
             </div>
             <h3 class="stage-headline">LEARN BEFORE WE BUILD.</h3>
-            <p class="stage-desc">We learn about your business, your customers and what you want your website to achieve.</p>
+            <p class="stage-desc">We learn about your business, your customers, and what you want your website to achieve.</p>
 
             <div class="stage-deliverables-block">
               <div class="deliverables-heading">OUTPUTS &amp; DELIVERABLES:</div>
@@ -1674,7 +1729,7 @@
       
       <!-- Editorial Intro -->
       <div class="faq-intro">
-        <span class="section-tag">Before We Build</span>
+        <span class="section-tag">BEFORE WE BUILD</span>
         <h2>A FEW THINGS<br>WORTH KNOWING.</h2>
         <p class="faq-intro-text">The questions we hear most often before turning an idea into a digital experience.</p>
       </div>
@@ -1785,7 +1840,7 @@
           </button>
           <div class="faq-answer-wrapper" id="faq-answer-6" aria-labelledby="faq-trigger-6" role="region" style="max-height: 0px;">
             <div class="faq-answer-content">
-              <p>There is no one-size-fits-all timeline. Scope, content, integrations and complexity all affect the build. We establish the requirements first, then define a realistic delivery plan around the project.</p>
+              <p>There is no one-size-fits-all timeline. Scope, content, integrations, and complexity all affect the build. We establish the requirements first, then define a realistic delivery plan around the project.</p>
             </div>
           </div>
         </div>
@@ -1817,7 +1872,7 @@
       <div class="contact-info">
         <span class="section-tag">LET'S TALK</span>
         <h2 style="text-transform: uppercase; font-size: 2.1rem; line-height: 1.25; letter-spacing: 0.02em;">TELL US WHAT YOU'RE BUILDING.</h2>
-        <p>Whether you need a new website, a better online presence or help connecting your existing systems, let's talk.</p>
+        <p>Whether you need a new website, a better online presence, or help connecting your existing systems, let's talk.</p>
         
         <div class="contact-details">
           <div class="contact-item">
@@ -2025,6 +2080,6 @@
   </button>
 
   <!-- Main JavaScript -->
-  <script src="main.js?v=2.3"></script>
+  <script src="main.js?v=3.0"></script>
 </body>
 </html>

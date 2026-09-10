@@ -21,13 +21,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=3.0">
+  <link rel="stylesheet" href="styles.css?v=3.1">
   
-  <!-- Compiler Stylesheet (Self-building on load) -->
-  <link rel="stylesheet" href="compiler.css?v=3.0">
+  <!-- Section Laser Scanners, Terminal Logs, and Compiler Sweeps -->
+  <link rel="stylesheet" href="compiler.css?v=3.1">
   
-  <!-- Floating Dashboard HUD (Showcase capabilities) -->
-  <link rel="stylesheet" href="hud.css?v=3.0">
+  <!-- HUD System Status, Voice Indicator, and Live System Clock -->
+  <link rel="stylesheet" href="hud.css?v=3.1">
 </head>
 <body>
 
@@ -473,8 +473,20 @@
         <span class="context-desc">From a static 2012 brochure to an immersive, direct-booking luxury experience</span>
       </div>
 
+      <!-- Mobile Transformation View Switcher (Visible on Mobile Screens <= 600px) -->
+      <div class="mobile-showcase-toggle" id="mobile-showcase-toggle" role="tablist" aria-label="Transformation View Switcher">
+        <button type="button" class="mobile-toggle-btn" data-mobile-mode="before" role="tab" aria-selected="false">
+          <span class="mobile-dot dot-before"></span>
+          <span class="mobile-toggle-text">2012 BEFORE</span>
+        </button>
+        <button type="button" class="mobile-toggle-btn active" data-mobile-mode="after" role="tab" aria-selected="true">
+          <span class="mobile-dot dot-after"></span>
+          <span class="mobile-toggle-text">2026 AFTER</span>
+        </button>
+      </div>
+
       <!-- The Sliding Window Comparison Widget -->
-            <div class="slider-comparison-box" id="slider-comparison-box">
+      <div class="slider-comparison-box mobile-mode-after" id="slider-comparison-box">
         
         <!-- ===================================================================
              LEGACY "BEFORE" VIEW (Left Side - Authentic 2012 Websites)
@@ -2080,6 +2092,6 @@
   </button>
 
   <!-- Main JavaScript -->
-  <script src="main.js?v=3.0"></script>
+  <script src="main.js?v=3.1"></script>
 </body>
 </html>

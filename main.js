@@ -984,6 +984,61 @@ function setupBeforeAfterSlider() {
     applySliderValue(e.target.value);
   });
 
+  // Mobile Transformation Mode Toggle Switcher
+  const mobileToggleBtns = document.querySelectorAll('.mobile-showcase-toggle .mobile-toggle-btn');
+
+  function setMobileViewMode(mode) {
+    if (mode === 'before') {
+      comparisonBox.classList.remove('mobile-mode-after');
+      comparisonBox.classList.add('mobile-mode-before');
+    } else {
+      comparisonBox.classList.remove('mobile-mode-before');
+      comparisonBox.classList.add('mobile-mode-after');
+    }
+
+    mobileToggleBtns.forEach(btn => {
+      const isCurrent = btn.getAttribute('data-mobile-mode') === mode;
+      btn.classList.toggle('active', isCurrent);
+      btn.setAttribute('aria-selected', isCurrent ? 'true' : 'false');
+    });
+  }
+
+  mobileToggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const mode = btn.getAttribute('data-mobile-mode');
+      setMobileViewMode(mode);
+    });
+  });
+
+  // Mobile Touch Swipe Support on Comparison Box
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  comparisonBox.addEventListener('touchstart', (e) => {
+    if (window.innerWidth > 600 || !e.touches || e.touches.length === 0) return;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  comparisonBox.addEventListener('touchend', (e) => {
+    if (window.innerWidth > 600 || !e.changedTouches || e.changedTouches.length === 0) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
+    const diffX = touchEndX - touchStartX;
+    const diffY = touchEndY - touchStartY;
+
+    // Detect intentional horizontal swipe (ignore vertical scrolling)
+    if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY) * 1.4) {
+      if (diffX > 0) {
+        // Swiped right -> show Before
+        setMobileViewMode('before');
+      } else {
+        // Swiped left -> show After
+        setMobileViewMode('after');
+      }
+    }
+  }, { passive: true });
+
   // Category Tab Switching
   if (categoryTabs.length > 0) {
     categoryTabs.forEach((tab) => {
@@ -1017,12 +1072,12 @@ function setupBeforeAfterSlider() {
     });
   }
 
-  // Subtle initial nudge animation when section is in view to invite interaction
+  // Subtle initial nudge animation when section is in view to invite interaction (Desktop / Tablet only)
   const showcaseSection = document.getElementById('showcase');
   if (showcaseSection && 'IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting && !hasUserInteracted) {
+        if (entry.isIntersecting && !hasUserInteracted && window.innerWidth > 600) {
           observer.disconnect();
           
           let startVal = parseFloat(sliderInput.value) || 33;

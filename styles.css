@@ -3372,20 +3372,31 @@ body.theme-light .config-next-btn:hover {
   background: transparent;
   border-top: 1px solid var(--border-color);
   position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
 .showcase-container {
   max-width: var(--max-width);
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 32px;
+  box-sizing: border-box;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .showcase-header {
   text-align: center;
   max-width: 780px;
+  width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .showcase-header h2 {
@@ -3396,6 +3407,7 @@ body.theme-light .config-next-btn:hover {
   background: linear-gradient(135deg, #ffffff 50%, rgba(255,255,255,0.4) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  word-break: break-word;
 }
 
 .showcase-headline-lead {
@@ -3403,12 +3415,14 @@ body.theme-light .config-next-btn:hover {
   font-weight: 600;
   color: #f1f5f9;
   margin-bottom: 8px;
+  word-break: break-word;
 }
 
 .showcase-subtext {
   font-size: 0.95rem;
   color: var(--text-secondary);
   line-height: 1.6;
+  word-break: break-word;
 }
 
 /* Category Tab Navigation */
@@ -3421,7 +3435,10 @@ body.theme-light .config-next-btn:hover {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 40px;
+  width: 100%;
   max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -3445,6 +3462,7 @@ body.theme-light .config-next-btn:hover {
   letter-spacing: 0.05em;
   cursor: pointer;
   white-space: nowrap;
+  flex-shrink: 0;
   transition: all 0.25s ease;
 }
 
@@ -3473,6 +3491,10 @@ body.theme-light .config-next-btn:hover {
   margin: -14px auto 6px;
   text-align: center;
   flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .context-pill {
@@ -3494,6 +3516,7 @@ body.theme-light .config-next-btn:hover {
   font-weight: 500;
   color: var(--text-secondary);
   transition: all 0.3s ease;
+  word-break: break-word;
 }
 
 /* Category Panel switching */
@@ -3503,6 +3526,8 @@ body.theme-light .config-next-btn:hover {
   height: 100%;
   opacity: 0;
   transition: opacity 0.25s ease;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .category-panel.active {
@@ -3530,6 +3555,8 @@ body.theme-light .config-next-btn:hover {
   overflow: hidden;
   box-shadow: 0 35px 90px rgba(0, 0, 0, 0.75), 0 0 50px rgba(99, 102, 241, 0.08);
   background: #000000;
+  box-sizing: border-box;
+  min-width: 0;
   --split-pos: 33%;
 }
 
@@ -5335,20 +5362,38 @@ body.theme-light .config-next-btn:hover {
 @media (max-width: 600px) {
   .showcase-section {
     padding: 50px 4% !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
   .showcase-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
     gap: 16px !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+  .showcase-header {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
   }
   .showcase-header h2 {
     font-size: 1.45rem !important;
     margin: 8px 0 10px !important;
+    word-break: break-word !important;
   }
   .showcase-headline-lead {
     font-size: 0.95rem !important;
+    word-break: break-word !important;
   }
   .showcase-subtext {
     font-size: 0.84rem !important;
     line-height: 1.45 !important;
+    word-break: break-word !important;
   }
 
   /* Horizontally Scrollable Category Tabs */
@@ -5359,8 +5404,11 @@ body.theme-light .config-next-btn:hover {
     -webkit-overflow-scrolling: touch !important;
     flex-wrap: nowrap !important;
     gap: 8px !important;
-    padding: 6px 4px !important;
+    padding: 6px 8px !important;
+    width: 100% !important;
     max-width: 100% !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
     scrollbar-width: none !important;
   }
   .showcase-category-tabs::-webkit-scrollbar {
@@ -5378,15 +5426,28 @@ body.theme-light .config-next-btn:hover {
   }
 
   .showcase-category-context {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
     gap: 6px !important;
     margin: -4px auto 4px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
   }
   .context-pill {
     font-size: 0.65rem !important;
     padding: 2px 8px !important;
+    display: inline-block !important;
   }
   .context-desc {
     font-size: 0.78rem !important;
+    text-align: center !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    word-break: break-word !important;
   }
 
   /* Mobile Transformation View Switcher (BEFORE / AFTER) */
@@ -5402,6 +5463,8 @@ body.theme-light .config-next-btn:hover {
     border-radius: 30px !important;
     max-width: 290px !important;
     width: 100% !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45) !important;
     backdrop-filter: blur(12px) !important;
     -webkit-backdrop-filter: blur(12px) !important;
@@ -5452,10 +5515,14 @@ body.theme-light .config-next-btn:hover {
 
   /* Comparison Box Mobile Shell */
   .slider-comparison-box {
+    width: 100% !important;
+    max-width: 100% !important;
     height: 520px !important;
     border-radius: 12px !important;
     position: relative !important;
     overflow: hidden !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
     touch-action: pan-y !important;
     border: 1px solid rgba(255, 255, 255, 0.16) !important;
   }
@@ -5472,6 +5539,7 @@ body.theme-light .config-next-btn:hover {
     right: 0 !important;
     bottom: 0 !important;
     width: 100% !important;
+    max-width: 100% !important;
     height: 100% !important;
     clip-path: none !important;
     -webkit-clip-path: none !important;
@@ -5479,6 +5547,7 @@ body.theme-light .config-next-btn:hover {
     visibility: visible !important;
     pointer-events: auto !important;
     z-index: 5 !important;
+    box-sizing: border-box !important;
   }
   .slider-comparison-box.mobile-mode-after .old-website-view {
     opacity: 0 !important;
@@ -5511,11 +5580,13 @@ body.theme-light .config-next-btn:hover {
     right: 0 !important;
     bottom: 0 !important;
     width: 100% !important;
+    max-width: 100% !important;
     height: 100% !important;
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
     z-index: 5 !important;
+    box-sizing: border-box !important;
   }
   .slider-comparison-box.mobile-mode-before .badge-after {
     display: none !important;
@@ -5531,29 +5602,43 @@ body.theme-light .config-next-btn:hover {
   /* 2012 Retro Elements Mobile Layout */
   .retro-website-body {
     -webkit-overflow-scrolling: touch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
   }
   .retro-hotel-header, .retro-bistro-header, .retro-cafe-header, .retro-bakery-header, .retro-ecom-header {
     padding: 10px 14px 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .retro-hotel-logo, .retro-bistro-logo, .retro-cafe-logo, .retro-bakery-logo, .retro-ecom-logo {
     font-size: 11.5px !important;
+    word-break: break-word !important;
   }
   .retro-nav-bar { display: none !important; }
   .retro-hotel-main, .retro-bistro-main, .retro-cafe-main, .retro-bakery-main, .retro-ecom-main {
     padding: 10px 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .retro-hotel-hero-box {
     flex-direction: column !important;
     gap: 8px !important;
     padding: 10px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .retro-image-placeholder {
     width: 100% !important;
     height: 70px !important;
+    box-sizing: border-box !important;
   }
   .retro-three-col-section, .retro-ecom-grid-3 {
     grid-template-columns: 1fr !important;
     gap: 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .retro-hero-text h4 { font-size: 11.5px !important; }
   .retro-hero-text p { font-size: 9px !important; line-height: 1.4 !important; }
@@ -5563,9 +5648,15 @@ body.theme-light .config-next-btn:hover {
   /* 2026 Modern Viewport Mobile Layout */
   .modern-website-viewport {
     -webkit-overflow-scrolling: touch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
   }
   .hotel-site-nav, .bistro-site-nav, .cafe-site-nav, .bakery-site-nav, .ecom-site-nav {
     padding: 12px 18px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .hotel-site-brand, .bistro-site-brand, .cafe-site-brand, .bakery-brand-serif, .ecom-site-brand {
     font-size: 13.5px !important;
@@ -5583,20 +5674,26 @@ body.theme-light .config-next-btn:hover {
   .hotel-site-hero, .bistro-site-hero, .cafe-site-hero, .bakery-site-hero, .ecom-site-hero {
     padding: 24px 18px 20px !important;
     min-height: 290px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .hotel-hero-title, .bistro-hero-title, .cafe-hero-title, .bakery-hero-title, .ecom-hero-title {
     font-size: 22px !important;
     line-height: 1.18 !important;
     margin-bottom: 8px !important;
+    word-break: break-word !important;
   }
   .hotel-hero-desc, .bistro-hero-desc, .cafe-hero-desc, .bakery-hero-desc, .ecom-hero-desc {
     font-size: 10px !important;
     line-height: 1.5 !important;
     margin-bottom: 14px !important;
+    word-break: break-word !important;
   }
   .hotel-hero-ctas, .bistro-hero-ctas, .cafe-hero-ctas, .bakery-hero-ctas, .ecom-hero-ctas {
     display: flex !important;
     gap: 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .hotel-cta-primary, .bistro-cta-primary, .cafe-cta-primary, .bakery-cta-primary, .ecom-cta-primary {
     font-size: 9px !important;
@@ -5615,37 +5712,47 @@ body.theme-light .config-next-btn:hover {
     margin-top: 14px !important;
     border-radius: 8px !important;
     background: rgba(4, 7, 10, 0.9) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .booking-pill-divider { display: none !important; }
   .hotel-floating-booking-bar .booking-pill-item {
     display: flex !important;
     justify-content: space-between !important;
     width: 100% !important;
+    box-sizing: border-box !important;
   }
   .booking-pill-btn {
     width: 100% !important;
     padding: 6px 10px !important;
     font-size: 8px !important;
     margin-top: 4px !important;
+    box-sizing: border-box !important;
   }
   .bistro-status-pill, .cafe-status-pill, .bakery-status-pill, .ecom-status-pill {
     display: flex !important;
     font-size: 7.5px !important;
     padding: 5px 10px !important;
     margin-top: 12px !important;
+    width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
     white-space: normal !important;
     line-height: 1.3 !important;
+    word-break: break-word !important;
   }
 
   /* Next Section Editorial Content */
   .hotel-site-next-section, .bistro-site-next-section, .cafe-site-next-section, .bakery-site-next-section, .ecom-site-next-section {
     padding: 22px 18px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .hotel-suites-grid, .bistro-menu-showcase, .cafe-products-grid, .bakery-pastry-grid, .ecom-featured-product, .arrivals-visual-grid {
     grid-template-columns: 1fr !important;
     gap: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   /* Transformation Benefits Below */
@@ -5653,9 +5760,13 @@ body.theme-light .config-next-btn:hover {
     grid-template-columns: 1fr !important;
     gap: 12px !important;
     margin-top: 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .benefit-card {
     padding: 16px 18px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .benefit-card h4 {
     font-size: 0.98rem !important;

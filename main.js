@@ -903,7 +903,7 @@ function setupContactConfigurator() {
 }
 
 /**
- * Sync before-after slider values with masked width clipping
+ * Sync before-after slider values with masked width clipping and category switching
  */
 function setupBeforeAfterSlider() {
   const sliderInput = document.getElementById('slider-range-input');
@@ -911,29 +911,139 @@ function setupBeforeAfterSlider() {
   const divider = document.getElementById('slider-divider');
   const comparisonBox = document.querySelector('.slider-comparison-box');
   const newWebsiteContent = document.getElementById('new-website-content');
+  const categoryTabs = document.querySelectorAll('.showcase-category-tabs .category-tab');
+  const contextPill = document.querySelector('.showcase-category-context .context-pill');
+  const contextDesc = document.querySelector('.showcase-category-context .context-desc');
 
   if (!sliderInput || !newWebsiteView || !divider || !comparisonBox || !newWebsiteContent) return;
 
+  const categoryMeta = {
+    hospitality: {
+      pill: 'HOTEL & RESORT',
+      desc: 'From a static 2012 brochure to an immersive, direct-booking luxury experience'
+    },
+    restaurant: {
+      pill: 'RESTAURANT',
+      desc: 'From phone-only reservations to seamless live table booking & culinary storytelling'
+    },
+    cafe: {
+      pill: 'CAFÉ & ROASTERY',
+      desc: 'From a forgotten paper coupon to interactive brews & 1-click pickup orders'
+    },
+    bakery: {
+      pill: 'BAKERY & PATISSERIE',
+      desc: 'From morning phone queues to live batch trackers & online pre-orders'
+    },
+    ecommerce: {
+      pill: 'E-COMMERCE',
+      desc: 'From outdated catalog tables to high-converting editorial retail'
+    }
+  };
+
   function updateWidths() {
     const boxWidth = comparisonBox.getBoundingClientRect().width;
-    newWebsiteContent.style.width = boxWidth + 'px';
+    if (boxWidth > 0) {
+      newWebsiteContent.style.width = boxWidth + 'px';
+    }
   }
 
   // Initial alignment
   updateWidths();
   
-  // Set initial slider states (50% split)
-  const initialVal = sliderInput.value;
-  newWebsiteView.style.width = `${100 - initialVal}%`;
-  divider.style.left = `${initialVal}%`;
+  // Set initial slider states
+  function applySliderValue(val) {
+    newWebsiteView.style.width = `${100 - val}%`;
+    divider.style.left = `${val}%`;
+  }
 
-  // Sync content frame width on browser resizing
+  applySliderValue(sliderInput.value || 40);
+
+  // Sync content frame width on browser resizing and orientation change
   window.addEventListener('resize', updateWidths);
+  window.addEventListener('orientationchange', () => {
+    setTimeout(updateWidths, 100);
+  });
+
+  let hasUserInteracted = false;
 
   // Sync masks on range drag events
   sliderInput.addEventListener('input', (e) => {
-    const val = e.target.value;
-    newWebsiteView.style.width = `${100 - val}%`;
-    divider.style.left = `${val}%`;
+    hasUserInteracted = true;
+    applySliderValue(e.target.value);
   });
+
+  // Category Tab Switching
+  if (categoryTabs.length > 0) {
+    categoryTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const cat = tab.getAttribute('data-category');
+        if (!cat) return;
+
+        // Update active tab buttons
+        categoryTabs.forEach(t => {
+          const isActive = t === tab;
+          t.classList.toggle('active', isActive);
+          t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        // Update category panels in both Before & After views
+        const allPanels = document.querySelectorAll('.slider-comparison-box .category-panel');
+        allPanels.forEach(panel => {
+          const matches = panel.getAttribute('data-panel') === cat;
+          panel.classList.toggle('active', matches);
+        });
+
+        // Update context text
+        if (categoryMeta[cat]) {
+          if (contextPill) contextPill.textContent = categoryMeta[cat].pill;
+          if (contextDesc) contextDesc.textContent = categoryMeta[cat].desc;
+        }
+
+        // Keep widths in sync
+        updateWidths();
+      });
+    });
+  }
+
+  // Subtle initial nudge animation when section is in view to invite interaction
+  const showcaseSection = document.getElementById('showcase');
+  if (showcaseSection && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !hasUserInteracted) {
+          observer.disconnect();
+          
+          let startVal = parseFloat(sliderInput.value) || 40;
+          let targetVal = 55;
+          let startTime = null;
+          const duration = 1200;
+
+          function animateNudge(time) {
+            if (hasUserInteracted) return;
+            if (!startTime) startTime = time;
+            const progress = (time - startTime) / duration;
+
+            if (progress < 1) {
+              const offset = Math.sin(progress * Math.PI) * (targetVal - startVal);
+              const currentVal = startVal + offset;
+              sliderInput.value = currentVal;
+              applySliderValue(currentVal);
+              requestAnimationFrame(animateNudge);
+            } else {
+              sliderInput.value = startVal;
+              applySliderValue(startVal);
+            }
+          }
+
+          setTimeout(() => {
+            if (!hasUserInteracted) {
+              requestAnimationFrame(animateNudge);
+            }
+          }, 400);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(showcaseSection);
+  }
 }

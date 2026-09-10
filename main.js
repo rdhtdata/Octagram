@@ -129,11 +129,14 @@ function setupSiblingStaggerFallback() {
 
 /**
  * Attaches mouse listeners to service cards to update coordinate variables
- * and apply a 3D tilt perspective hover transform.
+ * and apply a 3D tilt perspective hover transform on desktop, plus an
+ * IntersectionObserver for mobile/tablet to activate animations automatically on scroll.
  */
 function setupServiceCardInteractivity() {
   const cards = document.querySelectorAll('.service-card');
+  if (!cards.length) return;
   
+  // Desktop 3D tilt & mousemove tracking
   cards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
@@ -163,6 +166,27 @@ function setupServiceCardInteractivity() {
       card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
     });
   });
+
+  // Scroll In-View Observer for Mobile & Tablet (Auto-activates animations when card is viewable)
+  if ('IntersectionObserver' in window) {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-8% 0px -8% 0px',
+      threshold: 0.25
+    };
+
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        } else {
+          entry.target.classList.remove('in-view');
+        }
+      });
+    }, observerOptions);
+
+    cards.forEach(card => cardObserver.observe(card));
+  }
 }
 
 /**

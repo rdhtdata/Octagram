@@ -926,13 +926,16 @@ section {
   z-index: 2;
 }
 
-.service-card:hover {
+.service-card:hover,
+.service-card.in-view {
   border-color: var(--accent-blue);
   box-shadow: 0 15px 35px rgba(56, 189, 248, 0.08);
 }
 
 .service-card:hover::before,
-.service-card:hover::after {
+.service-card:hover::after,
+.service-card.in-view::before,
+.service-card.in-view::after {
   opacity: 1;
 }
 
@@ -953,7 +956,8 @@ section {
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
-.service-card:hover .service-demo-panel {
+.service-card:hover .service-demo-panel,
+.service-card.in-view .service-demo-panel {
   background: rgba(56, 189, 248, 0.03);
   border-color: rgba(56, 189, 248, 0.2);
   box-shadow: 0 8px 24px rgba(56, 189, 248, 0.04);
@@ -969,7 +973,8 @@ section {
   justify-content: center;
 }
 
-.service-card:hover .card-demo {
+.service-card:hover .card-demo,
+.service-card.in-view .card-demo {
   opacity: 1;
   filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.25));
 }
@@ -1036,13 +1041,16 @@ section {
 }
 
 /* Loop compile steps keyframes */
-.service-card:hover .build-wireframe {
+.service-card:hover .build-wireframe,
+.service-card.in-view .build-wireframe {
   animation: build-w 2s linear infinite;
 }
-.service-card:hover .build-hero {
+.service-card:hover .build-hero,
+.service-card.in-view .build-hero {
   animation: build-h 2s linear infinite;
 }
-.service-card:hover .build-btn {
+.service-card:hover .build-btn,
+.service-card.in-view .build-btn {
   animation: build-b 2s linear infinite;
 }
 
@@ -1098,10 +1106,12 @@ section {
   opacity: 0;
 }
 
-.service-card:hover .graph-path {
+.service-card:hover .graph-path,
+.service-card.in-view .graph-path {
   animation: mgmt-draw 2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
 }
-.service-card:hover .graph-pulse {
+.service-card:hover .graph-pulse,
+.service-card.in-view .graph-pulse {
   animation: mgmt-pulse 2s infinite;
 }
 
@@ -1186,12 +1196,12 @@ section {
 }
 
 /* Trigger particles sequence */
-.service-card:hover .pt-1 { animation: flow-p 2.5s infinite; }
-.service-card:hover .pt-2 { animation: flow-p 2.5s infinite 0.8s; }
-.service-card:hover .pt-3 { animation: flow-p 2.5s infinite 1.6s; }
+.service-card:hover .pt-1, .service-card.in-view .pt-1 { animation: flow-p 2.5s infinite; }
+.service-card:hover .pt-2, .service-card.in-view .pt-2 { animation: flow-p 2.5s infinite 0.8s; }
+.service-card:hover .pt-3, .service-card.in-view .pt-3 { animation: flow-p 2.5s infinite 1.6s; }
 
-.service-card:hover .dl-1 { animation: shoot-d 2.5s infinite 1.0s; }
-.service-card:hover .dl-2 { animation: shoot-d 2.5s infinite 2.0s; }
+.service-card:hover .dl-1, .service-card.in-view .dl-1 { animation: shoot-d 2.5s infinite 1.0s; }
+.service-card:hover .dl-2, .service-card.in-view .dl-2 { animation: shoot-d 2.5s infinite 2.0s; }
 
 @keyframes flow-p {
   0% { transform: translate(12px, 4px); opacity: 0; }
@@ -1257,16 +1267,18 @@ section {
   fill: none;
 }
 
-.service-card:hover .central-node {
+.service-card:hover .central-node,
+.service-card.in-view .central-node {
   animation: central-pulse 1.5s infinite alternate;
 }
-.service-card:hover .node-link {
+.service-card:hover .node-link,
+.service-card.in-view .node-link {
   stroke: var(--accent-blue);
   stroke-width: 1.8;
 }
-.service-card:hover .nl-1 { animation: link-flow 1.5s linear infinite; }
-.service-card:hover .nl-2 { animation: link-flow 1.5s linear infinite 0.5s; }
-.service-card:hover .nl-3 { animation: link-flow 1.5s linear infinite 1.0s; }
+.service-card:hover .nl-1, .service-card.in-view .nl-1 { animation: link-flow 1.5s linear infinite; }
+.service-card:hover .nl-2, .service-card.in-view .nl-2 { animation: link-flow 1.5s linear infinite 0.5s; }
+.service-card:hover .nl-3, .service-card.in-view .nl-3 { animation: link-flow 1.5s linear infinite 1.0s; }
 
 @keyframes central-pulse {
   to {

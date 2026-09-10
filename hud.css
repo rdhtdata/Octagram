@@ -382,7 +382,8 @@ body.theme-light .service-demo-panel {
   border-color: rgba(9, 23, 38, 0.06);
 }
 
-body.theme-light .service-card:hover .service-demo-panel {
+body.theme-light .service-card:hover .service-demo-panel,
+body.theme-light .service-card.in-view .service-demo-panel {
   background: rgba(255, 255, 255, 0.95);
   border-color: var(--accent-indigo);
   box-shadow: 0 12px 30px rgba(79, 70, 229, 0.08);

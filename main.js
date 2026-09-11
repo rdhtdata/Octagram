@@ -1008,6 +1008,122 @@ function setupBeforeAfterSlider() {
     applySliderValue(e.target.value);
   });
 
+  const categories = ['hospitality', 'restaurant', 'cafe', 'bakery', 'ecommerce'];
+  let currentCategoryIndex = 0;
+
+  const mobilePrevBtn = document.getElementById('mobile-template-prev');
+  const mobileNextBtn = document.getElementById('mobile-template-next');
+  const mobileCarouselDots = document.querySelectorAll('#mobile-carousel-dots .mobile-carousel-dot');
+  const mobileSwipeGuide = document.getElementById('mobile-swipe-guide');
+
+  function dismissSwipeGuide() {
+    if (mobileSwipeGuide && !mobileSwipeGuide.classList.contains('dismissed')) {
+      mobileSwipeGuide.classList.add('dismissed');
+    }
+  }
+
+  if (mobileSwipeGuide) {
+    mobileSwipeGuide.addEventListener('click', dismissSwipeGuide);
+  }
+
+  function setCategory(index, direction) {
+    // Normalize index within bounds
+    if (index < 0) {
+      index = categories.length - 1;
+    } else if (index >= categories.length) {
+      index = 0;
+    }
+    currentCategoryIndex = index;
+    const cat = categories[currentCategoryIndex];
+
+    // Update active category tabs
+    categoryTabs.forEach((t) => {
+      const isActive = t.getAttribute('data-category') === cat;
+      t.classList.toggle('active', isActive);
+      t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      if (isActive && window.innerWidth <= 600) {
+        try {
+          t.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        } catch (err) {}
+      }
+    });
+
+    // Update category panels in both Before & After views with slide transitions
+    const allPanels = document.querySelectorAll('.slider-comparison-box .category-panel');
+    allPanels.forEach(panel => {
+      const matches = panel.getAttribute('data-panel') === cat;
+      panel.classList.remove('slide-from-right', 'slide-from-left');
+      if (matches) {
+        panel.classList.add('active');
+        if (direction === 'right') {
+          panel.classList.add('slide-from-right');
+        } else if (direction === 'left') {
+          panel.classList.add('slide-from-left');
+        }
+      } else {
+        panel.classList.remove('active');
+      }
+    });
+
+    if (direction) {
+      setTimeout(() => {
+        allPanels.forEach(panel => {
+          panel.classList.remove('slide-from-right', 'slide-from-left');
+        });
+      }, 350);
+    }
+
+    // Update carousel dots
+    mobileCarouselDots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentCategoryIndex);
+    });
+
+    // Update context text
+    if (categoryMeta[cat]) {
+      if (contextPill) contextPill.textContent = categoryMeta[cat].pill;
+      if (contextDesc) contextDesc.textContent = categoryMeta[cat].desc;
+    }
+
+    // Keep widths in sync
+    updateWidths();
+  }
+
+  // Category Tab Switching
+  if (categoryTabs.length > 0) {
+    categoryTabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => {
+        dismissSwipeGuide();
+        const cat = tab.getAttribute('data-category');
+        const catIdx = categories.indexOf(cat);
+        const direction = catIdx > currentCategoryIndex ? 'right' : (catIdx < currentCategoryIndex ? 'left' : null);
+        setCategory(catIdx !== -1 ? catIdx : index, direction);
+      });
+    });
+  }
+
+  // Mobile Carousel Buttons & Dots Handlers
+  if (mobilePrevBtn) {
+    mobilePrevBtn.addEventListener('click', () => {
+      dismissSwipeGuide();
+      setCategory(currentCategoryIndex - 1, 'left');
+    });
+  }
+  if (mobileNextBtn) {
+    mobileNextBtn.addEventListener('click', () => {
+      dismissSwipeGuide();
+      setCategory(currentCategoryIndex + 1, 'right');
+    });
+  }
+  if (mobileCarouselDots.length > 0) {
+    mobileCarouselDots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => {
+        dismissSwipeGuide();
+        const direction = idx > currentCategoryIndex ? 'right' : (idx < currentCategoryIndex ? 'left' : null);
+        setCategory(idx, direction);
+      });
+    });
+  }
+
   // Mobile Transformation Mode Toggle Switcher
   const mobileToggleBtns = document.querySelectorAll('.mobile-showcase-toggle .mobile-toggle-btn');
 
@@ -1029,19 +1145,22 @@ function setupBeforeAfterSlider() {
 
   mobileToggleBtns.forEach(btn => {
     btn.addEventListener('click', () => {
+      dismissSwipeGuide();
       const mode = btn.getAttribute('data-mobile-mode');
       setMobileViewMode(mode);
     });
   });
 
-  // Mobile Touch Swipe Support on Comparison Box
+  // Mobile Touch Swipe Support on Comparison Box (Left/Right Swipes between industry templates)
   let touchStartX = 0;
   let touchStartY = 0;
+  let touchStartTime = 0;
 
   comparisonBox.addEventListener('touchstart', (e) => {
     if (window.innerWidth > 600 || !e.touches || e.touches.length === 0) return;
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
+    touchStartTime = Date.now();
   }, { passive: true });
 
   comparisonBox.addEventListener('touchend', (e) => {
@@ -1050,51 +1169,20 @@ function setupBeforeAfterSlider() {
     const touchEndY = e.changedTouches[0].clientY;
     const diffX = touchEndX - touchStartX;
     const diffY = touchEndY - touchStartY;
+    const elapsed = Date.now() - touchStartTime;
 
-    // Detect intentional horizontal swipe (ignore vertical scrolling)
-    if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY) * 1.4) {
-      if (diffX > 0) {
-        // Swiped right -> show Before
-        setMobileViewMode('before');
+    // Detect horizontal swipe gesture (at least 35px, predominantly horizontal, within 750ms)
+    if (Math.abs(diffX) > 35 && Math.abs(diffX) > Math.abs(diffY) * 1.25 && elapsed < 750) {
+      dismissSwipeGuide();
+      if (diffX < 0) {
+        // Swiped Left -> go to NEXT industry template
+        setCategory(currentCategoryIndex + 1, 'right');
       } else {
-        // Swiped left -> show After
-        setMobileViewMode('after');
+        // Swiped Right -> go to PREVIOUS industry template
+        setCategory(currentCategoryIndex - 1, 'left');
       }
     }
   }, { passive: true });
-
-  // Category Tab Switching
-  if (categoryTabs.length > 0) {
-    categoryTabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        const cat = tab.getAttribute('data-category');
-        if (!cat) return;
-
-        // Update active tab buttons
-        categoryTabs.forEach(t => {
-          const isActive = t === tab;
-          t.classList.toggle('active', isActive);
-          t.setAttribute('aria-selected', isActive ? 'true' : 'false');
-        });
-
-        // Update category panels in both Before & After views
-        const allPanels = document.querySelectorAll('.slider-comparison-box .category-panel');
-        allPanels.forEach(panel => {
-          const matches = panel.getAttribute('data-panel') === cat;
-          panel.classList.toggle('active', matches);
-        });
-
-        // Update context text
-        if (categoryMeta[cat]) {
-          if (contextPill) contextPill.textContent = categoryMeta[cat].pill;
-          if (contextDesc) contextDesc.textContent = categoryMeta[cat].desc;
-        }
-
-        // Keep widths in sync
-        updateWidths();
-      });
-    });
-  }
 
   // Subtle initial nudge animation when section is in view to invite interaction (Desktop / Tablet only)
   const showcaseSection = document.getElementById('showcase');

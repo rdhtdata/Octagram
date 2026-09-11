@@ -21,13 +21,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=3.4">
+  <link rel="stylesheet" href="styles.css?v=3.5">
   
   <!-- Section Laser Scanners, Terminal Logs, and Compiler Sweeps -->
-  <link rel="stylesheet" href="compiler.css?v=3.4">
+  <link rel="stylesheet" href="compiler.css?v=3.5">
   
   <!-- HUD System Status, Voice Indicator, and Live System Clock -->
-  <link rel="stylesheet" href="hud.css?v=3.4">
+  <link rel="stylesheet" href="hud.css?v=3.5">
 </head>
 <body>
 
@@ -1154,6 +1154,32 @@
         <!-- Range input Overlay -->
         <input type="range" class="slider-range-input" id="slider-range-input" min="0" max="100" value="33" aria-label="Transformation Before and After Slider">
         
+        <!-- Mobile Swipe Guide Cue Overlay (Visible on mobile until user interacts) -->
+        <div class="mobile-swipe-guide" id="mobile-swipe-guide">
+          <div class="swipe-guide-pill">
+            <span class="swipe-hand-icon">👉</span>
+            <span class="swipe-guide-text">SWIPE TO EXPLORE SITES</span>
+            <span class="swipe-guide-arrows">&larr;&rarr;</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Mobile Carousel Navigation Controls (Visible only on mobile <= 600px) -->
+      <div class="mobile-template-carousel-nav" id="mobile-template-carousel-nav" aria-label="Template Carousel Navigation">
+        <button type="button" class="mobile-carousel-btn prev-btn" id="mobile-template-prev" aria-label="Previous Industry Template">
+          <span>&larr;</span>
+        </button>
+        <div class="mobile-carousel-dots" id="mobile-carousel-dots">
+          <button type="button" class="mobile-carousel-dot active" data-index="0" aria-label="Hotel & Resort"></button>
+          <button type="button" class="mobile-carousel-dot" data-index="1" aria-label="Restaurant"></button>
+          <button type="button" class="mobile-carousel-dot" data-index="2" aria-label="Café & Roastery"></button>
+          <button type="button" class="mobile-carousel-dot" data-index="3" aria-label="Bakery & Patisserie"></button>
+          <button type="button" class="mobile-carousel-dot" data-index="4" aria-label="E-Commerce"></button>
+        </div>
+        <button type="button" class="mobile-carousel-btn next-btn" id="mobile-template-next" aria-label="Next Industry Template">
+          <span>&rarr;</span>
+        </button>
       </div>
 
       <div class="transformation-benefits-grid">
@@ -2092,6 +2118,6 @@
   </button>
 
   <!-- Main JavaScript -->
-  <script src="main.js?v=3.4"></script>
+  <script src="main.js?v=3.5"></script>
 </body>
 </html>

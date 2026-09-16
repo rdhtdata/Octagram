@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Petals Suites & Hotel | Hotel Website, PMS & Payment Gateway Integration | Octagram</title>
+  <meta name="description" content="Explore how Octagram engineered the Petals Suites & Hotel website, integrating real-time PMS software APIs and secure payment gateways for automated room reservations.">
+  <link rel="canonical" href="https://octagramai.com/work/petals-suites-hotel">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://octagramai.com/work/petals-suites-hotel">
+  <meta property="og:title" content="Petals Suites & Hotel | Hotel Website, PMS & Payment Gateway Integration | Octagram">
+  <meta property="og:description" content="Explore how Octagram engineered the Petals Suites & Hotel website, integrating real-time PMS software APIs and secure payment gateways for automated room reservations.">
+  <meta property="og:image" content="https://octagramai.com/images/work/petals-desktop.png">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Petals Suites & Hotel | Hotel Website, PMS & Payment Gateway Integration | Octagram">
+  <meta name="twitter:description" content="Explore how Octagram engineered the Petals Suites & Hotel website, integrating real-time PMS software APIs and secure payment gateways for automated room reservations.">
+  <meta name="twitter:image" content="https://octagramai.com/images/work/petals-desktop.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../case-study.css?v=4.0">
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CreativeWork",
+        "name": "Petals Suites & Hotel — Hotel Website, PMS Software & Payment Gateway Integration Case Study",
+        "headline": "Petals Suites & Hotel | Hotel Website, PMS & Payment Gateway Integration",
+        "description": "Explore how Octagram engineered the Petals Suites & Hotel website, integrating real-time PMS software APIs and secure payment gateways for automated room reservations.",
+        "url": "https://octagramai.com/work/petals-suites-hotel",
+        "image": "https://octagramai.com/images/work/petals-desktop.png",
+        "creator": {
+          "@type": "Organization",
+          "name": "Octagram",
+          "url": "https://octagramai.com"
+        },
+        "about": {
+          "@type": "Hotel",
+          "name": "Petals Suites & Hotel",
+          "url": "https://petalshotels.com",
+          "description": "A refined executive stay directly opposite Manyata Tech Park, Bangalore with executive rooms, fiber Wi-Fi and 24/7 hospitality.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "3rd Cross Chanakya Layout, AC Post, opposite to Manyata Tech Park",
+            "addressLocality": "Bangalore",
+            "postalCode": "560045",
+            "addressRegion": "Karnataka",
+            "addressCountry": "IN"
+          },
+          "telephone": "+918123698844"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://octagramai.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Work",
+            "item": "https://octagramai.com/work"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Petals Suites & Hotel",
+            "item": "https://octagramai.com/work/petals-suites-hotel"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="logo-container">
+        <img src="../../images/Logo.svg" class="logo-svg" alt="Octagram Logo">
+        <span class="brand-name">Octagram</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav">
+        <a href="../../index.html#home">Home</a>
+        <a href="../../index.html#services">Services</a>
+        <a href="../index.html" class="active">Work</a>
+        <a href="../../index.html#why-octagram">Why Octagram</a>
+        <a href="../../index.html#process">Process</a>
+        <a href="../../index.html#contact">Contact</a>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <a href="../../index.html#contact" class="header-cta">Get Started</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Case Study Hero Section -->
+    <section class="case-hero">
+      <div class="container">
+        
+        <nav class="breadcrumbs" aria-label="Breadcrumbs">
+          <a href="../../index.html">Home</a>
+          <span class="sep">/</span>
+          <a href="../index.html">Work</a>
+          <span class="sep">/</span>
+          <span class="current">Petals Suites &amp; Hotel</span>
+        </nav>
+
+        <div class="case-hero-content">
+          <div class="section-tag">CASE STUDY • HOSPITALITY, PMS &amp; PAYMENT API INTEGRATION</div>
+          <h1>Petals Suites &amp; Hotel</h1>
+          <p class="case-hero-subtitle">Hotel Website Design, PMS Software API Integration &amp; Payment Gateway</p>
+          <p class="case-hero-desc">
+            Octagram engineered the digital presence and enterprise reservation engine for Petals Suites &amp; Hotel—an executive boutique hotel situated directly opposite Manyata Tech Park in Bangalore. In addition to a luxury front-end showcase, we integrated external <strong>Property Management System (PMS) software APIs</strong> for live two-way room availability and dynamic rate synchronization, alongside a secure <strong>payment gateway</strong> for automated, instant direct guest checkout (UPI, Cards &amp; Net Banking).
+          </p>
+
+          <div class="case-hero-actions">
+            <a href="https://petalshotels.com" target="_blank" rel="noopener noreferrer" class="btn-live">
+              Visit Live Website ↗
+            </a>
+            <a href="#overview" class="btn-secondary">
+              Explore Hospitality &amp; API Architecture ↓
+            </a>
+          </div>
+
+          <!-- Project Meta Strip -->
+          <div class="project-meta-strip">
+            <div class="meta-item">
+              <span class="label">Client</span>
+              <span class="value">Petals Suites &amp; Hotel</span>
+            </div>
+            <div class="meta-item">
+              <span class="label">Industry</span>
+              <span class="value">Executive Hospitality &amp; Hotel Tech</span>
+            </div>
+            <div class="meta-item">
+              <span class="label">Location</span>
+              <span class="value">Opposite Manyata Tech Park, Bangalore</span>
+            </div>
+            <div class="meta-item">
+              <span class="label">Integrations</span>
+              <span class="value">Hotel PMS APIs, Payment Gateway, WhatsApp API</span>
+            </div>
+            <div class="meta-item">
+              <span class="label">Live URL</span>
+              <span class="value"><a href="https://petalshotels.com" target="_blank" rel="noopener noreferrer">petalshotels.com ↗</a></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Visual Showcase Hero Preview (Desktop Browser Frame) -->
+    <section class="container mockup-showcase">
+      <div class="browser-window">
+        <div class="browser-header">
+          <div class="window-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="browser-address-bar">
+            <svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            <span class="url-text">https://petalshotels.com</span>
+          </div>
+        </div>
+        <div class="browser-body">
+          <img src="../../images/work/petals-desktop.png" alt="Petals Suites &amp; Hotel website homepage snapshot designed by Octagram" style="width: 100%; height: auto; display: block;">
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 1: Project Overview & The Challenge -->
+    <section id="overview" class="case-section">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">THE HOSPITALITY CHALLENGE</span>
+          <h2>Positioning an Executive Sanctuary in Bangalore</h2>
+          <p>
+            Communicating serene comfort and zero-commute corporate convenience directly opposite Bangalore's premier business corridor.
+          </p>
+        </div>
+
+        <div class="overview-grid">
+          <!-- Overview -->
+          <div class="overview-card">
+            <div class="card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <h3>Project Overview</h3>
+            <p>
+              Located at 3rd Cross Chanakya Layout, just 100 metres from the Manyata Tech Park gate, Petals Suites &amp; Hotel provides business executives with something rare in Bangalore: time. Guests can walk to their corporate meetings in two minutes, bypassing Bangalore's traffic bottlenecks, and retreat to a peaceful sanctuary.
+            </p>
+            <p>
+              Beyond branding and room discovery, the hotel required deep enterprise system connectivity—specifically integrating their operational <strong>Property Management System (PMS)</strong> for live room inventory synchronization and embedding a secure <strong>payment gateway</strong> for frictionless direct checkouts.
+            </p>
+          </div>
+
+          <!-- Challenge -->
+          <div class="overview-card">
+            <div class="card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </div>
+            <h3>The Booking, PMS &amp; Payment Challenge</h3>
+            <p>
+              Executive hospitality website architecture requires pairing aesthetic elegance with robust backend API synchronization:
+            </p>
+            <ul>
+              <li><strong>PMS Software API Sync:</strong> Connect frontend booking inquiries with the hotel's backend PMS to pull live availability, reflect dynamic rate changes, and prevent double-bookings.</li>
+              <li><strong>Secure Payment Gateway:</strong> Integrate external payment APIs supporting instant UPI QR, Debit/Credit cards, and Net Banking with automated webhook transaction verification.</li>
+              <li><strong>Zero-Commission Direct Bookings:</strong> Drive direct consumer reservations through seamless online checkout and instant WhatsApp front desk deep links.</li>
+              <li><strong>Corporate Travel Billing:</strong> Provide streamlined enterprise inquiry capture for B2B billing and bulk executive suite retainers.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: What We Built -->
+    <section class="case-section">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">HOSPITALITY SUITE ARCHITECTURE</span>
+          <h2>What Octagram Built for Petals</h2>
+          <p>
+            A high-performance hospitality platform uniting brand discovery, real-time PMS inventory synchronization, and automated payment processing.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          
+          <div class="feature-box">
+            <span class="f-badge" style="background: rgba(16,185,129,0.12); color: #34d399; border: 1px solid rgba(16,185,129,0.3);">PMS API INTEGRATION</span>
+            <h3>PMS Software &amp; Live Room Sync</h3>
+            <p>
+              Two-way programmatic synchronization with hotel Property Management System (PMS) software. Automatically feeds live room availability, pulls dynamic room tariffs, and logs reservations directly into front desk terminals.
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <span class="f-badge" style="background: rgba(56,189,248,0.12); color: #38bdf8; border: 1px solid rgba(56,189,248,0.3);">PAYMENT GATEWAY</span>
+            <h3>Multi-Method Payment Gateway Engine</h3>
+            <p>
+              Embedded external payment gateway API supporting instant UPI, credit/debit cards, and net banking with signature-verified webhooks, automated digital receipts, and instant booking confirmation.
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <span class="f-badge">ROOM SHOWCASE</span>
+            <h3>Interactive Room &amp; Suite Showcase</h3>
+            <p>
+              Detailed presentations for Single Rooms, Superior Rooms, Deluxe Rooms (₹4,499/night + GST), and Signature Suite Rooms with living lounges, high-speed fiber Wi-Fi, and executive amenities.
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <span class="f-badge">DIRECT CONVERSIONS</span>
+            <h3>Instant WhatsApp &amp; Call Concierge</h3>
+            <p>
+              High-converting direct triggers allowing prospective guests to confirm dates and room availability with the front desk via 1-tap WhatsApp chat and phone endpoints.
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <span class="f-badge">CORPORATE STAYS</span>
+            <h3>Enterprise Travel &amp; Billing Inquiries</h3>
+            <p>
+              Tailored intake forms for business travelers and enterprise teams at Manyata Tech Park seeking custom company billing, extended stay packages, and executive retainers.
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <span class="f-badge">MOBILE-FIRST</span>
+            <h3>Mobile-First Booking Experience</h3>
+            <p>
+              Zero-friction mobile reservation flow with sticky quick-booking triggers, route navigation directly to the Manyata gate, and instant booking status tracking.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Dual Device Showcase -->
+    <section class="case-section">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">MOBILE-FIRST HOSPITALITY</span>
+          <h2>Seamless Mobile Guest Journey</h2>
+          <p>
+            Designed to ensure executives and arriving travelers can inspect room amenities, check rates, and contact the hotel front desk instantaneously from any device.
+          </p>
+        </div>
+
+        <div class="dual-device-wrap">
+          <div class="browser-window">
+            <div class="browser-header">
+              <div class="window-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="browser-address-bar">
+                <span class="url-text">petalshotels.com</span>
+              </div>
+            </div>
+            <div class="browser-body">
+              <img src="../../images/work/petals-desktop.png" alt="Petals Suites &amp; Hotel desktop website snapshot designed by Octagram">
+            </div>
+          </div>
+
+          <div class="phone-window">
+            <div class="phone-notch"></div>
+            <div class="phone-body">
+              <img src="../../images/work/petals-mobile.png" alt="Petals Suites &amp; Hotel mobile booking flow snapshot designed by Octagram" style="width: 100%; height: auto; display: block; border-radius: 24px;">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 4: Enterprise PMS Software & Payment Gateway API Architecture -->
+    <section class="case-section" style="background: rgba(8, 24, 39, 0.4);">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">API &amp; BACKEND INTEGRATION</span>
+          <h2>PMS Software &amp; Payment Gateway Infrastructure</h2>
+          <p>
+            Architecting high-reliability external API connections between guest booking touchpoints and hotel operational software.
+          </p>
+        </div>
+
+        <div class="overview-grid" style="margin-bottom: 2.5rem;">
+          
+          <div class="overview-card">
+            <div class="card-icon" style="background: rgba(16,185,129,0.12); color: #34d399; border-color: rgba(16,185,129,0.25);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+                <line x1="6" y1="6" x2="6.01" y2="6"/>
+                <line x1="6" y1="18" x2="6.01" y2="18"/>
+              </svg>
+            </div>
+            <h3>PMS Software API Synchronization</h3>
+            <p>
+              External Property Management System (PMS) software handles check-ins, room cleaning status, and rate management. Octagram engineered bidirectional API endpoints to ensure:
+            </p>
+            <ul>
+              <li><strong>Real-Time Availability:</strong> Querying room inventory programmatically before initiating booking sequences.</li>
+              <li><strong>Dynamic Tariff Engine:</strong> Instant reflection of seasonal rates, executive discounts, and GST calculations.</li>
+              <li><strong>Automated Folio Creation:</strong> Confirmed reservations automatically populate guest logs in the front desk software.</li>
+              <li><strong>Overbooking Protection:</strong> Instant room locking during active payment checkouts.</li>
+            </ul>
+          </div>
+
+          <div class="overview-card">
+            <div class="card-icon" style="background: rgba(56,189,248,0.12); color: #38bdf8; border-color: rgba(56,189,248,0.25);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                <line x1="1" y1="10" x2="23" y2="10"/>
+              </svg>
+            </div>
+            <h3>Secure Payment Gateway Integration</h3>
+            <p>
+              Direct consumer bookings require reliable, bank-grade payment processing with instant verification across all popular Indian and international payment methods:
+            </p>
+            <ul>
+              <li><strong>Multi-Channel Checkout:</strong> Instant UPI Intent / Dynamic QR codes, RuPay, Visa, Mastercard, and Net Banking.</li>
+              <li><strong>Webhook Security:</strong> HMAC SHA-256 signature verification preventing fraudulent confirmation triggers.</li>
+              <li><strong>Instant Confirmation:</strong> Automated generation of digital booking vouchers dispatched via WhatsApp &amp; Email.</li>
+              <li><strong>Zero Intermediary Fees:</strong> 100% direct revenue capture bypassing 15-25% OTA channel commissions.</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 5: Specifications & Architecture Table -->
+    <section class="case-section">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">SPECIFICATIONS</span>
+          <h2>Hospitality Platform Architecture</h2>
+          <p>
+            Detailed specifications of the features engineered for Petals Suites &amp; Hotel.
+          </p>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="tech-spec-table">
+            <thead>
+              <tr>
+                <th>Feature Area</th>
+                <th>Technical Implementation</th>
+                <th>Guest &amp; Business Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>PMS Software API Integration</strong></td>
+                <td>Two-way REST API connector syncing live room statuses, tariffs, and folios</td>
+                <td>Eliminates double-bookings and automates front-desk reservation logging</td>
+              </tr>
+              <tr>
+                <td><strong>Payment Gateway Integration</strong></td>
+                <td>Secure payment processor API supporting UPI, Credit/Debit Cards &amp; Net Banking</td>
+                <td>Enables instant zero-friction checkout with automated digital receipts</td>
+              </tr>
+              <tr>
+                <td><strong>Room Tier Showcase</strong></td>
+                <td>Single, Superior, Deluxe, and Signature Suite modular components</td>
+                <td>Enables clear price, square footage, and feature comparisons</td>
+              </tr>
+              <tr>
+                <td><strong>Direct Booking Channels</strong></td>
+                <td>Integrated WhatsApp deep links and front-desk telephone endpoints</td>
+                <td>Maximizes direct high-margin bookings with zero commissions</td>
+              </tr>
+              <tr>
+                <td><strong>Corporate Travel Portal</strong></td>
+                <td>Dedicated enterprise stay inquiry capture &amp; GST company billing</td>
+                <td>Facilitates B2B business retainers with Manyata tech park companies</td>
+              </tr>
+              <tr>
+                <td><strong>Location Localization</strong></td>
+                <td>Structured Manyata Tech Park proximity copy and Google Maps link</td>
+                <td>Captures organic search demand for Manyata hotel stays</td>
+              </tr>
+              <tr>
+                <td><strong>Mobile Optimization</strong></td>
+                <td>Lightweight layout, sticky reservation triggers, zero overflow</td>
+                <td>Flawless mobile booking conversion on all mobile devices</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Website CTA Section -->
+    <section class="container">
+      <div class="live-website-cta">
+        <span class="section-tag">LIVE DEPLOYMENT</span>
+        <h2>Experience Petals Suites &amp; Hotel Live</h2>
+        <p>
+          Visit the deployed website to explore the executive room collections, amenities, and direct reservation flow.
+        </p>
+        <a href="https://petalshotels.com" target="_blank" rel="noopener noreferrer" class="btn-live">
+          Visit Live Website (petalshotels.com) ↗
+        </a>
+      </div>
+    </section>
+
+    <!-- Contextual Internal Linking & Explore More Work -->
+    <section class="case-section explore-work">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">MORE CASE STUDIES</span>
+          <h2>Explore More of Octagram's Work</h2>
+          <p>
+            Discover other high-performance digital platforms created by Octagram.
+          </p>
+        </div>
+
+        <div class="portfolio-grid">
+          
+          <!-- Next Project 1: Ranka Chemical -->
+          <a href="../ranka-chemical/index.html" class="portfolio-card">
+            <div class="card-visual">
+              <img src="../../images/work/ranka-desktop.png" alt="Ranka Chemical product catalogue website designed by Octagram">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">B2B CHEMICAL &amp; INDUSTRIAL</span>
+              <h3>Ranka Chemical</h3>
+              <p>
+                Chemical Supplier Website &amp; Digital Catalogue with 5,000+ SKUs, RFQ quote builder, and COA/MSDS batch traceability.
+              </p>
+              <span class="card-link-cta">View Case Study →</span>
+            </div>
+          </a>
+
+          <!-- Next Project 2: Belaku Bakes -->
+          <a href="../belaku-bakes/index.html" class="portfolio-card">
+            <div class="card-visual">
+              <img src="../../images/work/belaku-desktop.png" alt="Belaku Bakes bakery website designed by Octagram">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FOOD &amp; ARTISANAL BAKERY</span>
+              <h3>Belaku Bakes</h3>
+              <p>
+                Bakery Website Design &amp; Development for an artisanal cloud kitchen in Hennur, Bangalore with handcrafted menus and order flows.
+              </p>
+              <span class="card-link-cta">View Case Study →</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing Agency CTA -->
+    <section class="container" style="margin-bottom: 4rem;">
+      <div class="conversion-cta-block">
+        <span class="section-tag">OCTAGRAM DIGITAL AGENCY</span>
+        <h2>Have a business that deserves a better digital presence?</h2>
+        <p>
+          Octagram designs and builds custom web platforms for hospitality, retail, industrial supply, and growing enterprises.
+        </p>
+        <a href="../../index.html#contact" class="btn-live" style="font-size: 1.05rem; padding: 1rem 2rem;">
+          Start a Project with Octagram →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="../../index.html" class="logo-container">
+          <img src="../../images/Logo.svg" class="logo-svg" alt="Octagram Logo">
+          <span class="brand-name">Octagram</span>
+        </a>
+        <div class="footer-nav">
+          <a href="../../index.html#home">Home</a>
+          <a href="../../index.html#services">Services</a>
+          <a href="../index.html">Work</a>
+          <a href="../../index.html#why-octagram">Why Octagram</a>
+          <a href="../../index.html#process">Process</a>
+          <a href="../../index.html#contact">Contact</a>
+        </div>
+        <div class="copyright">
+          &copy; 2026 Octagram Inc. All rights reserved. Conforming to Web 2026 standards.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('mobile-toggle');
+    const nav = document.getElementById('main-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('mobile-open');
+      });
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('mobile-open');
+        });
+      });
+    }
+  </script>
+</body>
+</html>

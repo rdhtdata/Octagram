@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 680" width="100%" height="100%">
+  <defs>
+    <linearGradient id="rk-m-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a192f"/>
+      <stop offset="100%" stop-color="#060e1a"/>
+    </linearGradient>
+    <linearGradient id="rk-m-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe"/>
+      <stop offset="100%" stop-color="#4facfe"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="380" height="680" fill="url(#rk-m-bg)"/>
+
+  <!-- Mobile Header -->
+  <rect x="0" y="0" width="380" height="60" fill="#061220"/>
+  <rect x="18" y="15" width="30" height="30" rx="6" fill="#00f2fe" opacity="0.2" stroke="#00f2fe" stroke-width="1"/>
+  <text x="33" y="35" font-family="'Inter', monospace" font-size="14" fill="#00f2fe" text-anchor="middle">⚗</text>
+  <text x="56" y="30" font-family="'Inter', sans-serif" font-size="14" font-weight="800" fill="#ffffff">RANKA CHEMICAL</text>
+  <text x="56" y="42" font-family="'Inter', sans-serif" font-size="8" font-weight="600" fill="#64ffda">SD FINE CHEM STOCKIST</text>
+
+  <rect x="290" y="16" width="75" height="28" rx="6" fill="url(#rk-m-cyan)"/>
+  <text x="327" y="34" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#0a192f" text-anchor="middle">Quote (0)</text>
+
+  <!-- Mobile Hero -->
+  <g transform="translate(20, 80)">
+    <rect width="170" height="22" rx="11" fill="#0d2c47" stroke="#00f2fe" stroke-width="0.8"/>
+    <text x="85" y="15" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#64ffda" text-anchor="middle">100% COA &amp; MSDS TRACEABLE</text>
+
+    <text x="0" y="55" font-family="'Inter', sans-serif" font-size="22" font-weight="800" fill="#ffffff">
+      <tspan x="0" dy="0">High-Purity Chemicals</tspan>
+      <tspan x="0" dy="26" fill="#00f2fe">&amp; Lab Supplies</tspan>
+    </text>
+
+    <text x="0" y="115" font-family="'Inter', sans-serif" font-size="12" fill="#8892b0">
+      B2B chemical distribution for pharma, research laboratories &amp; manufacturing.
+    </text>
+
+    <!-- Search / Filter Bar -->
+    <g transform="translate(0, 145)">
+      <rect width="340" height="40" rx="8" fill="#112240" stroke="#233554"/>
+      <text x="15" y="25" font-family="'Inter', sans-serif" font-size="12" fill="#8892b0">🔍 Search 5,000+ chemicals or CAS No...</text>
+    </g>
+  </g>
+
+  <!-- Category List -->
+  <g transform="translate(20, 285)">
+    <text x="0" y="0" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#64ffda" letter-spacing="0.5">EXPLORE 5 CORE PILLARS</text>
+
+    <!-- Item 1 -->
+    <g transform="translate(0, 15)">
+      <rect width="340" height="66" rx="8" fill="#112240" stroke="#1b3052"/>
+      <text x="18" y="38" font-size="22">🧪</text>
+      <text x="50" y="30" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">Laboratory Chemicals</text>
+      <text x="50" y="48" font-family="'Inter', sans-serif" font-size="10" fill="#8892b0">AR/GR Grade, LR &amp; Volumetric</text>
+      <rect x="255" y="18" width="70" height="28" rx="6" fill="#0d2c47" stroke="#00f2fe" stroke-width="1"/>
+      <text x="290" y="35" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#00f2fe" text-anchor="middle">View</text>
+    </g>
+
+    <!-- Item 2 -->
+    <g transform="translate(0, 90)">
+      <rect width="340" height="66" rx="8" fill="#112240" stroke="#1b3052"/>
+      <text x="18" y="38" font-size="22">💊</text>
+      <text x="50" y="30" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">Pharma Raw Materials</text>
+      <text x="50" y="48" font-family="'Inter', sans-serif" font-size="10" fill="#8892b0">APIs &amp; Pharmacopoeia Excipients</text>
+      <rect x="255" y="18" width="70" height="28" rx="6" fill="#0d2c47" stroke="#00f2fe" stroke-width="1"/>
+      <text x="290" y="35" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#00f2fe" text-anchor="middle">View</text>
+    </g>
+
+    <!-- Item 3 -->
+    <g transform="translate(0, 165)">
+      <rect width="340" height="66" rx="8" fill="#112240" stroke="#1b3052"/>
+      <text x="18" y="38" font-size="22">🛢️</text>
+      <text x="50" y="30" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">Industrial Solvents &amp; Acids</text>
+      <text x="50" y="48" font-family="'Inter', sans-serif" font-size="10" fill="#8892b0">IPA, Acetone, Drums &amp; Tankers</text>
+      <rect x="255" y="18" width="70" height="28" rx="6" fill="#0d2c47" stroke="#00f2fe" stroke-width="1"/>
+      <text x="290" y="35" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#00f2fe" text-anchor="middle">View</text>
+    </g>
+
+    <!-- Item 4 -->
+    <g transform="translate(0, 240)">
+      <rect width="340" height="66" rx="8" fill="#112240" stroke="#1b3052"/>
+      <text x="18" y="38" font-size="22">🥛</text>
+      <text x="50" y="30" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">Lab Glassware &amp; Plastic</text>
+      <text x="50" y="48" font-family="'Inter', sans-serif" font-size="10" fill="#8892b0">Class A Certified Glassware</text>
+      <rect x="255" y="18" width="70" height="28" rx="6" fill="#0d2c47" stroke="#00f2fe" stroke-width="1"/>
+      <text x="290" y="35" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#00f2fe" text-anchor="middle">View</text>
+    </g>
+  </g>
+
+  <!-- Mobile Bottom Sticky Bar -->
+  <rect x="0" y="625" width="380" height="55" fill="#061220" stroke="#1b3052" stroke-width="1"/>
+  <text x="20" y="657" font-family="'Inter', sans-serif" font-size="11" fill="#8892b0">WhatsApp Instant Quotes</text>
+  <rect x="240" y="635" width="120" height="34" rx="6" fill="#25d366"/>
+  <text x="300" y="656" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">💬 Chat Quote</text>
+</svg>

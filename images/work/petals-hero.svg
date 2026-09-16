@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="pt-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#15222e"/>
+      <stop offset="100%" stop-color="#0a121a"/>
+    </linearGradient>
+    <linearGradient id="pt-card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1f3345"/>
+      <stop offset="100%" stop-color="#132230"/>
+    </linearGradient>
+    <linearGradient id="pt-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#aa820a"/>
+    </linearGradient>
+    <filter id="pt-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="700" fill="url(#pt-bg)"/>
+
+  <!-- Warm hospitality ambient aura -->
+  <circle cx="950" cy="220" r="280" fill="#d4af37" opacity="0.08" filter="blur(60px)"/>
+  <circle cx="150" cy="550" r="200" fill="#38bdf8" opacity="0.05" filter="blur(40px)"/>
+
+  <!-- Top Navbar -->
+  <rect x="0" y="0" width="1200" height="75" fill="#0f1922" opacity="0.95"/>
+  <line x1="0" y1="75" x2="1200" y2="75" stroke="#253849" stroke-width="1"/>
+
+  <!-- Logo -->
+  <g transform="translate(60, 22)">
+    <circle cx="16" cy="16" r="16" fill="url(#pt-gold)" opacity="0.25" stroke="#d4af37" stroke-width="1"/>
+    <text x="16" y="21" font-family="'Inter', serif" font-size="14" font-weight="900" fill="#d4af37" text-anchor="middle">P</text>
+    <text x="42" y="19" font-family="'Inter', serif" font-size="18" font-weight="700" fill="#ffffff" letter-spacing="1">PETALS</text>
+    <text x="42" y="32" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#d4af37" letter-spacing="1.5">SUITES &amp; HOTEL</text>
+  </g>
+
+  <!-- Nav Links -->
+  <g transform="translate(560, 44)" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#94a3b8">
+    <text x="0" y="0" fill="#ffffff" font-weight="600">Rooms &amp; Suites</text>
+    <text x="120" y="0">Experience</text>
+    <text x="215" y="0">Location (Manyata)</text>
+    <text x="355" y="0">Gallery</text>
+    <text x="430" y="0">Corporate Stays</text>
+  </g>
+
+  <!-- Call / WhatsApp Contact CTA -->
+  <g transform="translate(1010, 20)">
+    <rect width="130" height="36" rx="6" fill="url(#pt-gold)"/>
+    <text x="65" y="23" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#0f1922" text-anchor="middle">Book a Stay</text>
+  </g>
+
+  <!-- Hero Content Left -->
+  <g transform="translate(70, 135)">
+    <!-- Location Badge -->
+    <rect width="280" height="28" rx="14" fill="#253545" stroke="#d4af37" stroke-width="1"/>
+    <text x="140" y="18" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#fef3c7" text-anchor="middle" letter-spacing="0.8">OPPOSITE MANYATA TECH PARK • BANGALORE</text>
+
+    <!-- Main Headline -->
+    <text x="0" y="85" font-family="'Inter', Georgia, serif" font-size="44" font-weight="800" fill="#ffffff" line-height="1.15">
+      <tspan x="0" dy="0">A Quieter Way to Work</tspan>
+      <tspan x="0" dy="52" fill="#d4af37">&amp; Stay in Bangalore.</tspan>
+    </text>
+
+    <!-- Description -->
+    <text x="0" y="195" font-family="'Inter', sans-serif" font-size="15" fill="#cbd5e1" line-height="1.6">
+      <tspan x="0" dy="0">Refined executive hospitality located directly opposite Manyata Tech Park gate.</tspan>
+      <tspan x="0" dy="24">Engineered for business travellers with 100+ Mbps Wi-Fi, work desks &amp; quiet rest.</tspan>
+    </text>
+
+    <!-- Action Buttons -->
+    <g transform="translate(0, 255)">
+      <rect width="180" height="46" rx="8" fill="url(#pt-gold)"/>
+      <text x="90" y="28" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#0f1922" text-anchor="middle">Explore Rooms →</text>
+      
+      <g transform="translate(200, 0)">
+        <rect width="180" height="46" rx="8" fill="#1f3345" stroke="#37526d" stroke-width="1.5"/>
+        <text x="90" y="28" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#fef3c7" text-anchor="middle">WhatsApp Booking</text>
+      </g>
+    </g>
+
+    <!-- Hospitality Badges Strip -->
+    <g transform="translate(0, 345)" font-family="'Inter', sans-serif" font-size="12" fill="#e2e8f0">
+      <g transform="translate(0, 0)">
+        <rect width="165" height="48" rx="8" fill="#142637" stroke="#25425e"/>
+        <text x="14" y="22" font-weight="700" fill="#d4af37">2-Min Walk to Gate</text>
+        <text x="14" y="38" font-size="10" fill="#94a3b8">Zero corporate commute</text>
+      </g>
+
+      <g transform="translate(180, 0)">
+        <rect width="165" height="48" rx="8" fill="#142637" stroke="#25425e"/>
+        <text x="14" y="22" font-weight="700" fill="#d4af37">100+ Mbps Fiber Wi-Fi</text>
+        <text x="14" y="38" font-size="10" fill="#94a3b8">Dedicated work desks</text>
+      </g>
+
+      <g transform="translate(360, 0)">
+        <rect width="165" height="48" rx="8" fill="#142637" stroke="#25425e"/>
+        <text x="14" y="22" font-weight="700" fill="#d4af37">24/7 Front Desk</text>
+        <text x="14" y="38" font-size="10" fill="#94a3b8">Express check-in &amp; care</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right Visual Showcase: Room Selection Cards -->
+  <g transform="translate(730, 115)" filter="url(#pt-shadow)">
+    <rect width="400" height="480" rx="14" fill="url(#pt-card)" stroke="#2b4760" stroke-width="1.5"/>
+    <rect x="0" y="0" width="400" height="45" rx="14" fill="#132230"/>
+    <text x="20" y="28" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">EXECUTIVE ROOMS &amp; SUITES</text>
+    <circle cx="375" cy="22" r="4" fill="#10b981"/>
+
+    <!-- Room 1: Deluxe Room -->
+    <g transform="translate(15, 60)">
+      <rect width="370" height="92" rx="8" fill="#16293b" stroke="#d4af37" stroke-width="1"/>
+      <rect x="12" y="12" width="68" height="68" rx="6" fill="#253e56"/>
+      <text x="46" y="52" font-size="28" text-anchor="middle">🛏️</text>
+      <text x="92" y="34" font-family="'Inter', sans-serif" font-size="15" font-weight="700" fill="#ffffff">Deluxe Room</text>
+      <text x="92" y="52" font-family="'Inter', sans-serif" font-size="11" fill="#94a3b8">King bed, lounge seating &amp; hot rain shower</text>
+      <text x="92" y="74" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#d4af37">₹4,499 <tspan font-size="10" font-weight="400" fill="#94a3b8">/ night + GST</tspan></text>
+      <rect x="270" y="48" width="85" height="30" rx="6" fill="url(#pt-gold)"/>
+      <text x="312" y="67" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#0f1922" text-anchor="middle">Book Now</text>
+    </g>
+
+    <!-- Room 2: Signature Suite -->
+    <g transform="translate(15, 162)">
+      <rect width="370" height="92" rx="8" fill="#16293b" stroke="#253e56"/>
+      <rect x="12" y="12" width="68" height="68" rx="6" fill="#253e56"/>
+      <text x="46" y="52" font-size="28" text-anchor="middle">🛋️</text>
+      <text x="92" y="34" font-family="'Inter', sans-serif" font-size="15" font-weight="700" fill="#ffffff">Signature Suite Room</text>
+      <text x="92" y="52" font-family="'Inter', sans-serif" font-size="11" fill="#94a3b8">Separate living lounge, bathrobes &amp; iron board</text>
+      <text x="92" y="74" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#d4af37">Executive Stay</text>
+      <rect x="270" y="48" width="85" height="30" rx="6" fill="#22394f" stroke="#d4af37" stroke-width="1"/>
+      <text x="312" y="67" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#fef3c7" text-anchor="middle">Inquire</text>
+    </g>
+
+    <!-- Room 3: Superior Room -->
+    <g transform="translate(15, 264)">
+      <rect width="370" height="92" rx="8" fill="#16293b" stroke="#253e56"/>
+      <rect x="12" y="12" width="68" height="68" rx="6" fill="#253e56"/>
+      <text x="46" y="52" font-size="28" text-anchor="middle">💼</text>
+      <text x="92" y="34" font-family="'Inter', sans-serif" font-size="15" font-weight="700" fill="#ffffff">Superior Room</text>
+      <text x="92" y="52" font-family="'Inter', sans-serif" font-size="11" fill="#94a3b8">Queen bed, dedicated executive desk &amp; smart TV</text>
+      <text x="92" y="74" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#d4af37">Business Choice</text>
+      <rect x="270" y="48" width="85" height="30" rx="6" fill="#22394f" stroke="#d4af37" stroke-width="1"/>
+      <text x="312" y="67" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#fef3c7" text-anchor="middle">Inquire</text>
+    </g>
+
+    <!-- Amenity Tag Row -->
+    <g transform="translate(15, 375)">
+      <rect width="370" height="85" rx="8" fill="#101d2a"/>
+      <text x="15" y="24" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#d4af37">ALL ROOMS INCLUDE:</text>
+      <text x="15" y="48" font-family="'Inter', sans-serif" font-size="11" fill="#cbd5e1">✓ High-speed Wi-Fi  ✓ Silent AC  ✓ In-room Kettle</text>
+      <text x="15" y="68" font-family="'Inter', sans-serif" font-size="11" fill="#cbd5e1">✓ Sanitized Fresh Linen  ✓ 24/7 Front Desk Assistance</text>
+    </g>
+  </g>
+
+  <!-- Bottom Strip -->
+  <rect x="0" y="660" width="1200" height="40" fill="#080e14"/>
+  <text x="60" y="684" font-family="'Inter', sans-serif" font-size="12" fill="#d4af37">📍 3rd Cross Chanakya Layout, Opp. Manyata Tech Park, Bangalore 560045 • Direct Desk: +91 8123698844</text>
+</svg>

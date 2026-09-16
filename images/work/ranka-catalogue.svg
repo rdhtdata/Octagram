@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="rcat-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0e223d"/>
+      <stop offset="100%" stop-color="#081526"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#rcat-bg)"/>
+
+  <!-- Top bar -->
+  <rect x="0" y="0" width="800" height="50" fill="#081424"/>
+  <text x="30" y="32" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#ffffff">Ranka Chemical — Product Catalogue Matrix</text>
+  <rect x="670" y="10" width="100" height="30" rx="6" fill="#00f2fe" opacity="0.2" stroke="#00f2fe" stroke-width="1"/>
+  <text x="720" y="30" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#00f2fe" text-anchor="middle">5,000+ SKUs</text>
+
+  <!-- Table Header -->
+  <g transform="translate(30, 80)">
+    <rect width="740" height="36" rx="6" fill="#172e4c"/>
+    <text x="20" y="23" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#64ffda">PRODUCT / REAGENT</text>
+    <text x="260" y="23" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#64ffda">GRADE / SPEC</text>
+    <text x="440" y="23" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#64ffda">PACKAGING</text>
+    <text x="610" y="23" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#64ffda">ACTION</text>
+  </g>
+
+  <!-- Row 1 -->
+  <g transform="translate(30, 130)">
+    <rect width="740" height="60" rx="6" fill="#10253f" stroke="#1d385a"/>
+    <text x="20" y="28" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">Methanol for HPLC / Spectroscopy</text>
+    <text x="20" y="46" font-family="'Inter', sans-serif" font-size="11" fill="#8892b0">CAS: 67-56-1 • Purity ≥ 99.9%</text>
+    <text x="260" y="35" font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1">HPLC / Spectro Grade</text>
+    <text x="440" y="35" font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1">2.5L Glass / 25L Drum</text>
+    <rect x="610" y="15" width="105" height="30" rx="6" fill="#0d3455" stroke="#00f2fe" stroke-width="1"/>
+    <text x="662" y="34" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#00f2fe" text-anchor="middle">+ Add to Quote</text>
+  </g>
+
+  <!-- Row 2 -->
+  <g transform="translate(30, 200)">
+    <rect width="740" height="60" rx="6" fill="#10253f" stroke="#1d385a"/>
+    <text x="20" y="28" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">Hydrochloric Acid (Trace Metal Free)</text>
+    <text x="20" y="46" font-family="'Inter', sans-serif" font-size="11" fill="#8892b0">CAS: 7647-01-0 • 35-37% Concentration</text>
+    <text x="260" y="35" font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1">AR / Trace Grade</text>
+    <text x="440" y="35" font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1">500ml / 2.5L / Bulk Carboy</text>
+    <rect x="610" y="15" width="105" height="30" rx="6" fill="#0d3455" stroke="#00f2fe" stroke-width="1"/>
+    <text x="662" y="34" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#00f2fe" text-anchor="middle">+ Add to Quote</text>
+  </g>
+
+  <!-- Row 3 -->
+  <g transform="translate(30, 270)">
+    <rect width="740" height="60" rx="6" fill="#10253f" stroke="#1d385a"/>
+    <text x="20" y="28" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">Volumetric Flask Class A Certified</text>
+    <text x="20" y="46" font-family="'Inter', sans-serif" font-size="11" fill="#8892b0">Borosilicate 3.3 Glass with Batch Certificate</text>
+    <text x="260" y="35" font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1">ISO 1042 / Class A</text>
+    <text x="440" y="35" font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1">10ml - 2000ml</text>
+    <rect x="610" y="15" width="105" height="30" rx="6" fill="#0d3455" stroke="#00f2fe" stroke-width="1"/>
+    <text x="662" y="34" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#00f2fe" text-anchor="middle">+ Add to Quote</text>
+  </g>
+
+  <!-- Row 4 -->
+  <g transform="translate(30, 340)">
+    <rect width="740" height="60" rx="6" fill="#10253f" stroke="#1d385a"/>
+    <text x="20" y="28" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">Nylon Membrane Filter Disc 0.22µm</text>
+    <text x="20" y="46" font-family="'Inter', sans-serif" font-size="11" fill="#8892b0">Hydrophilic nylon membrane for HPLC filtration</text>
+    <text x="260" y="35" font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1">HPLC / Sample Prep</text>
+    <text x="440" y="35" font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1">Pack of 100 discs (47mm)</text>
+    <rect x="610" y="15" width="105" height="30" rx="6" fill="#0d3455" stroke="#00f2fe" stroke-width="1"/>
+    <text x="662" y="34" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#00f2fe" text-anchor="middle">+ Add to Quote</text>
+  </g>
+
+  <!-- Bottom Banner -->
+  <g transform="translate(30, 420)">
+    <rect width="740" height="50" rx="8" fill="#08182b" stroke="#00f2fe" stroke-width="1"/>
+    <text x="20" y="30" font-family="'Inter', sans-serif" font-size="12" fill="#ffffff">Direct Quotation Bridge — Select chemicals &amp; generate instantaneous WhatsApp RFQ quote</text>
+    <rect x="610" y="10" width="110" height="30" rx="6" fill="#00f2fe"/>
+    <text x="665" y="29" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#08182b" text-anchor="middle">View Cart (0)</text>
+  </g>
+</svg>

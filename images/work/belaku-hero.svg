@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bb-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2c1a0f"/>
+      <stop offset="100%" stop-color="#180e08"/>
+    </linearGradient>
+    <linearGradient id="bb-card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3d2617"/>
+      <stop offset="100%" stop-color="#2a170d"/>
+    </linearGradient>
+    <linearGradient id="bb-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <filter id="bb-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="700" fill="url(#bb-bg)"/>
+  
+  <!-- Subtle Flour / Golden Ambient Circles -->
+  <circle cx="950" cy="180" r="220" fill="#f59e0b" opacity="0.08" filter="blur(40px)"/>
+  <circle cx="150" cy="550" r="180" fill="#d97706" opacity="0.06" filter="blur(30px)"/>
+
+  <!-- Top Navbar -->
+  <rect x="0" y="0" width="1200" height="75" fill="#1c0f07" opacity="0.95"/>
+  <line x1="0" y1="75" x2="1200" y2="75" stroke="#4a2c18" stroke-width="1"/>
+
+  <!-- Logo -->
+  <g transform="translate(60, 22)">
+    <circle cx="16" cy="16" r="16" fill="url(#bb-gold)"/>
+    <text x="16" y="22" font-family="'Inter', sans-serif" font-size="16" font-weight="900" fill="#1c0f07" text-anchor="middle">B</text>
+    <text x="44" y="22" font-family="'Inter', Georgia, serif" font-size="20" font-weight="700" fill="#fef3c7" letter-spacing="0.5">Belaku Bakes</text>
+  </g>
+
+  <!-- Nav Links -->
+  <g transform="translate(620, 44)" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#d4af37">
+    <text x="0" y="0" fill="#ffffff" font-weight="600">Home</text>
+    <text x="70" y="0" opacity="0.8">Menu</text>
+    <text x="140" y="0" opacity="0.8">Brownies &amp; Cakes</text>
+    <text x="280" y="0" opacity="0.8">Our Story</text>
+    <text x="375" y="0" opacity="0.8">Hennur Kitchen</text>
+  </g>
+
+  <!-- Order CTA Button -->
+  <g transform="translate(1030, 18)">
+    <rect width="110" height="38" rx="8" fill="url(#bb-gold)"/>
+    <text x="55" y="24" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#1c0f07" text-anchor="middle">Order Now</text>
+  </g>
+
+  <!-- Hero Content Left -->
+  <g transform="translate(70, 140)">
+    <!-- Section Tag -->
+    <rect width="180" height="28" rx="14" fill="#452714" stroke="#d97706" stroke-width="1"/>
+    <text x="90" y="19" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#fef3c7" text-anchor="middle" letter-spacing="1">ARTISANAL CLOUD KITCHEN</text>
+
+    <!-- Main Headline -->
+    <text x="0" y="85" font-family="'Inter', Georgia, serif" font-size="46" font-weight="800" fill="#ffffff" line-height="1.15">
+      <tspan x="0" dy="0">Handcrafted Bakes,</tspan>
+      <tspan x="0" dy="54" fill="#fde68a">Made Fresh to Order.</tspan>
+    </text>
+
+    <!-- Description -->
+    <text x="0" y="200" font-family="'Inter', sans-serif" font-size="16" fill="#e2d4c9" opacity="0.9">
+      <tspan x="0" dy="0">Artisanal cloud bakery located in Hennur, Bangalore. Crafting luscious fudgy</tspan>
+      <tspan x="0" dy="24">brownies, Basque burnt cheesecakes, celebration cakes &amp; savory gourmet pastries.</tspan>
+    </text>
+
+    <!-- Action Buttons -->
+    <g transform="translate(0, 260)">
+      <rect width="180" height="48" rx="8" fill="url(#bb-gold)"/>
+      <text x="90" y="30" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#1c0f07" text-anchor="middle">Explore Menu →</text>
+      
+      <g transform="translate(200, 0)">
+        <rect width="180" height="48" rx="8" fill="#382012" stroke="#d97706" stroke-width="1"/>
+        <text x="90" y="30" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#fef3c7" text-anchor="middle">WhatsApp Order</text>
+      </g>
+    </g>
+
+    <!-- Badges Row -->
+    <g transform="translate(0, 350)" font-family="'Inter', sans-serif" font-size="13" fill="#cbd5e1">
+      <circle cx="6" cy="6" r="4" fill="#10b981"/>
+      <text x="18" y="10" font-weight="500">100% Fresh Ingredients</text>
+      
+      <circle cx="186" cy="6" r="4" fill="#10b981"/>
+      <text x="198" y="10" font-weight="500">Hennur &amp; Bangalore Delivery</text>
+
+      <circle cx="396" cy="6" r="4" fill="#10b981"/>
+      <text x="408" y="10" font-weight="500">Custom Celebration Cakes</text>
+    </g>
+  </g>
+
+  <!-- Right Visual Showcase - 3 Product Cards -->
+  <g transform="translate(730, 125)" filter="url(#bb-shadow)">
+    <!-- Card 1: Fudgy Brownies -->
+    <g transform="translate(0, 0)">
+      <rect width="390" height="145" rx="12" fill="url(#bb-card)" stroke="#52321c" stroke-width="1.5"/>
+      <rect x="15" y="15" width="115" height="115" rx="8" fill="#52321c"/>
+      <!-- Brownie Icon Graphic -->
+      <text x="72" y="78" font-size="44" text-anchor="middle">🍫</text>
+      <text x="145" y="45" font-family="'Inter', sans-serif" font-size="17" font-weight="700" fill="#ffffff">Signature Fudgy Brownies</text>
+      <text x="145" y="70" font-family="'Inter', sans-serif" font-size="12" fill="#d4b8a5">Rich Belgian dark chocolate &amp; sea salt</text>
+      <rect x="145" y="90" width="70" height="24" rx="4" fill="#4a2b16"/>
+      <text x="180" y="106" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#fde68a" text-anchor="middle">Bestseller</text>
+      <text x="330" y="108" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#f59e0b">Order →</text>
+    </g>
+
+    <!-- Card 2: Basque Cheesecake -->
+    <g transform="translate(0, 165)">
+      <rect width="390" height="145" rx="12" fill="url(#bb-card)" stroke="#52321c" stroke-width="1.5"/>
+      <rect x="15" y="15" width="115" height="115" rx="8" fill="#52321c"/>
+      <text x="72" y="78" font-size="44" text-anchor="middle">🍰</text>
+      <text x="145" y="45" font-family="'Inter', sans-serif" font-size="17" font-weight="700" fill="#ffffff">Basque Burnt Cheesecake</text>
+      <text x="145" y="70" font-family="'Inter', sans-serif" font-size="12" fill="#d4b8a5">Creamy caramelized center &amp; vanilla bean</text>
+      <rect x="145" y="90" width="70" height="24" rx="4" fill="#4a2b16"/>
+      <text x="180" y="106" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#fde68a" text-anchor="middle">Artisanal</text>
+      <text x="330" y="108" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#f59e0b">Order →</text>
+    </g>
+
+    <!-- Card 3: Savory Bakes & Cookies -->
+    <g transform="translate(0, 330)">
+      <rect width="390" height="145" rx="12" fill="url(#bb-card)" stroke="#52321c" stroke-width="1.5"/>
+      <rect x="15" y="15" width="115" height="115" rx="8" fill="#52321c"/>
+      <text x="72" y="78" font-size="44" text-anchor="middle">🥐</text>
+      <text x="145" y="45" font-family="'Inter', sans-serif" font-size="17" font-weight="700" fill="#ffffff">Gourmet Cookies &amp; Savory</text>
+      <text x="145" y="70" font-family="'Inter', sans-serif" font-size="12" fill="#d4b8a5">Chunky choc-chip cookies &amp; garlic knots</text>
+      <rect x="145" y="90" width="70" height="24" rx="4" fill="#4a2b16"/>
+      <text x="180" y="106" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#fde68a" text-anchor="middle">Fresh Oven</text>
+      <text x="330" y="108" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#f59e0b">Order →</text>
+    </g>
+  </g>
+
+  <!-- Bottom Strip -->
+  <rect x="0" y="660" width="1200" height="40" fill="#120904"/>
+  <text x="60" y="684" font-family="'Inter', sans-serif" font-size="12" fill="#a89080">📍 Hennur Road, Bengaluru • Made fresh to order • Direct WhatsApp Ordering</text>
+</svg>

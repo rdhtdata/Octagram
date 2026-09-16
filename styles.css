@@ -632,20 +632,41 @@ nav a:hover::after {
 .dropdown-item:hover {
   background: rgba(56, 189, 248, 0.1) !important;
   border-color: rgba(56, 189, 248, 0.25) !important;
-  transform: translateX(4px) !important;
-}
-
 .dropdown-icon {
-  font-size: 1.15rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.06);
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.05);
   flex-shrink: 0;
   border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #38bdf8;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dropdown-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.dropdown-item:hover .dropdown-icon {
+  background: rgba(56, 189, 248, 0.15) !important;
+  border-color: rgba(56, 189, 248, 0.4) !important;
+  color: #22d3ee !important;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.35);
+}
+
+.dropdown-item:hover .dropdown-icon svg {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.5));
 }
 
 .dropdown-item-text {

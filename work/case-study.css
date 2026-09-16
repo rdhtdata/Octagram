@@ -54,10 +54,15 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.65;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
 
 body {
+  max-width: 100%;
   overflow-x: hidden;
+  position: relative;
   background-image: 
     radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 45%),
     radial-gradient(circle at 85% 85%, rgba(129, 140, 248, 0.08) 0%, transparent 45%);

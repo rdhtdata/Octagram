@@ -46,10 +46,15 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
 
 body {
+  max-width: 100%;
   overflow-x: hidden;
+  position: relative;
   background-image: 
     radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
     radial-gradient(circle at 90% 80%, rgba(129, 140, 248, 0.08) 0%, transparent 40%);
@@ -215,6 +220,7 @@ body > header.scrolled {
   transform: rotate(0deg);
   /* Smooth change when set via JS */
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
 }
 
 .bg-watermark img {
@@ -234,6 +240,14 @@ body > header.scrolled {
   right: 25vw; /* Positioned to the left of gear-right */
   width: 40vw;
   max-width: 500px;
+}
+
+@media (max-width: 868px) {
+  .bg-watermark,
+  .gear-right,
+  .gear-left {
+    display: none !important;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -813,8 +827,9 @@ section {
   header nav {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
     width: 100vw;
+    max-width: 100%;
     height: 100vh;
     max-height: 100vh;
     overflow-y: auto;
@@ -829,12 +844,19 @@ section {
     align-items: stretch;
     gap: 12px;
     padding: 85px 24px 40px;
-    transition: right 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, visibility 0.45s;
     z-index: 1000;
   }
   
   header nav.active {
-    right: 0;
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
   
   header nav > a {

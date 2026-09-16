@@ -1541,6 +1541,259 @@ section {
   }
 }
 
+/* ==========================================================================
+   Curated Industry Showcase Gateway Section Styles
+   Centered Responsive Architecture across All Device Viewports
+   ========================================================================== */
+
+.industries-gateway-section {
+  width: 100%;
+  max-width: 100% !important;
+  padding: 6rem 5% !important;
+  background: rgba(12, 34, 55, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: auto !important;
+  box-sizing: border-box;
+}
+
+.industries-gateway-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.industries-gateway-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 3.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.industries-gateway-header .section-tag {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.industries-gateway-header h2 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  color: #f8fafc;
+  text-align: center;
+  width: 100%;
+}
+
+.industries-gateway-header p {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.industries-gateway-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto 3.5rem;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.industry-gateway-card {
+  background: rgba(12, 34, 55, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.industry-gateway-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(56, 189, 248, 0.15);
+}
+
+.industry-gateway-card-media {
+  position: relative;
+  width: 100%;
+  padding-top: 60%;
+  background: #071522;
+  overflow: hidden;
+}
+
+.industry-gateway-card-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(12, 34, 55, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #22d3ee;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  z-index: 2;
+}
+
+.industry-gateway-card-media img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.industry-gateway-card:hover .industry-gateway-card-media img {
+  transform: scale(1.05);
+}
+
+.industry-gateway-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+
+.industry-gateway-card-body h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 0.5rem;
+}
+
+.industry-gateway-card-body p {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.industry-gateway-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent-blue);
+  transition: color 0.2s ease;
+}
+
+.industry-gateway-card:hover .industry-gateway-card-footer {
+  color: #67e8f9;
+}
+
+.industries-gateway-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.industries-gateway-actions .btn-browse-all {
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  text-decoration: none;
+  color: #fff;
+  background: var(--accent-gradient);
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
+  transition: all 0.3s ease;
+}
+
+.industries-gateway-actions .btn-browse-all:hover {
+  box-shadow: 0 0 35px rgba(56, 189, 248, 0.45);
+  transform: translateY(-2px);
+}
+
+.industries-gateway-actions .btn-view-library {
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  text-decoration: none;
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.industries-gateway-actions .btn-view-library:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .industries-gateway-section {
+    padding: 4rem 1.25rem !important;
+  }
+  .industries-gateway-header {
+    margin-bottom: 2rem;
+  }
+  .industries-gateway-header h2 {
+    font-size: 1.65rem !important;
+  }
+  .industries-gateway-header p {
+    font-size: 0.95rem !important;
+  }
+  .industries-gateway-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .industry-gateway-card-body {
+    padding: 1.25rem;
+  }
+  .industries-gateway-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .industries-gateway-actions a {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}
+
 
 
 /* ==========================================================================

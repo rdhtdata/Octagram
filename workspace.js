@@ -445,6 +445,26 @@
     }
   }
 
+  // Security Sanitization Helpers
+  function escapeHtml(str) {
+    if (str === null || str === undefined) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  function sanitizeUrl(url) {
+    if (!url) return '#';
+    const trimmed = String(url).trim();
+    if (/^(https?:\/\/|mailto:|tel:)/i.test(trimmed)) {
+      return escapeHtml(trimmed);
+    }
+    return '#';
+  }
+
   // Current session employee
   let currentUser = null;
   try {
@@ -500,8 +520,8 @@
       toast.className = `toast toast-${type}`;
       toast.innerHTML = `
         <div style="flex:1">
-          <div style="font-weight:600; font-size:0.85rem">${title}</div>
-          <div style="font-size:0.78rem; color:var(--text-muted)">${message}</div>
+          <div style="font-weight:600; font-size:0.85rem">${escapeHtml(title)}</div>
+          <div style="font-size:0.78rem; color:var(--text-muted)">${escapeHtml(message)}</div>
         </div>
         <button style="color:var(--text-dim); padding:2px" onclick="this.parentElement.remove()">&times;</button>
       `;
@@ -795,7 +815,7 @@
                         </div>
                       </div>
                       ${m.videoLink ? `
-                        <a href="${m.videoLink}" target="_blank" class="btn-primary" style="padding: 5px 12px; font-size: 0.78rem;">Join</a>
+                        <a href="${sanitizeUrl(m.videoLink)}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 5px 12px; font-size: 0.78rem;">Join</a>
                       ` : `
                         <button class="btn-secondary" style="padding: 5px 10px; font-size: 0.78rem;" onclick="WorkspaceApp.switchView('meetings')">Open</button>
                       `}
@@ -1184,26 +1204,26 @@
           <div class="card">
             <h4 style="font-size: 0.9rem; font-weight: 700; margin-bottom: 12px; color: var(--text-main);">Company Information</h4>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.84rem;">
-              <div><span style="color:var(--text-muted)">Website:</span> <a href="${client.website}" target="_blank" style="color:var(--accent-blue)">${client.website}</a></div>
-              <div><span style="color:var(--text-muted)">Phone:</span> <a href="tel:${client.phone}">${client.phone}</a></div>
-              <div><span style="color:var(--text-muted)">GST:</span> ${client.gst}</div>
-              <div><span style="color:var(--text-muted)">Address:</span> ${client.address}</div>
+              <div><span style="color:var(--text-muted)">Website:</span> <a href="${sanitizeUrl(client.website)}" target="_blank" rel="noopener noreferrer" style="color:var(--accent-blue)">${escapeHtml(client.website)}</a></div>
+              <div><span style="color:var(--text-muted)">Phone:</span> <a href="tel:${escapeHtml(client.phone)}">${escapeHtml(client.phone)}</a></div>
+              <div><span style="color:var(--text-muted)">GST:</span> ${escapeHtml(client.gst)}</div>
+              <div><span style="color:var(--text-muted)">Address:</span> ${escapeHtml(client.address)}</div>
             </div>
           </div>
 
           <!-- Stakeholder Contacts -->
           <div class="card">
-            <h4 style="font-size: 0.9rem; font-weight: 700; margin-bottom: 12px; color: var(--text-main);">Key Contacts & Decision Makers</h4>
+            <h4 style="font-size: 0.9rem; font-weight: 700; margin-bottom: 12px; color: var(--text-main);">Stakeholders & Contacts (${client.contacts ? client.contacts.length : 0})</h4>
             <div style="display: flex; flex-direction: column; gap: 8px;">
-              ${client.contacts.map(c => `
-                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px; background: rgba(255,255,255,0.03); border-radius: var(--radius-sm);">
+              ${(client.contacts || []).map(c => `
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px; background: rgba(255,255,255,0.02); border-radius: var(--radius-sm);">
                   <div>
-                    <div style="font-weight: 600;">${c.name} ${c.isPrimary ? '<span class="badge badge-blue" style="font-size:0.65rem">Primary</span>' : ''}</div>
-                    <div style="font-size: 0.75rem; color: var(--text-muted);">${c.role} &bull; ${c.email}</div>
+                    <div style="font-weight: 600;">${escapeHtml(c.name)} ${c.isPrimary ? '<span class="badge badge-blue" style="font-size:0.65rem">Primary</span>' : ''}</div>
+                    <div style="font-size: 0.75rem; color: var(--text-muted);">${escapeHtml(c.role)} &bull; ${escapeHtml(c.email)}</div>
                   </div>
                   <div style="display: flex; gap: 6px;">
-                    <a href="tel:${c.phone}" class="btn-secondary" style="padding: 4px 8px; font-size: 0.72rem;">Call</a>
-                    <a href="https://wa.me/${c.phone.replace(/[^0-9]/g, '')}" target="_blank" class="btn-secondary" style="padding: 4px 8px; font-size: 0.72rem; color:#34d399;">WhatsApp</a>
+                    <a href="tel:${escapeHtml(c.phone)}" class="btn-secondary" style="padding: 4px 8px; font-size: 0.72rem;">Call</a>
+                    <a href="https://wa.me/${c.phone.replace(/[^0-9]/g, '')}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 4px 8px; font-size: 0.72rem; color:#34d399;">WhatsApp</a>
                   </div>
                 </div>
               `).join('')}
@@ -1345,8 +1365,8 @@
                       </td>
                       <td>
                         <div style="display:flex; align-items:center; gap:6px;">
-                          <a href="tel:${lead.phone}" class="btn-secondary" style="padding:4px 8px; font-size:0.74rem;" title="Call Lead">📞 Call</a>
-                          <a href="https://wa.me/${lead.phone.replace(/[^0-9]/g, '')}" target="_blank" class="btn-secondary" style="padding:4px 8px; font-size:0.74rem; color:#34d399;" title="WhatsApp Lead">💬 WhatsApp</a>
+                          <a href="tel:${escapeHtml(lead.phone)}" class="btn-secondary" style="padding:4px 8px; font-size:0.74rem;" title="Call Lead">📞 Call</a>
+                          <a href="https://wa.me/${lead.phone.replace(/[^0-9]/g, '')}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding:4px 8px; font-size:0.74rem; color:#34d399;" title="WhatsApp Lead">💬 WhatsApp</a>
                         </div>
                       </td>
                       <td>
@@ -1419,8 +1439,8 @@
             </td>
             <td>
               <div style="display:flex; align-items:center; gap:6px;">
-                <a href="tel:${lead.phone}" class="btn-secondary" style="padding:4px 8px; font-size:0.74rem;" title="Call Lead">📞 Call</a>
-                <a href="https://wa.me/${lead.phone.replace(/[^0-9]/g, '')}" target="_blank" class="btn-secondary" style="padding:4px 8px; font-size:0.74rem; color:#34d399;" title="WhatsApp Lead">💬 WhatsApp</a>
+                <a href="tel:${escapeHtml(lead.phone)}" class="btn-secondary" style="padding:4px 8px; font-size:0.74rem;" title="Call Lead">📞 Call</a>
+                <a href="https://wa.me/${lead.phone.replace(/[^0-9]/g, '')}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding:4px 8px; font-size:0.74rem; color:#34d399;" title="WhatsApp Lead">💬 WhatsApp</a>
               </div>
             </td>
             <td>
@@ -1584,22 +1604,22 @@
 
           <!-- Quick Action Bar -->
           <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 8px; margin-bottom: 20px;">
-            <a href="tel:${lead.phone}" class="btn-primary" style="justify-content:center; padding:9px 0;">📞 Call</a>
-            <a href="https://wa.me/${lead.phone.replace(/[^0-9]/g, '')}" target="_blank" class="btn-secondary" style="justify-content:center; padding:9px 0; color:#34d399;">💬 WhatsApp</a>
-            <button class="btn-secondary" style="justify-content:center; padding:9px 0;" onclick="WorkspaceApp.openLogInteractionModal('${lead.id}')">📝 Log Action</button>
-            <button class="btn-secondary" style="justify-content:center; padding:9px 0; color:#818cf8;" onclick="WorkspaceApp.convertLeadToClient('${lead.id}')">🏆 Convert</button>
+            <a href="tel:${escapeHtml(lead.phone)}" class="btn-primary" style="justify-content:center; padding:9px 0;">📞 Call</a>
+            <a href="https://wa.me/${lead.phone.replace(/[^0-9]/g, '')}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="justify-content:center; padding:9px 0; color:#34d399;">💬 WhatsApp</a>
+            <button class="btn-secondary" style="justify-content:center; padding:9px 0;" onclick="WorkspaceApp.openLogInteractionModal('${escapeHtml(lead.id)}')">📝 Log Action</button>
+            <button class="btn-secondary" style="justify-content:center; padding:9px 0; color:#818cf8;" onclick="WorkspaceApp.convertLeadToClient('${escapeHtml(lead.id)}')">🏆 Convert</button>
           </div>
 
           <!-- Business Details -->
           <div class="card">
             <h4 style="font-size: 0.9rem; font-weight: 700; margin-bottom: 12px; color: var(--text-main);">Business Information</h4>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.84rem;">
-              <div><span style="color:var(--text-muted)">Phone:</span> <a href="tel:${lead.phone}">${lead.phone}</a></div>
+              <div><span style="color:var(--text-muted)">Phone:</span> <a href="tel:${escapeHtml(lead.phone)}">${escapeHtml(lead.phone)}</a></div>
               <div><span style="color:var(--text-muted)">Rating:</span> <strong>${lead.googleRating}★</strong> (${lead.totalReviews} reviews)</div>
               <div><span style="color:var(--text-muted)">Lead Score:</span> <strong style="color:var(--accent-blue)">${lead.leadScore} / 100</strong></div>
               <div><span style="color:var(--text-muted)">Deal Value:</span> ₹${(lead.dealValue || 120000).toLocaleString()}</div>
-              <div style="grid-column: span 2;"><span style="color:var(--text-muted)">Address:</span> ${lead.address}</div>
-              ${lead.mapsUrl ? `<div style="grid-column: span 2;"><a href="${lead.mapsUrl}" target="_blank" style="color:var(--accent-blue)">📍 Open on Google Maps &rarr;</a></div>` : ''}
+              <div style="grid-column: span 2;"><span style="color:var(--text-muted)">Address:</span> ${escapeHtml(lead.address)}</div>
+              ${lead.mapsUrl ? `<div style="grid-column: span 2;"><a href="${sanitizeUrl(lead.mapsUrl)}" target="_blank" rel="noopener noreferrer" style="color:var(--accent-blue)">📍 Open on Google Maps &rarr;</a></div>` : ''}
             </div>
           </div>
 
@@ -2001,9 +2021,9 @@
                     <div style="font-size:0.8rem; color:var(--text-dim); margin: 8px 0;">${lead.notes || 'High prospect for web package'}</div>
 
                     <div style="display:flex; gap:8px; margin-top:10px;">
-                      <a href="tel:${lead.phone}" class="btn-primary" style="padding:6px 12px; font-size:0.78rem;">📞 Call Now</a>
-                      <a href="https://wa.me/${lead.phone.replace(/[^0-9]/g, '')}" target="_blank" class="btn-secondary" style="padding:6px 12px; font-size:0.78rem; color:#34d399;">💬 WhatsApp</a>
-                      <button class="btn-secondary" style="padding:6px 10px; font-size:0.78rem;" onclick="WorkspaceApp.openLogInteractionModal('${lead.id}')">Log</button>
+                      <a href="tel:${escapeHtml(lead.phone)}" class="btn-primary" style="padding:6px 12px; font-size:0.78rem;">📞 Call Now</a>
+                      <a href="https://wa.me/${lead.phone.replace(/[^0-9]/g, '')}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding:6px 12px; font-size:0.78rem; color:#34d399;">💬 WhatsApp</a>
+                      <button class="btn-secondary" style="padding:6px 10px; font-size:0.78rem;" onclick="WorkspaceApp.openLogInteractionModal('${escapeHtml(lead.id)}')">Log</button>
                     </div>
                   </div>
                 `).join('')}
@@ -2086,7 +2106,7 @@
 
                     <div style="display:flex; gap:8px;">
                       ${m.videoLink ? `
-                        <a href="${m.videoLink}" target="_blank" class="btn-primary" style="padding:7px 16px;">Join Video Room</a>
+                        <a href="${sanitizeUrl(m.videoLink)}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding:7px 16px;">Join Video Room</a>
                       ` : ''}
                       <button class="btn-secondary" onclick="WorkspaceApp.openMeetingNotesModal('${m.id}')">Notes & Action Items</button>
                     </div>
@@ -2451,15 +2471,15 @@
               <tbody>
                 ${allContacts.map(c => `
                   <tr>
-                    <td style="font-weight:700;">${c.name}</td>
-                    <td>${c.companyName}</td>
-                    <td><span class="badge badge-gray">${c.role}</span></td>
-                    <td><a href="tel:${c.phone}">${c.phone}</a></td>
-                    <td><a href="mailto:${c.email}">${c.email}</a></td>
+                    <td style="font-weight:700;">${escapeHtml(c.name)}</td>
+                    <td>${escapeHtml(c.companyName)}</td>
+                    <td><span class="badge badge-gray">${escapeHtml(c.role)}</span></td>
+                    <td><a href="tel:${escapeHtml(c.phone)}">${escapeHtml(c.phone)}</a></td>
+                    <td><a href="mailto:${escapeHtml(c.email)}">${escapeHtml(c.email)}</a></td>
                     <td>
                       <div style="display:flex; gap:6px;">
-                        <a href="tel:${c.phone}" class="btn-secondary" style="padding:3px 8px; font-size:0.72rem;">📞 Call</a>
-                        <a href="https://wa.me/${c.phone.replace(/[^0-9]/g, '')}" target="_blank" class="btn-secondary" style="padding:3px 8px; font-size:0.72rem; color:#34d399;">💬 WhatsApp</a>
+                        <a href="tel:${escapeHtml(c.phone)}" class="btn-secondary" style="padding:3px 8px; font-size:0.72rem;">📞 Call</a>
+                        <a href="https://wa.me/${c.phone.replace(/[^0-9]/g, '')}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding:3px 8px; font-size:0.72rem; color:#34d399;">💬 WhatsApp</a>
                       </div>
                     </td>
                   </tr>

@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="styles.css?v=4.0">
+  <link rel="stylesheet" href="styles.css?v=5.0">
   
   <style>
     :root {
@@ -481,9 +481,21 @@
       });
     });
 
+    // Rate-limiting & brute force protection
+    let failedAttempts = parseInt(sessionStorage.getItem('octagram_login_fails') || '0', 10);
+    let lockoutUntil = parseInt(sessionStorage.getItem('octagram_lockout_until') || '0', 10);
+
     // Form submission
     loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      
+      const now = Date.now();
+      if (lockoutUntil && now < lockoutUntil) {
+        const remainingSecs = Math.ceil((lockoutUntil - now) / 1000);
+        errorText.textContent = `Too many failed attempts. Locked out for ${remainingSecs}s.`;
+        errorAlert.classList.add('active');
+        return;
+      }
       
       const username = usernameInput.value.trim().toLowerCase();
       const password = passwordInput.value.trim();
@@ -491,7 +503,10 @@
       const userRecord = EMPLOYEE_CREDENTIALS[username];
 
       if (userRecord && userRecord.password === password) {
-        // Successful login
+        // Successful login - reset failed attempts
+        sessionStorage.removeItem('octagram_login_fails');
+        sessionStorage.removeItem('octagram_lockout_until');
+
         submitBtn.classList.add('loading');
         submitBtn.disabled = true;
 
@@ -509,7 +524,17 @@
         }, 400);
       } else {
         // Failed login
-        errorText.textContent = 'Invalid username or password. Please try again.';
+        failedAttempts++;
+        sessionStorage.setItem('octagram_login_fails', failedAttempts.toString());
+
+        if (failedAttempts >= 5) {
+          lockoutUntil = Date.now() + 30000; // 30s lockout
+          sessionStorage.setItem('octagram_lockout_until', lockoutUntil.toString());
+          errorText.textContent = 'Too many failed attempts. Access locked for 30 seconds.';
+        } else {
+          errorText.textContent = `Invalid username or password. (${5 - failedAttempts} attempts remaining before lockout)`;
+        }
+        
         errorAlert.classList.add('active');
         passwordInput.value = '';
         passwordInput.focus();

@@ -843,6 +843,24 @@ function setupBackToTopButton() {
       behavior: 'smooth'
     });
   });
+
+  // Header & footer logo click smoothly scrolls back to home
+  const headerLogo = document.querySelector('.site-header .logo-container');
+  if (headerLogo) {
+    headerLogo.addEventListener('click', (e) => {
+      const homeSection = document.getElementById('home');
+      if (homeSection) {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+        if (window.location.hash) {
+          history.pushState(null, '', window.location.pathname);
+        }
+      }
+    });
+  }
 }
 
 /**

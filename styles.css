@@ -194,6 +194,9 @@ body > header.scrolled {
   display: flex;
   align-items: center;
   gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
   transform: translate(var(--gravity-x, 0px), var(--gravity-y, 0px));
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }

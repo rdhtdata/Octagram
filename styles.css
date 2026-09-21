@@ -5640,6 +5640,7 @@ body.theme-light .config-next-btn:hover {
     max-width: 100% !important;
     box-sizing: border-box !important;
     min-width: 0 !important;
+    overscroll-behavior-x: contain !important;
     scrollbar-width: none !important;
   }
   .showcase-category-tabs::-webkit-scrollbar {

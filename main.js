@@ -1055,16 +1055,23 @@ function setupBeforeAfterSlider() {
     const cat = categories[currentCategoryIndex];
 
     // Update active category tabs
+    const tabsContainer = document.querySelector('.showcase-category-tabs');
     categoryTabs.forEach((t) => {
       const isActive = t.getAttribute('data-category') === cat;
       t.classList.toggle('active', isActive);
       t.setAttribute('aria-selected', isActive ? 'true' : 'false');
-      if (isActive && window.innerWidth <= 600) {
+      if (isActive && tabsContainer && window.innerWidth <= 600) {
         try {
-          t.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          const targetLeft = t.offsetLeft - (tabsContainer.clientWidth / 2) + (t.offsetWidth / 2);
+          tabsContainer.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
         } catch (err) {}
       }
     });
+
+    // Enforce horizontal alignment lock on document viewport
+    if (window.scrollX && window.scrollX !== 0) {
+      window.scrollTo({ left: 0, top: window.scrollY });
+    }
 
     // Update category panels in both Before & After views with slide transitions
     const allPanels = document.querySelectorAll('.slider-comparison-box .category-panel');

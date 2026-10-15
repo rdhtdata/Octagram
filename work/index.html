@@ -80,21 +80,65 @@
       </a>
 
       <nav class="main-nav" id="main-nav">
-        <a href="../index.html#services">Services</a>
+        <!-- Solutions Dropdown -->
+        <div class="nav-dropdown">
+          <button class="dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Solutions</span>
+            <svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="dropdown-menu">
+            <a href="../solutions/index.html" class="dropdown-item">
+              <span class="dropdown-icon">✦</span>
+              <div class="dropdown-item-text">
+                <span class="dropdown-title">All Solutions</span>
+                <span class="dropdown-sub">Complete digital solutions suite</span>
+              </div>
+            </a>
+            <a href="../solutions/index.html#websites" class="dropdown-item">
+              <span class="dropdown-icon">🌐</span>
+              <div class="dropdown-item-text">
+                <span class="dropdown-title">Websites &amp; Digital Experiences</span>
+                <span class="dropdown-sub">Custom sites &amp; booking engines</span>
+              </div>
+            </a>
+            <a href="../solutions/index.html#custom-software" class="dropdown-item">
+              <span class="dropdown-icon">⚡</span>
+              <div class="dropdown-item-text">
+                <span class="dropdown-title">Custom Software &amp; SaaS</span>
+                <span class="dropdown-sub">Tailored CRMs &amp; web apps</span>
+              </div>
+            </a>
+            <a href="../solutions/index.html#ai-automation" class="dropdown-item">
+              <span class="dropdown-icon">🤖</span>
+              <div class="dropdown-item-text">
+                <span class="dropdown-title">AI &amp; Automation</span>
+                <span class="dropdown-sub">Intelligent workflow pipelines</span>
+              </div>
+            </a>
+            <a href="../solutions/index.html#internal-tools" class="dropdown-item">
+              <span class="dropdown-icon">📊</span>
+              <div class="dropdown-item-text">
+                <span class="dropdown-title">Internal Tools</span>
+                <span class="dropdown-sub">Operations dashboards &amp; reporting</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
         <a href="../industries/index.html">Industries</a>
         
         <!-- Work & Concepts Dropdown -->
         <div class="nav-dropdown">
           <button class="dropdown-trigger active" aria-expanded="false" aria-haspopup="true">
-            <span>Work &amp; Concepts</span>
+            <span>Our Work</span>
             <svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
           </button>
           <div class="dropdown-menu">
             <a href="index.html" class="dropdown-item">
               <span class="dropdown-icon">📁</span>
               <div class="dropdown-item-text">
-                <span class="dropdown-title">Portfolio</span>
-                <span class="dropdown-sub">Real client case studies &amp; results</span>
+                <span class="dropdown-title">Selected Work</span>
+                <span class="dropdown-sub">Real client case studies &amp; software</span>
               </div>
             </a>
             <a href="../design-library/index.html" class="dropdown-item">
@@ -104,36 +148,45 @@
                 <span class="dropdown-sub">Curated website concepts &amp; styles</span>
               </div>
             </a>
+            <a href="../index.html#showcase" class="dropdown-item">
+              <span class="dropdown-icon">🔄</span>
+              <div class="dropdown-item-text">
+                <span class="dropdown-title">Interactive Showcase</span>
+                <span class="dropdown-sub">Transformation before &amp; after</span>
+              </div>
+            </a>
           </div>
         </div>
 
         <!-- About Dropdown -->
         <div class="nav-dropdown">
           <button class="dropdown-trigger" aria-expanded="false" aria-haspopup="true">
-            <span>About</span>
+            <span>About Us</span>
             <svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
           </button>
           <div class="dropdown-menu">
-            <a href="../index.html#process" class="dropdown-item">
-              <span class="dropdown-icon">⚙️</span>
-              <div class="dropdown-item-text">
-                <span class="dropdown-title">Our Process</span>
-                <span class="dropdown-sub">5-step digital build pipeline</span>
-              </div>
-            </a>
             <a href="../index.html#why-octagram" class="dropdown-item">
               <span class="dropdown-icon">✦</span>
               <div class="dropdown-item-text">
                 <span class="dropdown-title">Why Octagram</span>
-                <span class="dropdown-sub">Conversion architecture &amp; proof</span>
+                <span class="dropdown-sub">Connected digital architecture</span>
+              </div>
+            </a>
+            <a href="../index.html#process" class="dropdown-item">
+              <span class="dropdown-icon">⚙️</span>
+              <div class="dropdown-item-text">
+                <span class="dropdown-title">Our Process</span>
+                <span class="dropdown-sub">5-step digital engineering pipeline</span>
               </div>
             </a>
           </div>
         </div>
+
+        <a href="../index.html#contact">Contact</a>
       </nav>
 
       <div style="display: flex; align-items: center; gap: 1rem;">
-        <a href="../index.html#contact" class="header-cta">Get Started</a>
+        <a href="../index.html#contact" class="header-cta">Discuss Your Project</a>
         <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="6" x2="21" y2="6"/>
@@ -270,7 +323,89 @@
             </div>
           </article>
 
-        </div>
+          <!-- Project 4: Octagram Client Concierge & CRM Ingestion -->
+          <article class="featured-card">
+            <div class="featured-card-grid">
+              <div class="card-body" style="padding: 0;">
+                <span class="card-tag" style="background: rgba(34, 197, 94, 0.12); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3);">PRODUCTION TOOL • OPERATIONS &amp; CRM</span>
+                <h2 style="font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #ffffff; margin-bottom: 0.5rem; line-height: 1.25;">
+                  Octagram Client Concierge &amp; Inbound Pipeline
+                </h2>
+                <p style="font-size: 1.08rem; font-weight: 600; color: #22d3ee; margin-bottom: 0.85rem;">
+                  Real-Time Inquiry Management &amp; Scoping HUD
+                </p>
+                <p style="font-size: 0.98rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1.25rem;">
+                  Engineered an operational client intake workspace that unifies web inquiries, WhatsApp priority bridges, and structured project scoping into an automated lead CRM. Features live engineering on-call indicators, 2-hour response SLA tracking, and instant WhatsApp project briefing dispatch.
+                </p>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.75rem;">
+                  <span class="f-badge" style="background: rgba(34, 197, 94, 0.12); color: #4ade80;">Active Deployment</span>
+                  <span class="f-badge" style="background: rgba(56,189,248,0.1); color: #38bdf8;">Real-Time HUD</span>
+                  <span class="f-badge" style="background: rgba(129,140,248,0.1); color: #818cf8;">WhatsApp API</span>
+                  <span class="f-badge" style="background: rgba(255,255,255,0.06); color: #e2e8f0;">SLA Tracker</span>
+                </div>
+                <div class="card-actions">
+                  <a href="../index.html#contact" class="btn-live">
+                    Launch Concierge Drawer →
+                  </a>
+                  <a href="../solutions/index.html#internal-tools" class="btn-secondary">
+                    Explore Internal Tools
+                  </a>
+                </div>
+              </div>
+              <div class="featured-card-visual" style="background: rgba(12, 34, 55, 0.9); border: 1px solid var(--border-color); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; justify-content: center; font-family: 'JetBrains Mono', monospace;">
+                <div style="color: var(--accent-cyan); font-size: 0.85rem; margin-bottom: 8px;">OCTAGRAM_CONCIERGE // STATUS: ONLINE</div>
+                <div style="color: #4ade80; font-size: 1.2rem; font-weight: 700; margin-bottom: 12px;">Active Routing Pipeline</div>
+                <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                  &bull; Webhook Response: &lt; 250ms<br>
+                  &bull; Lead Classification: 8 Distinct Project Types<br>
+                  &bull; Notification Dispatch: Real-time Priority WhatsApp<br>
+                  &bull; Data Storage: Zero Dropped Briefs
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 5: Autonomous Document AI & Invoice Ingestion Engine -->
+          <article class="featured-card">
+            <div class="featured-card-grid">
+              <div class="card-body" style="padding: 0;">
+                <span class="card-tag" style="background: rgba(168, 85, 247, 0.12); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3);">VERIFIED PROTOTYPE DEMONSTRATION</span>
+                <h2 style="font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #ffffff; margin-bottom: 0.5rem; line-height: 1.25;">
+                  Autonomous Document AI Engine
+                </h2>
+                <p style="font-size: 1.08rem; font-weight: 600; color: #c084fc; margin-bottom: 0.85rem;">
+                  Optical Invoice Parsing &amp; ERP Ingestion Architecture
+                </p>
+                <p style="font-size: 0.98rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1.25rem;">
+                  Architected an optical intelligence pipeline to solve manual back-office data entry. Ingests vendor PDF invoices and scanned delivery receipts, parses line items, HSN/SAC codes, and GST rates, validates math reconciliation, and exports clean structured records directly to ERP accounting schemas.
+                </p>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.75rem;">
+                  <span class="f-badge" style="background: rgba(168, 85, 247, 0.12); color: #c084fc;">Vision-AI Parser</span>
+                  <span class="f-badge" style="background: rgba(56,189,248,0.1); color: #38bdf8;">GST Validation</span>
+                  <span class="f-badge" style="background: rgba(52,211,153,0.1); color: #34d399;">ERP Webhook</span>
+                  <span class="f-badge" style="background: rgba(255,255,255,0.06); color: #e2e8f0;">Anomaly Detection</span>
+                </div>
+                <div class="card-actions">
+                  <a href="../solutions/index.html#ai-automation" class="btn-live">
+                    Explore AI Solutions →
+                  </a>
+                  <a href="../index.html#contact" class="btn-secondary">
+                    Discuss AI Workflows
+                  </a>
+                </div>
+              </div>
+              <div class="featured-card-visual" style="background: rgba(12, 34, 55, 0.9); border: 1px solid var(--border-color); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; justify-content: center; font-family: 'JetBrains Mono', monospace;">
+                <div style="color: #c084fc; font-size: 0.85rem; margin-bottom: 8px;">AI_EXTRACTION_PIPELINE // VERIFIED PROTOTYPE</div>
+                <div style="color: #fff; font-size: 1.2rem; font-weight: 700; margin-bottom: 12px;">Optical Document Extraction</div>
+                <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                  &bull; Extraction Accuracy: 99.4%<br>
+                  &bull; Avg Processing Speed: 2.1s per invoice<br>
+                  &bull; Schema: Multi-tenant JSON &amp; CSV export<br>
+                  &bull; Target: Eliminates 85% back-office busywork
+                </div>
+              </div>
+            </div>
+          </article>
 
       </div>
     </section>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Solutions & Services | Websites, Custom Software, AI & Internal Tools | Octagram</title>
+  <meta name="description" content="Explore Octagram's four primary solution categories: high-performing websites, custom business software & SaaS, AI automation & intelligent workflows, and internal business tools.">
+  <link rel="canonical" href="https://octagramai.com/solutions">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://octagramai.com/solutions">
+  <meta property="og:title" content="Digital Solutions & Services | Octagram">
+  <meta property="og:description" content="From websites to custom business software and AI-powered automation, we build the digital solutions that help your business run better and grow.">
+  <meta property="og:image" content="https://octagramai.com/images/Logo.svg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Digital Solutions & Services | Octagram">
+  <meta name="twitter:description" content="Explore Octagram's four primary solution categories for modern businesses.">
+  <meta name="twitter:image" content="https://octagramai.com/images/Logo.svg">
+
+  <!-- Google Fonts: Geometric Display & Precision Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../styles.css?v=5.4">
+  <link rel="stylesheet" href="../industries/industries.css?v=5.4">
+
+  <style>
+    .solutions-page-hero {
+      padding: 140px 5% 70px;
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .solutions-page-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+    }
+    .solutions-page-hero p {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+    .solutions-nav-pills {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .solution-nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.25s ease;
+    }
+    .solution-nav-pill:hover,
+    .solution-nav-pill.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--accent-blue);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .solution-deep-dive {
+      padding: 80px 5%;
+      border-bottom: 1px solid var(--border-color);
+      position: relative;
+    }
+    .solution-deep-dive:nth-child(even) {
+      background: rgba(12, 34, 55, 0.4);
+    }
+    .deep-dive-grid {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .deep-dive-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+    }
+    .deep-dive-content h2 {
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      font-family: 'Outfit', sans-serif;
+      margin: 0.75rem 0 1.25rem;
+      line-height: 1.2;
+    }
+    .deep-dive-lead {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+    }
+    .feature-points-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+    .feature-point-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .feature-check {
+      color: var(--accent-cyan);
+      font-weight: 700;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+    .deep-dive-preview-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 30px;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+    }
+    .card-terminal-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent-cyan);
+    }
+    .preview-badge-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px solid var(--border-color);
+    }
+    .preview-badge {
+      font-size: 0.75rem;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.06);
+      color: var(--text-muted);
+    }
+  </style>
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Digital Solutions & Services | Octagram",
+    "url": "https://octagramai.com/solutions",
+    "description": "Four core digital solution categories: Websites & Digital Experiences, Custom Software & SaaS, AI & Business Automation, and Internal Business Tools.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Octagram",
+      "url": "https://octagramai.com",
+      "logo": "https://octagramai.com/images/Logo.svg"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo-container">
+        <img src="../images/Logo.svg" class="logo-svg" alt="Octagram Logo">
+        <span class="brand-name">Octagram</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav">
+        <a href="index.html" class="active">Solutions</a>
+        <a href="../industries/index.html">Industries</a>
+        <a href="../work/index.html">Our Work</a>
+        <a href="../index.html#why-octagram">About Us</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="../index.html#contact" class="cta-button header-cta-desktop">Discuss Your Project</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="solutions-page-hero">
+      <span class="section-tag">COMPREHENSIVE DIGITAL CAPABILITIES</span>
+      <h1>Technology Engineered Around Your Business</h1>
+      <p>From high-performing websites to custom business software and AI-powered automation, we build the digital solutions that help your business run better and grow.</p>
+      
+      <div class="solutions-nav-pills">
+        <a href="#websites" class="solution-nav-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" style="vertical-align: middle; margin-right: 6px;"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Websites &amp; Digital Experiences</a>
+        <a href="#custom-software" class="solution-nav-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" style="vertical-align: middle; margin-right: 6px;"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>Custom Software &amp; SaaS</a>
+        <a href="#ai-automation" class="solution-nav-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" style="vertical-align: middle; margin-right: 6px;"><rect x="4" y="4" width="16" height="16" rx="2.5"/><polygon points="12 9 15 12 12 15 9 12"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><line x1="9" y1="2" x2="9" y2="4"/><line x1="15" y1="2" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="22"/><line x1="15" y1="20" x2="15" y2="22"/><line x1="2" y1="9" x2="4" y2="9"/><line x1="2" y1="15" x2="4" y2="15"/><line x1="20" y1="9" x2="22" y2="9"/><line x1="20" y1="15" x2="22" y2="15"/></svg>AI &amp; Business Automation</a>
+        <a href="#internal-tools" class="solution-nav-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" style="vertical-align: middle; margin-right: 6px;"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/><path d="M13 15l2 2 4-4"/></svg>Internal Business Tools</a>
+      </div>
+    </section>
+
+    <!-- 01: Websites & Digital Experiences -->
+    <section id="websites" class="solution-deep-dive">
+      <div class="deep-dive-grid">
+        <div class="deep-dive-content">
+          <span class="section-tag">CATEGORY 01</span>
+          <h2>Websites &amp; Digital Experiences</h2>
+          <p class="deep-dive-lead">
+            Your website should be an engine for your business, not a static brochure. We design and engineer fast, bespoke websites that captivate visitors, rank in search engines, and convert visitors into paying clients.
+          </p>
+          <ul class="feature-points-list">
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>Bespoke Brand Flagships:</strong> Handcrafted UI/UX tailored to your industry identity.</span></li>
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>E-Commerce &amp; Bookings:</strong> Native checkout, Razorpay/Stripe, reservation calendars.</span></li>
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>Speed &amp; Core Web Vitals:</strong> Sub-second load times engineered with zero bloat.</span></li>
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>Local &amp; Technical SEO:</strong> Schema markup, high discoverability, mobile-first indexation.</span></li>
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>Fully Managed Cloud Hosting:</strong> 99.9% uptime SLA, CDN acceleration, security patching.</span></li>
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>Continuous Evolution:</strong> Regular feature additions and content updates included.</span></li>
+          </ul>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="../index.html#contact" class="btn-primary">Build Your Website &rarr;</a>
+            <a href="../work/index.html" class="btn-secondary">View Website Case Studies</a>
+            <a href="../design-library/index.html" class="btn-secondary" style="border: 1px dashed var(--border-color);">Explore Design Library</a>
+          </div>
+        </div>
+        <div class="deep-dive-preview-card">
+          <div class="card-terminal-bar">
+            <span>WEB-EXPERIENCE // DEPLOYMENT</span>
+            <span>LIVE 2026</span>
+          </div>
+          <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem; color: #fff;">Real-World Case Study: Petals Suites &amp; Hotel</h3>
+          <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+            Direct online booking engine with live room inventory integration, Razorpay settlement, and instant automated WhatsApp check-in confirmations.
+          </p>
+          <div style="background: rgba(0,0,0,0.3); border-radius: 8px; padding: 15px; margin-bottom: 15px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;">
+            <div style="color: var(--accent-cyan); margin-bottom: 6px;">&bull; Direct OTA Commission Savings: 100%</div>
+            <div style="color: var(--text-secondary); margin-bottom: 6px;">&bull; Performance Score: 98/100 Mobile</div>
+            <div style="color: var(--text-secondary);">&bull; Payment Reconciliation: Real-Time</div>
+          </div>
+          <div class="preview-badge-row">
+            <span class="preview-badge">Custom Architecture</span>
+            <span class="preview-badge">Cloud PMS</span>
+            <span class="preview-badge">Razorpay API</span>
+            <span class="preview-badge">WhatsApp Webhook</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02: Custom Software & SaaS -->
+    <section id="custom-software" class="solution-deep-dive">
+      <div class="deep-dive-grid">
+        <div class="deep-dive-content">
+          <span class="section-tag">CATEGORY 02</span>
+          <h2>Custom Software &amp; SaaS</h2>
+          <p class="deep-dive-lead">
+            Off-the-shelf software rarely fits unique business models and charges punishing per-seat monthly fees. We architect custom web applications, client portals, tailored CRMs, and SaaS platforms engineered exactly to your business logic.
+          </p>
+          <ul class="feature-points-list">
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>Tailored CRM Platforms:</strong> Manage leads, deals, and client communications without seat limits.</span></li>
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>Secure Customer Portals:</strong> Client document vaults, account management, and real-time status.</span></li>
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>SaaS Product Engineering:</strong> Multi-tenant web platforms, subscription billing, usage tiers.</span></li>
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>Custom Business Logic:</strong> Purpose-built calculation engines, quotation builders, and rules.</span></li>
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>Full Code Ownership:</strong> Your intellectual property, zero vendor lock-in or recurring per-seat licenses.</span></li>
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>Scalable Cloud Architecture:</strong> Secure PostgreSQL/MongoDB, REST/GraphQL APIs, microservices.</span></li>
+          </ul>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="../index.html#contact" class="btn-primary">Scope Custom Software &rarr;</a>
+            <a href="../index.html#challenges" class="btn-secondary">Why Custom Over SaaS?</a>
+          </div>
+        </div>
+        <div class="deep-dive-preview-card">
+          <div class="card-terminal-bar">
+            <span>CUSTOM-SOFTWARE // ARCHITECTURE</span>
+            <span>PRODUCTION READY</span>
+          </div>
+          <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem; color: #fff;">B2B Product &amp; Quotation Engine: Ranka Chemical</h3>
+          <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+            Replaced outdated PDF catalogs with a real-time searchable technical database, automated TDS/MSDS spec downloads, and direct 1-click B2B RFQ routing.
+          </p>
+          <div style="background: rgba(0,0,0,0.3); border-radius: 8px; padding: 15px; margin-bottom: 15px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;">
+            <div style="color: var(--accent-cyan); margin-bottom: 6px;">&bull; Catalog Access: 24/7 Filterable by CAS</div>
+            <div style="color: var(--text-secondary); margin-bottom: 6px;">&bull; Inquiry Routing: Instant to Sales Queue</div>
+            <div style="color: var(--text-secondary);">&bull; Licensing Cost: Zero Per-Seat Fees</div>
+          </div>
+          <div class="preview-badge-row">
+            <span class="preview-badge">Custom Database</span>
+            <span class="preview-badge">Technical Search</span>
+            <span class="preview-badge">Automated RFQ</span>
+            <span class="preview-badge">Direct Pipeline</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03: AI & Business Automation -->
+    <section id="ai-automation" class="solution-deep-dive">
+      <div class="deep-dive-grid">
+        <div class="deep-dive-content">
+          <span class="section-tag">CATEGORY 03</span>
+          <h2>AI &amp; Business Automation</h2>
+          <p class="deep-dive-lead">
+            No futuristic gimmicks — just practical, high-ROI automations that eliminate repetitive back-office work, parse documents instantly, and route leads automatically so your team can focus on revenue.
+          </p>
+          <ul class="feature-points-list">
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>Intelligent Document Extraction:</strong> Parse PDF invoices, receipts, and challans directly into ERP databases.</span></li>
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>Automated Lead Triage:</strong> Qualify inbound leads from web forms, WhatsApp, and email in seconds.</span></li>
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>Practical AI Assistants:</strong> Custom-trained internal knowledge bots for policy, pricing, and onboarding.</span></li>
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>Cross-System Webhook Sync:</strong> Real-time event triggers between payment gateways, CRMs, and email.</span></li>
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>Repetitive Task Elimination:</strong> Automated follow-ups, reminder sequences, and status updates.</span></li>
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>Error-Proof Validation:</strong> Automated data reconciliation with anomaly flags before commits.</span></li>
+          </ul>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="../index.html#contact" class="btn-primary">Automate Your Workflows &rarr;</a>
+            <a href="../index.html#work" class="btn-secondary">See Automation Proof</a>
+          </div>
+        </div>
+        <div class="deep-dive-preview-card">
+          <div class="card-terminal-bar">
+            <span>AUTOMATION-ENGINE // PIPELINE</span>
+            <span>VERIFIED ARCHITECTURE</span>
+          </div>
+          <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem; color: #fff;">Document AI &amp; Invoice Ingestion Engine</h3>
+          <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+            Optical intelligence pipeline that ingests vendor PDF invoices, extracts GST, line items, and totals with 99.4% precision, and exports directly to accounting formats.
+          </p>
+          <div style="background: rgba(0,0,0,0.3); border-radius: 8px; padding: 15px; margin-bottom: 15px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;">
+            <div style="color: var(--accent-cyan); margin-bottom: 6px;">&bull; Manual Entry Reduction: ~85%</div>
+            <div style="color: var(--text-secondary); margin-bottom: 6px;">&bull; Processing Speed: &lt; 2.5 seconds per doc</div>
+            <div style="color: var(--text-secondary);">&bull; Export Compatibility: JSON, CSV, ERP Webhook</div>
+          </div>
+          <div class="preview-badge-row">
+            <span class="preview-badge">Vision-AI Parser</span>
+            <span class="preview-badge">GST Line Items</span>
+            <span class="preview-badge">Anomaly Flags</span>
+            <span class="preview-badge">Accounting Webhooks</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04: Internal Business Tools -->
+    <section id="internal-tools" class="solution-deep-dive">
+      <div class="deep-dive-grid">
+        <div class="deep-dive-content">
+          <span class="section-tag">CATEGORY 04</span>
+          <h2>Internal Business Tools</h2>
+          <p class="deep-dive-lead">
+            Replace chaotic spreadsheets, lost email threads, and fragmented chat approvals with purpose-built internal operations tools, employee workspaces, inventory trackers, and executive reporting dashboards.
+          </p>
+          <ul class="feature-points-list">
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>Operational Dashboards:</strong> Unified executive KPIs, live inventory levels, and order tracking in one screen.</span></li>
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>Employee Workspaces:</strong> Role-based access control, task queues, and clear daily operational priorities.</span></li>
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>Multi-Stage Approval Workflows:</strong> Purchase requests, discounts, and order authorizations with audit logs.</span></li>
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>Spreadsheet Replacement:</strong> Structured relational databases replacing fragile, error-prone Excel sheets.</span></li>
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>Custom Reporting Hubs:</strong> Automated weekly digest reports, financial summaries, and operational exports.</span></li>
+            <li class="feature-point-item"><span class="feature-check">&#10003;</span><span><strong>Seamless System Integration:</strong> Connects warehouse, field sales, and management into one truth source.</span></li>
+          </ul>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="../index.html#contact" class="btn-primary">Build Your Internal Tool &rarr;</a>
+            <a href="../index.html#process" class="btn-secondary">Explore Our Process</a>
+          </div>
+        </div>
+        <div class="deep-dive-preview-card">
+          <div class="card-terminal-bar">
+            <span>OPERATIONS // WORKSPACE</span>
+            <span>ACTIVE DEPLOYMENT</span>
+          </div>
+          <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem; color: #fff;">Client Concierge &amp; Inbound Scoping HUD</h3>
+          <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+            Real-time client inquiry management workspace uniting web forms, direct WhatsApp bridges, and technical scoping briefs into a single priority queue.
+          </p>
+          <div style="background: rgba(0,0,0,0.3); border-radius: 8px; padding: 15px; margin-bottom: 15px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;">
+            <div style="color: var(--accent-cyan); margin-bottom: 6px;">&bull; Inquiry Triage: Sub-minute routing</div>
+            <div style="color: var(--text-secondary); margin-bottom: 6px;">&bull; Dropped Lead Rate: 0.0%</div>
+            <div style="color: var(--text-secondary);">&bull; Scoping Accuracy: Structured Project Types</div>
+          </div>
+          <div class="preview-badge-row">
+            <span class="preview-badge">Live Dashboard</span>
+            <span class="preview-badge">Multi-Channel Sync</span>
+            <span class="preview-badge">SLA Tracking</span>
+            <span class="preview-badge">Audit Logs</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom CTA Banner -->
+    <section style="padding: 100px 5%; text-align: center; max-width: 900px; margin: 0 auto;">
+      <span class="section-tag">LET'S BUILD</span>
+      <h2 style="font-size: clamp(2.2rem, 4vw, 3.25rem); font-family: 'Outfit', sans-serif; margin-bottom: 1.25rem; color: #fff;">
+        Ready to build the digital setup your business deserves?
+      </h2>
+      <p style="font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 2.5rem; line-height: 1.7;">
+        Whether you need a flagship website, custom software, AI workflow automation, or internal tools, our engineering team is ready to talk.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="../index.html#contact" class="btn-primary" style="padding: 16px 36px; font-size: 1.05rem;">Discuss Your Project &rarr;</a>
+        <a href="https://wa.me/919482090023" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 16px 36px; font-size: 1.05rem;">Chat on WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <a href="../index.html" class="logo-container" aria-label="Octagram Home">
+        <img src="../images/Logo.svg" class="logo-svg" style="height: 28px;" alt="Octagram Logo">
+        <span class="brand-name" style="font-size: 1.1rem;">Octagram</span>
+      </a>
+      <div class="footer-nav">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Solutions</a>
+        <a href="../industries/index.html">Industries</a>
+        <a href="../work/index.html">Portfolio</a>
+        <a href="../design-library/index.html">Design Library</a>
+        <a href="../index.html#why-octagram">Why Octagram</a>
+        <a href="../index.html#process">Process</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+      <div class="copyright">
+        &copy; 2026 Octagram Inc. All rights reserved. Conforming to Web 2026.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

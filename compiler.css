@@ -9,6 +9,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   background: #081726; /* Dark Prussian Blue compiler environment */
   display: flex;
   justify-content: center;

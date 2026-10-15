@@ -444,7 +444,7 @@ function setupMobileMenu() {
  */
 function setupGravityField() {
   const gravityElements = document.querySelectorAll(
-    '.btn-primary, .btn-secondary, .cta-button, .nav-cta-mobile, header nav a, .logo-container, .hero-logo-wrapper, .logo-svg, .service-card'
+    '.btn-primary, .btn-secondary, .cta-button, .nav-cta-mobile, header nav a, .logo-container, .hero-preview-wrapper, .logo-svg, .service-card'
   );
   
   const threshold = 120; // Proximity trigger range (pixels)
@@ -679,6 +679,13 @@ function initHudDashboard() {
 
   triggerPill.addEventListener('click', openModal);
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+  const jumpContactBtn = document.getElementById('concierge-jump-contact');
+  if (jumpContactBtn) {
+    jumpContactBtn.addEventListener('click', () => {
+      closeModal();
+    });
+  }
 
   // Close on backdrop click
   modalOverlay.addEventListener('click', (e) => {

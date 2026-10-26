@@ -98,32 +98,12 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=5.3">
-  
-  <!-- Interactive Web Compiler Engine Style -->
-  <link rel="stylesheet" href="compiler.css?v=5.3">
+  <link rel="stylesheet" href="styles.css?v=6.0">
 
   <!-- Interactive HUD Dashboard Style -->
-  <link rel="stylesheet" href="hud.css?v=5.3">
+  <link rel="stylesheet" href="hud.css?v=6.0">
 </head>
 <body>
-
-  <!-- Compiler Console Terminal (Entrance transition) -->
-  <div id="compiler-terminal">
-    <div class="terminal-window">
-      <div class="terminal-header">
-        <div class="terminal-dots">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
-        </div>
-        <div class="terminal-title">Octagram Setup</div>
-      </div>
-      <div class="terminal-body" id="compiler-body">
-        <span class="terminal-cursor"></span>
-      </div>
-    </div>
-  </div>
 
   <!-- Tactile Noise Texture Overlay -->
   <div class="noise-overlay" aria-hidden="true"></div>
@@ -305,97 +285,102 @@
   </header>
 
   <!-- Hero Section -->
-  <section id="home" class="hero compile-box compiling">
+  <section id="home" class="hero">
     <div class="hero-container">
       <div class="hero-text-content">
-        <span class="section-tag" data-original-text="Digital Solutions Partner">Digital Solutions Partner</span>
+        <div class="hero-partner-pill">
+          <span class="partner-pill-dot"></span>
+          <span class="partner-pill-text">Complete Digital Solutions Partner</span>
+        </div>
         <h1>
           We build<br>
-          <span data-original-text="the web">the web</span>.<br>
+          <span class="headline-web">the web</span>.<br>
           You build<br>
-          <span data-original-text="the business">the business</span>.
+          <span class="headline-business">the business</span>.
         </h1>
-        <p>From high-performing websites to custom business software and AI-powered automation, we build the digital solutions that help your business run better and grow.</p>
+        <p class="hero-lead">From high-performing websites to custom business software and AI-powered automation, we build the digital solutions that help your business run better and grow.</p>
         <div class="hero-actions">
           <a href="#solutions" class="btn-primary">Explore Our Solutions</a>
           <a href="#contact" class="btn-secondary">Discuss Your Project &rarr;</a>
         </div>
+        <div class="hero-trust-row">
+          <div class="trust-item">
+            <span class="trust-val">100%</span>
+            <span class="trust-lbl">Code &amp; Data Ownership</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <span class="trust-val">Zero</span>
+            <span class="trust-lbl">Per-User License Fees</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <span class="trust-val">End-to-End</span>
+            <span class="trust-lbl">Design, Build &amp; Care</span>
+          </div>
+        </div>
       </div>
-      <!-- Modern Live Digital Architecture Console -->
+      <!-- Solution Matrix Bento Canvas -->
       <div class="hero-preview-wrapper">
-        <div class="hero-glass-console" aria-label="Octagram Live Capabilities Ecosystem">
-          <div class="console-header-bar">
-            <div class="console-status-group">
-              <span class="console-status-dot"></span>
-              <span class="console-status-text">OCTAGRAM ECOSYSTEM // ACTIVE</span>
-            </div>
-            <div class="console-meta-badges">
-              <span class="console-badge">14ms SLA</span>
-              <span class="console-badge uptime">99.9% UPTIME</span>
-            </div>
-          </div>
-
-          <div class="console-modules-list">
-            <!-- Module 1: Web -->
-            <a href="solutions/index.html#websites" class="console-module-card">
-              <div class="module-card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <div class="hero-solution-matrix">
+          <div class="matrix-grid">
+            
+            <!-- Bento 1: Websites (Hero card) -->
+            <a href="solutions/index.html#websites" class="matrix-card card-websites">
+              <div class="matrix-card-top">
+                <span class="matrix-cat-num">01</span>
+                <span class="matrix-tag">Web Presence</span>
               </div>
-              <div class="module-card-info">
-                <div class="module-card-header">
-                  <span class="module-card-title">Websites &amp; Digital Flagships</span>
-                  <span class="module-card-metric">Core Web Vitals 95+</span>
-                </div>
-                <span class="module-card-sub">High-converting sites, direct bookings &amp; cloud hosting</span>
+              <h3 class="matrix-title">Websites &amp; Flagships</h3>
+              <p class="matrix-desc">High-converting websites, direct-booking engines, e-commerce, and fast cloud hosting.</p>
+              <div class="matrix-card-footer">
+                <span class="matrix-metric">Core Web Vitals 95+</span>
+                <span class="matrix-arrow">&rarr;</span>
               </div>
             </a>
 
-            <!-- Module 2: Custom Software -->
-            <a href="solutions/index.html#custom-software" class="console-module-card">
-              <div class="module-card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            <!-- Bento 2: Custom Software -->
+            <a href="solutions/index.html#custom-software" class="matrix-card card-software">
+              <div class="matrix-card-top">
+                <span class="matrix-cat-num">02</span>
+                <span class="matrix-tag">Software</span>
               </div>
-              <div class="module-card-info">
-                <div class="module-card-header">
-                  <span class="module-card-title">Custom Software &amp; SaaS</span>
-                  <span class="module-card-metric">0 Per-Seat Fees</span>
-                </div>
-                <span class="module-card-sub">Tailored CRMs, client portals &amp; purpose-built web apps</span>
-              </div>
-            </a>
-
-            <!-- Module 3: AI & Automation -->
-            <a href="solutions/index.html#ai-automation" class="console-module-card">
-              <div class="module-card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2.5"/><polygon points="12 9 15 12 12 15 9 12"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><line x1="9" y1="2" x2="9" y2="4"/><line x1="15" y1="2" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="22"/><line x1="15" y1="20" x2="15" y2="22"/><line x1="2" y1="9" x2="4" y2="9"/><line x1="2" y1="15" x2="4" y2="15"/><line x1="20" y1="9" x2="22" y2="9"/><line x1="20" y1="15" x2="22" y2="15"/></svg>
-              </div>
-              <div class="module-card-info">
-                <div class="module-card-header">
-                  <span class="module-card-title">AI &amp; Business Automation</span>
-                  <span class="module-card-metric">99.4% Accuracy</span>
-                </div>
-                <span class="module-card-sub">Intelligent document extraction &amp; lead qualification triage</span>
+              <h3 class="matrix-title">Custom Software &amp; SaaS</h3>
+              <p class="matrix-desc">CRMs, portals, and web applications tailored to your business logic with zero per-seat fees.</p>
+              <div class="matrix-card-footer">
+                <span class="matrix-metric">Bespoke Architecture</span>
+                <span class="matrix-arrow">&rarr;</span>
               </div>
             </a>
 
-            <!-- Module 4: Internal Tools -->
-            <a href="solutions/index.html#internal-tools" class="console-module-card">
-              <div class="module-card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/><path d="M13 15l2 2 4-4"/></svg>
+            <!-- Bento 3: AI & Automation -->
+            <a href="solutions/index.html#ai-automation" class="matrix-card card-ai">
+              <div class="matrix-card-top">
+                <span class="matrix-cat-num">03</span>
+                <span class="matrix-tag">Automation</span>
               </div>
-              <div class="module-card-info">
-                <div class="module-card-header">
-                  <span class="module-card-title">Internal Business Tools</span>
-                  <span class="module-card-metric">Real-Time Sync</span>
-                </div>
-                <span class="module-card-sub">Operational dashboards &amp; approval workspaces</span>
+              <h3 class="matrix-title">AI &amp; Workflows</h3>
+              <p class="matrix-desc">Intelligent document extraction, lead triage, and webhook automation for repetitive manual tasks.</p>
+              <div class="matrix-card-footer">
+                <span class="matrix-metric">Operational Speed</span>
+                <span class="matrix-arrow">&rarr;</span>
               </div>
             </a>
-          </div>
 
-          <div class="console-footer-bar">
-            <span class="console-footer-tech">ENGINEERED FOR OUTCOMES</span>
-            <a href="solutions/index.html" class="console-footer-link">Explore Capabilities &rarr;</a>
+            <!-- Bento 4: Internal Tools -->
+            <a href="solutions/index.html#internal-tools" class="matrix-card card-ops">
+              <div class="matrix-card-top">
+                <span class="matrix-cat-num">04</span>
+                <span class="matrix-tag">Operations</span>
+              </div>
+              <h3 class="matrix-title">Internal Tools</h3>
+              <p class="matrix-desc">Operations dashboards, inventory tracking, and employee workspaces replacing messy spreadsheets.</p>
+              <div class="matrix-card-footer">
+                <span class="matrix-metric">Single Source of Truth</span>
+                <span class="matrix-arrow">&rarr;</span>
+              </div>
+            </a>
+
           </div>
         </div>
       </div>
@@ -403,7 +388,7 @@
   </section>
 
   <!-- Section 01: Four Primary Solution Categories -->
-  <section id="solutions" class="compile-box compiling">
+  <section id="solutions">
     <a id="services" style="position: absolute; top: 0; left: 0;" aria-hidden="true"></a>
     <div class="solutions-header">
       <span class="section-tag">OUR SOLUTIONS</span>
@@ -444,7 +429,7 @@
         </div>
         <div class="solution-box-footer">
           <a href="solutions/index.html#websites" class="solution-link-btn">Explore Websites &rarr;</a>
-          <span style="font-size: 0.8rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted);">LIVE PRODUCTION PROOF</span>
+          <span style="font-size: 0.8rem; font-family: var(--font-sans); color: var(--text-muted); font-weight: 500;">Live Production Proof</span>
         </div>
       </div>
 
@@ -478,7 +463,7 @@
         </div>
         <div class="solution-box-footer">
           <a href="solutions/index.html#custom-software" class="solution-link-btn">Explore Custom Software &rarr;</a>
-          <span style="font-size: 0.8rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted);">FULL CODE OWNERSHIP</span>
+          <span style="font-size: 0.8rem; font-family: var(--font-sans); color: var(--text-muted); font-weight: 500;">Full Code Ownership</span>
         </div>
       </div>
 
@@ -521,7 +506,7 @@
         </div>
         <div class="solution-box-footer">
           <a href="solutions/index.html#ai-automation" class="solution-link-btn">Explore AI Automation &rarr;</a>
-          <span style="font-size: 0.8rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted);">PRACTICAL &amp; RELIABLE</span>
+          <span style="font-size: 0.8rem; font-family: var(--font-sans); color: var(--text-muted); font-weight: 500;">Practical &amp; Reliable</span>
         </div>
       </div>
 
@@ -557,7 +542,7 @@
         </div>
         <div class="solution-box-footer">
           <a href="solutions/index.html#internal-tools" class="solution-link-btn">Explore Internal Tools &rarr;</a>
-          <span style="font-size: 0.8rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted);">OPERATIONAL CLARITY</span>
+          <span style="font-size: 0.8rem; font-family: var(--font-sans); color: var(--text-muted); font-weight: 500;">Operational Clarity</span>
         </div>
       </div>
 
@@ -565,7 +550,7 @@
   </section>
 
   <!-- Section 02: Business Challenges Solved -->
-  <section id="challenges" class="compile-box compiled">
+  <section id="challenges">
     <div class="challenges-header">
       <span class="section-tag">THE PROBLEM WE SOLVE</span>
       <h2>Why disconnected technology slows businesses down.</h2>
@@ -702,7 +687,7 @@
   </section>
 
   <!-- Interactive Before-After Website Showcase Slider (Digital Transformation Proof) -->
-  <section id="showcase" class="compile-box compiled showcase-section">
+  <section id="showcase" class="showcase-section">
     <div class="showcase-container">
       
       <div class="showcase-header">
@@ -1473,7 +1458,7 @@
   </section>
 
   <!-- Curated Industry Showcase Gateway Section -->
-  <section id="industries" class="compile-box compiled industries-gateway-section" aria-label="Explore Website Directions for Your Industry">
+  <section id="industries" class="industries-gateway-section" aria-label="Explore Website Directions for Your Industry">
     <div class="industries-gateway-container">
       
       <div class="industries-gateway-header">
@@ -1612,7 +1597,7 @@
     </div>
   </section>
   <!-- Redesigned Digital Build Pipeline: Methodology Section -->
-  <section id="process" class="compile-box compiled methodology-pipeline-section" aria-label="Octagram Process: Understand, Plan, Create, Connect, Grow">
+  <section id="process" class="methodology-pipeline-section" aria-label="Octagram Process: Understand, Plan, Create, Connect, Grow">
     <div class="pipeline-container">
       
       <!-- Section Editorial Header -->
@@ -1755,8 +1740,8 @@
               </div>
 
               <div class="visual-card-footer">
-                <span class="footer-telemetry">&gt; SCOPE: 100% ALIGNED</span>
-                <span class="footer-status">READY FOR PLANNING →</span>
+                <span class="footer-telemetry">Scope Definition &bull; Clear</span>
+                <span class="footer-status">Next: Planning &rarr;</span>
               </div>
             </div>
           </div>
@@ -1847,8 +1832,8 @@
               </div>
 
               <div class="visual-card-footer">
-                <span class="footer-telemetry">&gt; ACCESSIBILITY: HIGH // UX: CLEAR</span>
-                <span class="footer-status">READY TO CREATE →</span>
+                <span class="footer-telemetry">Accessibility &bull; High Standards</span>
+                <span class="footer-status">Next: Build &rarr;</span>
               </div>
             </div>
           </div>
@@ -1914,8 +1899,8 @@
               </div>
 
               <div class="visual-card-footer">
-                <span class="footer-telemetry">&gt; PERFORMANCE: OPTIMIZED</span>
-                <span class="footer-status">READY TO CONNECT →</span>
+                <span class="footer-telemetry">Performance &bull; Sub-Second Target</span>
+                <span class="footer-status">Next: Systems Integration &rarr;</span>
               </div>
             </div>
           </div>
@@ -2056,8 +2041,8 @@
               </div>
 
               <div class="visual-card-footer">
-                <span class="footer-telemetry">&gt; DATA FLOW: SEAMLESS</span>
-                <span class="footer-status">EVERYTHING WORKS AS ONE →</span>
+                <span class="footer-telemetry">Data Sync &bull; Automated Pipelines</span>
+                <span class="footer-status">Unified Operations &rarr;</span>
               </div>
             </div>
           </div>
@@ -2157,8 +2142,8 @@
               </div>
 
               <div class="visual-card-footer">
-                <span class="footer-telemetry">&gt; ONGOING CARE: ACTIVE</span>
-                <span class="footer-status">CONTINUOUS IMPROVEMENTS →</span>
+                <span class="footer-telemetry">Long-Term Maintenance &bull; Active</span>
+                <span class="footer-status">Continuous Growth &rarr;</span>
               </div>
             </div>
           </div>
@@ -2170,7 +2155,7 @@
   </section>
 
   <!-- Section: Why Businesses Choose Octagram -->
-  <section id="why-octagram" class="compile-box compiled why-octagram-section">
+  <section id="why-octagram" class="why-octagram-section">
     <div class="why-octagram-container">
       
       <!-- Section Header -->
@@ -2374,7 +2359,7 @@
   </section>
 
   <!-- Before We Build Section -->
-  <section id="before-we-build" class="compile-box compiling before-we-build-section">
+  <section id="before-we-build" class="before-we-build-section">
     <div class="faq-container">
       
       <!-- Editorial Intro -->
@@ -2534,7 +2519,7 @@
   </section>
 
   <!-- Contact Form Section -->
-  <section id="contact" class="compile-box compiling">
+  <section id="contact">
     <div class="contact-container">
       
       <div class="contact-info">
@@ -2693,8 +2678,7 @@
   <!-- Client Concierge Floating Status Pill -->
   <button id="octagram-os-trigger" class="octagram-os-pill concierge-pill" aria-label="Open Client Concierge" title="Octagram Client Concierge">
     <span class="os-pulse-dot"></span>
-    <span class="os-pill-label">CLIENT CONCIERGE</span>
-    <span class="os-pill-status">ONLINE</span>
+    <span class="os-pill-label">Client Concierge</span>
   </button>
 
   <!-- Client Concierge Modal Drawer -->
@@ -2704,14 +2688,14 @@
       <div class="hud-modal-header">
         <div class="hud-modal-title-wrap">
           <span class="hud-pulse"></span>
-          <span id="hud-modal-title" class="hud-modal-title">OCTAGRAM CONCIERGE // DIRECT CLIENT INQUIRY</span>
+          <span id="hud-modal-title" class="hud-modal-title">Octagram Concierge &bull; Client Inquiry</span>
         </div>
         <button class="hud-close-btn" id="hud-modal-close" aria-label="Close Concierge">&times;</button>
       </div>
 
       <div class="hud-modal-body concierge-body">
         
-        <!-- Status & SLA Banner -->
+          <!-- Status & SLA Banner -->
         <div class="concierge-status-card">
           <div class="concierge-status-row">
             <span class="status-live-dot"></span>
@@ -2772,21 +2756,11 @@
         <div class="concierge-jump-box">
           <div class="jump-box-text">
             <strong>Have specific requirements?</strong>
-            <span>Configure your website needs in 60 seconds</span>
+            <span>Send your project requirements directly to our engineering team</span>
           </div>
           <a href="#contact" class="btn-primary concierge-jump-btn" id="concierge-jump-contact">
-            Configure Project &rarr;
+            Discuss Your Project &rarr;
           </a>
-        </div>
-
-        <!-- Theme Switcher (Preserved) -->
-        <div class="concierge-theme-section">
-          <div class="concierge-theme-label">DISPLAY MODE</div>
-          <div class="hud-themes-row">
-            <button class="hud-theme-pill active" data-theme="dark">OBSIDIAN</button>
-            <button class="hud-theme-pill" data-theme="blueprint">BLUEPRINT</button>
-            <button class="hud-theme-pill" data-theme="light">LIGHT</button>
-          </div>
         </div>
 
       </div>

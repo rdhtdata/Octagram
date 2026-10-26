@@ -31,38 +31,26 @@ document.addEventListener('DOMContentLoaded', () => {
   setupScrollAnimationFallback();
   setupSiblingStaggerFallback();
 
-  // 4. Ambient Background Particles
-  setupAmbientParticles();
-
-  // 5. Mobile Menu Interactivity
+  // 4. Mobile Menu Interactivity
   setupMobileMenu();
 
-  // 6. Interactive Cursor Attraction (Gravity Field)
-  setupGravityField();
-
-  // 7. Interactive Digital Build Pipeline (Octagram Methodology)
+  // 5. Interactive Digital Build Pipeline (Octagram Methodology)
   initMethodologyPipeline();
 
-  // 8. Before We Build FAQ Accordion
+  // 6. Before We Build FAQ Accordion
   setupFaqAccordion();
 
-  // 9. Interactive HUD Dashboard (Inspectors, Themes, Telemetry)
-  initHudDashboard();
+  // 7. Interactive Concierge Drawer
+  initConciergeModal();
 
-  // 10. Playful click-activated animations for the Hero Logo
-  setupLogoClickAnimations();
-
-  // 11. Back to Top smooth scroll button setup
+  // 8. Back to Top smooth scroll button setup
   setupBackToTopButton();
 
-  // 12. Contact Form Configurator Step Deck
+  // 9. Contact Form Configurator Step Deck
   setupContactConfigurator();
 
-  // 12.5. Before-After Website Slider Setup
+  // 10. Before-After Website Slider Setup
   setupBeforeAfterSlider();
-
-  // 13. Self-building website compiler initiation
-  initWebCompiler();
 });
 
 
@@ -190,231 +178,6 @@ function setupServiceCardInteractivity() {
 }
 
 /**
- * Renders slowly floating background particles in a canvas.
- */
-function setupAmbientParticles() {
-  const canvas = document.createElement('canvas');
-  canvas.id = 'ambient-particles';
-  canvas.style.position = 'fixed';
-  canvas.style.top = '0';
-  canvas.style.left = '0';
-  canvas.style.width = '100%';
-  canvas.style.height = '100%';
-  canvas.style.pointerEvents = 'none';
-  canvas.style.zIndex = '-3'; // Behind all elements
-  document.body.appendChild(canvas);
-  
-  const ctx = canvas.getContext('2d');
-  let width = canvas.width = window.innerWidth;
-  let height = canvas.height = window.innerHeight;
-  
-  window.addEventListener('resize', () => {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-  });
-  
-  const particles = [];
-  const particleCount = 25; // Subtle amount to keep it clean
-  
-  for (let i = 0; i < particleCount; i++) {
-    particles.push({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      radius: Math.random() * 1.5 + 0.5,
-      speedX: (Math.random() - 0.5) * 0.15,
-      speedY: -Math.random() * 0.3 - 0.05,
-      alpha: Math.random() * 0.4 + 0.1
-    });
-  }
-  
-  function animate() {
-    ctx.clearRect(0, 0, width, height);
-    
-    particles.forEach(p => {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(56, 189, 248, ${p.alpha})`; // Cobalt Blue highlights
-      ctx.fill();
-      
-      // Move particles
-      p.x += p.speedX;
-      p.y += p.speedY;
-      
-      // Reset if they float off screen
-      if (p.y < 0) {
-        p.y = height;
-        p.x = Math.random() * width;
-      }
-      if (p.x < 0 || p.x > width) {
-        p.x = Math.random() * width;
-      }
-    });
-    
-    requestAnimationFrame(animate);
-  }
-  
-  animate();
-}
-
-/**
- * Performs a matrix-style typographic decoding animation on load.
- * Guarantees that the final text always resolves accurately to the pristine target string.
- */
-function decodeText(element) {
-  if (!element) return;
-  
-  // 1. Cache pristine target text on first invocation to prevent mid-animation corruption
-  if (!element.dataset.originalText) {
-    element.dataset.originalText = element.textContent.trim();
-  }
-  const originalText = element.dataset.originalText;
-  
-  // 2. Clear any running decode animation on this element to prevent race conditions
-  if (element._decodeInterval) {
-    clearInterval(element._decodeInterval);
-    element._decodeInterval = null;
-  }
-  
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&';
-  let iterations = 0;
-  
-  element._decodeInterval = setInterval(() => {
-    element.textContent = originalText
-      .split('')
-      .map((char, index) => {
-        if (index < iterations) {
-          return originalText[index];
-        }
-        if (/\s/.test(char)) return char;
-        return chars[Math.floor(Math.random() * chars.length)];
-      })
-      .join('');
-    
-    if (iterations >= originalText.length) {
-      clearInterval(element._decodeInterval);
-      element._decodeInterval = null;
-      element.textContent = originalText; // Ensure exact final text matches 100%
-    }
-    
-    iterations += 1 / 2.5; // Speed multiplier
-  }, 25);
-}
-
-/**
- * Boots up the dynamic website compiling terminal and sequential scans.
- */
-function initWebCompiler() {
-  // Block user scrolling during compile overlay phase
-  document.body.style.overflow = 'hidden';
-  
-  const terminal = document.getElementById('compiler-terminal');
-  const body = document.getElementById('compiler-body');
-  if (!terminal || !body) return;
-  
-  const logs = [
-    "[Octagram] Initializing digital platform...",
-    "[Setup] Preparing custom design and layout...",
-    "[Setup] Loading interactive components...",
-    "[Setup] Connecting styles and typography...",
-    "[Launch] Ready. Welcome to Octagram."
-  ];
-  
-  let currentLine = 0;
-  const cursor = body.querySelector('.terminal-cursor');
-  
-  function printNextLine() {
-    if (currentLine < logs.length) {
-      const div = document.createElement('div');
-      div.className = 'terminal-line';
-      div.textContent = logs[currentLine];
-      
-      // Insert line before the cursor element
-      body.insertBefore(div, cursor);
-      body.scrollTop = body.scrollHeight; // Auto-scroll terminal body
-      
-      currentLine++;
-      // Print next line with slightly randomized delay
-      setTimeout(printNextLine, Math.random() * 100 + 60);
-    } else {
-      // Completed log outputs
-      setTimeout(() => {
-        // Trigger compiler collapse animation
-        terminal.classList.add('compiled');
-        // Restore user scroll
-        document.body.style.overflow = '';
-        
-        // Trigger compile sweep Phase 2
-        runHeroSectionCompile();
-      }, 400);
-    }
-  }
-  
-  // Start logs
-  setTimeout(printNextLine, 200);
-}
-
-/**
- * Phase 2: Simulates compilation laser-sweep and loads the Hero section.
- */
-function runHeroSectionCompile() {
-  const heroSection = document.getElementById('home');
-  if (!heroSection) return;
-  
-  // Keep outline compiling/laser scan active for 1.2 seconds, then compile
-  setTimeout(() => {
-    heroSection.classList.remove('compiling');
-    heroSection.classList.add('compiled');
-    
-    // Decode Hero tags and headings (all spans inside h1)
-    const heroTitles = heroSection.querySelectorAll('h1 span');
-    const heroTag = heroSection.querySelector('.section-tag');
-    heroTitles.forEach(span => decodeText(span));
-    if (heroTag) decodeText(heroTag);
-    
-    // Setup Scroll Observers for other section boxes
-    setupScrollCompileObservers();
-  }, 1200);
-}
-
-/**
- * Phase 3: Attaches viewport observers to compile sections on scroll.
- */
-function setupScrollCompileObservers() {
-  const sections = document.querySelectorAll('.compile-box:not(#home)');
-  
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.12 // Trigger when 12% of the section is visible
-  };
-  
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const section = entry.target;
-        
-        // Compile the section with a sweep scanner delay
-        setTimeout(() => {
-          section.classList.remove('compiling');
-          section.classList.add('compiled');
-          
-          // Trigger matrix text decoder inside section headers
-          const sectionTag = section.querySelector('.section-tag');
-          if (sectionTag) decodeText(sectionTag);
-        }, 1200);
-        
-        // Stop observing this compiled section
-        observer.unobserve(section);
-      }
-    });
-  }, observerOptions);
-  
-  sections.forEach(section => {
-    observer.observe(section);
-  });
-}
-
-/**
  * Attaches hamburger toggle listeners to open and close the mobile navigation drawer.
  */
 function setupMobileMenu() {
@@ -436,54 +199,6 @@ function setupMobileMenu() {
       });
     });
   }
-}
-
-/**
- * Creates an invisible attraction field around the cursor for interactive elements.
- * Selected links, buttons, and icons shift 2-4px towards the mouse when in proximity.
- */
-function setupGravityField() {
-  const gravityElements = document.querySelectorAll(
-    '.btn-primary, .btn-secondary, .cta-button, .nav-cta-mobile, header nav a, .logo-container, .hero-preview-wrapper, .logo-svg, .service-card'
-  );
-  
-  const threshold = 120; // Proximity trigger range (pixels)
-  const maxPull = 3.5;   // Maximum attraction offset (pixels)
-  
-  window.addEventListener('mousemove', (e) => {
-    // Only calculate when browser supports transitions or motion
-    const matchesMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (matchesMotionQuery.matches) return;
-    
-    const mouseX = e.clientX;
-    const mouseY = e.clientY;
-    
-    gravityElements.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      const elX = rect.left + rect.width / 2;
-      const elY = rect.top + rect.height / 2;
-      
-      const distX = mouseX - elX;
-      const distY = mouseY - elY;
-      const distance = Math.hypot(distX, distY);
-      
-      if (distance < threshold) {
-        // Linear interpolation of force: stronger pull closer to the center
-        const force = (1 - distance / threshold) * maxPull;
-        const angle = Math.atan2(distY, distX);
-        
-        const pullX = Math.cos(angle) * force;
-        const pullY = Math.sin(angle) * force;
-        
-        el.style.setProperty('--gravity-x', `${pullX}px`);
-        el.style.setProperty('--gravity-y', `${pullY}px`);
-      } else {
-        // Reset properties
-        el.style.setProperty('--gravity-x', '0px');
-        el.style.setProperty('--gravity-y', '0px');
-      }
-    });
-  });
 }
 
 /**
@@ -648,28 +363,18 @@ function setupFaqAccordion() {
 }
 
 /**
- * Octagram OS Dashboard & Telemetry Console Controller.
- * Controls the subtle corner status pill, modal console drawer,
- * genuine runtime telemetry calculations, theme switcher,
- * and optional Technical Mode blueprint overlays.
+ * Octagram Client Concierge Modal Controller.
+ * Manages the corner concierge button and modal communication drawer.
  */
-function initHudDashboard() {
+function initConciergeModal() {
   const triggerPill = document.getElementById('octagram-os-trigger');
   const modalOverlay = document.getElementById('octagram-hud-modal');
   const closeBtn = document.getElementById('hud-modal-close');
   if (!triggerPill || !modalOverlay) return;
 
-  const latencyVal = document.getElementById('telemetry-latency');
-  const networkVal = document.getElementById('telemetry-network');
-  const viewportVal = document.getElementById('telemetry-viewport');
-  const sectionVal = document.getElementById('telemetry-section');
-  const techCheckbox = document.getElementById('tech-mode-checkbox');
-
-  // Open / Close Modal Drawer
   const openModal = () => {
     modalOverlay.classList.add('active');
     modalOverlay.setAttribute('aria-hidden', 'false');
-    updateLiveTelemetry();
   };
 
   const closeModal = () => {
@@ -697,115 +402,6 @@ function initHudDashboard() {
     if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
       closeModal();
     }
-  });
-
-  // 1. Live Genuine Telemetry Update
-  function updateLiveTelemetry() {
-    if (latencyVal) {
-      const loadTime = Math.max(8, Math.round(performance.now()));
-      latencyVal.textContent = String(loadTime);
-      const msSpan = document.createElement('span');
-      msSpan.textContent = ' ms';
-      latencyVal.appendChild(msSpan);
-    }
-
-    if (networkVal) {
-      networkVal.textContent = navigator.onLine ? 'ONLINE' : 'OFFLINE';
-      networkVal.className = `m-value m-status ${navigator.onLine ? '' : 'm-offline'}`;
-    }
-
-    if (viewportVal) {
-      viewportVal.textContent = `${window.innerWidth} × ${window.innerHeight}px`;
-    }
-  }
-
-  window.addEventListener('resize', () => {
-    if (viewportVal && modalOverlay.classList.contains('active')) {
-      viewportVal.textContent = `${window.innerWidth} × ${window.innerHeight}px`;
-    }
-  });
-
-  // 2. Active Section Observer for Telemetry
-  const allSections = document.querySelectorAll('section, footer');
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id ? `#${entry.target.id.toUpperCase()}` : entry.target.tagName;
-        if (sectionVal) sectionVal.textContent = id;
-      }
-    });
-  }, { threshold: 0.3 });
-
-  allSections.forEach(sec => sectionObserver.observe(sec));
-
-  // 3. Theme Switching Logic
-  const themeBtns = document.querySelectorAll('.hud-theme-pill');
-  themeBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const theme = btn.getAttribute('data-theme');
-      themeBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      document.body.classList.add('theme-sweeping');
-      setTimeout(() => {
-        document.documentElement.className = '';
-        if (theme !== 'dark') {
-          document.documentElement.classList.add(`theme-${theme}`);
-        }
-      }, 250);
-
-      setTimeout(() => {
-        document.body.classList.remove('theme-sweeping');
-      }, 750);
-    });
-  });
-
-}
-
-/**
- * Click-Activated Random Animations for the Hero Logo.
- * Randomly picks between glitch, spin, 3D flip, or shockwave pulse cycles,
- * temporarily interrupting the floating keyframe animation.
- */
-function setupLogoClickAnimations() {
-  const logo = document.querySelector('.hero-logo-svg');
-  if (!logo) return;
-
-  const animationClasses = ['anim-glitch', 'anim-spin', 'anim-flip', 'anim-pulse'];
-
-  logo.addEventListener('click', () => {
-    // Respect prefers-reduced-motion fallback
-    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (motionQuery.matches) return;
-
-    // Remove any currently running click animations
-    animationClasses.forEach(cls => logo.classList.remove(cls));
-
-    // Select a random animation class
-    const randomIndex = Math.floor(Math.random() * animationClasses.length);
-    const chosenClass = animationClasses[randomIndex];
-
-    // Trigger reflow to restart animation on successive clicks
-    logo.offsetWidth;
-
-    // Apply animation class
-    logo.classList.add(chosenClass);
-
-    // Re-scramble hero heading text spans and tag simultaneously!
-    const heroSection = document.getElementById('home');
-    if (heroSection) {
-      const heroTitles = heroSection.querySelectorAll('h1 span');
-      const heroTag = heroSection.querySelector('.section-tag');
-      heroTitles.forEach(span => decodeText(span));
-      if (heroTag) decodeText(heroTag);
-    }
-
-    // Clean up class once animation completes to resume slow floating
-    const onAnimEnd = () => {
-      logo.classList.remove(chosenClass);
-      logo.removeEventListener('animationend', onAnimEnd);
-    };
-    logo.addEventListener('animationend', onAnimEnd);
   });
 }
 
